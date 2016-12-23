@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.miguan.otk">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:name=".base.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".module.main.SplashActivity"
+            android:theme="@style/LaunchTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".module.main.MainActivity"/>
+        <activity android:name=".module.user.LoginActivity"/>
+        <activity android:name=".module.user.ForgotActivity"/>
+        <activity android:name=".module.user.RegisterActivity"/>
+        <activity android:name=".module.match.MatchDetailActivity">
+        </activity>
+        <activity android:name=".module.league.LeaguDetailActivity">
+        </activity>
+        <activity android:name=".module.user.ProfileActivity">
+        </activity>
+        <activity android:name=".module.league.AddLeagueActivity">
+        </activity>
+        <activity android:name=".module.user.ModifyPwdActivity">
+        </activity>
+        <activity android:name=".module.user.FeedbackActivity">
+        </activity>
+        <activity android:name=".module.user.BalanceDetailActivity">
+        </activity>
+        <activity android:name=".module.user.CashRecordActivity">
+        </activity>
+        <activity android:name=".module.store.StoreHomeActivity">
+        </activity>
+        <activity android:name=".module.store.GoodsDetailActivity">
+        </activity>
+        <activity android:name=".module.store.PayActivity">
+        </activity>
+        <activity android:name=".module.user.AddressListActivity">
+        </activity>
+        <activity android:name=".module.user.MyOrderActivity">
+        </activity>
+        <activity android:name=".module.store.OrderDetailActivity">
+        </activity>
+        <activity android:name=".module.user.MyMatchActivity">
+        </activity>
+        <activity android:name=".module.user.GameAccountActivity">
+        </activity>
+        <activity android:name=".module.user.GameAccountAddActivity">
+        </activity>
+        <activity android:name=".module.user.GameAccountEditActivity">
+        </activity>
+        <activity android:name=".module.settings.SettingsActivity">
+        </activity>
+        <activity android:name=".module.settings.AboutActivity">
+        </activity>
+        <activity android:name=".module.match.EnrollListActivity">
+        </activity>
+    </application>
+
+</manifest>

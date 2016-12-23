@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/TitleToolbar"
+        >
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextSubhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:maxLines="1"
+            android:text="@string/title_activity_league"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/tv_league_add"
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:text="创建公会"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_like"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:text="明星公会"
+                android:textAppearance="@style/TextCaption"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="192dp"
+                />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_vertical_margin"/>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_main_league"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="@dimen/widget_medium_height"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="128dp"
+                />
+
+            <Button
+                android:id="@+id/tv_league_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公会详情"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:divider="@drawable/div_gray"
+    android:orientation="vertical"
+    android:showDividers="middle">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_horizontal_margin"
+        >
+
+        <TextView
+            android:id="@+id/tv_match_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextBody"
+            tools:text="对战ID：56767"
+            />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="自定义"
+            android:id="@+id/tv_match_nature"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_match_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:textAppearance="@style/TextSubhead"
+        tools:text="OTK炉石传说常规赛A（联系群12346586841）"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_horizontal_margin"
+        >
+
+        <TextView
+            android:id="@+id/tv_match_user_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/stroke_gray_shape"
+            android:padding="8dp"
+            tools:text="名字长一点的黄图哥"
+            />
+
+        <TextView
+            android:layout_width="@dimen/widget_medium_height"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="@style/TextSubhead"
+            tools:text="VS"
+            />
+
+        <TextView
+            android:id="@+id/tv_match_user_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/stroke_gray_shape"
+            android:padding="8dp"
+            android:textAppearance="@style/TextBody"
+            tools:text="机智的黄图哥"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

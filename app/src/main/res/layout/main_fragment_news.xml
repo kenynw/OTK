@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/TitleToolbar"
+        >
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextSubhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:maxLines="1"
+            android:text="@string/title_activity_news"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+    <com.miguan.otk.widget.HeadViewPager
+        android:id="@+id/pager_main_news_banner"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_main_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/pager_main_news"
+        />
+
+</LinearLayout>

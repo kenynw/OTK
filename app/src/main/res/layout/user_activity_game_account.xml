@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_activity_game_account"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.miguan.otk.module.user.GameAccountActivity">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:divider="@drawable/div_gray"
+        android:orientation="horizontal"
+        android:showDividers="middle|beginning|end"
+        >
+
+        <TextView
+            android:id="@+id/tv_game_account_icon"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/widget_small_height"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/text_game_icon"
+            />
+
+        <TextView
+            android:id="@+id/tv_game_account_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/widget_small_height"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/text_game_name"
+            />
+
+        <TextView
+            android:id="@+id/tv_game_account"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/widget_small_height"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/text_game_account"
+            />
+
+    </LinearLayout>
+
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>

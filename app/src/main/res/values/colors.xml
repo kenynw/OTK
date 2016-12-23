@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#cf0f32</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#cf0f32</color>
+
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+
+    <!--背景颜色，添加bg前缀-->
+    <color name="bgWindow">#ddd</color>
+    <color name="bgActionBar">#eee</color>
+
+    <!--文本颜色，添加text前缀-->
+    <color name="textPrimary">#de000000</color>
+    <color name="textSecondary">#8a000000</color><!-- 54% black -->
+    <color name="textHint">#bdbdbd</color>
+
+    <!--分割线颜色，添加div前缀-->
+    <color name="div_gray">#666</color>
+    <!--区分状态时，默认状态的颜色，添加normal后缀-->
+    <!--区分状态时，按下时的颜色，添加pressed后缀-->
+    <!--区分状态时，选中时的颜色，添加selected后缀-->
+    <!--区分状态时，不可用时的颜色，添加disable后缀-->
+
+</resources>

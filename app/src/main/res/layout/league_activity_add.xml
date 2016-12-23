@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/league_activity_add"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.miguan.otk.module.league.AddLeagueActivity">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:hint="@string/hint_league_title"
+        android:inputType="text"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:textAppearance="@style/TextBody"
+        android:textColorHint="@color/textHint"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="请选择公会规模"
+        android:textAppearance="@style/TextCaption"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        >
+
+        <RadioButton
+            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主播公会"
+            android:checked="false"
+            />
+
+        <RadioButton
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:text="高校公会"
+            android:textColor="@color/white"
+            />
+
+        <RadioButton
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:text="其他公会"
+            android:textColor="@color/white"
+            />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="请输入协会类型"
+        android:textAppearance="@style/TextCaption"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:hint="@string/hint_league_intro"
+        android:inputType="text"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:textAppearance="@style/TextBody"
+        android:textColorHint="@color/textHint"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="资质证明"
+            />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上传资质"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="你需要通过上传图片资质证明，向审核人证明你具有聚集用户举办你预计规模的水友赛的潜力，比如您管理的QQ群的截图，您的直播间关注数截图等等"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_size_caption_material"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:hint="请输入QQ"
+        android:inputType="text"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:textAppearance="@style/TextBody"
+        android:textColorHint="@color/textHint"
+        />
+
+    <Button
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_league_add"
+        />
+
+</LinearLayout>

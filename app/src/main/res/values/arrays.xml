@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tab_match_list">
+        <item>全部比赛</item>
+        <item>无密码赛事</item>
+        <item>我的赛事</item>
+    </string-array>
+
+    <string-array name="tab_balance_detail">
+        <item>撒币明细</item>
+        <item>元宝明细</item>
+    </string-array>
+
+    <string-array name="tab_my_order">
+        <item>实物商品</item>
+        <item>虚拟商品</item>
+    </string-array>
+
+    <string-array name="tab_my_match">
+        <item>参赛记录</item>
+        <item>对战记录</item>
+    </string-array>
+
+    <string-array name="spinner_feedback_type">
+        <item>产品建议</item>
+        <item>发现BUG</item>
+        <item>举报作弊</item>
+        <item>其他</item>
+    </string-array>
+
+</resources>

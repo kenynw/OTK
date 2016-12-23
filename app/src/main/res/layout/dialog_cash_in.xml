@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_dialog_cash_in_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableRight="@drawable/umeng_update_close_bg_normal"
+        android:gravity="center"
+        android:paddingLeft="32dp"
+        android:text="@string/btn_take_cash"
+        android:textAppearance="@style/TextSubhead"
+        />
+
+    <EditText
+        android:id="@+id/et_dialog_cash_in_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@drawable/stroke_gray_shape"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="6dp"
+        android:padding="8dp"
+        android:text="@string/dialog_cash_in"
+        android:textColor="@color/text_black_secondary"
+        android:textSize="@dimen/text_size_body_material"
+        />
+
+    <Button
+        android:id="@+id/btn_dialog_cash_in_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@drawable/stroke_gray_shape"
+        android:text="@string/btn_ok"
+        />
+
+</LinearLayout>

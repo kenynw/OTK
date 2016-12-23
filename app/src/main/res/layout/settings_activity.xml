@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/div_gray"
+    android:orientation="vertical"
+    android:showDividers="middle"
+    tools:context="com.miguan.otk.module.settings.SettingsActivity">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <Button
+        android:id="@+id/btn_setting_clear_cache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:drawableRight="@mipmap/ic_more"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:text="@string/btn_clear_cache"
+        android:textAppearance="@style/TextBody"/>
+
+    <Button
+        android:id="@+id/btn_setting_about_us"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:drawableRight="@mipmap/ic_more"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:text="@string/btn_about_us"
+        android:textAppearance="@style/TextBody"/>
+
+    <Button
+        android:id="@+id/btn_check_update"
+        style="@style/TextBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:drawableRight="@mipmap/ic_more"
+        android:gravity="center_vertical"
+        android:padding="4dp"
+        android:text="@string/btn_check_update"/>
+
+    <Button
+        android:id="@+id/btn_setting_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:text="@string/btn_logout"
+        />
+
+</LinearLayout>
