@@ -30,7 +30,7 @@ public class MatchInfoFragment extends BaseDataFragment<MatchInfoPresenter, Matc
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.match_fragment_info, null);
+        View view = inflater.inflate(R.layout.match_fragment_info, container, false);
         ButterKnife.bind(this, view);
 
         mTvEnroll.setOnClickListener(v -> getPresenter().showEnrollList(0));

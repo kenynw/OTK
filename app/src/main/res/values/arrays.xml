@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="tab_match_list">
-        <item>全部比赛</item>
-        <item>无密码赛事</item>
-        <item>我的赛事</item>
+    <string-array name="tab_news_list">
+        <item>全部</item>
+        <item>新闻</item>
+        <item>行业</item>
+        <item>攻略</item>
+        <item>评测</item>
+        <item>活动</item>
     </string-array>
 
     <string-array name="tab_balance_detail">

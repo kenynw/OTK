@@ -38,7 +38,7 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
         list.add(new MatchInfoFragment());
         list.add(new MatchRulesFragment());
         list.add(new ScheduleFragment());
-        list.add(new MatchCommentFragment());
+        list.add(new MatchInfoFragment());
         mPager.setAdapter(new TitlePagerAdapter(this, TITLES, list, getSupportFragmentManager()));
         mTabLayout.setupWithViewPager(mPager);
     }

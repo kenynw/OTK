@@ -10,6 +10,9 @@
     <string name="title_activity_goods_detail">商品详情</string>
     <string name="title_activity_login">用户登录</string>
     <string name="title_activity_news">资讯</string>
+    <string name="title_activity_message">消息</string>
+    <string name="title_activity_message_match">比赛通知</string>
+    <string name="title_activity_message_system">系统消息</string>
     <string name="title_activity_modify_pwd">修改密码</string>
     <string name="title_activity_my_match">我的比赛</string>
     <string name="title_activity_my_order">我的订单</string>
@@ -31,6 +34,7 @@
     <string name="btn_check_update">检查更新</string>
     <string name="btn_clear_cache">清理缓存</string>
     <string name="btn_commend_match">推荐比赛</string>
+    <string name="btn_daily_mission">每日任务</string>
     <string name="btn_enroll">报名</string>
     <string name="btn_exchange_now">立即兑换</string>
     <string name="btn_feedback">吐槽一下</string>
@@ -41,6 +45,7 @@
     <string name="btn_league_join">加入公会</string>
     <string name="btn_login">登录</string>
     <string name="btn_logout">退出登录</string>
+    <string name="btn_message">消息</string>
     <string name="btn_my_match">我的比赛</string>
     <string name="btn_my_order">我的订单</string>
     <string name="btn_ok">确定</string>
@@ -90,6 +95,7 @@
     <string name="label_introduction">签名：</string>
     <string name="label_job">现状：</string>
     <string name="label_match_id">赛事ID：%d</string>
+    <string name="label_match_state">赛事状态：距离报名截至还剩下00:09:10</string>
     <string name="label_my_balance">我的撒币：%s</string>
     <string name="label_my_coin">我的元宝：%s</string>
     <string name="label_mobile">手机号</string>

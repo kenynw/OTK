@@ -15,6 +15,7 @@ import com.miguan.otk.R;
 import com.miguan.otk.adapter.TitlePagerAdapter;
 import com.miguan.otk.model.bean.News;
 import com.miguan.otk.module.news.NewsListFragment;
+import com.miguan.otk.widget.StickyNavLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,24 +29,38 @@ import butterknife.ButterKnife;
 @RequiresPresenter(MainNewsPresenter.class)
 public class MainNewsFragment extends BaseDataFragment<MainNewsPresenter, News> {
 
-    @Bind(R.id.tab_main_news)
+    @Bind(R.id.sticky_view_news)
+    StickyNavLayout mNavLayout;
+
+    @Bind(R.id.id_stickynavlayout_tab)
     TabLayout mTabLayout;
 
-    @Bind(R.id.pager_main_news)
+    @Bind(R.id.id_stickynavlayout_viewpager)
     ViewPager mPager;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_fragment_news, null);
+        View view = inflater.inflate(R.layout.main_fragment_news, container, false);
         ButterKnife.bind(this, view);
 
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new NewsListFragment());
-        fragments.add(new NewsListFragment());
+        for (int i=0; i<getResources().getStringArray(R.array.tab_news_list).length; i++) {
+            NewsListFragment fragment = new NewsListFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt("type", i);
+            fragment.setArguments(bundle);
+            fragments.add(fragment);
+        }
 
-        mPager.setAdapter(new TitlePagerAdapter(getActivity(), R.array.tab_match_list, fragments, getFragmentManager()));
+        mPager.setAdapter(new TitlePagerAdapter(getActivity(), R.array.tab_news_list, fragments, getFragmentManager()));
         mTabLayout.setupWithViewPager(mPager);
+        mNavLayout.setOnHeaderScrollListener((scrollY, isHidden) -> {
+            for (int i=0; i<fragments.size(); i++) {
+                NewsListFragment fragment = (NewsListFragment) fragments.get(i);
+                if (fragment.getListView() != null) fragment.getListView().getSwipeToRefresh().setEnabled(scrollY == 0);
+            }
+        });
 
         return view;
     }

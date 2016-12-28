@@ -44,7 +44,7 @@ public abstract class BaseListFragment<P extends BaseListFragmentPresenter, M> e
 
     private void layoutInflate(LayoutInflater inflater, @Nullable ViewGroup container) {
         if (getLayout() > 0) {
-            mRootView = inflater.inflate(getLayout(), container, false);
+            mRootView = LayoutInflater.from(getActivity()).inflate(getLayout(), null);
         } else if(mListConfig.mContainerLayoutRes > 0) {
             mRootView = inflater.inflate(mListConfig.mContainerLayoutRes, container, false);
         } else if(mListConfig.mContainerLayoutView != null) {

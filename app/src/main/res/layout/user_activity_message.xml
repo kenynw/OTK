@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_activity_message"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.miguan.otk.module.user.MessageActivity">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <TextView
+        android:id="@+id/tv_message_system"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:drawableRight="@mipmap/ic_more"
+        android:drawablePadding="8dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lineSpacingMultiplier="1.4"
+        android:maxLines="3"
+        android:textAppearance="@style/TextBody"
+        android:padding="@dimen/activity_horizontal_margin"
+        tools:text="系统消息欢迎参加OTK双12天选赛，报名即可获万元奖金欢迎参加OTK双12天选赛，报名即可获万元奖金"
+        />
+
+    <TextView
+        android:id="@+id/tv_message_match"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:drawableRight="@mipmap/ic_more"
+        android:drawablePadding="8dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lineSpacingMultiplier="1.4"
+        android:maxLines="3"
+        android:textAppearance="@style/TextBody"
+        android:padding="@dimen/activity_horizontal_margin"
+        tools:text="系统消息欢迎参加OTK双12天选赛，报名即可获万元奖金欢迎参加OTK双12天选赛，报名即可获万元奖金"
+        />
+
+</LinearLayout>

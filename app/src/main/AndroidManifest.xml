@@ -66,6 +66,14 @@
         </activity>
         <activity android:name=".module.match.EnrollListActivity">
         </activity>
+        <activity android:name=".module.match.MissionListActivity">
+        </activity>
+        <activity android:name=".module.user.SignInActivity">
+        </activity>
+        <activity android:name=".module.user.MessageListActivity">
+        </activity>
+        <activity android:name=".module.user.MessageActivity">
+        </activity>
     </application>
 
 </manifest>

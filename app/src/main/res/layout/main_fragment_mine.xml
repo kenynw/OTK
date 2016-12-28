@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,20 +23,19 @@
             >
 
             <Button
-                android:id="@+id/btn_mine_sign_in"
+                android:id="@+id/btn_mine_message"
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:text="@string/btn_sign_in"
+                android:text="@string/btn_message"
                 />
 
             <LinearLayout
                 android:id="@+id/layout_mine_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/btn_mine_sign_in"
+                android:layout_below="@id/btn_mine_message"
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -68,8 +67,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableRight="@mipmap/ic_more"
-                        tools:text="OTK\nUID:54655"
                         android:text="OTK\nUID:54655"
+                        tools:text="OTK\nUID:54655"
                         />
 
                     <LinearLayout
@@ -139,8 +138,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_balance_detail"
-            style="@style/TextBody"
+            android:id="@+id/btn_sign_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -148,7 +146,21 @@
             android:drawableRight="@mipmap/ic_more"
             android:gravity="center_vertical"
             android:padding="4dp"
-            android:text="@string/btn_balance_detail"/>
+            android:text="@string/btn_sign_in"
+            android:textAppearance="@style/TextBody"
+            />
+
+        <Button
+            android:id="@+id/btn_balance_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:drawableLeft="@mipmap/ic_launcher"
+            android:drawableRight="@mipmap/ic_more"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:text="@string/btn_balance_detail"
+            android:textAppearance="@style/TextBody"/>
 
         <Button
             android:id="@+id/btn_take_cash_record"

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/match_activity_mission_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.miguan.otk.module.match.MissionListActivity">
+
+
+    <include layout="@layout/include_toolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.4"
+        android:text="任务说明：\n每日任务需要从这里领取，领取过后完成才有效\n每日任务将在每日24：00：00后重置任务"
+        android:textAppearance="@style/TextBody"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:text="每日任务"
+        />
+
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>

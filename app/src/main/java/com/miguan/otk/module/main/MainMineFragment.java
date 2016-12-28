@@ -22,9 +22,11 @@ import com.miguan.otk.module.user.CashRecordActivity;
 import com.miguan.otk.module.user.FeedbackActivity;
 import com.miguan.otk.module.user.GameAccountActivity;
 import com.miguan.otk.module.user.LoginActivity;
+import com.miguan.otk.module.user.MessageActivity;
 import com.miguan.otk.module.user.MyMatchActivity;
 import com.miguan.otk.module.user.MyOrderActivity;
 import com.miguan.otk.module.user.ProfileActivity;
+import com.miguan.otk.module.user.SignInActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,6 +36,9 @@ import butterknife.ButterKnife;
  */
 @RequiresPresenter(MainMinePresenter.class)
 public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> {
+
+    @Bind(R.id.btn_mine_message)
+    Button mBtnMessage;
 
     @Bind(R.id.dv_mine_avatar)
     SimpleDraweeView mDvAvatar;
@@ -49,6 +54,9 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
 
     @Bind(R.id.btn_mine_my_match)
     Button mBtnMyMatch;
+
+    @Bind(R.id.btn_sign_in)
+    Button mBtnSign;
 
     @Bind(R.id.btn_balance_detail)
     Button mBtnBalance;
@@ -77,10 +85,12 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
         View view = inflater.inflate(R.layout.main_fragment_mine, null);
         ButterKnife.bind(this, view);
 
+        mBtnMessage.setOnClickListener(v -> startActivity(new Intent(getActivity(), MessageActivity.class)));
         mLayoutUser.setOnClickListener(v -> startActivity(new Intent(getActivity(), ProfileActivity.class)));
         mBtnLogin.setOnClickListener(v -> startActivity(new Intent(getActivity(), LoginActivity.class)));
         mBtnStore.setOnClickListener(v -> startActivity(new Intent(getActivity(), StoreHomeActivity.class)));
         mBtnMyMatch.setOnClickListener(v -> startActivity(new Intent(getActivity(), MyMatchActivity.class)));
+        mBtnSign.setOnClickListener(v -> startActivity(new Intent(getActivity(), SignInActivity.class)));
         mBtnBalance.setOnClickListener(v -> startActivity(new Intent(getActivity(), BalanceDetailActivity.class)));
         mBtnRecordCash.setOnClickListener(v -> startActivity(new Intent(getActivity(), CashRecordActivity.class)));
         mBtnOrder.setOnClickListener(v -> startActivity(new Intent(getActivity(), MyOrderActivity.class)));
@@ -99,4 +109,5 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
             getView().setVisibility(menuVisible ? View.VISIBLE : View.INVISIBLE);
         }
     }
+
 }

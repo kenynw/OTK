@@ -2,8 +2,8 @@ package com.miguan.otk.module.match;
 
 import android.support.annotation.NonNull;
 
-import com.jude.beam.expansion.list.BeamListFragmentPresenter;
-import com.miguan.otk.model.bean.User;
+import com.dsk.chain.expansion.list.BaseListFragmentPresenter;
+import com.miguan.otk.model.bean.VS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import rx.Observable;
  * Copyright (c) 2016/12/22. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class VSListPresenter extends BeamListFragmentPresenter<VSListFragment, User> {
+public class VSListPresenter extends BaseListFragmentPresenter<VSListFragment, VS> {
 
     @Override
     protected void onCreateView(@NonNull VSListFragment view) {
@@ -24,12 +24,12 @@ public class VSListPresenter extends BeamListFragmentPresenter<VSListFragment, U
 
     @Override
     public void onRefresh() {
-        List<User> list = new ArrayList<>();
+        List<VS> list = new ArrayList<>();
         for (int i=0; i<10; i++) {
-            User user = new User();
-            user.setAvatar("http://oss.otkpk.com/uploads/photo/20160922/oJZMvzELuoo3wDvxQ4qSvU5Dzqj6Mv1L.png");
-            user.setName("otk");
-            list.add(user);
+            VS vs = new VS();
+            vs.setPlayer_a("名字长一点的黄");
+            vs.setPlayer_b("机智的黄图哥");
+            list.add(vs);
         }
         Observable.just(list).unsafeSubscribe(getRefreshSubscriber());
     }

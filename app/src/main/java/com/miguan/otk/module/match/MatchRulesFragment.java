@@ -22,7 +22,7 @@ public class MatchRulesFragment extends BaseDataFragment<MatchRulesPresenter, Ma
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.match_fragment_rules, null);
+        View view = inflater.inflate(R.layout.match_fragment_rules, container, false);
         ButterKnife.bind(this, view);
 
         return view;

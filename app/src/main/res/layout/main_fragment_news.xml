@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -21,24 +22,37 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <com.miguan.otk.widget.HeadViewPager
-        android:id="@+id/pager_main_news_banner"
+    <com.miguan.otk.widget.StickyNavLayout
+        android:id="@+id/sticky_view_news"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        />
+        android:layout_height="match_parent">
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_main_news"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <android.support.v4.view.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/pager_main_news"
-        />
+            <com.miguan.otk.widget.HeadViewPager
+                android:id="@id/id_stickynavlayout_topview"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                />
+
+        </RelativeLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@id/id_stickynavlayout_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@id/id_stickynavlayout_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            />
+
+    </com.miguan.otk.widget.StickyNavLayout>
 
 </LinearLayout>
