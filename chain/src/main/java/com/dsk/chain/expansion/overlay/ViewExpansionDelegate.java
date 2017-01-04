@@ -3,7 +3,7 @@ package com.dsk.chain.expansion.overlay;
 import android.app.Activity;
 import android.widget.FrameLayout;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -15,7 +15,7 @@ public abstract class ViewExpansionDelegate {
 
     private FrameLayout mContainer;
 
-    public ViewExpansionDelegate(BeamBaseActivity activity) {
+    public ViewExpansionDelegate(ChainBaseActivity activity) {
         mActivity = activity;
         mContainer = activity.getContent();
     }

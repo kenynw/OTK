@@ -14,7 +14,7 @@ import com.dsk.chain.Chain;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public abstract class BeamAppCompatActivity<PresenterType extends Presenter> extends AppCompatActivity {
+public abstract class ChainAppCompatActivity<PresenterType extends Presenter> extends AppCompatActivity {
 
     private ActivityLifeCycleDelegate mLifeCycleDelegate;
 

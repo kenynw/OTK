@@ -5,7 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.TitlePagerAdapter;
@@ -18,7 +18,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(MyOrderPresenter.class)
-public class MyOrderActivity extends BeamBaseActivity<MyOrderPresenter> {
+public class MyOrderActivity extends ChainBaseActivity<MyOrderPresenter> {
 
     @Bind(R.id.tab_my_order)
     TabLayout mTabLayout;

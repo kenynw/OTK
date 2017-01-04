@@ -12,7 +12,7 @@ import com.dsk.chain.expansion.overlay.ViewExpansionDelegate;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class BeamBaseActivity<P extends Presenter> extends BeamAppCompatActivity<P> {
+public class ChainBaseActivity<P extends Presenter> extends ChainAppCompatActivity<P> {
 
     private FrameLayout mContentParent;
 

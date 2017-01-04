@@ -1,4 +1,4 @@
-package com.miguan.otk.module.match;
+package com.miguan.otk.module.against;
 
 import android.os.Bundle;
 

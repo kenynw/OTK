@@ -2,7 +2,7 @@ package com.miguan.otk.base;
 
 import android.app.Application;
 
-import com.dsk.chain.Chain;
+import com.dsk.chain.model.ModelManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.sgun.utils.LUtils;
 import com.umeng.socialize.PlatformConfig;
@@ -19,6 +19,7 @@ public class App extends Application {
 
         LUtils.initialize(this);
         Fresco.initialize(this);
+        ModelManager.init(this);
 
         initShare();
     }

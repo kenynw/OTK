@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.dsk.chain.R;
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public abstract class BaseListActivity<P extends BaseListActivityPresenter> extends BeamBaseActivity<P> {
+public abstract class BaseListActivity<P extends BaseListActivityPresenter> extends ChainBaseActivity<P> {
 
     private EasyRecyclerView mListView;
 

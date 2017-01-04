@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.sgun.utils.LUtils;
@@ -14,7 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(ForgotPresenter.class)
-public class ForgotActivity extends BeamBaseActivity<ForgotPresenter> {
+public class ForgotActivity extends ChainBaseActivity<ForgotPresenter> {
 
     @Bind(R.id.et_forgot_mobile)
     EditText mEtMobile;

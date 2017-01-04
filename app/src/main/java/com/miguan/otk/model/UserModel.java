@@ -1,25 +1,24 @@
 package com.miguan.otk.model;
 
 
+import android.content.Context;
+
+import com.dsk.chain.model.AbsModel;
 import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
+import com.sgun.utils.LUtils;
 
 import rx.Observable;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class UserModel {
+public class UserModel extends AbsModel {
 
     private static UserModel sInstance = null;
 
     public static UserModel getInstance() {
-        if (null == sInstance) {
-            synchronized (UserModel.class) {
-                if (null == sInstance) sInstance = new UserModel();
-            }
-        }
-        return sInstance;
+        return getInstance(UserModel.class);
     }
 
     /**
@@ -29,6 +28,12 @@ public class UserModel {
      */
     public Observable<Boolean> sendCaptcha(String mobile) {
         return ServicesClient.getServices().sendCaptcha(mobile).compose(new DefaultTransform<>());
+    }
+
+    @Override
+    protected void onAppCreateOnBackThread(Context context) {
+        super.onAppCreateOnBackThread(context);
+        LUtils.log("onAppCreateOnBackThread");
     }
 
 }

@@ -19,6 +19,7 @@
     <string name="title_activity_order_detail">订单详情</string>
     <string name="title_activity_register">注册新用户</string>
     <string name="title_activity_settings">设置</string>
+    <string name="title_activity_submit_shot">提交截图</string>
     <string name="title_activity_store">商城</string>
     <string name="title_activity_league">公会</string>
     <string name="title_activity_league_add">创建公会</string>
@@ -31,6 +32,7 @@
     <string name="btn_bind_alipay">绑定支付宝</string>
     <string name="btn_born">出生年月</string>
     <string name="btn_cancel">取消</string>
+    <string name="btn_check">查看</string>
     <string name="btn_check_update">检查更新</string>
     <string name="btn_clear_cache">清理缓存</string>
     <string name="btn_commend_match">推荐比赛</string>
@@ -90,6 +92,8 @@
     <string name="label_contact">联系方式：</string>
     <string name="label_consignee">收货人：%s</string>
     <string name="label_consignee_address">收货地址：%s</string>
+    <string name="label_deck_selection_screen_1">卡组选择界面1：</string>
+    <string name="label_deck_selection_screen_2">卡组选择界面2：</string>
     <string name="label_email">邮箱：</string>
     <string name="label_feedback_type">吐槽类型：</string>
     <string name="label_game_account">游戏帐号：</string>
@@ -109,6 +113,9 @@
     <string name="label_qq">QQ：</string>
     <string name="label_select_spec">选择样式：</string>
     <string name="label_select_game">选择游戏：</string>
+    <string name="label_screenshot_round_one">第一局截图：</string>
+    <string name="label_screenshot_round_two">第二局截图：</string>
+    <string name="label_screenshot_round_third">第三局截图：</string>
     <string name="label_uid">UID：</string>
     <string name="label_upload_image">上传截图：</string>
     <string name="label_username">用户名：</string>

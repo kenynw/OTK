@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.widget.Button;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 
@@ -13,7 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(SettingsPresenter.class)
-public class SettingsActivity extends BeamBaseActivity<SettingsPresenter> {
+public class SettingsActivity extends ChainBaseActivity<SettingsPresenter> {
 
     @Bind(R.id.btn_setting_clear_cache)
     Button mBtnClear;

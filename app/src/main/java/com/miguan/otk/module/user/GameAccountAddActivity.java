@@ -5,7 +5,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 
@@ -13,7 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(GameAccountAddPresenter.class)
-public class GameAccountAddActivity extends BeamBaseActivity<GameAccountAddPresenter> {
+public class GameAccountAddActivity extends ChainBaseActivity<GameAccountAddPresenter> {
 
     @Bind(R.id.et_game_account_name)
     EditText mEtAccountName;

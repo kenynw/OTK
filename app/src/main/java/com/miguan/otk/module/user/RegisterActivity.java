@@ -1,27 +1,23 @@
 package com.miguan.otk.module.user;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Patterns;
-import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.sgun.utils.LUtils;
 
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(RegisterPresenter.class)
-public class RegisterActivity extends BeamBaseActivity<RegisterPresenter> {
+public class RegisterActivity extends ChainBaseActivity<RegisterPresenter> {
 
     @Bind(R.id.et_register_mobile)
     EditText mEtMobile;

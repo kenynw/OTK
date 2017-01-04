@@ -2,14 +2,14 @@ package com.miguan.otk.module.user;
 
 import android.os.Bundle;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 
 import butterknife.ButterKnife;
 
 @RequiresPresenter(ModifyPwdPresenter.class)
-public class ModifyPwdActivity extends BeamBaseActivity<ModifyPwdPresenter> {
+public class ModifyPwdActivity extends ChainBaseActivity<ModifyPwdPresenter> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

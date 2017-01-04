@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dsk.chain.bijection.BeamFragment;
+import com.dsk.chain.bijection.ChainFragment;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.TitlePagerAdapter;
@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
  * Copyright (c) 2016/11/24. LiaoPeiKun Inc. All rights reserved.
  */
 @RequiresPresenter(MainRankPresenter.class)
-public class MainRankFragment extends BeamFragment<MainRankPresenter> {
+public class MainRankFragment extends ChainFragment<MainRankPresenter> {
 
     String[] TITLES = new String[] {"积分", "奖金"};
 

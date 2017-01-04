@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.dsk.chain.R;
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
@@ -21,7 +21,7 @@ public class DefaultViewExpansionDelegate extends ViewExpansionDelegate {
 
     private View mContent;
 
-    public DefaultViewExpansionDelegate(BeamBaseActivity activity) {
+    public DefaultViewExpansionDelegate(ChainBaseActivity activity) {
         super(activity);
     }
 

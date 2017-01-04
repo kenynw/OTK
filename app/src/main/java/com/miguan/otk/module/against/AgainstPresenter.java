@@ -1,4 +1,4 @@
-package com.miguan.otk.module.match;
+package com.miguan.otk.module.against;
 
 import com.dsk.chain.expansion.data.BaseDataActivityPresenter;
 import com.miguan.otk.model.bean.Match;

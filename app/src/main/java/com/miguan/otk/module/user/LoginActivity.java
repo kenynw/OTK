@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.sgun.utils.LUtils;
@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 @RequiresPresenter(LoginPresenter.class)
-public class LoginActivity extends BeamBaseActivity<LoginPresenter> {
+public class LoginActivity extends ChainBaseActivity<LoginPresenter> {
 
     @Bind(R.id.et_login_mobile)
     EditText mEtMobile;

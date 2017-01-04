@@ -9,14 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dsk.chain.R;
-import com.dsk.chain.bijection.BeamFragment;
+import com.dsk.chain.bijection.ChainFragment;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public abstract class BaseListFragment<P extends BaseListFragmentPresenter, M> extends BeamFragment<P> {
+public abstract class BaseListFragment<P extends BaseListFragmentPresenter, M> extends ChainFragment<P> {
     Context mContext;
 
     private ListConfig mListConfig;

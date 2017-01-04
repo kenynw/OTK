@@ -5,7 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.TitlePagerAdapter;
@@ -19,7 +19,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(MyMatchPresenter.class)
-public class MyMatchActivity extends BeamBaseActivity<MyMatchPresenter> {
+public class MyMatchActivity extends ChainBaseActivity<MyMatchPresenter> {
 
     @Bind(R.id.tab_my_match)
     TabLayout mTabLayout;

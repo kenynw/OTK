@@ -2,14 +2,14 @@ package com.miguan.otk.module.league;
 
 import android.os.Bundle;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 
 import butterknife.ButterKnife;
 
 @RequiresPresenter(AddLeaguePresenter.class)
-public class AddLeagueActivity extends BeamBaseActivity<AddLeaguePresenter> {
+public class AddLeagueActivity extends ChainBaseActivity<AddLeaguePresenter> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

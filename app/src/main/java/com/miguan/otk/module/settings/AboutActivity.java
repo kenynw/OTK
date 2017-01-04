@@ -3,7 +3,7 @@ package com.miguan.otk.module.settings;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.sgun.utils.LUtils;
@@ -12,7 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(AboutPresenter.class)
-public class AboutActivity extends BeamBaseActivity<AboutPresenter> {
+public class AboutActivity extends ChainBaseActivity<AboutPresenter> {
 
     @Bind(R.id.tv_about_version)
     TextView mTvVersion;

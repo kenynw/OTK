@@ -6,7 +6,7 @@ import android.support.design.widget.BottomSheetDialog;
 import android.view.View;
 import android.widget.Button;
 
-import com.dsk.chain.bijection.BeamBaseActivity;
+import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.jude.exgridview.ImagePieceView;
 import com.jude.exgridview.PieceViewGroup;
@@ -16,7 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(FeedbackPresenter.class)
-public class FeedbackActivity extends BeamBaseActivity<FeedbackPresenter> {
+public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> {
 
     @Bind(R.id.pv_feedback_image)
     PieceViewGroup mPvImage;

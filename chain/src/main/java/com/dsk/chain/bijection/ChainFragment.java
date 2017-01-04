@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-public class BeamFragment<PresenterType extends Presenter> extends Fragment {
+public class ChainFragment<PresenterType extends Presenter> extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
