@@ -52,7 +52,7 @@ public class ModelManager {
     public static <T extends AbsModel> T getInstance(Class<T> clazz) {
         if (sModelMap.get(clazz) == null) {
             synchronized (clazz) {
-                createModel(clazz);
+                launchModel(createModel(clazz));
             }
         }
         return (T) sModelMap.get(clazz);

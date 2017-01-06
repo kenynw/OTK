@@ -30,6 +30,8 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
 
     public StickyNavLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        if (isInEditMode()) return;
+
         setOrientation(LinearLayout.VERTICAL);
 
         mScroller = new OverScroller(context);
@@ -96,7 +98,6 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
     @Override
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
         Log.e(TAG, "onNestedPreScroll");
-        LUtils.log("y: " + dy);
         boolean hiddenTop = dy > 0 && getScrollY() < mTopViewHeight;
         boolean showTop = dy < 0 && getScrollY() >= 0 && !ViewCompat.canScrollVertically(target, -1);
 
@@ -105,8 +106,6 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
             consumed[1] = dy;
             LUtils.log("消耗");
         }
-        LUtils.log("top height: " + mTopViewHeight);
-        LUtils.log("scroll y: " + getScrollY());
         if (mListener != null) {
             mListener.onHeaderScroll(getScrollY(), getScrollY() == mTopViewHeight);
         }

@@ -1,5 +1,7 @@
 package com.miguan.otk.model.services;
 
+import com.miguan.otk.model.bean.User;
+
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -24,5 +26,16 @@ public interface Services {
             @Field("mobile") CharSequence mobile
     );
 
+    /**
+     * 发送验证码
+     * @param mobile 手机号
+     * @return 是否成功
+     */
+    @FormUrlEncoded
+    @POST("?act=login")
+    Observable<User> login(
+            @Field("mobile") CharSequence mobile,
+            @Field("password") CharSequence password
+    );
 
 }

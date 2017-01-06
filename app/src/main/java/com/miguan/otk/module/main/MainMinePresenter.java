@@ -1,6 +1,7 @@
 package com.miguan.otk.module.main;
 
 import com.dsk.chain.expansion.data.BaseDataFragmentPresenter;
+import com.miguan.otk.model.UserModel;
 import com.miguan.otk.model.bean.User;
 
 /**
@@ -9,5 +10,9 @@ import com.miguan.otk.model.bean.User;
 
 public class MainMinePresenter extends BaseDataFragmentPresenter<MainMineFragment, User> {
 
+    @Override
+    protected void onCreateView(MainMineFragment view) {
+        super.onCreateView(view);
+    }
 
 }

@@ -10,12 +10,12 @@ import com.miguan.otk.model.bean.League;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(LeagueDetailPresenter.class)
-public class LeaguDetailActivity extends BaseDataActivity<LeagueDetailPresenter, League> {
+public class LeagueDetailActivity extends BaseDataActivity<LeagueDetailPresenter, League> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.leagu_activity_detail);
+        setContentView(R.layout.league_activity_detail);
         setToolbarTitle(R.string.title_activity_league);
         ButterKnife.bind(this);
     }

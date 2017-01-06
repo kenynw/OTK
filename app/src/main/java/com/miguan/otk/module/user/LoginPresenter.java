@@ -3,6 +3,9 @@ package com.miguan.otk.module.user;
 import android.content.Intent;
 
 import com.dsk.chain.bijection.Presenter;
+import com.miguan.otk.model.UserModel;
+import com.miguan.otk.model.bean.User;
+import com.miguan.otk.model.services.ServicesResponse;
 import com.sgun.utils.LUtils;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
@@ -13,10 +16,21 @@ import java.util.Map;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-class LoginPresenter extends Presenter<LoginActivity> {
+class LoginPresenter extends Presenter<LoginActivity> implements Runnable {
+
+    @Override
+    protected void onCreateView(LoginActivity view) {
+        super.onCreateView(view);
+
+    }
 
     void login(String mobile, String password) {
-        LUtils.toast("登录成功");
+        UserModel.getInstance().login(mobile, password).subscribe(new ServicesResponse<User>() {
+            @Override
+            public void onNext(User user) {
+                LUtils.toast("success");
+            }
+        });
     }
 
     void doOauthVerify(SHARE_MEDIA media) {
@@ -42,5 +56,10 @@ class LoginPresenter extends Presenter<LoginActivity> {
     protected void onResult(int requestCode, int resultCode, Intent data) {
         super.onResult(requestCode, resultCode, data);
         UMShareAPI.get(getView()).onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void run() {
+
     }
 }

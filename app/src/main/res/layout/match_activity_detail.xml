@@ -13,55 +13,66 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <LinearLayout
+    <com.miguan.otk.widget.StickyNavLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin"
-        >
+        android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
+            android:id="@id/id_stickynavlayout_topview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAppearance="@style/TextSubhead"
-            tools:text="木子姐姐建的自定义常规赛（联系QQ群：0592110）"
-            />
+            android:orientation="vertical"
+            >
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="木子姐姐建的自定义常规赛（联系QQ群：0592110）"
+                android:textAppearance="@style/TextSubhead"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_tiny_height"
+                android:background="@color/white"
+                android:gravity="right|center_vertical"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:text="@string/label_match_id"
+                android:textAppearance="@style/TextCaption"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/white"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="@string/label_match_state"
+                android:textAppearance="@style/TextBody"
+                />
+
+        </LinearLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/id_stickynavlayout_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="@string/label_match_id"
-            android:textAppearance="@style/TextCaption"
+            android:background="@color/white"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabTextColor="@color/textSecondary"
             />
 
-    </LinearLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/id_stickynavlayout_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:text="@string/label_match_state"
-        android:textAppearance="@style/TextBody"
-        />
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_match_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:tabSelectedTextColor="@color/colorPrimary"
-        app:tabTextColor="@color/textSecondary"
-        />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager_match_detail"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        />
+    </com.miguan.otk.widget.StickyNavLayout>
 
 </LinearLayout>

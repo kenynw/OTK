@@ -13,7 +13,7 @@ import com.dsk.chain.expansion.data.BaseDataFragment;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.League;
 import com.miguan.otk.module.league.AddLeagueActivity;
-import com.miguan.otk.module.league.LeaguDetailActivity;
+import com.miguan.otk.module.league.LeagueDetailActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -36,7 +36,7 @@ public class MainLeagueFragment extends BaseDataFragment<MainLeaguePresenter, Le
         View view = inflater.inflate(R.layout.main_fragment_league, null);
         ButterKnife.bind(this, view);
 
-        mBtnDetail.setOnClickListener(v -> startActivity(new Intent(getActivity(), LeaguDetailActivity.class)));
+        mBtnDetail.setOnClickListener(v -> startActivity(new Intent(getActivity(), LeagueDetailActivity.class)));
         mBtnAdd.setOnClickListener(v -> startActivity(new Intent(getActivity(), AddLeagueActivity.class)));
 
         return view;

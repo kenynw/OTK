@@ -22,24 +22,25 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
 
     private static final String[] TITLES = new String[] {"赛事信息", "赛事规则", "对阵表", "聊天室"};
 
-    @Bind(R.id.tab_match_detail)
+    @Bind(R.id.id_stickynavlayout_tab)
     TabLayout mTabLayout;
 
-    @Bind(R.id.pager_match_detail)
+    @Bind(R.id.id_stickynavlayout_viewpager)
     ViewPager mPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.match_activity_detail);
+        setToolbarTitle(R.string.title_activity_match_detail);
         ButterKnife.bind(this);
 
-        List<Fragment> list = new ArrayList<>();
-        list.add(new MatchInfoFragment());
-        list.add(new MatchRulesFragment());
-        list.add(new ScheduleFragment());
-        list.add(new MatchInfoFragment());
-        mPager.setAdapter(new TitlePagerAdapter(this, TITLES, list, getSupportFragmentManager()));
+        List<Fragment> fragments = new ArrayList<>();
+        fragments.add(new MatchInfoFragment());
+        fragments.add(new MatchRulesFragment());
+        fragments.add(new AgainstListFragment());
+        fragments.add(new MatchInfoFragment());
+        mPager.setAdapter(new TitlePagerAdapter(this, TITLES, fragments, getSupportFragmentManager()));
         mTabLayout.setupWithViewPager(mPager);
     }
 

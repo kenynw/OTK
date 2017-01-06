@@ -15,7 +15,6 @@ import com.miguan.otk.R;
 import com.miguan.otk.adapter.TitlePagerAdapter;
 import com.miguan.otk.model.bean.News;
 import com.miguan.otk.module.news.NewsListFragment;
-import com.miguan.otk.widget.StickyNavLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +28,10 @@ import butterknife.ButterKnife;
 @RequiresPresenter(MainNewsPresenter.class)
 public class MainNewsFragment extends BaseDataFragment<MainNewsPresenter, News> {
 
-    @Bind(R.id.sticky_view_news)
-    StickyNavLayout mNavLayout;
-
-    @Bind(R.id.id_stickynavlayout_tab)
+    @Bind(R.id.tab_main_news)
     TabLayout mTabLayout;
 
-    @Bind(R.id.id_stickynavlayout_viewpager)
+    @Bind(R.id.pager_main_news)
     ViewPager mPager;
 
     @Nullable
@@ -45,7 +41,7 @@ public class MainNewsFragment extends BaseDataFragment<MainNewsPresenter, News> 
         ButterKnife.bind(this, view);
 
         List<Fragment> fragments = new ArrayList<>();
-        for (int i=0; i<getResources().getStringArray(R.array.tab_news_list).length; i++) {
+        for (int i = 0; i < getResources().getStringArray(R.array.tab_news_list).length; i++) {
             NewsListFragment fragment = new NewsListFragment();
             Bundle bundle = new Bundle();
             bundle.putInt("type", i);
@@ -55,12 +51,6 @@ public class MainNewsFragment extends BaseDataFragment<MainNewsPresenter, News> 
 
         mPager.setAdapter(new TitlePagerAdapter(getActivity(), R.array.tab_news_list, fragments, getFragmentManager()));
         mTabLayout.setupWithViewPager(mPager);
-        mNavLayout.setOnHeaderScrollListener((scrollY, isHidden) -> {
-            for (int i=0; i<fragments.size(); i++) {
-                NewsListFragment fragment = (NewsListFragment) fragments.get(i);
-                if (fragment.getListView() != null) fragment.getListView().getSwipeToRefresh().setEnabled(scrollY == 0);
-            }
-        });
 
         return view;
     }

@@ -4,6 +4,7 @@ package com.miguan.otk.model;
 import android.content.Context;
 
 import com.dsk.chain.model.AbsModel;
+import com.miguan.otk.model.bean.User;
 import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
 import com.sgun.utils.LUtils;
@@ -28,6 +29,10 @@ public class UserModel extends AbsModel {
      */
     public Observable<Boolean> sendCaptcha(String mobile) {
         return ServicesClient.getServices().sendCaptcha(mobile).compose(new DefaultTransform<>());
+    }
+
+    public Observable<User> login(String mobile, String password) {
+        return ServicesClient.getServices().login(mobile, password).compose(new DefaultTransform<>());
     }
 
     @Override

@@ -10,7 +10,7 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/dv_enroll_avatar"
-        style="@style/MediumAvatar"
+        style="@style/Avatar"
         android:layout_margin="@dimen/activity_horizontal_margin"
         />
 

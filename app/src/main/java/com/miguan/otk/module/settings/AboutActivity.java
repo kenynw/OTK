@@ -20,7 +20,7 @@ public class AboutActivity extends ChainBaseActivity<AboutPresenter> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_activity_about);
+        setContentView(R.layout.settings_activity_about);
         setToolbarTitle(R.string.btn_about_us);
         ButterKnife.bind(this);
 

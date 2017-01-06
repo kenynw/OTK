@@ -26,7 +26,7 @@
         <activity android:name=".module.user.RegisterActivity"/>
         <activity android:name=".module.match.MatchDetailActivity">
         </activity>
-        <activity android:name=".module.league.LeaguDetailActivity">
+        <activity android:name=".module.league.LeagueDetailActivity">
         </activity>
         <activity android:name=".module.user.ProfileActivity">
         </activity>
@@ -80,10 +80,12 @@
         </activity>
         <activity android:name=".module.match.SubmitShotActivity">
         </activity>
-        <meta-data
-            android:name="MODEL"
-            android:value="com.miguan.otk.model.UserModel"
-            />
+        <!-- <meta-data -->
+        <!-- android:name="MODEL" -->
+        <!-- android:value="com.miguan.otk.model.UserModel" -->
+        <!-- /> -->
+        <activity android:name=".module.against.ContactJudgeActivity">
+        </activity>
     </application>
 
 </manifest>
