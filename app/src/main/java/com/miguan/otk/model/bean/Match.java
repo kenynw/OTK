@@ -8,21 +8,15 @@ import android.os.Parcelable;
  */
 public class Match implements Parcelable {
 
-    private int match_id;
+    private int competition_id;
 
     private String title;
 
-    private String time;
+    private String game_name;
 
-    private String enrolled;
+    private String rank;
 
-    private String rules;
-
-    private String mode;
-
-    private int state;
-
-    private String nature;
+    private String status;
 
     @Override
     public int describeContents() {
@@ -31,28 +25,22 @@ public class Match implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.match_id);
+        dest.writeInt(this.competition_id);
         dest.writeString(this.title);
-        dest.writeString(this.time);
-        dest.writeString(this.enrolled);
-        dest.writeString(this.rules);
-        dest.writeString(this.mode);
-        dest.writeInt(this.state);
-        dest.writeString(this.nature);
+        dest.writeString(this.game_name);
+        dest.writeString(this.rank);
+        dest.writeString(this.status);
     }
 
     public Match() {
     }
 
     protected Match(Parcel in) {
-        this.match_id = in.readInt();
+        this.competition_id = in.readInt();
         this.title = in.readString();
-        this.time = in.readString();
-        this.enrolled = in.readString();
-        this.rules = in.readString();
-        this.mode = in.readString();
-        this.state = in.readInt();
-        this.nature = in.readString();
+        this.game_name = in.readString();
+        this.rank = in.readString();
+        this.status = in.readString();
     }
 
     public static final Creator<Match> CREATOR = new Creator<Match>() {
@@ -67,12 +55,12 @@ public class Match implements Parcelable {
         }
     };
 
-    public int getMatch_id() {
-        return match_id;
+    public int getCompetition_id() {
+        return competition_id;
     }
 
-    public void setMatch_id(int match_id) {
-        this.match_id = match_id;
+    public void setCompetition_id(int competition_id) {
+        this.competition_id = competition_id;
     }
 
     public String getTitle() {
@@ -83,51 +71,27 @@ public class Match implements Parcelable {
         this.title = title;
     }
 
-    public String getTime() {
-        return time;
+    public String getGame_name() {
+        return game_name;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setGame_name(String game_name) {
+        this.game_name = game_name;
     }
 
-    public String getEnrolled() {
-        return enrolled;
+    public String getRank() {
+        return rank;
     }
 
-    public void setEnrolled(String enrolled) {
-        this.enrolled = enrolled;
+    public void setRank(String rank) {
+        this.rank = rank;
     }
 
-    public String getRules() {
-        return rules;
+    public String getStatus() {
+        return status;
     }
 
-    public void setRules(String rules) {
-        this.rules = rules;
-    }
-
-    public String getMode() {
-        return mode;
-    }
-
-    public void setMode(String mode) {
-        this.mode = mode;
-    }
-
-    public int getState() {
-        return state;
-    }
-
-    public void setState(int state) {
-        this.state = state;
-    }
-
-    public String getNature() {
-        return nature;
-    }
-
-    public void setNature(String nature) {
-        this.nature = nature;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

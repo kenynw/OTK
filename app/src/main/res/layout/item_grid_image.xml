@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.drawee.view.SimpleDraweeView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dv_item_image"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:layout_margin="4dp"
+    app:actualImageScaleType="centerCrop"
+    app:placeholderImage="@mipmap/def_image_loading"
+    app:placeholderImageScaleType="centerCrop"
+    >
+
+</com.facebook.drawee.view.SimpleDraweeView>

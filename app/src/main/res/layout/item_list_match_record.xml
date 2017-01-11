@@ -9,39 +9,9 @@
     android:orientation="vertical"
     android:showDividers="middle">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/activity_horizontal_margin"
-        >
-
-        <TextView
-            android:id="@+id/tv_match_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextBody"
-            tools:text="对战ID：56767"
-            />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="自定义"
-            android:id="@+id/tv_match_nature"
-            />
-
-    </LinearLayout>
-
     <TextView
-        android:id="@+id/tv_match_title"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_record_title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/activity_horizontal_margin"
         android:textAppearance="@style/TextSubhead"
@@ -52,37 +22,64 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/activity_horizontal_margin"
         >
 
-        <TextView
-            android:id="@+id/tv_match_user_1"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/stroke_gray_shape"
-            android:padding="8dp"
-            tools:text="名字长一点的黄图哥"
-            />
-
-        <TextView
-            android:layout_width="@dimen/widget_medium_height"
-            android:layout_height="wrap_content"
             android:gravity="center"
-            android:textAppearance="@style/TextSubhead"
-            tools:text="VS"
-            />
+            android:orientation="vertical"
+            android:padding="@dimen/activity_horizontal_margin"
+            >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/dv_record_user_a"
+                style="@style/LargeAvatar"
+                />
+
+            <TextView
+                android:id="@+id/tv_record_user_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                tools:text="名字长一点的黄图哥"
+                />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_match_user_2"
+            android:id="@+id/tv_match_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            tools:text="负 — 胜"
+            />
+
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/stroke_gray_shape"
-            android:padding="8dp"
-            android:textAppearance="@style/TextBody"
-            tools:text="机智的黄图哥"
-            />
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_horizontal_margin"
+            >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/dv_record_user_b"
+                style="@style/LargeAvatar"
+                />
+
+            <TextView
+                android:id="@+id/tv_record_user_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                tools:text="名字长一点的黄图哥"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 

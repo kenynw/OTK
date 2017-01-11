@@ -39,6 +39,7 @@ public class BaseListFragmentPresenter<V extends BaseListFragment, M> extends Pr
         public void onNext(List<M> beanList) {
             mAdapter.clear();
             mAdapter.addAll(beanList);
+            mPage = 2;
         }
     };
 
@@ -62,7 +63,7 @@ public class BaseListFragmentPresenter<V extends BaseListFragment, M> extends Pr
     };
 
     public DataAdapter getAdapter() {
-        if (getView().mContext == null) throw new RuntimeException("Content is null");
+        if (getView().getContext() == null) throw new RuntimeException("Content is null");
         if (mAdapter == null) mAdapter = new DataAdapter(getView().getContext());
         return mAdapter;
     }

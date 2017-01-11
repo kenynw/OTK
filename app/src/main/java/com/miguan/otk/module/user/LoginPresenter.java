@@ -1,5 +1,6 @@
 package com.miguan.otk.module.user;
 
+import android.app.Activity;
 import android.content.Intent;
 
 import com.dsk.chain.bijection.Presenter;
@@ -28,7 +29,11 @@ class LoginPresenter extends Presenter<LoginActivity> implements Runnable {
         UserModel.getInstance().login(mobile, password).subscribe(new ServicesResponse<User>() {
             @Override
             public void onNext(User user) {
-                LUtils.toast("success");
+                LUtils.getPreferences().edit().putString("token", user.getToken()).apply();
+                Intent intent = new Intent();
+                intent.putExtra("user", user);
+                getView().setResult(Activity.RESULT_OK, intent);
+                getView().finish();
             }
         });
     }

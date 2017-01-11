@@ -1,7 +1,6 @@
 package com.miguan.otk.adapter.viewholder;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -20,7 +19,7 @@ import butterknife.ButterKnife;
 
 public class MatchViewHolder extends BaseViewHolder<Match> {
 
-    @Bind(R.id.tv_match_id)
+    @Bind(R.id.tv_record_title)
     TextView mTvID;
 
     @Bind(R.id.tv_match_nature)
@@ -42,14 +41,13 @@ public class MatchViewHolder extends BaseViewHolder<Match> {
 
     @Override
     public void setData(Match data) {
-        mTvID.setText(String.format(getContext().getString(R.string.label_match_id), data.getMatch_id()));
-        mTvState.setText(data.getState() + "");
-        mDvThumb.setImageURI(Uri.parse(data.getEnrolled()));
+        mTvID.setText(String.format(getContext().getString(R.string.label_match_id), data.getCompetition_id()));
+        mTvState.setText(data.getStatus());
+//        mDvThumb.setImageURI(Uri.parse(data.getEnrolled()));
         mTvTitle.setText(data.getTitle());
-        mTvTime.setText(data.getTime());
         itemView.setOnClickListener(v -> {
             Intent i = new Intent(getContext(), MatchDetailActivity.class);
-            i.putExtra("match_id", data.getMatch_id());
+            i.putExtra("match_id", data.getCompetition_id());
             getContext().startActivity(i);
         });
     }

@@ -1,7 +1,6 @@
 package com.miguan.otk.adapter.viewholder;
 
 import android.net.Uri;
-import android.support.annotation.LayoutRes;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -28,16 +27,16 @@ public class NewsViewHolder extends BaseViewHolder<News> {
     @Bind(R.id.tv_news_date)
     TextView mTvDate;
 
-    public NewsViewHolder(ViewGroup parent, @LayoutRes int res) {
-        super(parent, res);
+    public NewsViewHolder(ViewGroup parent) {
+        super(parent, R.layout.item_list_news);
         ButterKnife.bind(this, itemView);
     }
 
     @Override
     public void setData(News news) {
-        mDvThumb.setImageURI(Uri.parse(news.getImage()));
+        mDvThumb.setImageURI(Uri.parse(news.getImg()[0]));
         mTvTitle.setText(news.getTitle());
-        mTvDate.setText(news.getDate());
+        mTvDate.setText(news.getCreate_time());
     }
 
 }

@@ -31,7 +31,7 @@ public class EnrollViewHolder extends BaseViewHolder<User> {
 
     @Override
     public void setData(User data) {
-        mDvAvatar.setImageURI(Uri.parse(data.getAvatar()));
-        mTvUsername.setText(data.getName());
+        mDvAvatar.setImageURI(Uri.parse(data.getPhoto()));
+        mTvUsername.setText(data.getUsername());
     }
 }

@@ -86,6 +86,8 @@
         <!-- /> -->
         <activity android:name=".module.against.ContactJudgeActivity">
         </activity>
+        <activity android:name=".module.user.ProfileModifyActivity">
+        </activity>
     </application>
 
 </manifest>

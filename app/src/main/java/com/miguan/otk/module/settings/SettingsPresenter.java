@@ -13,4 +13,9 @@ public class SettingsPresenter extends Presenter<SettingsActivity> {
         LUtils.toast("success");
     }
 
+    public void logout() {
+        LUtils.getPreferences().edit().putString("token", "").apply();
+        getView().finish();
+    }
+
 }

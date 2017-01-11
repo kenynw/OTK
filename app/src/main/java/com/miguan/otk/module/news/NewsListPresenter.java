@@ -1,17 +1,25 @@
 package com.miguan.otk.module.news;
 
+import android.os.Bundle;
+
 import com.dsk.chain.expansion.list.BaseListFragmentPresenter;
+import com.miguan.otk.model.NewsModel;
 import com.miguan.otk.model.bean.News;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import rx.Observable;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public class NewsListPresenter extends BaseListFragmentPresenter<NewsListFragment, News> {
+
+    private int mType = 1;
+
+    @Override
+    protected void onCreate(NewsListFragment view, Bundle saveState) {
+        super.onCreate(view, saveState);
+        if (view.getArguments() != null) {
+            mType = view.getArguments().getInt("type");
+        }
+    }
 
     @Override
     protected void onCreateView(NewsListFragment view) {
@@ -21,27 +29,11 @@ public class NewsListPresenter extends BaseListFragmentPresenter<NewsListFragmen
 
     @Override
     public void onRefresh() {
-        List<News> list = new ArrayList<>();
-        for (int i=0; i<15; i++) {
-            News news = new News();
-            news.setTitle("NEST2016总决赛完美落幕 冠军之夜荣耀绽放厦门");
-            news.setDate("2016-11-21");
-            news.setImage("http://static.otkpk.com/ueditor/php/upload/image/20161121/1479719270181900.jpg");
-            list.add(news);
-        }
-        Observable.just(list).unsafeSubscribe(getRefreshSubscriber());
+        NewsModel.getInstance().getNewsList(mType, 1).unsafeSubscribe(getRefreshSubscriber());
     }
 
     @Override
     public void onLoadMore() {
-        List<News> list = new ArrayList<>();
-        for (int i=0; i<getCurPage()*10; i++) {
-            News news = new News();
-            news.setTitle("NEST2016总决赛完美落幕 冠军之夜荣耀绽放厦门");
-            news.setDate("2016-11-21");
-            news.setImage("http://static.otkpk.com/ueditor/php/upload/image/20161121/1479719270181900.jpg");
-            list.add(news);
-        }
-        Observable.just(list).unsafeSubscribe(getMoreSubscriber());
+        NewsModel.getInstance().getNewsList(mType, getCurPage()).unsafeSubscribe(getMoreSubscriber());
     }
 }

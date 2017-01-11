@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
-import com.miguan.otk.model.bean.VS;
+import com.miguan.otk.model.bean.Against;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
  * Copyright (c) 2016/12/23. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class AgainstViewHolder extends BaseViewHolder<VS> {
+public class AgainstViewHolder extends BaseViewHolder<Against> {
 
     @Bind(R.id.tv_vs_player_a)
     TextView mTvA;
@@ -25,7 +25,7 @@ public class AgainstViewHolder extends BaseViewHolder<VS> {
     }
 
     @Override
-    public void setData(VS data) {
-        mTvA.setText(String.format("%s VS %s", data.getPlayer_a(), data.getPlayer_b()));
+    public void setData(Against against) {
+        mTvA.setText(String.format("%s VS %s", against.getAusername(), against.getBusername()));
     }
 }

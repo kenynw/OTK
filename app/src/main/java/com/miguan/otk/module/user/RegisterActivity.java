@@ -22,14 +22,17 @@ public class RegisterActivity extends ChainBaseActivity<RegisterPresenter> {
     @Bind(R.id.et_register_mobile)
     EditText mEtMobile;
 
-    @Bind(R.id.et_register_password)
-    EditText mEtPassword;
-
     @Bind(R.id.et_register_captcha)
     EditText mEtCaptcha;
 
-    @Bind(R.id.btn_register_caption)
+    @Bind(R.id.btn_register_captcha)
     Button mBtnCaptcha;
+
+    @Bind(R.id.et_register_username)
+    EditText mEtUsername;
+
+    @Bind(R.id.et_register_password)
+    EditText mEtPassword;
 
     @Bind(R.id.btn_register_submit)
     Button mBtnSubmit;
@@ -60,15 +63,12 @@ public class RegisterActivity extends ChainBaseActivity<RegisterPresenter> {
             LUtils.toast("手机号码格式不正确");
             return;
         }
-        if (mEtCaptcha.length() != 6) {
-            LUtils.toast("验证码不能小于6位");
-            return;
-        }
-        if (TextUtils.isEmpty(mEtPassword.getText()) || mEtPassword.length() < 8) {
-            LUtils.toast("密码不少于8位");
+        if (TextUtils.isEmpty(mEtUsername.getText())) {
+            LUtils.toast("用户名不能为空");
             return;
         }
         getPresenter().register(
+                mEtUsername.getText().toString().trim(),
                 mEtMobile.getText().toString().trim(),
                 mEtCaptcha.getText().toString().trim(),
                 mEtPassword.getText().toString().trim()

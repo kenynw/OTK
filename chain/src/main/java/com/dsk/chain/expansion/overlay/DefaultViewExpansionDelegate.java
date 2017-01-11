@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dsk.chain.R;
 import com.dsk.chain.bijection.ChainBaseActivity;
@@ -50,6 +51,11 @@ public class DefaultViewExpansionDelegate extends ViewExpansionDelegate {
     @Override
     public void showErrorPage() {
         super.showErrorPage();
+    }
+
+    @Override
+    public void showErrorToast(String text) {
+        Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT).show();
     }
 
     @Override

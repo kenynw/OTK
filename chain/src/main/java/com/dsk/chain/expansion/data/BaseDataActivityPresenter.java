@@ -11,9 +11,9 @@ import rx.subjects.BehaviorSubject;
  */
 public class BaseDataActivityPresenter<V extends BaseDataActivity,M> extends Presenter<V> {
     //用于缓存数据的Subscriber
-    BehaviorSubject<M>  mData = BehaviorSubject.create();
+    private BehaviorSubject<M>  mData = BehaviorSubject.create();
     //View的订阅关系，View被销毁时自动取消订阅。
-    Subscription mSubscription;
+    private Subscription mSubscription;
 
     private Subscriber<M> mSubscriber = new Subscriber<M>() {
         @Override
@@ -59,10 +59,14 @@ public class BaseDataActivityPresenter<V extends BaseDataActivity,M> extends Pre
         mSubscription.unsubscribe();
     }
 
+    public M getData() {
+        return mData.getValue();
+    }
+
     /**
      * 获取缓存数据的Subscriber
      * 可以通过 `getDataSubject().getValue();` 获取缓存数据。
-     * @return
+     * @return 缓存数据的Subscriber
      */
     public BehaviorSubject<M> getDataSubject(){
         return mData;
@@ -74,7 +78,7 @@ public class BaseDataActivityPresenter<V extends BaseDataActivity,M> extends Pre
      *
      *     Observable.unsafeSubscribe(getDataSubscriber());
      *
-     * @return
+     * @return 获取存放数据的subscriber
      */
     public Subscriber<M> getDataSubscriber(){
         return mSubscriber;

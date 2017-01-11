@@ -10,5 +10,9 @@ import com.dsk.chain.bijection.RequiresPresenter;
 public class BaseDataActivity<P extends BaseDataActivityPresenter, M> extends ChainBaseActivity<P> {
 
     public void setData(M m) {}
-    public void onError(Throwable e) {}
+
+    public void onError(Throwable e) {
+        getExpansionDelegate().showErrorToast(e.getMessage());
+    }
+
 }

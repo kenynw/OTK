@@ -38,8 +38,8 @@ class EnrollListPresenter extends BaseListActivityPresenter<EnrollListActivity, 
         List<User> list = new ArrayList<>();
         for (int i=0; i<10; i++) {
             User user = new User();
-            user.setName("神代冬琉");
-            user.setAvatar("http://oss.otkpk.com/images/default-toux.jpg");
+            user.setUsername("神代冬琉");
+            user.setPhoto("http://oss.otkpk.com/images/default-toux.jpg");
             list.add(user);
         }
         Observable.just(list).unsafeSubscribe(getRefreshSubscriber());

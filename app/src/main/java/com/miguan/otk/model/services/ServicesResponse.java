@@ -2,15 +2,14 @@ package com.miguan.otk.model.services;
 
 import com.sgun.utils.LUtils;
 
-import rx.Observer;
 import rx.Subscriber;
-import rx.functions.Action1;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class ServicesResponse<T> extends  Subscriber<T> {
+public class ServicesResponse<T> extends Subscriber<T> {
+
     @Override
     public void onCompleted() {
 
@@ -18,8 +17,8 @@ public class ServicesResponse<T> extends  Subscriber<T> {
 
     @Override
     public void onError(Throwable e) {
-        if (e.getCause() instanceof ServiceException) {
-            serviceError((ServiceException) e.getCause());
+        if (e instanceof ServiceException) {
+            serviceError((ServiceException) e);
         } else {
             serviceError(new ServiceException(-1, "网络错误"));
         }

@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 @RequiresPresenter(LoginPresenter.class)
 public class LoginActivity extends ChainBaseActivity<LoginPresenter> {
 
-    @Bind(R.id.et_login_mobile)
+    @Bind(R.id.et_login_username)
     EditText mEtMobile;
 
     @Bind(R.id.et_login_password)

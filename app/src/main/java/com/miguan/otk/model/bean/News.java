@@ -9,11 +9,17 @@ import android.os.Parcelable;
 
 public class News implements Parcelable {
 
+    private int id;
+
     private String title;
 
-    private String date;
+    private String[] img;
 
-    private String image;
+    private String create_time;
+
+    private String url;
+
+    private int page_view;
 
     @Override
     public int describeContents() {
@@ -22,18 +28,24 @@ public class News implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
         dest.writeString(this.title);
-        dest.writeString(this.date);
-        dest.writeString(this.image);
+        dest.writeStringArray(this.img);
+        dest.writeString(this.create_time);
+        dest.writeString(this.url);
+        dest.writeInt(this.page_view);
     }
 
     public News() {
     }
 
     protected News(Parcel in) {
+        this.id = in.readInt();
         this.title = in.readString();
-        this.date = in.readString();
-        this.image = in.readString();
+        this.img = in.createStringArray();
+        this.create_time = in.readString();
+        this.url = in.readString();
+        this.page_view = in.readInt();
     }
 
     public static final Creator<News> CREATOR = new Creator<News>() {
@@ -48,6 +60,14 @@ public class News implements Parcelable {
         }
     };
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -56,19 +76,35 @@ public class News implements Parcelable {
         this.title = title;
     }
 
-    public String getDate() {
-        return date;
+    public String[] getImg() {
+        return img;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setImg(String[] img) {
+        this.img = img;
     }
 
-    public String getImage() {
-        return image;
+    public String getCreate_time() {
+        return create_time;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public int getPage_view() {
+        return page_view;
+    }
+
+    public void setPage_view(int page_view) {
+        this.page_view = page_view;
     }
 }

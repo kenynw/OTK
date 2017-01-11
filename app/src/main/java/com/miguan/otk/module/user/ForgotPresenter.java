@@ -12,12 +12,17 @@ class ForgotPresenter extends Presenter<ForgotActivity> {
 
 
     void sendCaptcha(String mobile) {
-        UserModel.getInstance().sendCaptcha(mobile).subscribe(new ServicesResponse());
-        LUtils.toast("正在发送验证码...");
+        UserModel.getInstance().forgotCaptcha(mobile).subscribe(new ServicesResponse<Boolean>());
     }
 
-    void changePwd(String mobile, String newPwd, String captcha) {
-        LUtils.toast("更改成功...");
+    void changePwd(String mobile, String captcha, String newPwd) {
+        UserModel.getInstance().modifyPwd(mobile, captcha, newPwd).subscribe(new ServicesResponse<Boolean>() {
+            @Override
+            public void onNext(Boolean aBoolean) {
+                LUtils.getPreferences().edit().putString("token", "").apply();
+                getView().finish();
+            }
+        });
     }
 
 }

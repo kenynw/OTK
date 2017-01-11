@@ -1,12 +1,12 @@
 package com.dsk.chain.expansion.list;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.dsk.chain.R;
 import com.dsk.chain.bijection.ChainFragment;
@@ -17,42 +17,34 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
 public abstract class BaseListFragment<P extends BaseListFragmentPresenter, M> extends ChainFragment<P> {
-    Context mContext;
-
     private ListConfig mListConfig;
 
     private View mRootView;
 
     private EasyRecyclerView mListView;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mContext = getContext();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mListConfig = getListConfig();
-        layoutInflate(inflater, container);
+        layoutInflate(container);
         findRecycleView();
         initListView();
         initAdapter();
         return mRootView;
     }
 
-    private void layoutInflate(LayoutInflater inflater, @Nullable ViewGroup container) {
-        if (getLayout() > 0) {
-            mRootView = LayoutInflater.from(getActivity()).inflate(getLayout(), null);
-        } else if(mListConfig.mContainerLayoutRes > 0) {
-            mRootView = inflater.inflate(mListConfig.mContainerLayoutRes, container, false);
+    private void layoutInflate(ViewGroup container) {
+        if (getLayout() != 0) {
+            mRootView = LayoutInflater.from(getActivity()).inflate(getLayout(), container, false);
+        } else if(mListConfig.mContainerLayoutRes != 0) {
+            mRootView = LayoutInflater.from(getActivity()).inflate(mListConfig.mContainerLayoutRes, container, false);
         } else if(mListConfig.mContainerLayoutView != null) {
             mRootView = mListConfig.mContainerLayoutView;
         } else {
             EasyRecyclerView listView = new EasyRecyclerView(getActivity());
-            listView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             listView.setId(R.id.recycle);
+            listView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             mRootView = listView;
         }
     }
@@ -84,7 +76,7 @@ public abstract class BaseListFragment<P extends BaseListFragmentPresenter, M> e
 
     private void initAdapter() {
         final BaseListFragmentPresenter.DataAdapter adapter = getPresenter().getAdapter();
-        mListView.setAdapterWithProgress(adapter);
+        mListView.setAdapter(adapter);
         if (mListConfig.mFooterErrorAble) {
             View errorView = null;
             if (mListConfig.mFooterErrorView != null) errorView = adapter.setError(mListConfig.mFooterErrorView);
@@ -113,10 +105,12 @@ public abstract class BaseListFragment<P extends BaseListFragmentPresenter, M> e
     }
 
     public void stopRefresh() {
-        mListView.setRefreshing(false);
+        if (mListView != null) mListView.setRefreshing(false);
     }
 
-    public void showError() {}
+    public void showError() {
+        if (mListView != null) mListView.showError();
+    }
 
     public ListConfig getListConfig() {
         return ListConfig.DEFAULT.clone();

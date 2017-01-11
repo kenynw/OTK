@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              tools:context=".module.user.LoginActivity">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".module.user.LoginActivity">
 
     <include layout="@layout/include_toolbar"/>
 
@@ -14,14 +15,14 @@
         android:layout_marginTop="@dimen/activity_vertical_margin">
 
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/et_login_mobile"
+            android:id="@+id/et_login_username"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
             android:drawableLeft="@mipmap/ic_launcher"
             android:drawablePadding="@dimen/activity_horizontal_margin"
             android:hint="@string/hint_username"
-            android:inputType="text|phone"
+            android:inputType="text"
             android:maxEms="20"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"

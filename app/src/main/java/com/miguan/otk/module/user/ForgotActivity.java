@@ -58,19 +58,11 @@ public class ForgotActivity extends ChainBaseActivity<ForgotPresenter> {
             LUtils.toast("请输入正确的手机号码");
             return;
         }
-        if (mEtCaptcha.length() != 6) {
-            LUtils.toast("请输入6位验证码");
-            return;
-        }
-        if (TextUtils.isEmpty(mEtNewPwd.getText()) || mEtNewPwd.length() < 8) {
-            LUtils.toast("密码不少于8位");
-            return;
-        }
         if (TextUtils.isEmpty(mEtConfirm.getText())) {
             LUtils.toast("请再次输入密码");
             return;
         }
-        if (!mEtConfirm.getText().equals(mEtNewPwd.getText())) {
+        if (!mEtConfirm.getText().toString().equals(mEtNewPwd.getText().toString())) {
             LUtils.toast("再次密码输入不一致");
             return;
         }

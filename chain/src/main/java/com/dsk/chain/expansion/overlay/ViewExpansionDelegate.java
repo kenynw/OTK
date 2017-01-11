@@ -34,6 +34,8 @@ public abstract class ViewExpansionDelegate {
 
     public void showErrorPage() {}
 
+    public void showErrorToast(String text) {}
+
     public void hideErrorPage() {}
 
     public void showEmptyPage() {}

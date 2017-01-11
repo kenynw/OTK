@@ -33,6 +33,7 @@ public class ViewHelper<PresenterType extends Presenter> {
             // 不可能为空
             if (mPresenter == null) {
                 mPresenter = PresenterManager.getInstance().create(mView);
+                mPresenter.create(mView, saveInstanceState);
             }
         }
     }

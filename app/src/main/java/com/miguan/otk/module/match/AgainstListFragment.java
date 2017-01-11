@@ -13,7 +13,7 @@ import com.dsk.chain.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.viewholder.AgainstViewHolder;
-import com.miguan.otk.model.bean.VS;
+import com.miguan.otk.model.bean.Against;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
  * Copyright (c) 2016/12/22. LiaoPeiKun Inc. All rights reserved.
  */
 @RequiresPresenter(AgainstListPresenter.class)
-public class AgainstListFragment extends BaseListFragment<AgainstListPresenter, VS> {
+public class AgainstListFragment extends BaseListFragment<AgainstListPresenter, Against> {
 
     @Bind(R.id.btn_vs_left)
     Button mBtnLeft;
@@ -43,7 +43,7 @@ public class AgainstListFragment extends BaseListFragment<AgainstListPresenter, 
     }
 
     @Override
-    public BaseViewHolder<VS> createViewHolder(ViewGroup parent, int viewType) {
+    public BaseViewHolder<Against> createViewHolder(ViewGroup parent, int viewType) {
         return new AgainstViewHolder(parent);
     }
 

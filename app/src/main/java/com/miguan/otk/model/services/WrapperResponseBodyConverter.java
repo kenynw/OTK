@@ -1,10 +1,7 @@
 package com.miguan.otk.model.services;
 
-import android.text.TextUtils;
-
 import com.google.gson.Gson;
 import com.sgun.utils.LUtils;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,34 +33,22 @@ public class WrapperResponseBodyConverter<T> implements Converter<ResponseBody, 
 
             LUtils.log(TAG, data.toString());
 
-            String result = "";
-            int code = data.getInt("code");
-
-            if (code != 1 && code != 200) {
-                throw new IOException(new ServiceException(code, data.getString("msg")));
+            int status = data.getInt("status");
+            if (status != 1) {
+                throw new ServiceException(status, data.getString("msg"));
             }
 
+            String result = "";
             if (data.has("data")) {
                 if (!data.isNull("data")) result = data.opt("data").toString();
                 else return null;
-            } else if (data.has("datas")) {
-                if (!TextUtils.isEmpty(data.getString("datas")) && data.getString("datas").equals("1")) {
-                    return null;
-                }
-
-                JSONObject datas = data.getJSONObject("datas");
-                if (datas.has("error")) {
-                    throw new IOException(new ServiceException(code, datas.getString("error")));
-                } else if (!datas.has("error")) {
-                    result = datas.toString();
-                }
             } else {
                 return new Gson().fromJson(data.toString(), mType);
             }
 
             return new Gson().fromJson(result, mType);
-        } catch (JSONException e) {
-            throw new IOException(new ServiceException(0, "数据解析错误"));
+        } catch (JSONException | IllegalStateException e) {
+            throw new ServiceException(0, "数据解析错误");
         }
     }
 

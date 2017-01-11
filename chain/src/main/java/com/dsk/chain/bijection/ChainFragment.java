@@ -31,9 +31,13 @@ public class ChainFragment<PresenterType extends Presenter> extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        mHelper.onDestroy();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
         mHelper.onDestroyView();
-        if (getActivity().isFinishing())
-            mHelper.onDestroy();
     }
 
     @Override

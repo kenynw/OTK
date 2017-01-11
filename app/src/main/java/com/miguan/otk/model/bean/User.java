@@ -9,11 +9,27 @@ import android.os.Parcelable;
 
 public class User implements Parcelable {
 
-    private String name;
+    private String token;
 
-    private String avatar;
+    private String username;
 
-    private String points;
+    private int uid;
+
+    private int money;
+
+    private String photo;
+
+    private int currency;
+
+    private String qq;
+
+    private String email;
+
+    private String actuality;
+
+    private String birthday;
+
+    private String sign;
 
     @Override
     public int describeContents() {
@@ -22,18 +38,34 @@ public class User implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.name);
-        dest.writeString(this.avatar);
-        dest.writeString(this.points);
+        dest.writeString(this.token);
+        dest.writeString(this.username);
+        dest.writeInt(this.uid);
+        dest.writeInt(this.money);
+        dest.writeString(this.photo);
+        dest.writeInt(this.currency);
+        dest.writeString(this.qq);
+        dest.writeString(this.email);
+        dest.writeString(this.actuality);
+        dest.writeString(this.birthday);
+        dest.writeString(this.sign);
     }
 
     public User() {
     }
 
     protected User(Parcel in) {
-        this.name = in.readString();
-        this.avatar = in.readString();
-        this.points = in.readString();
+        this.token = in.readString();
+        this.username = in.readString();
+        this.uid = in.readInt();
+        this.money = in.readInt();
+        this.photo = in.readString();
+        this.currency = in.readInt();
+        this.qq = in.readString();
+        this.email = in.readString();
+        this.actuality = in.readString();
+        this.birthday = in.readString();
+        this.sign = in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -48,27 +80,91 @@ public class User implements Parcelable {
         }
     };
 
-    public String getName() {
-        return name;
+    public String getToken() {
+        return token;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPoints() {
-        return points;
+    public int getUid() {
+        return uid;
     }
 
-    public void setPoints(String points) {
-        this.points = points;
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public int getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(int currency) {
+        this.currency = currency;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getActuality() {
+        return actuality;
+    }
+
+    public void setActuality(String actuality) {
+        this.actuality = actuality;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
     }
 }

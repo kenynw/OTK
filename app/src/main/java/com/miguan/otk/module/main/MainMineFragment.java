@@ -1,6 +1,7 @@
 package com.miguan.otk.module.main;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataFragment;
@@ -27,6 +29,7 @@ import com.miguan.otk.module.user.MyMatchActivity;
 import com.miguan.otk.module.user.MyOrderActivity;
 import com.miguan.otk.module.user.ProfileActivity;
 import com.miguan.otk.module.user.SignInActivity;
+import com.sgun.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -45,6 +48,15 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
 
     @Bind(R.id.layout_mine_user)
     LinearLayout mLayoutUser;
+
+    @Bind(R.id.tv_mine_username)
+    TextView mTvUsername;
+
+    @Bind(R.id.tv_mine_uid)
+    TextView mTvUid;
+
+    @Bind(R.id.tv_mine_balance)
+    TextView mTvBalance;
 
     @Bind(R.id.btn_mine_login)
     Button mBtnLogin;
@@ -87,7 +99,7 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
 
         mBtnMessage.setOnClickListener(v -> startActivity(new Intent(getActivity(), MessageActivity.class)));
         mLayoutUser.setOnClickListener(v -> startActivity(new Intent(getActivity(), ProfileActivity.class)));
-        mBtnLogin.setOnClickListener(v -> startActivity(new Intent(getActivity(), LoginActivity.class)));
+        mBtnLogin.setOnClickListener(v -> startActivityForResult(new Intent(getActivity(), LoginActivity.class), 1));
         mBtnStore.setOnClickListener(v -> startActivity(new Intent(getActivity(), StoreHomeActivity.class)));
         mBtnMyMatch.setOnClickListener(v -> startActivity(new Intent(getActivity(), MyMatchActivity.class)));
         mBtnSign.setOnClickListener(v -> startActivity(new Intent(getActivity(), SignInActivity.class)));
@@ -107,6 +119,34 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
         super.setMenuVisibility(menuVisible);
         if (getView() != null) {
             getView().setVisibility(menuVisible ? View.VISIBLE : View.INVISIBLE);
+        }
+
+    }
+
+    @Override
+    public void setData(User user) {
+        mDvAvatar.setImageURI(Uri.parse(user.getPhoto()));
+        mTvUsername.setText(user.getUsername());
+        mTvUid.setText(String.format("%s", user.getUid()));
+        mTvBalance.setText(String.format(getString(R.string.label_my_balance), user.getMoney(), user.getCurrency()));
+        isLogin(true);
+    }
+
+    @Override
+    public void onError(Throwable throwable) {
+        super.onError(throwable);
+        if (!LUtils.getPreferences().getString("token", "").isEmpty())
+            LUtils.getPreferences().edit().putString("token", " ").apply();
+        isLogin(false);
+    }
+
+    public void isLogin(boolean isLogin) {
+        if (isLogin) {
+            mBtnLogin.setVisibility(View.GONE);
+            mLayoutUser.setVisibility(View.VISIBLE);
+        } else {
+            mBtnLogin.setVisibility(View.VISIBLE);
+            mLayoutUser.setVisibility(View.GONE);
         }
     }
 

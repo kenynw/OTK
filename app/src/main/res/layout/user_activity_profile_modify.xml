@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_activity_profile_modify"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.miguan.otk.module.user.ProfileModifyActivity">
+
+    <include layout="@layout/include_toolbar"/>
+
+    <EditText
+        android:id="@+id/et_profile_modify_input"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_medium_height"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@color/white"
+        android:inputType="text"
+        />
+
+    <Button
+        android:id="@+id/btn_profile_modify_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:text="@string/btn_ok"
+        />
+
+</LinearLayout>

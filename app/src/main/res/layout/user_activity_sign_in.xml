@@ -8,33 +8,37 @@
     android:orientation="vertical"
     tools:context="com.miguan.otk.module.user.SignInActivity">
 
-    <include layout="@layout/include_toolbar" />
+    <include layout="@layout/include_toolbar"/>
 
     <TextView
+        android:id="@+id/tv_sign_series_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/white"
         android:gravity="center"
         android:padding="@dimen/activity_horizontal_margin"
-        android:text="已连续签到"
+        android:text="@string/text_sign_series_desc"
         />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
         android:background="@color/white"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:scaleType="center"
+        android:src="@mipmap/ic_launcher"
         />
 
-    <TextView
+    <Button
+        android:id="@+id/btn_sign_now"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@color/white"
         android:gravity="center"
         android:padding="@dimen/activity_horizontal_margin"
-        android:text="距离宝箱开启，还需连续签到 X 天"
+        android:text="@string/btn_sign_in_now"
         />
 
     <Space
@@ -42,15 +46,16 @@
         android:layout_height="@dimen/activity_vertical_margin"/>
 
     <TextView
+        android:id="@+id/tv_sign_rules"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:lineSpacingMultiplier="1.4"
         android:padding="@dimen/activity_horizontal_margin"
-        android:text="签到规则：
+        tools:text="签到规则：
 1、固定签到奖励：签到一次奖励10撒币。
 2、连续七天签到：打开宝箱，随机获得1~10的撒币翻倍。随机获得1~10的撒币翻倍。
 3、连续签到中断，则重新计算连续签到天数。"
-        android:background="@color/white"
-        android:lineSpacingMultiplier="1.4"
         />
 
 </LinearLayout>
