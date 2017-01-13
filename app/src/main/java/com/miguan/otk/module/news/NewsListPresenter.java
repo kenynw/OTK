@@ -1,5 +1,6 @@
 package com.miguan.otk.module.news;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.dsk.chain.expansion.list.BaseListFragmentPresenter;
@@ -25,6 +26,12 @@ public class NewsListPresenter extends BaseListFragmentPresenter<NewsListFragmen
     protected void onCreateView(NewsListFragment view) {
         super.onCreateView(view);
         onRefresh();
+        getAdapter().setOnItemClickListener(position -> {
+            News news = getAdapter().getItem(position);
+            Intent intent = new Intent(getView().getActivity(), NewsDetailActivity.class);
+            intent.putExtra("news", news);
+            getView().startActivity(intent);
+        });
     }
 
     @Override

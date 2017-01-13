@@ -2,6 +2,7 @@
     <string name="app_name">OTK电竞</string>
 
     <string name="title_activity_address">收货地址</string>
+    <string name="title_activity_balance_detail">余额明细</string>
     <string name="title_activity_bench">替补列表</string>
     <string name="title_activity_contact_judge">联系裁判</string>
     <string name="title_activity_enroll">报名列表</string>
@@ -87,6 +88,7 @@
     <string name="text_match_support">赛事赞助</string>
     <string name="text_match_qq_group">OTK炉石传说赛事①群 ：77327504</string>
     <string name="text_prepare_phase">准备阶段</string>
+    <string name="text_share">分享</string>
     <string name="text_sign_series_desc">距离宝箱开启，还需连续签到%d天</string>
     <string name="text_slogan">打造一个有温度的的线上比赛平台</string>
     <string name="text_special_rules">特殊规则</string>
@@ -94,6 +96,7 @@
 
     <string name="label_address">收货地址：</string>
     <string name="label_avatar">头像：</string>
+    <string name="label_balance">余额：%s</string>
     <string name="label_born">生辰：</string>
     <string name="label_captcha">验证码</string>
     <string name="label_cash_account">提现支付宝帐号：</string>

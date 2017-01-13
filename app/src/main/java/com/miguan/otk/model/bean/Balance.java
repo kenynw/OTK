@@ -8,13 +8,20 @@ import android.os.Parcelable;
  */
 
 public class Balance implements Parcelable {
-    private String title;
 
-    private String detail;
+    private int id;
 
-    private String balance;
+    private String create_time;
 
-    private String date;
+    private int flow_id;
+
+    private String desc;
+
+    private String symbol;
+
+    private String num;
+
+    private String qty;
 
     @Override
     public int describeContents() {
@@ -23,20 +30,26 @@ public class Balance implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.title);
-        dest.writeString(this.detail);
-        dest.writeString(this.balance);
-        dest.writeString(this.date);
+        dest.writeInt(this.id);
+        dest.writeString(this.create_time);
+        dest.writeInt(this.flow_id);
+        dest.writeString(this.desc);
+        dest.writeString(this.symbol);
+        dest.writeString(this.num);
+        dest.writeString(this.qty);
     }
 
     public Balance() {
     }
 
     protected Balance(Parcel in) {
-        this.title = in.readString();
-        this.detail = in.readString();
-        this.balance = in.readString();
-        this.date = in.readString();
+        this.id = in.readInt();
+        this.create_time = in.readString();
+        this.flow_id = in.readInt();
+        this.desc = in.readString();
+        this.symbol = in.readString();
+        this.num = in.readString();
+        this.qty = in.readString();
     }
 
     public static final Creator<Balance> CREATOR = new Creator<Balance>() {
@@ -51,35 +64,59 @@ public class Balance implements Parcelable {
         }
     };
 
-    public String getTitle() {
-        return title;
+    public int getId() {
+        return id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getDetail() {
-        return detail;
+    public String getCreate_time() {
+        return create_time;
     }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
     }
 
-    public String getBalance() {
-        return balance;
+    public int getFlow_id() {
+        return flow_id;
     }
 
-    public void setBalance(String balance) {
-        this.balance = balance;
+    public void setFlow_id(int flow_id) {
+        this.flow_id = flow_id;
     }
 
-    public String getDate() {
-        return date;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
+
+    public String getQty() {
+        return qty;
+    }
+
+    public void setQty(String qty) {
+        this.qty = qty;
     }
 }

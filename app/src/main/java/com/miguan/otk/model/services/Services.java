@@ -1,10 +1,13 @@
 package com.miguan.otk.model.services;
 
 import com.miguan.otk.model.bean.Against;
+import com.miguan.otk.model.bean.Balance;
+import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.bean.News;
 import com.miguan.otk.model.bean.Sign;
 import com.miguan.otk.model.bean.User;
+import com.miguan.otk.model.bean.Withdraw;
 
 import java.util.List;
 
@@ -12,6 +15,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 
@@ -129,6 +133,25 @@ public interface Services {
     );
 
     /**
+     * 个人资料修改
+     *
+     * @param token 登录令牌
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("/user/user/index")
+    Observable<User> modifyProfile(
+            @Field("token") CharSequence token,
+            @Field("qq") CharSequence qq,
+            @Field("email") CharSequence email,
+            @Field("actuality") CharSequence actuality,
+            @Field("birthday") CharSequence birthday,
+            @Field("province") CharSequence province,
+            @Field("city") CharSequence city,
+            @Field("sign") CharSequence sign
+    );
+
+    /**
      * 立即签到
      *
      * @param token 登录令牌
@@ -158,11 +181,10 @@ public interface Services {
      * @param token 登录令牌
      * @return
      */
-    @FormUrlEncoded
-    @POST("/user/userbanner/index")
+    @GET("/user/userbanner/index")
     Observable<List<Match>> myMatchList(
-            @Field("token") CharSequence token,
-            @Field("page") Integer page
+            @Query("token") CharSequence token,
+            @Query("page") Integer page
     );
 
     /**
@@ -171,30 +193,49 @@ public interface Services {
      * @param token 登录令牌
      * @return
      */
-    @FormUrlEncoded
-    @POST("/user/userbanner/record")
+    @GET("/user/userbanner/record")
     Observable<List<Against>> againstList(
-            @Field("token") CharSequence token,
-            @Field("page") Integer page
+            @Query("token") CharSequence token,
+            @Query("page") Integer page
     );
 
     /**
-     * 个人资料修改
-     *
+     * 余额明细
+     * @param type 余额类型 money-元宝 score-撒币
      * @param token 登录令牌
+     * @param page 页数
      * @return
      */
-    @FormUrlEncoded
-    @POST("/user/user/index")
-    Observable<User> modifyProfile(
-            @Field("token") CharSequence token,
-            @Field("qq") CharSequence qq,
-            @Field("email") CharSequence email,
-            @Field("actuality") CharSequence actuality,
-            @Field("birthday") CharSequence birthday,
-            @Field("province") CharSequence province,
-            @Field("city") CharSequence city,
-            @Field("sign") CharSequence sign
+    @GET("/user/userbalance/{type}")
+    Observable<List<Balance>> balanceList(
+            @Path("type") String type,
+            @Query("token") CharSequence token,
+            @Query("page") Integer page
+    );
+
+    /**
+     * 提现记录
+     * @param token 登录令牌
+     * @param page 页数
+     * @return
+     */
+    @GET("/user/userrecord/getcashrecord")
+    Observable<Withdraw> withdrawRecord(
+            @Query("token") CharSequence token,
+            @Query("page") Integer page
+    );
+
+    //////////////////////////////////////////
+
+    /**
+     * 比赛首页
+     *
+     * @param token 登录令牌 可选
+     * @return
+     */
+    @GET("/home/home/index")
+    Observable<Home> homeMatch(
+            @Query("token") String token
     );
 
     /**

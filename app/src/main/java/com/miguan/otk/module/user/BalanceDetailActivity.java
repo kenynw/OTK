@@ -29,11 +29,22 @@ public class BalanceDetailActivity extends BaseDataActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_activity_balance_detail);
+        setToolbarTitle(R.string.title_activity_balance_detail);
         ButterKnife.bind(this);
 
         List<Fragment> list = new ArrayList<>();
-        list.add(new BalanceListFragment());
-        list.add(new BalanceListFragment());
+
+        Bundle sb = new Bundle();
+        BalanceListFragment scoreFragment = new BalanceListFragment();
+        sb.putString("type", BalanceListPresenter.BALANCE_SCORE);
+        scoreFragment.setArguments(sb);
+        list.add(scoreFragment);
+
+        Bundle mb = new Bundle();
+        BalanceListFragment moneyFragment = new BalanceListFragment();
+        mb.putString("type", BalanceListPresenter.BALANCE_MONEY);
+        moneyFragment.setArguments(mb);
+        list.add(moneyFragment);
 
         mPager.setAdapter(new TitlePagerAdapter(this, R.array.tab_balance_detail, list, getSupportFragmentManager()));
         mTabLayout.setupWithViewPager(mPager);

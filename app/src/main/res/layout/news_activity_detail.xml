@@ -10,11 +10,10 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <TextView
+    <WebView
+        android:id="@+id/wv_news_detail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextTitle"
-        tools:text="关注官方微信服务号 免费获得新英雄泰兰德"
+        android:layout_height="match_parent"
         />
 
 </LinearLayout>

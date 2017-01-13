@@ -5,7 +5,6 @@
     android:id="@+id/dv_item_image"
     android:layout_width="match_parent"
     android:layout_height="72dp"
-    android:layout_margin="4dp"
     app:actualImageScaleType="centerCrop"
     app:placeholderImage="@mipmap/def_image_loading"
     app:placeholderImageScaleType="centerCrop"

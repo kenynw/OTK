@@ -2,6 +2,7 @@ package com.miguan.otk.model;
 
 import com.dsk.chain.model.AbsModel;
 import com.miguan.otk.model.bean.Against;
+import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
@@ -19,6 +20,10 @@ public class MatchModel extends AbsModel {
 
     public static MatchModel getInstance() {
         return getInstance(MatchModel.class);
+    }
+
+    public Observable<Home> getHome() {
+        return ServicesClient.getServices().homeMatch(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
     }
 
     /**

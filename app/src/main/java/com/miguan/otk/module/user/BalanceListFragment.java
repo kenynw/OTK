@@ -4,7 +4,6 @@ import android.view.ViewGroup;
 
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.list.BaseListFragment;
-import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.adapter.viewholder.BalanceViewHolder;
 import com.miguan.otk.model.bean.Balance;
 
@@ -15,7 +14,7 @@ import com.miguan.otk.model.bean.Balance;
 public class BalanceListFragment extends BaseListFragment<BalanceListPresenter, Balance> {
 
     @Override
-    public BaseViewHolder createViewHolder(ViewGroup parent, int viewType) {
+    public BalanceViewHolder createViewHolder(ViewGroup parent, int viewType) {
         return new BalanceViewHolder(parent);
     }
 

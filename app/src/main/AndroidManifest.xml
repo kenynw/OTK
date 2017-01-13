@@ -38,7 +38,7 @@
         </activity>
         <activity android:name=".module.user.BalanceDetailActivity">
         </activity>
-        <activity android:name=".module.user.CashRecordActivity">
+        <activity android:name=".module.user.WithdrawRecordActivity">
         </activity>
         <activity android:name=".module.store.StoreHomeActivity">
         </activity>
@@ -87,6 +87,8 @@
         <activity android:name=".module.against.ContactJudgeActivity">
         </activity>
         <activity android:name=".module.user.ProfileModifyActivity">
+        </activity>
+        <activity android:name=".module.common.WebActivity">
         </activity>
     </application>
 

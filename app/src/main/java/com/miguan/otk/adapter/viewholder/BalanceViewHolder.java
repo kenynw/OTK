@@ -34,10 +34,10 @@ public class BalanceViewHolder extends BaseViewHolder<Balance> {
     }
 
     @Override
-    public void setData(Balance data) {
-        mTvTitle.setText(data.getTitle());
-        mTvDetail.setText(data.getDetail());
-        mTvDate.setText(data.getDate());
-        mTvRest.setText(data.getBalance());
+    public void setData(Balance balance) {
+        mTvTitle.setText(balance.getDesc());
+        mTvDate.setText(balance.getCreate_time());
+        mTvDetail.setText(balance.getNum());
+        mTvRest.setText(String.format(getContext().getString(R.string.label_balance), balance.getQty()));
     }
 }

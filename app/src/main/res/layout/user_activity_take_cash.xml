@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.miguan.otk.module.user.CashRecordActivity">
+    tools:context="com.miguan.otk.module.user.WithdrawRecordActivity">
 
     <include layout="@layout/include_toolbar"/>
 
@@ -44,7 +44,7 @@
                     />
 
                 <Button
-                    android:id="@+id/btn_cash_record_cash_in"
+                    android:id="@+id/btn_cash_record_withdraw"
                     style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

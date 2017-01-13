@@ -2,11 +2,15 @@ package com.miguan.otk.model;
 
 
 import com.dsk.chain.model.AbsModel;
+import com.miguan.otk.model.bean.Balance;
 import com.miguan.otk.model.bean.Sign;
 import com.miguan.otk.model.bean.User;
+import com.miguan.otk.model.bean.Withdraw;
 import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
 import com.sgun.utils.LUtils;
+
+import java.util.List;
 
 import rx.Observable;
 
@@ -78,6 +82,16 @@ public class UserModel extends AbsModel {
      */
     public Observable<Boolean> sign() {
         return ServicesClient.getServices().sign(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
+    }
+
+    public Observable<List<Balance>> getBalanceList(String type, Integer page) {
+        return ServicesClient.getServices().balanceList(type, LUtils.getPreferences().getString("token", ""), page)
+                .compose(new DefaultTransform<>());
+    }
+
+    public Observable<Withdraw> getWithdrawRecord(Integer page) {
+        return ServicesClient.getServices().withdrawRecord(LUtils.getPreferences().getString("token", ""), page)
+                .compose(new DefaultTransform<>());
     }
 
 }

@@ -18,7 +18,7 @@
         >
 
         <TextView
-            android:id="@+id/tv_record_title"
+            android:id="@+id/tv_match_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextBody"
@@ -32,7 +32,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_match_nature"
+            android:id="@+id/tv_match_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextBody"

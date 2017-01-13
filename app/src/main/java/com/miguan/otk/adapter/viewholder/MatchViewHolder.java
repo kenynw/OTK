@@ -19,10 +19,10 @@ import butterknife.ButterKnife;
 
 public class MatchViewHolder extends BaseViewHolder<Match> {
 
-    @Bind(R.id.tv_record_title)
+    @Bind(R.id.tv_match_id)
     TextView mTvID;
 
-    @Bind(R.id.tv_match_nature)
+    @Bind(R.id.tv_match_status)
     TextView mTvState;
 
     @Bind(R.id.dv_match_thumb)

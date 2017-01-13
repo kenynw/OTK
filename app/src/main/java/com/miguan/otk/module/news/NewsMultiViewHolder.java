@@ -10,8 +10,10 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
+import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.News;
+import com.sgun.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,6 +42,9 @@ public class NewsMultiViewHolder extends BaseViewHolder<News> {
     public void setData(News news) {
         mTvTitle.setText(news.getTitle());
         mTvDate.setText(news.getCreate_time());
+        SpaceDecoration itemDecoration = new SpaceDecoration(LUtils.dp2px(8));//参数是距离宽度
+        itemDecoration.setPaddingEdgeSide(false);
+        mRcvImages.addItemDecoration(itemDecoration);
         mRcvImages.setLayoutManager(new GridLayoutManager(getContext(), 3));
         mRcvImages.setAdapter(new ImageAdapter(news.getImg()));
     }

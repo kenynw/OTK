@@ -7,15 +7,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
-import com.miguan.otk.model.bean.CashRecord;
+import com.miguan.otk.model.bean.Withdraw;
 import com.sgun.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class CashRecordActivity extends BaseDataActivity<CashRecordPresenter, CashRecord> {
+@RequiresPresenter(WithdrawRecordPresenter.class)
+public class WithdrawRecordActivity extends BaseDataActivity<WithdrawRecordPresenter, Withdraw> {
 
     @Bind(R.id.tv_cash_record_balance)
     TextView mTvBalance;
@@ -23,8 +25,8 @@ public class CashRecordActivity extends BaseDataActivity<CashRecordPresenter, Ca
     @Bind(R.id.tv_cash_record_account)
     TextView mTvAccount;
 
-    @Bind(R.id.btn_cash_record_cash_in)
-    Button mBtnCashIn;
+    @Bind(R.id.btn_cash_record_withdraw)
+    Button mBtnWithdraw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +34,13 @@ public class CashRecordActivity extends BaseDataActivity<CashRecordPresenter, Ca
         setContentView(R.layout.user_activity_take_cash);
         ButterKnife.bind(this);
 
-        mBtnCashIn.setOnClickListener(v -> showCashDialog());
+        mBtnWithdraw.setOnClickListener(v -> showCashDialog());
     }
 
     @Override
-    public void setData(CashRecord cashRecord) {
-        mTvBalance.setText(cashRecord.getAmount());
+    public void setData(Withdraw withdraw) {
+        mTvBalance.setText(withdraw.getMoney());
+        mTvAccount.setText(withdraw.getAlipay_account());
     }
 
     private void showCashDialog() {

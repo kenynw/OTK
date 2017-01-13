@@ -20,7 +20,7 @@ import com.miguan.otk.module.settings.SettingsActivity;
 import com.miguan.otk.module.store.StoreHomeActivity;
 import com.miguan.otk.module.user.AddressListActivity;
 import com.miguan.otk.module.user.BalanceDetailActivity;
-import com.miguan.otk.module.user.CashRecordActivity;
+import com.miguan.otk.module.user.WithdrawRecordActivity;
 import com.miguan.otk.module.user.FeedbackActivity;
 import com.miguan.otk.module.user.GameAccountActivity;
 import com.miguan.otk.module.user.LoginActivity;
@@ -104,7 +104,7 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
         mBtnMyMatch.setOnClickListener(v -> startActivity(new Intent(getActivity(), MyMatchActivity.class)));
         mBtnSign.setOnClickListener(v -> startActivity(new Intent(getActivity(), SignInActivity.class)));
         mBtnBalance.setOnClickListener(v -> startActivity(new Intent(getActivity(), BalanceDetailActivity.class)));
-        mBtnRecordCash.setOnClickListener(v -> startActivity(new Intent(getActivity(), CashRecordActivity.class)));
+        mBtnRecordCash.setOnClickListener(v -> startActivity(new Intent(getActivity(), WithdrawRecordActivity.class)));
         mBtnOrder.setOnClickListener(v -> startActivity(new Intent(getActivity(), MyOrderActivity.class)));
         mBtnGameAccount.setOnClickListener(v -> startActivity(new Intent(getActivity(), GameAccountActivity.class)));
         mBtnAddress.setOnClickListener(v -> startActivity(new Intent(getActivity(), AddressListActivity.class)));
