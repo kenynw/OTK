@@ -44,7 +44,7 @@ public class WithdrawRecordActivity extends BaseDataActivity<WithdrawRecordPrese
     }
 
     private void showCashDialog() {
-        View view = View.inflate(this, R.layout.dialog_cash_in, null);
+        View view = View.inflate(this, R.layout.dialog_withdraw, null);
         TextView tvClose = (TextView) view.findViewById(R.id.tv_dialog_cash_in_close);
         Button btnOk = (Button) view.findViewById(R.id.btn_dialog_cash_in_ok);
         EditText etAmount = (EditText) view.findViewById(R.id.et_dialog_cash_in_amount);

@@ -26,6 +26,7 @@ public class AgainstViewHolder extends BaseViewHolder<Against> {
 
     @Override
     public void setData(Against against) {
-        mTvA.setText(String.format("%s VS %s", against.getAusername(), against.getBusername()));
+
+        mTvA.setText(String.format("%s VS %s", against.getUser_a().getUsername(), against.getUser_b().getUsername()));
     }
 }

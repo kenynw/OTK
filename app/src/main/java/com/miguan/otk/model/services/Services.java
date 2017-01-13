@@ -6,7 +6,9 @@ import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.bean.News;
 import com.miguan.otk.model.bean.Sign;
+import com.miguan.otk.model.bean.Splash;
 import com.miguan.otk.model.bean.User;
+import com.miguan.otk.model.bean.Version;
 import com.miguan.otk.model.bean.Withdraw;
 
 import java.util.List;
@@ -25,7 +27,7 @@ import rx.Observable;
 
 public interface Services {
 
-    String BASE_URL = "http://api.beta.otkpk.com";
+    String BASE_URL = "http://api.beta.otkpk.com/v1/";
 
     /**
      * 用户登录
@@ -34,7 +36,7 @@ public interface Services {
      * @return 是否成功
      */
     @FormUrlEncoded
-    @POST("/user/user/login")
+    @POST("user/user/login")
     Observable<User> login(
             @Field("username") CharSequence username,
             @Field("password") CharSequence password
@@ -50,7 +52,7 @@ public interface Services {
      * @return 结果
      */
     @FormUrlEncoded
-    @POST("/user/user/sign-up")
+    @POST("user/user/sign-up")
     Observable<User> register(
             @Field("username") CharSequence username,
             @Field("mobile") CharSequence mobile,
@@ -64,7 +66,7 @@ public interface Services {
      * @return 是否成功
      */
     @FormUrlEncoded
-    @POST("/user/user/captcha-register")
+    @POST("user/user/captcha-register")
     Observable<Boolean> sendCaptchaRegister(
             @Field("mobile") CharSequence mobile
     );
@@ -75,7 +77,7 @@ public interface Services {
      * @return 是否成功
      */
     @FormUrlEncoded
-    @POST("/user/user/captcha-reset")
+    @POST("user/user/captcha-reset")
     Observable<Boolean> sendCaptchaReset(
             @Field("mobile") CharSequence mobile
     );
@@ -86,7 +88,7 @@ public interface Services {
      * @return 是否成功
      */
     @FormUrlEncoded
-    @POST("/user/user/captcha-update")
+    @POST("user/user/captcha-update")
     Observable<Boolean> sendCaptchaUpdate(
             @Field("mobile") CharSequence mobile,
             @Field("access-token") CharSequence token
@@ -101,7 +103,7 @@ public interface Services {
      * @return
      */
     @FormUrlEncoded
-    @POST("/user/user/reset-password")
+    @POST("user/user/reset-password")
     Observable<Boolean> modifyPwd(
             @Field("mobile") CharSequence mobile,
             @Field("captcha") CharSequence captcha,
@@ -109,13 +111,13 @@ public interface Services {
     );
 
     /**
-     * 忘记密码
+     * 个人中心
      *
      * @param token 登录令牌
      * @return
      */
     @FormUrlEncoded
-    @POST("/user/user/index")
+    @POST("user/center/index")
     Observable<User> userInfo(
             @Field("token") CharSequence token
     );
@@ -127,7 +129,7 @@ public interface Services {
      * @return
      */
     @FormUrlEncoded
-    @POST("/user/user/index")
+    @POST("user/message/index")
     Observable<User> userProfile(
             @Field("token") CharSequence token
     );
@@ -139,7 +141,7 @@ public interface Services {
      * @return
      */
     @FormUrlEncoded
-    @POST("/user/user/index")
+    @POST("user/message/index")
     Observable<User> modifyProfile(
             @Field("token") CharSequence token,
             @Field("qq") CharSequence qq,
@@ -158,7 +160,7 @@ public interface Services {
      * @return
      */
     @FormUrlEncoded
-    @POST("/user/user/index")
+    @POST("user/sign/index")
     Observable<Boolean> sign(
             @Field("token") CharSequence token
     );
@@ -170,7 +172,7 @@ public interface Services {
      * @return
      */
     @FormUrlEncoded
-    @POST("/user/usersign/signdata")
+    @POST("user/sign/signdata")
     Observable<Sign> signDetail(
             @Field("token") CharSequence token
     );
@@ -181,7 +183,7 @@ public interface Services {
      * @param token 登录令牌
      * @return
      */
-    @GET("/user/userbanner/index")
+    @GET("user/banner/index")
     Observable<List<Match>> myMatchList(
             @Query("token") CharSequence token,
             @Query("page") Integer page
@@ -193,7 +195,7 @@ public interface Services {
      * @param token 登录令牌
      * @return
      */
-    @GET("/user/userbanner/record")
+    @GET("user/banner/record")
     Observable<List<Against>> againstList(
             @Query("token") CharSequence token,
             @Query("page") Integer page
@@ -206,7 +208,7 @@ public interface Services {
      * @param page 页数
      * @return
      */
-    @GET("/user/userbalance/{type}")
+    @GET("user/balance/{type}")
     Observable<List<Balance>> balanceList(
             @Path("type") String type,
             @Query("token") CharSequence token,
@@ -219,7 +221,7 @@ public interface Services {
      * @param page 页数
      * @return
      */
-    @GET("/user/userrecord/getcashrecord")
+    @GET("user/record/getcashrecord")
     Observable<Withdraw> withdrawRecord(
             @Query("token") CharSequence token,
             @Query("page") Integer page
@@ -233,7 +235,7 @@ public interface Services {
      * @param token 登录令牌 可选
      * @return
      */
-    @GET("/home/home/index")
+    @GET("home/home/index")
     Observable<Home> homeMatch(
             @Query("token") String token
     );
@@ -245,10 +247,34 @@ public interface Services {
      * @param page 当前页数
      * @return
      */
-    @GET("/article/article/article-list")
+    @GET("article/article/article-list")
     Observable<List<News>> newsList(
             @Query("type") int type,
             @Query("page") int page
+    );
+
+    /**
+     * 广告图
+     *
+     * @param type 广告图位置 read-splash-闪屏； read-opening-首页弹窗
+     * @param mobile 手机系统类型(1:android, 2:ios)
+     * @return
+     */
+    @GET("system/system/{type}")
+    Observable<Splash> splash(
+            @Path("type") String type,
+            @Query("mobile") Integer mobile
+    );
+
+    /**
+     * 检测更新
+     *
+     * @param version 当前版本号
+     * @return
+     */
+    @GET("system/system/version-upgrade")
+    Observable<Version> checkUpdate(
+            @Path("version") String version
     );
 
 }

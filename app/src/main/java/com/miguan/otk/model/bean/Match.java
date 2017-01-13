@@ -12,6 +12,8 @@ public class Match implements Parcelable {
 
     private String title;
 
+    private String start_time;
+
     private String game_name;
 
     private String game_img;
@@ -37,6 +39,7 @@ public class Match implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.competition_id);
         dest.writeString(this.title);
+        dest.writeString(this.start_time);
         dest.writeString(this.game_name);
         dest.writeString(this.game_img);
         dest.writeString(this.game_status);
@@ -53,6 +56,7 @@ public class Match implements Parcelable {
     protected Match(Parcel in) {
         this.competition_id = in.readInt();
         this.title = in.readString();
+        this.start_time = in.readString();
         this.game_name = in.readString();
         this.game_img = in.readString();
         this.game_status = in.readString();
@@ -89,6 +93,14 @@ public class Match implements Parcelable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getStart_time() {
+        return start_time;
+    }
+
+    public void setStart_time(String start_time) {
+        this.start_time = start_time;
     }
 
     public String getGame_name() {

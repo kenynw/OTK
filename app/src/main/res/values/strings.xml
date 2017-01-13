@@ -59,6 +59,7 @@
     <string name="btn_qq">QQ</string>
     <string name="btn_register">注册</string>
     <string name="btn_recent_game">最近赛事</string>
+    <string name="btn_skip">%d秒跳过</string>
     <string name="btn_send_captcha">发送验证码</string>
     <string name="btn_settings">设置</string>
     <string name="btn_sign_in">签到</string>

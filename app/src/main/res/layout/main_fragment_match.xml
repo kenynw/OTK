@@ -39,7 +39,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin"
                 >
 
                 <Button
@@ -48,9 +50,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/white"
+                    android:background="@mipmap/bg_main_match_daily"
                     android:drawablePadding="8dp"
-                    android:text="@string/btn_daily_mission"
                     android:textAppearance="@style/TextBody"
                     />
 
@@ -60,9 +61,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/white"
+                    android:background="@mipmap/bg_main_match_my"
                     android:drawablePadding="8dp"
-                    android:text="@string/btn_my_match"
                     android:textAppearance="@style/TextBody"
                     />
 

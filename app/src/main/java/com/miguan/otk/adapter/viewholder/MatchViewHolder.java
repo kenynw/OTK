@@ -1,6 +1,7 @@
 package com.miguan.otk.adapter.viewholder;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -43,8 +44,9 @@ public class MatchViewHolder extends BaseViewHolder<Match> {
     public void setData(Match data) {
         mTvID.setText(String.format(getContext().getString(R.string.label_match_id), data.getCompetition_id()));
         mTvState.setText(data.getStatus());
-//        mDvThumb.setImageURI(Uri.parse(data.getEnrolled()));
+        mDvThumb.setImageURI(Uri.parse(data.getGame_img()));
         mTvTitle.setText(data.getTitle());
+        mTvTime.setText(data.getStart_time());
         itemView.setOnClickListener(v -> {
             Intent i = new Intent(getContext(), MatchDetailActivity.class);
             i.putExtra("match_id", data.getCompetition_id());

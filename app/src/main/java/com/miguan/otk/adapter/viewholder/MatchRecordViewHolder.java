@@ -1,5 +1,7 @@
 package com.miguan.otk.adapter.viewholder;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -7,6 +9,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Against;
+import com.miguan.otk.module.match.MatchDetailActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -43,8 +46,15 @@ public class MatchRecordViewHolder extends BaseViewHolder<Against> {
     @Override
     public void setData(Against against) {
         mTvTitle.setText(against.getTitle());
-        mTvStatus.setText(against.getWinner_id() == against.getAuser_id() ? "胜-负" : "负-胜");
-        mTvUserA.setText(against.getAusername());
-        mTvUserB.setText(against.getBusername());
+        mTvStatus.setText(against.getResult());
+        mTvUserA.setText(against.getUser_a().getUsername());
+        mDvUserA.setImageURI(Uri.parse(against.getUser_a().getPhoto()));
+        mTvUserB.setText(against.getUser_b().getUsername());
+        mDvUserB.setImageURI(Uri.parse(against.getUser_b().getPhoto()));
+        itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), MatchDetailActivity.class);
+            intent.putExtra("match_id", against.getCompetition_id());
+            getContext().startActivity(intent);
+        });
     }
 }

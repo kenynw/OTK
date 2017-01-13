@@ -13,19 +13,15 @@ public class Against implements Parcelable {
 
     private int competition_id;
 
-    private int auser_id;
-
-    private int buser_id;
-
-    private int winner_id;
-
     private String type;
 
     private String title;
 
-    private String ausername;
+    private User user_a;
 
-    private String busername;
+    private User user_b;
+
+    private String result;
 
     @Override
     public int describeContents() {
@@ -36,13 +32,11 @@ public class Against implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.id);
         dest.writeInt(this.competition_id);
-        dest.writeInt(this.auser_id);
-        dest.writeInt(this.buser_id);
-        dest.writeInt(this.winner_id);
         dest.writeString(this.type);
         dest.writeString(this.title);
-        dest.writeString(this.ausername);
-        dest.writeString(this.busername);
+        dest.writeParcelable(this.user_a, flags);
+        dest.writeParcelable(this.user_b, flags);
+        dest.writeString(this.result);
     }
 
     public Against() {
@@ -51,13 +45,11 @@ public class Against implements Parcelable {
     protected Against(Parcel in) {
         this.id = in.readInt();
         this.competition_id = in.readInt();
-        this.auser_id = in.readInt();
-        this.buser_id = in.readInt();
-        this.winner_id = in.readInt();
         this.type = in.readString();
         this.title = in.readString();
-        this.ausername = in.readString();
-        this.busername = in.readString();
+        this.user_a = in.readParcelable(User.class.getClassLoader());
+        this.user_b = in.readParcelable(User.class.getClassLoader());
+        this.result = in.readString();
     }
 
     public static final Creator<Against> CREATOR = new Creator<Against>() {
@@ -88,30 +80,6 @@ public class Against implements Parcelable {
         this.competition_id = competition_id;
     }
 
-    public int getAuser_id() {
-        return auser_id;
-    }
-
-    public void setAuser_id(int auser_id) {
-        this.auser_id = auser_id;
-    }
-
-    public int getBuser_id() {
-        return buser_id;
-    }
-
-    public void setBuser_id(int buser_id) {
-        this.buser_id = buser_id;
-    }
-
-    public int getWinner_id() {
-        return winner_id;
-    }
-
-    public void setWinner_id(int winner_id) {
-        this.winner_id = winner_id;
-    }
-
     public String getType() {
         return type;
     }
@@ -128,19 +96,27 @@ public class Against implements Parcelable {
         this.title = title;
     }
 
-    public String getAusername() {
-        return ausername;
+    public User getUser_a() {
+        return user_a;
     }
 
-    public void setAusername(String ausername) {
-        this.ausername = ausername;
+    public void setUser_a(User user_a) {
+        this.user_a = user_a;
     }
 
-    public String getBusername() {
-        return busername;
+    public User getUser_b() {
+        return user_b;
     }
 
-    public void setBusername(String busername) {
-        this.busername = busername;
+    public void setUser_b(User user_b) {
+        this.user_b = user_b;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
     }
 }

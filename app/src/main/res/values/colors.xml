@@ -8,7 +8,7 @@
     <color name="black">#000</color>
 
     <!--背景颜色，添加bg前缀-->
-    <color name="bgWindow">#ddd</color>
+    <color name="bgWindow">#f3f3f3</color>
     <color name="bgActionBar">#eee</color>
 
     <!--文本颜色，添加text前缀-->

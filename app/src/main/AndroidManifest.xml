@@ -20,6 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".module.main.AdActivity"
+            android:theme="@style/LaunchTheme">
+        </activity>
         <activity android:name=".module.main.MainActivity"/>
         <activity android:name=".module.user.LoginActivity"/>
         <activity android:name=".module.user.ForgotActivity"/>
