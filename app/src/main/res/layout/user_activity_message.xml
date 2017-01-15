@@ -23,7 +23,7 @@
         android:lineSpacingMultiplier="1.4"
         android:maxLines="3"
         android:textAppearance="@style/TextBody"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/horizontal_margin"
         tools:text="系统消息欢迎参加OTK双12天选赛，报名即可获万元奖金欢迎参加OTK双12天选赛，报名即可获万元奖金"
         />
 
@@ -39,7 +39,7 @@
         android:lineSpacingMultiplier="1.4"
         android:maxLines="3"
         android:textAppearance="@style/TextBody"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/horizontal_margin"
         tools:text="系统消息欢迎参加OTK双12天选赛，报名即可获万元奖金欢迎参加OTK双12天选赛，报名即可获万元奖金"
         />
 

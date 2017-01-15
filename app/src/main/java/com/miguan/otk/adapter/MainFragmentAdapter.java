@@ -18,10 +18,10 @@ import java.util.List;
 
 public class MainFragmentAdapter extends FragmentPagerAdapter {
 
-    private static final String[] TITLES = new String[] {"比赛", "资讯", "个人"};
+    private static final String[] TITLES = new String[] {"资讯", "比赛", "个人"};
 
     private static final int[] sICONS = new int[] {
-            R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher
+            R.drawable.tab_main_news_selector, R.drawable.tab_main_match_selector, R.drawable.tab_main_mine_selector
     };
 
     private List<Fragment> mFragments;
@@ -29,8 +29,8 @@ public class MainFragmentAdapter extends FragmentPagerAdapter {
     public MainFragmentAdapter(FragmentManager fm) {
         super(fm);
         mFragments = new ArrayList<>();
-        mFragments.add(new MainMatchFragment());
         mFragments.add(new MainNewsFragment());
+        mFragments.add(new MainMatchFragment());
         mFragments.add(new MainMineFragment());
     }
 

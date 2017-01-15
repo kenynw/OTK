@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@drawable/bg_radius_white"
     android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin">
+    android:padding="@dimen/horizontal_margin">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +19,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/text_size_body_material"
             tools:text="OTK炉石传说元旦跨年超值赛事"
             />
 
@@ -26,6 +28,8 @@
             android:id="@+id/tv_match_home_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_size_body_material"
             tools:text="今日19：14"
             />
 
@@ -35,8 +39,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
         >
 
         <TextView
@@ -52,6 +56,8 @@
             android:id="@+id/tv_match_home_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/text_size_body_material"
             tools:text="正在进行"
             />
 
@@ -60,15 +66,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         >
 
-        <ImageView
-            android:id="@+id/iv_match_home_type"
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dv_match_home_game_icon"
+            style="@style/TinyAvatar"
+            />
+
+        <TextView
+            android:id="@+id/tv_match_home_game_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_star"
-            android:textAppearance="@style/TextTitle"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/text_size_body_material"
+            tools:text="炉石传说"
             />
 
         <Space
@@ -77,10 +90,11 @@
             android:layout_weight="1"
             />
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/dv_match_home_game_icon"
-            style="@style/TinyAvatar"
-            tools:text="正在进行"
+        <ImageView
+            android:id="@+id/iv_match_home_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextTitle"
             />
 
     </LinearLayout>

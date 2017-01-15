@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="horizontal"
-    android:padding="@dimen/activity_horizontal_margin">
+    android:padding="@dimen/horizontal_margin">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/dv_goods_thumb"
@@ -21,7 +21,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/horizontal_margin"
         android:orientation="vertical"
         >
 

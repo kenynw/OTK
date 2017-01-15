@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.miguan.otk.module.match.AgainstListFragment;
+import com.miguan.otk.module.match.ScheduleListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class MatchScheduleAdapter extends FragmentPagerAdapter {
         super(fm);
         mList = new ArrayList<>();
         for (int i=0; i<3; i++) {
-            AgainstListFragment fragment = new AgainstListFragment();
+            ScheduleListFragment fragment = new ScheduleListFragment();
             mList.add(fragment);
         }
 

@@ -1,18 +1,18 @@
 package com.miguan.otk.module.match;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataFragment;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Match;
-import com.miguan.otk.module.against.AgainstActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,14 +23,17 @@ import butterknife.ButterKnife;
 @RequiresPresenter(MatchInfoPresenter.class)
 public class MatchInfoFragment extends BaseDataFragment<MatchInfoPresenter, Match> {
 
-    @Bind(R.id.tv_match_enroll)
-    TextView mTvEnroll;
+    @Bind(R.id.tv_match_desc)
+    TextView mTvDesc;
 
-    @Bind(R.id.tv_match_bench)
-    TextView mTvBench;
+    @Bind(R.id.btn_match_enroll)
+    Button mBtnEnroll;
 
-    @Bind(R.id.btn_match_detail_enroll)
-    TextView mBtnEnroll;
+    @Bind(R.id.btn_match_bench)
+    Button mBtnBench;
+
+    @Bind(R.id.btn_match_qq_group)
+    Button mBtnGroup;
 
     @Nullable
     @Override
@@ -38,10 +41,17 @@ public class MatchInfoFragment extends BaseDataFragment<MatchInfoPresenter, Matc
         View view = inflater.inflate(R.layout.match_fragment_info, container, false);
         ButterKnife.bind(this, view);
 
-        mTvEnroll.setOnClickListener(v -> getPresenter().showEnrollList(0));
-        mTvBench.setOnClickListener(v -> getPresenter().showEnrollList(1));
-        mBtnEnroll.setOnClickListener(v -> startActivity(new Intent(getActivity(), AgainstActivity.class)));
-
         return view;
     }
+
+    @Override
+    public void setData(Match match) {
+        mTvDesc.setText(Html.fromHtml(match.getContent()));
+        mBtnEnroll.setText(String.format(getString(R.string.btn_enroll_list), match.getCount_competitor(), match.getCompetitors()));
+        mBtnEnroll.setOnClickListener(v -> getPresenter().toUserList(match.getCompetition_id(), 1));
+        mBtnBench.setText(String.format(getString(R.string.btn_bench_list), match.getCount_sub_competitor(), match.getSubstitute_competitors()));
+        mBtnBench.setOnClickListener(v -> getPresenter().toUserList(match.getCompetition_id(), 2));
+        mBtnGroup.setOnClickListener(v -> getPresenter().toQQGroup(match.getQq_group_url()));
+    }
+
 }

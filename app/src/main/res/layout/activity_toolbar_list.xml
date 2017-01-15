@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.miguan.otk.module.match.EnrollListActivity">
+    tools:context="com.miguan.otk.module.match.CompetitorListActivity">
 
     <include layout="@layout/include_toolbar"/>
 

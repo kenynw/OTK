@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/match_activity_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:divider="@drawable/div_gray"
-    android:orientation="vertical"
-    android:showDividers="middle"
     tools:context="com.miguan.otk.module.match.MatchDetailActivity">
 
     <include layout="@layout/include_toolbar"/>
@@ -16,6 +13,7 @@
     <com.miguan.otk.widget.StickyNavLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
         android:orientation="vertical">
 
         <LinearLayout
@@ -26,32 +24,56 @@
             >
 
             <TextView
+                android:id="@+id/tv_match_detail_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:gravity="center"
-                android:padding="@dimen/activity_horizontal_margin"
-                android:text="木子姐姐建的自定义常规赛（联系QQ群：0592110）"
+                android:padding="@dimen/horizontal_margin"
                 android:textAppearance="@style/TextSubhead"
+                tools:text="木子姐姐建的自定义常规赛（联系QQ群：0592110）"
                 />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/widget_tiny_height"
-                android:background="@color/white"
-                android:gravity="right|center_vertical"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:text="@string/label_match_id"
-                android:textAppearance="@style/TextCaption"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/horizontal_margin"
+                android:paddingRight="@dimen/horizontal_margin"
+                >
+
+                <TextView
+                    android:id="@+id/tv_match_detail_cost"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/widget_tiny_height"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="left|center_vertical"
+                    android:paddingRight="@dimen/horizontal_margin"
+                    android:textAppearance="@style/TextCaption"
+                    tools:text="@string/label_match_id"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_match_detail_id"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/widget_tiny_height"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="right|center_vertical"
+                    android:textAppearance="@style/TextCaption"
+                    tools:text="@string/label_match_id"
+                    />
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/tv_match_detail_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="1dp"
                 android:background="@color/white"
-                android:padding="@dimen/activity_horizontal_margin"
+                android:padding="@dimen/horizontal_margin"
                 android:text="@string/label_match_state"
                 android:textAppearance="@style/TextBody"
                 />
@@ -75,4 +97,13 @@
 
     </com.miguan.otk.widget.StickyNavLayout>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_match_detail_status"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/btn_enroll"
+        />
+
+</RelativeLayout>

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin">
+    android:padding="@dimen/horizontal_margin">
 
     <LinearLayout
         android:id="@+id/layout_order_address"
@@ -43,8 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/vertical_margin"
+        android:paddingTop="@dimen/vertical_margin"
         android:textColor="@color/text_black_secondary"
         android:textSize="@dimen/text_size_body_material"
         tools:text="福建省  厦门市"

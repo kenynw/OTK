@@ -42,7 +42,7 @@ public class MainActivity extends BaseDataActivity<MainPresenter, Splash> {
         mTab.addOnTabSelectedListener(getPresenter());
         for (int i = 0; i < getPresenter().getAdapter().getCount(); i++) {
             TabLayout.Tab tab = mTab.newTab();
-            mTab.addTab(tab, i == 0);
+            mTab.addTab(tab, i == 1);
             tab.setText(getPresenter().getAdapter().getPageTitle(i));
             tab.setIcon(getPresenter().getAdapter().getPageIcon(i));
         }

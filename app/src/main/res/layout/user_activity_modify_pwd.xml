@@ -12,7 +12,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/vertical_margin"
         android:background="@color/white"
         >
 
@@ -20,7 +20,7 @@
             android:id="@+id/tv_modify_pwd_old"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:text="@string/label_pwd_old"
             />
 
@@ -29,7 +29,7 @@
             style="@style/TextBody"
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_medium_height"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/horizontal_margin"
             android:layout_toRightOf="@id/tv_modify_pwd_old"
             android:background="@color/white"
             android:hint="@string/hint_old_password"
@@ -41,7 +41,7 @@
             android:id="@+id/tv_modify_pwd_new"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:layout_below="@id/tv_modify_pwd_old"
             android:text="@string/label_pwd_new"
             />
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_medium_height"
             android:layout_below="@id/et_modify_pwd_old"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/horizontal_margin"
             android:layout_toRightOf="@id/tv_modify_pwd_new"
             android:background="@color/white"
             android:hint="@string/hint_new_password"
@@ -64,14 +64,14 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@id/et_modify_pwd_old"
-            android:background="@color/div_gray"
+            android:background="@color/divGray"
             />
 
         <TextView
             android:id="@+id/tv_modify_pwd_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:layout_below="@id/tv_modify_pwd_new"
             android:text="@string/label_pwd_confirm"
             />
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_medium_height"
             android:layout_below="@id/et_modify_pwd_new"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/horizontal_margin"
             android:layout_toRightOf="@id/tv_modify_pwd_confirm"
             android:background="@color/white"
             android:hint="@string/hint_confirm_password"
@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@id/et_modify_pwd_new"
-            android:background="@color/div_gray"
+            android:background="@color/divGray"
             />
 
     </RelativeLayout>
@@ -103,7 +103,7 @@
         android:id="@+id/btn_modify_pwd_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_margin="@dimen/vertical_margin"
         style="@style/Widget.AppCompat.Button.Colored"
         android:text="@string/btn_ok"
         android:textColor="@color/white"

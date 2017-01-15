@@ -7,8 +7,8 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:paddingBottom="8dp"
-    android:paddingLeft="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/vertical_margin"
+    android:paddingRight="@dimen/vertical_margin"
     android:paddingTop="8dp"
     >
 
@@ -26,7 +26,7 @@
         android:id="@+id/tv_comment_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_margin="@dimen/vertical_margin"
         android:layout_toRightOf="@id/dv_comment_avatar"
         android:maxLength="10"
         android:maxLines="1"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/tv_comment_name"
         android:layout_below="@id/tv_comment_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/vertical_margin"
         android:textAppearance="@style/TextCaption"
         tools:text="2016.11.17 14:41"
         />

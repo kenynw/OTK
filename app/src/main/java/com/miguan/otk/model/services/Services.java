@@ -1,6 +1,6 @@
 package com.miguan.otk.model.services;
 
-import com.miguan.otk.model.bean.Against;
+import com.miguan.otk.model.bean.Schedule;
 import com.miguan.otk.model.bean.Balance;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;
@@ -29,6 +29,7 @@ public interface Services {
 
     String BASE_URL = "http://api.beta.otkpk.com/v1/";
 
+    //////////////////用户相关/////////////////////
     /**
      * 用户登录
      * @param username 用户名
@@ -196,7 +197,7 @@ public interface Services {
      * @return
      */
     @GET("user/banner/record")
-    Observable<List<Against>> againstList(
+    Observable<List<Schedule>> againstList(
             @Query("token") CharSequence token,
             @Query("page") Integer page
     );
@@ -227,7 +228,7 @@ public interface Services {
             @Query("page") Integer page
     );
 
-    //////////////////////////////////////////
+    ////////////////////比赛相关//////////////////////
 
     /**
      * 比赛首页
@@ -240,6 +241,61 @@ public interface Services {
             @Query("token") String token
     );
 
+    /**
+     * 赛事详情
+     *
+     * @param matchID 赛事ID
+     * @param token 登录令牌
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/competition/index")
+    Observable<Match> matchDetail(
+            @Field("token") String token,
+            @Field("competition_id") int matchID
+    );
+
+    /**
+     * 赛事参与用户列表
+     *
+     * @param matchID 赛事ID
+     * @param type 参赛人员类型(1：正常，2：替补)
+     * @return
+     */
+
+    @GET("competition/competition/competitors")
+    Observable<List<User>> competitors(
+            @Query("competition_id") int matchID,
+            @Query("type") int type
+    );
+
+    /**
+     * 赛事规则
+     *
+     * @param matchID 赛事ID
+     * @return
+     */
+
+    @GET("competition/competition/rule")
+    Observable<Match> competitionRule(
+            @Query("competition_id") int matchID
+    );
+
+    /**
+     * 对战表
+     *
+     * @param matchID 赛事ID
+     * @param round 比赛第几轮（从0开始）
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/competition/table")
+    Observable<Schedule> competitionSchedule(
+            @Field("competition_id") int matchID,
+            @Field("round") int round
+    );
+
+    ////////////////////其他//////////////////////
     /**
      * 资讯列表
      *

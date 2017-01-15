@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/horizontal_margin"
         >
 
         <TextView

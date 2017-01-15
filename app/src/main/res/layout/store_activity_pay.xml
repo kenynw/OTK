@@ -14,7 +14,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="@dimen/activity_vertical_margin"/>
+        android:layout_height="@dimen/vertical_margin"/>
 
     <include layout="@layout/item_list_goods"/>
 

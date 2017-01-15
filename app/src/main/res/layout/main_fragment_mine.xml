@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:divider="@drawable/div_gray"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/vertical_margin"
         android:showDividers="middle"
         >
 
@@ -20,13 +20,13 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             >
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/dv_mine_avatar"
                 style="@style/LargeAvatar"
-                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_margin="@dimen/horizontal_margin"
                 />
 
             <LinearLayout
@@ -154,7 +154,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="@dimen/activity_vertical_margin"/>
+            android:layout_height="@dimen/vertical_margin"/>
 
         <Button
             android:id="@+id/btn_my_order"
@@ -209,7 +209,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="@dimen/activity_vertical_margin"/>
+            android:layout_height="@dimen/vertical_margin"/>
 
         <Button
             android:id="@+id/btn_mine_settings"

@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             >
 
             <com.facebook.drawee.view.SimpleDraweeView
@@ -53,7 +53,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             >
 
             <TextView
@@ -92,7 +92,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             >
 
             <com.facebook.drawee.view.SimpleDraweeView
@@ -117,14 +117,14 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="@dimen/activity_vertical_margin"/>
+        android:layout_height="@dimen/vertical_margin"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:gravity="center_vertical"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/horizontal_margin"
         android:text="@string/text_prepare_phase"
         android:textAppearance="@style/TextSubhead"
         />
@@ -133,7 +133,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/horizontal_margin"
         tools:text="点击“准备”按钮进入比赛，准备截断结束之后必须互相添加对手，同事在网页聊天室、游戏里说明是否进行卡组选择界面的截图"
         />
 

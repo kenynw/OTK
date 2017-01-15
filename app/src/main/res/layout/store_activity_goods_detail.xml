@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/vertical_margin"
             >
 
             <com.miguan.otk.widget.HeadViewPager
@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:padding="@dimen/activity_horizontal_margin"
+                android:padding="@dimen/horizontal_margin"
                 android:textAppearance="@style/TextSubhead"
                 tools:text="萌萌哒创意小耳机萌萌哒创意小耳机萌萌哒"
                 />
@@ -42,9 +42,9 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:orientation="horizontal"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingBottom="@dimen/vertical_margin"
+                android:paddingLeft="@dimen/horizontal_margin"
+                android:paddingRight="@dimen/horizontal_margin"
                 >
 
                 <TextView
@@ -69,15 +69,15 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/activity_vertical_margin"/>
+                android:layout_height="@dimen/vertical_margin"/>
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tab_goods_detial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                app:tabPaddingStart="@dimen/activity_horizontal_margin"
-                app:tabPaddingEnd="@dimen/activity_horizontal_margin"
+                app:tabPaddingStart="@dimen/horizontal_margin"
+                app:tabPaddingEnd="@dimen/horizontal_margin"
                 />
 
             <FrameLayout

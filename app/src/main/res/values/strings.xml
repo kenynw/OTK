@@ -33,6 +33,7 @@
     <string name="btn_about_us">关于OTK</string>
     <string name="btn_address">收货地址</string>
     <string name="btn_balance_detail">余额明细</string>
+    <string name="btn_bench_list">替补列表(%1$s/%2$s)</string>
     <string name="btn_bind_alipay">绑定支付宝</string>
     <string name="btn_born">出生年月</string>
     <string name="btn_cancel">取消</string>
@@ -42,12 +43,14 @@
     <string name="btn_commend_match">推荐比赛</string>
     <string name="btn_daily_mission">每日任务</string>
     <string name="btn_enroll">报名</string>
+    <string name="btn_enroll_list">报名列表(%1$s/%2$s)</string>
     <string name="btn_exchange_now">立即兑换</string>
     <string name="btn_feedback">意见反馈</string>
     <string name="btn_forgot_password">忘记密码</string>
     <string name="btn_from_camera">拍照</string>
     <string name="btn_from_gallery">从相册中上传</string>
     <string name="btn_game_account">游戏帐号</string>
+    <string name="btn_join_qq_group">加入官方Q群</string>
     <string name="btn_league_join">加入公会</string>
     <string name="btn_login">登录</string>
     <string name="btn_logout">退出登录</string>
@@ -70,13 +73,11 @@
     <string name="btn_today_match">今日赛事</string>
     <string name="btn_wechat">微信</string>
 
-    <string name="text_bench_list">替补列表(%s)</string>
     <string name="text_contact">官网地址：www.otkpk.com\n新浪微博：@otk游戏竞技\n微信公众号：otk游戏竞技\n官方QQ群：77327504</string>
     <string name="text_copyright">copyright 2016 捷信宇(厦门)科技</string>
     <string name="text_contact_judge_title">点击下方的联系方式可以找我们</string>
     <string name="text_contact_judge_desc">如果页面没有自动跳转到裁判QQ，您可以尝试再次点击，或者是手动添加。</string>
     <string name="text_detail_info">详情介绍</string>
-    <string name="text_enroll_list">报名列表(%s)</string>
     <string name="text_game_account">游戏帐号</string>
     <string name="text_game_add_notice">备注：战网游戏需要添加数字战网号，如：otkxxx#1234</string>
     <string name="text_game_icon">游戏图标</string>
@@ -94,6 +95,7 @@
     <string name="text_slogan">打造一个有温度的的线上比赛平台</string>
     <string name="text_special_rules">特殊规则</string>
     <string name="text_upload_avatar">上传头像</string>
+    <string name="text_which_rounds">第%d轮</string>
 
     <string name="label_address">收货地址：</string>
     <string name="label_avatar">头像：</string>
@@ -112,8 +114,9 @@
     <string name="label_game_account">游戏帐号：</string>
     <string name="label_introduction">签名：</string>
     <string name="label_job">现状：</string>
+    <string name="label_match_cost">报名费：%s</string>
     <string name="label_match_id">赛事ID：%d</string>
-    <string name="label_match_state">赛事状态：距离报名截至还剩下00:09:10</string>
+    <string name="label_match_state">赛事状态：%1$s%2$s</string>
     <string name="label_my_balance">我的撒币：%1$d&#160;&#160;我的元宝：%2$d</string>
     <string name="label_my_coin">我的元宝：%s</string>
     <string name="label_mobile">手机号</string>

@@ -12,7 +12,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_medium_height"
-        android:layout_marginTop="@dimen/activity_vertical_margin">
+        android:layout_marginTop="@dimen/vertical_margin">
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/et_login_username"
@@ -20,12 +20,12 @@
             android:layout_height="match_parent"
             android:background="@color/white"
             android:drawableLeft="@mipmap/ic_launcher"
-            android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:drawablePadding="@dimen/horizontal_margin"
             android:hint="@string/hint_username"
             android:inputType="text"
             android:maxEms="20"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/horizontal_margin"
+            android:paddingRight="@dimen/horizontal_margin"
             android:textColorHint="@color/text_hint"
             android:textSize="@dimen/text_size_body_material"/>
 
@@ -52,10 +52,10 @@
         android:layout_height="@dimen/widget_medium_height"
         android:background="@color/white"
         android:drawableLeft="@mipmap/ic_launcher"
-        android:drawablePadding="@dimen/activity_horizontal_margin"
+        android:drawablePadding="@dimen/horizontal_margin"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/horizontal_margin"
         android:textColorHint="@color/text_hint"
         android:textSize="@dimen/text_size_body_material"/>
 
@@ -91,15 +91,15 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_max_height"
-        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_margin="@dimen/vertical_margin"
         android:text="@string/btn_login"
         android:textSize="@dimen/text_size_subhead_material"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/horizontal_margin"
+        android:layout_marginRight="@dimen/horizontal_margin"
         android:orientation="horizontal"
         android:visibility="gone">
 

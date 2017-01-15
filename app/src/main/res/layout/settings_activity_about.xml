@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_margin="@dimen/horizontal_margin"
             android:text="@string/text_slogan"
             android:textAppearance="@style/TextSubhead"
             />
@@ -50,8 +50,8 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:lineSpacingExtra="@dimen/activity_horizontal_margin"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:lineSpacingExtra="@dimen/horizontal_margin"
+        android:padding="@dimen/horizontal_margin"
         android:text="@string/text_contact"
         android:textAppearance="@style/TextBody"
         />
@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/horizontal_margin"
         android:text="@string/text_copyright"
         />
 

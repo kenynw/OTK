@@ -13,7 +13,7 @@
         android:id="@+id/tv_record_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/horizontal_margin"
         android:textAppearance="@style/TextSubhead"
         tools:text="OTK炉石传说常规赛A（联系群12346586841）"
         />
@@ -30,7 +30,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             >
 
             <com.facebook.drawee.view.SimpleDraweeView
@@ -63,7 +63,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             >
 
             <com.facebook.drawee.view.SimpleDraweeView

@@ -14,7 +14,7 @@
         android:id="@+id/et_profile_modify_input"
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_medium_height"
-        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_margin="@dimen/horizontal_margin"
         android:background="@color/white"
         android:inputType="text"
         />
@@ -23,7 +23,7 @@
         android:id="@+id/btn_profile_modify_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_margin="@dimen/horizontal_margin"
         android:text="@string/btn_ok"
         />
 

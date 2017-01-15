@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@drawable/div_gray"
-        android:dividerPadding="@dimen/activity_horizontal_margin"
+        android:dividerPadding="@dimen/horizontal_margin"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/widget_medium_height"
         android:showDividers="middle"
         >
 
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:text="@string/text_match_mode"
             android:textAppearance="@style/TextSubhead"
             />
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:stretchColumns="*">
 
             <TableRow>
@@ -64,6 +64,7 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/tv_rule_mode_final"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/stroke_gray_shape"
@@ -73,6 +74,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/tv_rule_mode_semifinal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/stroke_gray_shape"
@@ -82,6 +84,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/tv_rule_mode_battle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/stroke_gray_shape"
@@ -96,59 +99,66 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="@dimen/activity_vertical_margin"/>
+            android:layout_height="@dimen/vertical_margin"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:text="@string/text_game_mode"
             android:textAppearance="@style/TextSubhead"
             />
 
         <TextView
+            android:id="@+id/tv_rule_mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:lineSpacingExtra="8dp"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:textAppearance="@style/TextBody"
             tools:text="比赛采用“征服模式”。\n比赛分为五局三胜或三局两胜。\n五局三胜的比赛，需要选择四个英雄，ban掉对手一个英雄；三局两胜的比赛，需要选择三个英雄，ban掉对手一个英雄。\n当一名选手赢得一局对战，获胜选手在此局比赛中所使用的套牌将无法再在此场比赛中被使用。\n输掉某局对战的选手可以选择继续使用该局比赛使用的套牌，或是选择另一副已经提交的套牌。每个参赛选手必须使用其所有套牌都击败对手后，才能获得比赛的胜利"
             />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="@dimen/activity_vertical_margin"/>
+            android:layout_height="@dimen/vertical_margin"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:text="@string/text_special_rules"
             android:textAppearance="@style/TextSubhead"
             />
 
         <TextView
+            android:id="@+id/tv_rule_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:textAppearance="@style/TextBody"
             tools:text="采用通用赛事规则"
             />
 
         <TextView
+            android:id="@+id/tv_rule_general"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/white"
             android:gravity="center"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:textAppearance="@style/TextBody"
-            tools:text="请参赛前仔细阅读本网站的通用赛事规则。"
+            android:text="请参赛前仔细阅读本网站的通用赛事规则。"
             />
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"/>
 
     </LinearLayout>
 

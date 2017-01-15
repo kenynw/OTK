@@ -31,4 +31,11 @@
         <item>其他</item>
     </string-array>
 
+    <string-array name="tab_match_detail">
+        <item>赛事信息</item>
+        <item>赛事规则</item>
+        <item>对阵表</item>
+        <item>聊天室</item>
+    </string-array>
+
 </resources>

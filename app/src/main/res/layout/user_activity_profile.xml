@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:divider="@drawable/div_gray"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/vertical_margin"
             android:showDividers="middle"
             >
 
@@ -36,7 +36,7 @@
                     android:id="@+id/tv_profile_avatar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_horizontal_margin"
+                    android:padding="@dimen/horizontal_margin"
                     android:text="@string/label_avatar"
                     android:textAppearance="@style/TextBody"
                     android:layout_gravity="center_vertical"
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/horizontal_margin"
                     android:src="@mipmap/ic_more"
                     />
 
@@ -75,7 +75,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_horizontal_margin"
+                    android:padding="@dimen/horizontal_margin"
                     android:text="@string/label_username"
                     android:textAppearance="@style/TextBody"
                     />
@@ -101,7 +101,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_horizontal_margin"
+                    android:padding="@dimen/horizontal_margin"
                     android:text="@string/label_uid"
                     android:textAppearance="@style/TextBody"
                     />
@@ -127,7 +127,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_horizontal_margin"
+                    android:padding="@dimen/horizontal_margin"
                     android:text="@string/label_qq"
                     android:textAppearance="@style/TextBody"
                     />
@@ -155,7 +155,7 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_horizontal_margin"
+                    android:padding="@dimen/horizontal_margin"
                     android:text="@string/label_email"
                     android:textAppearance="@style/TextBody"/>
 
@@ -181,7 +181,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_horizontal_margin"
+                    android:padding="@dimen/horizontal_margin"
                     android:text="@string/label_job"
                     android:textAppearance="@style/TextBody"
                     />
@@ -208,7 +208,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_horizontal_margin"
+                    android:padding="@dimen/horizontal_margin"
                     android:text="@string/label_born"
                     android:textAppearance="@style/TextBody"
                     />
@@ -235,7 +235,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_horizontal_margin"
+                    android:padding="@dimen/horizontal_margin"
                     android:text="@string/label_profile_area"
                     android:textAppearance="@style/TextBody"
                     />
@@ -262,7 +262,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/activity_horizontal_margin"
+                    android:padding="@dimen/horizontal_margin"
                     android:text="@string/label_introduction"
                     android:textAppearance="@style/TextBody"
                     />

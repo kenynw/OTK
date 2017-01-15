@@ -47,7 +47,9 @@ public class HomeMatchAdapter extends RecyclerView.Adapter<HomeMatchAdapter.Matc
         holder.mTvTime.setText(match.getGame_time());
         holder.mTvFee.setText(match.getGame_all());
         holder.mTvStatus.setText(match.getGame_status());
+        holder.mTvName.setText(match.getGame_name());
         holder.mDvIcon.setImageURI(Uri.parse(match.getGame_img()));
+        holder.mIvType.setImageResource(match.getGame_type() == 0 ? 0 : (match.getGame_type() == 1 ? R.mipmap.ic_match_type_private : R.mipmap.ic_match_type_invite));
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(mContext, MatchDetailActivity.class);
             intent.putExtra("match_id", match.getCompetition_id());
@@ -74,11 +76,14 @@ public class HomeMatchAdapter extends RecyclerView.Adapter<HomeMatchAdapter.Matc
         @Bind(R.id.tv_match_home_status)
         TextView mTvStatus;
 
-        @Bind(R.id.iv_match_home_type)
-        ImageView mIvType;
-
         @Bind(R.id.dv_match_home_game_icon)
         SimpleDraweeView mDvIcon;
+
+        @Bind(R.id.tv_match_home_game_name)
+        TextView mTvName;
+
+        @Bind(R.id.iv_match_home_type)
+        ImageView mIvType;
 
         public MatchHomeViewHolder(View itemView) {
             super(itemView);

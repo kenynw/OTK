@@ -12,23 +12,81 @@ public class Match implements Parcelable {
 
     private String title;
 
+    private String content;
+
     private String start_time;
 
     private String game_name;
 
     private String game_img;
 
+    private String game_desc;
+
     private String game_status;
 
     private String game_time;
 
-    private String game_type;
+    private int game_type;
 
     private String game_all;
 
     private String rank;
 
     private String status;
+
+    /**
+     * 可参与人数
+     */
+    private String competitors;
+
+    /**
+     * 已经参与人数
+     */
+    private String count_competitor;
+
+    /**
+     * 可参与替补数
+     */
+    private String substitute_competitors;
+
+    /**
+     * 已经参与替补数
+     */
+    private String count_sub_competitor;
+
+    private String cost;
+
+    private String qq_group_url;
+
+    /**
+     * 规则内容
+     */
+    private String rule;
+
+    /**
+     * 半决赛前比赛模式
+     */
+    private String battle_mode;
+
+    /**
+     * 决赛比赛模式
+     */
+    private String final_battle_mode;
+
+    /**
+     * 半决赛比赛模式
+     */
+    private String semifinal_battle_mode;
+
+    /**
+     * 通用赛事文章id
+     */
+    private int article_id;
+
+    /**
+     * 游戏模式
+     */
+    private String pattern;
 
     @Override
     public int describeContents() {
@@ -39,15 +97,29 @@ public class Match implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.competition_id);
         dest.writeString(this.title);
+        dest.writeString(this.content);
         dest.writeString(this.start_time);
         dest.writeString(this.game_name);
         dest.writeString(this.game_img);
+        dest.writeString(this.game_desc);
         dest.writeString(this.game_status);
         dest.writeString(this.game_time);
-        dest.writeString(this.game_type);
+        dest.writeInt(this.game_type);
         dest.writeString(this.game_all);
         dest.writeString(this.rank);
         dest.writeString(this.status);
+        dest.writeString(this.competitors);
+        dest.writeString(this.count_competitor);
+        dest.writeString(this.substitute_competitors);
+        dest.writeString(this.count_sub_competitor);
+        dest.writeString(this.cost);
+        dest.writeString(this.qq_group_url);
+        dest.writeString(this.rule);
+        dest.writeString(this.battle_mode);
+        dest.writeString(this.final_battle_mode);
+        dest.writeString(this.semifinal_battle_mode);
+        dest.writeInt(this.article_id);
+        dest.writeString(this.pattern);
     }
 
     public Match() {
@@ -56,15 +128,29 @@ public class Match implements Parcelable {
     protected Match(Parcel in) {
         this.competition_id = in.readInt();
         this.title = in.readString();
+        this.content = in.readString();
         this.start_time = in.readString();
         this.game_name = in.readString();
         this.game_img = in.readString();
+        this.game_desc = in.readString();
         this.game_status = in.readString();
         this.game_time = in.readString();
-        this.game_type = in.readString();
+        this.game_type = in.readInt();
         this.game_all = in.readString();
         this.rank = in.readString();
         this.status = in.readString();
+        this.competitors = in.readString();
+        this.count_competitor = in.readString();
+        this.substitute_competitors = in.readString();
+        this.count_sub_competitor = in.readString();
+        this.cost = in.readString();
+        this.qq_group_url = in.readString();
+        this.rule = in.readString();
+        this.battle_mode = in.readString();
+        this.final_battle_mode = in.readString();
+        this.semifinal_battle_mode = in.readString();
+        this.article_id = in.readInt();
+        this.pattern = in.readString();
     }
 
     public static final Creator<Match> CREATOR = new Creator<Match>() {
@@ -95,6 +181,14 @@ public class Match implements Parcelable {
         this.title = title;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public String getStart_time() {
         return start_time;
     }
@@ -119,6 +213,14 @@ public class Match implements Parcelable {
         this.game_img = game_img;
     }
 
+    public String getGame_desc() {
+        return game_desc;
+    }
+
+    public void setGame_desc(String game_desc) {
+        this.game_desc = game_desc;
+    }
+
     public String getGame_status() {
         return game_status;
     }
@@ -135,11 +237,11 @@ public class Match implements Parcelable {
         this.game_time = game_time;
     }
 
-    public String getGame_type() {
+    public int getGame_type() {
         return game_type;
     }
 
-    public void setGame_type(String game_type) {
+    public void setGame_type(int game_type) {
         this.game_type = game_type;
     }
 
@@ -165,5 +267,101 @@ public class Match implements Parcelable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getCompetitors() {
+        return competitors;
+    }
+
+    public void setCompetitors(String competitors) {
+        this.competitors = competitors;
+    }
+
+    public String getCount_competitor() {
+        return count_competitor;
+    }
+
+    public void setCount_competitor(String count_competitor) {
+        this.count_competitor = count_competitor;
+    }
+
+    public String getSubstitute_competitors() {
+        return substitute_competitors;
+    }
+
+    public void setSubstitute_competitors(String substitute_competitors) {
+        this.substitute_competitors = substitute_competitors;
+    }
+
+    public String getCount_sub_competitor() {
+        return count_sub_competitor;
+    }
+
+    public void setCount_sub_competitor(String count_sub_competitor) {
+        this.count_sub_competitor = count_sub_competitor;
+    }
+
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
+    }
+
+    public String getQq_group_url() {
+        return qq_group_url;
+    }
+
+    public void setQq_group_url(String qq_group_url) {
+        this.qq_group_url = qq_group_url;
+    }
+
+    public String getRule() {
+        return rule;
+    }
+
+    public void setRule(String rule) {
+        this.rule = rule;
+    }
+
+    public String getBattle_mode() {
+        return battle_mode;
+    }
+
+    public void setBattle_mode(String battle_mode) {
+        this.battle_mode = battle_mode;
+    }
+
+    public String getFinal_battle_mode() {
+        return final_battle_mode;
+    }
+
+    public void setFinal_battle_mode(String final_battle_mode) {
+        this.final_battle_mode = final_battle_mode;
+    }
+
+    public String getSemifinal_battle_mode() {
+        return semifinal_battle_mode;
+    }
+
+    public void setSemifinal_battle_mode(String semifinal_battle_mode) {
+        this.semifinal_battle_mode = semifinal_battle_mode;
+    }
+
+    public int getArticle_id() {
+        return article_id;
+    }
+
+    public void setArticle_id(int article_id) {
+        this.article_id = article_id;
+    }
+
+    public String getPattern() {
+        return pattern;
+    }
+
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
     }
 }

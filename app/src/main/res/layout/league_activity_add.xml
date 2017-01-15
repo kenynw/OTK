@@ -16,8 +16,8 @@
         android:layout_height="@dimen/widget_medium_height"
         android:hint="@string/hint_league_title"
         android:inputType="text"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
         android:textAppearance="@style/TextBody"
         android:textColorHint="@color/textHint"
         />
@@ -25,8 +25,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
         android:text="请选择公会规模"
         android:textAppearance="@style/TextCaption"
         />
@@ -35,8 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
         >
 
         <RadioButton
@@ -70,8 +70,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
         android:text="请输入协会类型"
         android:textAppearance="@style/TextCaption"
         />
@@ -81,8 +81,8 @@
         android:layout_height="@dimen/widget_medium_height"
         android:hint="@string/hint_league_intro"
         android:inputType="text"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
         android:textAppearance="@style/TextBody"
         android:textColorHint="@color/textHint"
         />
@@ -91,13 +91,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/activity_horizontal_margin"
+            android:padding="@dimen/horizontal_margin"
             android:text="资质证明"
             />
 
@@ -118,8 +118,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
         android:text="你需要通过上传图片资质证明，向审核人证明你具有聚集用户举办你预计规模的水友赛的潜力，比如您管理的QQ群的截图，您的直播间关注数截图等等"
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/text_size_caption_material"
@@ -130,8 +130,8 @@
         android:layout_height="@dimen/widget_medium_height"
         android:hint="请输入QQ"
         android:inputType="text"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
         android:textAppearance="@style/TextBody"
         android:textColorHint="@color/textHint"
         />

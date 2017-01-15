@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/horizontal_margin"
         android:text="@string/text_game_account"
         android:textAppearance="@style/TextSubhead"
         />
@@ -23,8 +23,8 @@
         android:id="@+id/et_game_edit_name"
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_medium_height"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/horizontal_margin"
+        android:layout_marginRight="@dimen/horizontal_margin"
         android:background="@drawable/stroke_gray_shape"
         android:inputType="text"
         />
@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/horizontal_margin"
         android:text="@string/text_game_edit_notice"
         />
 
