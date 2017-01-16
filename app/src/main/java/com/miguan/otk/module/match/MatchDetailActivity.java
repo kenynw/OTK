@@ -45,6 +45,8 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
     @Bind(R.id.id_stickynavlayout_viewpager)
     ViewPager mPager;
 
+    private Match mMatch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +78,7 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
     @Override
     public void setData(Match match) {
         EventBus.getDefault().post(match);
+        mMatch = match;
         mTvID.setText(String.format(getString(R.string.label_match_id), match.getCompetition_id()));
         mTvCost.setText(String.format(getString(R.string.label_match_cost), match.getCost()));
         mTvTitle.setText(match.getTitle());
@@ -103,7 +106,7 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        
+        getPresenter().share(mMatch);
         return super.onOptionsItemSelected(item);
     }
 

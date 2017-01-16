@@ -1,6 +1,5 @@
 package com.miguan.otk.module.main;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,15 +19,14 @@ import com.miguan.otk.module.settings.SettingsActivity;
 import com.miguan.otk.module.store.StoreHomeActivity;
 import com.miguan.otk.module.user.AddressListActivity;
 import com.miguan.otk.module.user.BalanceDetailActivity;
-import com.miguan.otk.module.user.WithdrawRecordActivity;
 import com.miguan.otk.module.user.FeedbackActivity;
 import com.miguan.otk.module.user.GameAccountActivity;
-import com.miguan.otk.module.user.LoginActivity;
 import com.miguan.otk.module.user.MessageActivity;
 import com.miguan.otk.module.user.MyMatchActivity;
 import com.miguan.otk.module.user.MyOrderActivity;
 import com.miguan.otk.module.user.ProfileActivity;
 import com.miguan.otk.module.user.SignInActivity;
+import com.miguan.otk.module.user.WithdrawListActivity;
 import com.sgun.utils.LUtils;
 
 import butterknife.Bind;
@@ -97,19 +95,19 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
         View view = inflater.inflate(R.layout.main_fragment_mine, null);
         ButterKnife.bind(this, view);
 
-        mBtnMessage.setOnClickListener(v -> startActivity(new Intent(getActivity(), MessageActivity.class)));
-        mLayoutUser.setOnClickListener(v -> startActivity(new Intent(getActivity(), ProfileActivity.class)));
-        mBtnLogin.setOnClickListener(v -> startActivityForResult(new Intent(getActivity(), LoginActivity.class), 1));
-        mBtnStore.setOnClickListener(v -> startActivity(new Intent(getActivity(), StoreHomeActivity.class)));
-        mBtnMyMatch.setOnClickListener(v -> startActivity(new Intent(getActivity(), MyMatchActivity.class)));
-        mBtnSign.setOnClickListener(v -> startActivity(new Intent(getActivity(), SignInActivity.class)));
-        mBtnBalance.setOnClickListener(v -> startActivity(new Intent(getActivity(), BalanceDetailActivity.class)));
-        mBtnRecordCash.setOnClickListener(v -> startActivity(new Intent(getActivity(), WithdrawRecordActivity.class)));
-        mBtnOrder.setOnClickListener(v -> startActivity(new Intent(getActivity(), MyOrderActivity.class)));
-        mBtnGameAccount.setOnClickListener(v -> startActivity(new Intent(getActivity(), GameAccountActivity.class)));
-        mBtnAddress.setOnClickListener(v -> startActivity(new Intent(getActivity(), AddressListActivity.class)));
-        mBtnFeedback.setOnClickListener(v -> startActivity(new Intent(getActivity(), FeedbackActivity.class)));
-        mBtnSettings.setOnClickListener(v -> startActivity(new Intent(getActivity(), SettingsActivity.class)));
+        mBtnMessage.setOnClickListener(v -> getPresenter().toActivity(MessageActivity.class));
+        mLayoutUser.setOnClickListener(v -> getPresenter().toActivity(ProfileActivity.class));
+        mBtnLogin.setOnClickListener(v -> getPresenter().isLogin());
+        mBtnStore.setOnClickListener(v -> getPresenter().toActivity(StoreHomeActivity.class));
+        mBtnMyMatch.setOnClickListener(v -> getPresenter().toActivity(MyMatchActivity.class));
+        mBtnSign.setOnClickListener(v -> getPresenter().toActivity(SignInActivity.class));
+        mBtnBalance.setOnClickListener(v -> getPresenter().toActivity(BalanceDetailActivity.class));
+        mBtnRecordCash.setOnClickListener(v -> getPresenter().toActivity(WithdrawListActivity.class));
+        mBtnOrder.setOnClickListener(v -> getPresenter().toActivity(MyOrderActivity.class));
+        mBtnGameAccount.setOnClickListener(v -> getPresenter().toActivity(GameAccountActivity.class));
+        mBtnAddress.setOnClickListener(v -> getPresenter().toActivity(AddressListActivity.class));
+        mBtnFeedback.setOnClickListener(v -> getPresenter().toActivity(FeedbackActivity.class));
+        mBtnSettings.setOnClickListener(v -> getPresenter().toActivity(SettingsActivity.class));
 
         return view;
     }

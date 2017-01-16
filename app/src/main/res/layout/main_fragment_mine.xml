@@ -150,7 +150,7 @@
             android:drawableRight="@mipmap/ic_more"
             android:gravity="center_vertical"
             android:padding="4dp"
-            android:text="@string/btn_take_cash_record"/>
+            android:text="@string/btn_withdraw_record"/>
 
         <Space
             android:layout_width="match_parent"

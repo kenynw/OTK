@@ -1,7 +1,5 @@
 package com.dsk.chain.expansion.data;
 
-import android.os.Bundle;
-
 import com.dsk.chain.bijection.Presenter;
 
 import rx.Subscriber;
@@ -37,8 +35,8 @@ public class BaseDataFragmentPresenter<V extends BaseDataFragment, M> extends Pr
     private Subscription mSubscription;
 
     @Override
-    protected void onCreate(V view, Bundle saveState) {
-        super.onCreate(view, saveState);
+    protected void onCreateView(V view) {
+        super.onCreateView(view);
         mSubscription = mData.unsafeSubscribe(new Subscriber<M>() {
             @Override
             public void onCompleted() {
@@ -81,6 +79,13 @@ public class BaseDataFragmentPresenter<V extends BaseDataFragment, M> extends Pr
      */
     public BehaviorSubject<M> getDataSubject() {
         return mData;
+    }
+
+    /**
+     * 获取缓存数据。
+     */
+    public M getData() {
+        return mData.getValue();
     }
 
     /**

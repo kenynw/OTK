@@ -1,10 +1,12 @@
 package com.miguan.otk.model.services;
 
-import com.miguan.otk.model.bean.Schedule;
 import com.miguan.otk.model.bean.Balance;
+import com.miguan.otk.model.bean.Feedback;
+import com.miguan.otk.model.bean.Game;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.bean.News;
+import com.miguan.otk.model.bean.Schedule;
 import com.miguan.otk.model.bean.Sign;
 import com.miguan.otk.model.bean.Splash;
 import com.miguan.otk.model.bean.User;
@@ -84,7 +86,7 @@ public interface Services {
     );
 
     /**
-     * 发送注册验证码
+     * 其他验证码
      * @param mobile 手机号
      * @return 是否成功
      */
@@ -92,7 +94,7 @@ public interface Services {
     @POST("user/user/captcha-update")
     Observable<Boolean> sendCaptchaUpdate(
             @Field("mobile") CharSequence mobile,
-            @Field("access-token") CharSequence token
+            @Field("token") CharSequence token
     );
 
     /**
@@ -224,8 +226,85 @@ public interface Services {
      */
     @GET("user/record/getcashrecord")
     Observable<Withdraw> withdrawRecord(
+            @Query("token") CharSequence token
+    );
+
+    /**
+     * 提现记录
+     * @param token 登录令牌
+     * @param page 页数
+     * @return
+     */
+    @GET("user/record/getcashrecord2")
+    Observable<List<Withdraw>> withdrawRecord(
             @Query("token") CharSequence token,
             @Query("page") Integer page
+    );
+
+    /**
+     * 绑定支付宝
+     */
+    @FormUrlEncoded
+    @POST("user/record/alipaybind")
+    Observable<Boolean> bindAlipay(
+            @Field("token") String token,
+            @Field("mobile") String mobile,
+            @Field("alipay_account") String account,
+            @Field("captcha") String captcha
+    );
+
+    /**
+     * 游戏账号列表
+     * @param token 登录令牌
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/gameaccount/gameinfo")
+    Observable<List<Game>> gameAccounts(
+            @Field("token") String token
+    );
+
+    /**
+     * 添加游戏账号
+     */
+    @FormUrlEncoded
+    @POST("user/gameaccount/accountadd")
+    Observable<Boolean> addGameAccount(
+            @Field("token") String token,
+            @Field("game_name") String game_name,
+            @Field("game_account") String game_account
+    );
+
+    /**
+     * 编辑游戏账号
+     */
+    @FormUrlEncoded
+    @POST("user/gameaccount/accountupdate")
+    Observable<Boolean> updateGameAccount(
+            @Field("token") String token,
+            @Field("id") int id,
+            @Field("game_account") String game_account
+    );
+
+    /**
+     * 吐槽一下
+     * @param token 登录令牌
+     * @param type  类型（0:产品建议、1:发现BUG、2:举报作弊、3:其他）
+     * @param contact 联系方式
+     * @param content 吐槽内容
+     * @param img 上传照片
+     * @param source 信息来源（来源 0:安卓 1：IOS）
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/feedback/feedback")
+    Observable<Feedback> feedback(
+            @Field("token") String token,
+            @Field("type") Integer type,
+            @Field("contact") String contact,
+            @Field("content") String content,
+            @Field("img") String img,
+            @Field("source") int source
     );
 
     ////////////////////比赛相关//////////////////////

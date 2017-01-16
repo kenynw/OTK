@@ -39,6 +39,7 @@ public class BaseListActivityPresenter<V extends BaseListActivity, M> extends Pr
         public void onNext(List<M> list) {
             mAdapter.clear();
             mAdapter.addAll(list);
+            mPage = 2;
         }
 
     };

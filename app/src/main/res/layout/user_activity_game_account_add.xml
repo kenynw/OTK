@@ -15,40 +15,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/horizontal_margin"
-        android:text="@string/label_select_game"
+        android:text="@string/text_game_name"
         android:textAppearance="@style/TextSubhead"
         />
 
-    <LinearLayout
+    <RadioGroup
+        android:id="@+id/rg_game_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/horizontal_margin"
-        android:layout_marginRight="@dimen/horizontal_margin"
         android:orientation="horizontal"
         >
 
-        <Button
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+        <RadioButton
+            android:id="@+id/rbtn_game_hearthstone"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="炉石传说"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/text_hearthstone"
             />
 
-        <Button
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+        <RadioButton
+            android:id="@+id/rbtn_game_overwatch"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="守望先锋"
+            android:layout_weight="1"
+            android:text="@string/text_overwatch"
             />
 
-        <Button
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+        <RadioButton
+            android:id="@+id/rbtn_game_lol"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="英雄联盟"
+            android:layout_weight="1"
+            android:text="@string/text_lol"
             />
 
-    </LinearLayout>
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,19 +62,26 @@
         />
 
     <EditText
+        android:id="@+id/et_game_account"
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_medium_height"
         android:layout_marginLeft="@dimen/horizontal_margin"
         android:layout_marginRight="@dimen/horizontal_margin"
         android:background="@drawable/stroke_gray_shape"
-        android:inputType="text"
-        android:id="@+id/et_game_account_name"/>
+        android:inputType="text"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/horizontal_margin"
         android:text="@string/text_game_add_notice"
+        />
+
+    <Button
+        android:id="@+id/btn_game_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_ok"
         />
 
 </LinearLayout>

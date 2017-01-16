@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.list.BaseListActivity;
+import com.dsk.chain.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
-import com.miguan.otk.adapter.viewholder.GameAccountViewHolder;
+import com.miguan.otk.adapter.viewholder.GameViewHolder;
 
 @RequiresPresenter(GameAccountPresenter.class)
 public class GameAccountActivity extends BaseListActivity<GameAccountPresenter> {
@@ -28,7 +29,7 @@ public class GameAccountActivity extends BaseListActivity<GameAccountPresenter> 
 
     @Override
     protected BaseViewHolder createViewHolder(ViewGroup parent, int viewType) {
-        return new GameAccountViewHolder(parent);
+        return new GameViewHolder(parent);
     }
 
     @Override
@@ -42,5 +43,10 @@ public class GameAccountActivity extends BaseListActivity<GameAccountPresenter> 
         Intent intent = new Intent(this, GameAccountAddActivity.class);
         startActivity(intent);
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public ListConfig getListConfig() {
+        return super.getListConfig().setLoadMoreAble(false).setNoMoreAble(false).setFooterErrorAble(false);
     }
 }

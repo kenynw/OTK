@@ -35,7 +35,7 @@ public class BaseDataActivityPresenter<V extends BaseDataActivity,M> extends Pre
     @Override
     protected void onCreateView(V view) {
         super.onCreateView(view);
-        mSubscription = mData.subscribe(new Subscriber<M>() {
+        mSubscription = mData.unsafeSubscribe(new Subscriber<M>() {
             @Override
             public void onCompleted() {
 

@@ -32,8 +32,7 @@ dependencies {
 
 //    compile 'com.jude:beam:3.0.1'
 
-    compile 'io.reactivex:rxjava:1.0.14'
-    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.jude:easyrecyclerview:4.0.2'
     testCompile 'junit:junit:4.12'
 }

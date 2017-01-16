@@ -3,6 +3,9 @@
           package="com.miguan.otk">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".base.App"
@@ -25,9 +28,9 @@
             android:theme="@style/LaunchTheme">
         </activity>
         <activity android:name=".module.main.MainActivity"/>
-        <activity android:name=".module.user.LoginActivity"/>
-        <activity android:name=".module.user.ForgotActivity"/>
-        <activity android:name=".module.user.RegisterActivity"/>
+        <activity android:name=".module.account.LoginActivity"/>
+        <activity android:name=".module.account.ForgotActivity"/>
+        <activity android:name=".module.account.RegisterActivity"/>
         <activity android:name=".module.match.MatchDetailActivity">
         </activity>
         <activity android:name=".module.league.LeagueDetailActivity">
@@ -36,13 +39,13 @@
         </activity>
         <activity android:name=".module.league.AddLeagueActivity">
         </activity>
-        <activity android:name=".module.user.ModifyPwdActivity">
+        <activity android:name=".module.account.ModifyPwdActivity">
         </activity>
         <activity android:name=".module.user.FeedbackActivity">
         </activity>
         <activity android:name=".module.user.BalanceDetailActivity">
         </activity>
-        <activity android:name=".module.user.WithdrawRecordActivity">
+        <activity android:name=".module.user.WithdrawListActivity">
         </activity>
         <activity android:name=".module.store.StoreHomeActivity">
         </activity>
@@ -93,6 +96,8 @@
         <activity android:name=".module.user.ProfileModifyActivity">
         </activity>
         <activity android:name=".module.common.WebActivity">
+        </activity>
+        <activity android:name=".module.user.BindAlipayActivity">
         </activity>
     </application>
 

@@ -19,25 +19,25 @@
         android:showDividers="middle"
         >
 
-        <Button
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
+        <TextView
+            android:id="@+id/tv_balance_sb"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:padding="@dimen/horizontal_margin"
-            android:text="拥有撒币\n6800"
+            tools:text="拥有撒币\n6800"
             android:textAppearance="@style/TextBody"
             />
 
-        <Button
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
+        <TextView
+            android:id="@+id/tv_balance_money"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:padding="@dimen/horizontal_margin"
-            android:text="余额元宝\n800"
+            tools:text="余额元宝\n800"
             android:textAppearance="@style/TextBody"
             />
 

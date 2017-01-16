@@ -3,14 +3,18 @@ package com.miguan.otk.module.user;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.jude.exgridview.ImagePieceView;
 import com.jude.exgridview.PieceViewGroup;
 import com.miguan.otk.R;
+import com.sgun.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -18,8 +22,20 @@ import butterknife.ButterKnife;
 @RequiresPresenter(FeedbackPresenter.class)
 public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> {
 
+    @Bind(R.id.spinner_feedback_type)
+    Spinner mSpType;
+
+    @Bind(R.id.et_feedback_contact)
+    EditText mEtContact;
+
+    @Bind(R.id.et_feedback_content)
+    EditText mEtContent;
+
     @Bind(R.id.pv_feedback_image)
     PieceViewGroup mPvImage;
+
+    @Bind(R.id.btn_feedback_submit)
+    Button mBtnSubmit;
 
     private BottomSheetDialog mDialog;
 
@@ -30,8 +46,20 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> {
         setToolbarTitle(R.string.title_activity_feedback);
         ButterKnife.bind(this);
 
+        mBtnSubmit.setOnClickListener(v -> checkInput());
         mPvImage.setOnAskViewListener(this::showPickDialog);
         mPvImage.setOnViewDeleteListener(getPresenter());
+    }
+
+    private void checkInput() {
+        if (TextUtils.isEmpty(mEtContent.getText())) {
+            LUtils.log("请填写内容");
+            return;
+        }
+        getPresenter().save(mSpType.getSelectedItemPosition(),
+                mEtContact.getText().toString().trim(),
+                mEtContent.getText().toString().trim()
+        );
     }
 
     private void showPickDialog() {

@@ -69,7 +69,7 @@
     <string name="btn_sign_in_now">立即签到</string>
     <string name="btn_shop">撒币商城</string>
     <string name="btn_take_cash">提现</string>
-    <string name="btn_take_cash_record">提现记录</string>
+    <string name="btn_withdraw_record">提现记录</string>
     <string name="btn_today_match">今日赛事</string>
     <string name="btn_wechat">微信</string>
 
@@ -84,12 +84,23 @@
     <string name="text_game_mode">游戏模式</string>
     <string name="text_game_name">游戏名称</string>
     <string name="text_game_edit_notice">提示：用户在使用修改游戏账号并且保存后，在15天内不能再次修改</string>
+    <string name="text_hearthstone">炉石传说</string>
     <string name="text_judge_qq">裁判QQ—安娜：1655647371</string>
+    <string name="text_lol">英雄联盟</string>
     <string name="text_match_bonus">赛事奖金</string>
     <string name="text_match_mode">比赛模式</string>
     <string name="text_match_support">赛事赞助</string>
     <string name="text_match_qq_group">OTK炉石传说赛事①群 ：77327504</string>
+    <string name="text_overwatch">守望先锋</string>
     <string name="text_prepare_phase">准备阶段</string>
+    <string name="text_reward">总奖金</string>
+    <string name="text_reward_winner">冠军独享</string>
+    <string name="text_reward_2">亚军</string>
+    <string name="text_reward_3_4">第3-&#8211;4名</string>
+    <string name="text_reward_5_8">第5&#8211;8名</string>
+    <string name="text_reward_9_16">第9&#8211;16名</string>
+    <string name="text_reward_17_32">第17&#8211;32名</string>
+    <string name="text_reward_33_64">第33&#8211;64名</string>
     <string name="text_share">分享</string>
     <string name="text_sign_series_desc">距离宝箱开启，还需连续签到%d天</string>
     <string name="text_slogan">打造一个有温度的的线上比赛平台</string>
@@ -98,6 +109,8 @@
     <string name="text_which_rounds">第%d轮</string>
 
     <string name="label_address">收货地址：</string>
+    <string name="label_alipay">支付宝：</string>
+    <string name="label_apply_money">申请金额%d</string>
     <string name="label_avatar">头像：</string>
     <string name="label_balance">余额：%s</string>
     <string name="label_born">生辰：</string>
@@ -128,7 +141,6 @@
     <string name="label_pwd_old">旧密码</string>
     <string name="label_qq">QQ：</string>
     <string name="label_select_spec">选择样式：</string>
-    <string name="label_select_game">选择游戏：</string>
     <string name="label_screenshot_round_one">第一局截图：</string>
     <string name="label_screenshot_round_two">第二局截图：</string>
     <string name="label_screenshot_round_third">第三局截图：</string>

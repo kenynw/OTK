@@ -23,6 +23,26 @@ public class Schedule implements Parcelable {
 
     private User user_b;
 
+    private String a_user_id;
+
+    private String a_status;
+
+    private String a_name;
+
+    private String a_img;
+
+    private String a_score;
+
+    private String b_user_id;
+
+    private String b_status;
+
+    private String b_name;
+
+    private String b_img;
+
+    private String b_score;
+
     private String result;
 
     private int round_count;
@@ -46,6 +66,16 @@ public class Schedule implements Parcelable {
         dest.writeString(this.title);
         dest.writeParcelable(this.user_a, flags);
         dest.writeParcelable(this.user_b, flags);
+        dest.writeString(this.a_user_id);
+        dest.writeString(this.a_status);
+        dest.writeString(this.a_name);
+        dest.writeString(this.a_img);
+        dest.writeString(this.a_score);
+        dest.writeString(this.b_user_id);
+        dest.writeString(this.b_status);
+        dest.writeString(this.b_name);
+        dest.writeString(this.b_img);
+        dest.writeString(this.b_score);
         dest.writeString(this.result);
         dest.writeInt(this.round_count);
         dest.writeInt(this.round);
@@ -63,6 +93,16 @@ public class Schedule implements Parcelable {
         this.title = in.readString();
         this.user_a = in.readParcelable(User.class.getClassLoader());
         this.user_b = in.readParcelable(User.class.getClassLoader());
+        this.a_user_id = in.readString();
+        this.a_status = in.readString();
+        this.a_name = in.readString();
+        this.a_img = in.readString();
+        this.a_score = in.readString();
+        this.b_user_id = in.readString();
+        this.b_status = in.readString();
+        this.b_name = in.readString();
+        this.b_img = in.readString();
+        this.b_score = in.readString();
         this.result = in.readString();
         this.round_count = in.readInt();
         this.round = in.readInt();
@@ -128,6 +168,86 @@ public class Schedule implements Parcelable {
 
     public void setUser_b(User user_b) {
         this.user_b = user_b;
+    }
+
+    public String getA_user_id() {
+        return a_user_id;
+    }
+
+    public void setA_user_id(String a_user_id) {
+        this.a_user_id = a_user_id;
+    }
+
+    public String getA_status() {
+        return a_status;
+    }
+
+    public void setA_status(String a_status) {
+        this.a_status = a_status;
+    }
+
+    public String getA_name() {
+        return a_name;
+    }
+
+    public void setA_name(String a_name) {
+        this.a_name = a_name;
+    }
+
+    public String getA_img() {
+        return a_img;
+    }
+
+    public void setA_img(String a_img) {
+        this.a_img = a_img;
+    }
+
+    public String getA_score() {
+        return a_score;
+    }
+
+    public void setA_score(String a_score) {
+        this.a_score = a_score;
+    }
+
+    public String getB_user_id() {
+        return b_user_id;
+    }
+
+    public void setB_user_id(String b_user_id) {
+        this.b_user_id = b_user_id;
+    }
+
+    public String getB_status() {
+        return b_status;
+    }
+
+    public void setB_status(String b_status) {
+        this.b_status = b_status;
+    }
+
+    public String getB_name() {
+        return b_name;
+    }
+
+    public void setB_name(String b_name) {
+        this.b_name = b_name;
+    }
+
+    public String getB_img() {
+        return b_img;
+    }
+
+    public void setB_img(String b_img) {
+        this.b_img = b_img;
+    }
+
+    public String getB_score() {
+        return b_score;
+    }
+
+    public void setB_score(String b_score) {
+        this.b_score = b_score;
     }
 
     public String getResult() {

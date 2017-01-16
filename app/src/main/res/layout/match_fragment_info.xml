@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:divider="@drawable/div_gray"
         android:dividerPadding="@dimen/horizontal_margin"
         android:orientation="vertical"
@@ -41,15 +41,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="总奖金"
+                    android:text="@string/text_reward"
                     />
 
                 <TextView
+                    android:id="@+id/tv_reward"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="￥65468499848"
+                    tools:text="1111111"
                     />
             </TableRow>
 
@@ -65,16 +66,168 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="冠军独享"
+                    android:text="@string/text_reward_winner"
                     />
+
+                <TextView
+                    android:id="@+id/tv_reward_winner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    tools:text="4999"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:padding="@dimen/horizontal_margin"
+                >
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="￥5000000"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_reward_2"
                     />
+
+                <TextView
+                    android:id="@+id/tv_reward_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    tools:text="￥5000000"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:padding="@dimen/horizontal_margin"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_reward_3_4"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_reward_3_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    tools:text="￥5000000"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:padding="@dimen/horizontal_margin"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_reward_5_8"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_reward_5_8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    tools:text="￥5000000"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:padding="@dimen/horizontal_margin"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_reward_9_16"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_reward_9_16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    tools:text="￥5000000"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:padding="@dimen/horizontal_margin"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_reward_17_32"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_reward_17_32"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    tools:text="￥5000000"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:padding="@dimen/horizontal_margin"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/text_reward_33_64"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_reward_33_64"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    tools:text="￥5000000"
+                    />
+
             </TableRow>
 
         </TableLayout>
@@ -115,11 +268,13 @@
             android:textAppearance="@style/TextSubhead"
             />
 
-        <TextView
+        <WebView
             android:id="@+id/tv_match_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
             android:padding="@dimen/horizontal_margin"
             android:textAppearance="@style/TextBody"
             tools:text="这里面是详情介绍内容介绍内容介绍内容介绍内容"
@@ -137,8 +292,8 @@
             android:drawableRight="@mipmap/ic_more"
             android:gravity="center_vertical"
             android:padding="@dimen/horizontal_margin"
-            tools:text="@string/btn_enroll_list"
             android:textAppearance="@style/TextBody"
+            tools:text="@string/btn_enroll_list"
             />
 
         <Button
@@ -149,8 +304,8 @@
             android:drawableRight="@mipmap/ic_more"
             android:gravity="center_vertical"
             android:padding="@dimen/horizontal_margin"
-            tools:text="@string/btn_bench_list"
             android:textAppearance="@style/TextBody"
+            tools:text="@string/btn_bench_list"
             />
 
         <Button

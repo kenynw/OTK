@@ -14,6 +14,7 @@ public class Balance implements Parcelable {
     private String create_time;
 
     private int flow_id;
+    private String folw;
 
     private String desc;
 
@@ -33,6 +34,7 @@ public class Balance implements Parcelable {
         dest.writeInt(this.id);
         dest.writeString(this.create_time);
         dest.writeInt(this.flow_id);
+        dest.writeString(this.folw);
         dest.writeString(this.desc);
         dest.writeString(this.symbol);
         dest.writeString(this.num);
@@ -46,6 +48,7 @@ public class Balance implements Parcelable {
         this.id = in.readInt();
         this.create_time = in.readString();
         this.flow_id = in.readInt();
+        this.folw = in.readString();
         this.desc = in.readString();
         this.symbol = in.readString();
         this.num = in.readString();
@@ -86,6 +89,14 @@ public class Balance implements Parcelable {
 
     public void setFlow_id(int flow_id) {
         this.flow_id = flow_id;
+    }
+
+    public String getFolw() {
+        return folw;
+    }
+
+    public void setFolw(String folw) {
+        this.folw = folw;
     }
 
     public String getDesc() {

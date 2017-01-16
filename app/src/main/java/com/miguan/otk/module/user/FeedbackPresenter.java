@@ -8,6 +8,9 @@ import com.dsk.chain.bijection.Presenter;
 import com.jude.exgridview.PieceViewGroup;
 import com.jude.library.imageprovider.ImageProvider;
 import com.jude.library.imageprovider.OnImageSelectListener;
+import com.miguan.otk.model.UserModel;
+import com.miguan.otk.model.bean.Feedback;
+import com.miguan.otk.model.services.ServicesResponse;
 import com.sgun.utils.LUtils;
 
 import java.util.ArrayList;
@@ -32,12 +35,23 @@ class FeedbackPresenter extends Presenter<FeedbackActivity> implements OnImageSe
 
     void pickImage(int type) {
         switch (type) {
-            case 0 :
+            case 0:
                 mImageProvider.getImageFromAlbum(this);
                 break;
-            case 1 :
+            case 1:
                 mImageProvider.getImageFromCamera(this);
         }
+    }
+
+    void save(int type, String contact, String content) {
+        UserModel.getInstance().saveFeedback(type, contact, content, "")
+                .unsafeSubscribe(new ServicesResponse<Feedback>() {
+                    @Override
+                    public void onNext(Feedback feedback) {
+                        getView().finish();
+                        LUtils.toast("谢谢反馈");
+                    }
+                });
     }
 
     @Override

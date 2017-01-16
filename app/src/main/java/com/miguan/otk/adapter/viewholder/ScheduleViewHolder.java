@@ -26,6 +26,6 @@ public class ScheduleViewHolder extends BaseViewHolder<Schedule> {
 
     @Override
     public void setData(Schedule against) {
-        mTvA.setText(String.format("%s VS %s", against.getUser_a().getUsername(), against.getUser_b().getUsername()));
+        mTvA.setText(String.format("%s VS %s", against.getA_name(), against.getB_name()));
     }
 }

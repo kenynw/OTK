@@ -88,6 +88,38 @@ public class Match implements Parcelable {
      */
     private String pattern;
 
+    private long reward_money;
+
+    private int reward_1;
+
+    private int reward_2;
+
+    private int reward_3_4;
+
+    private int reward_5_8;
+
+    private int reward_9_16;
+
+    private int reward_17_32;
+
+    private int reward_33_64;
+
+    private long reward_sb;
+
+    private int sb_reward_1;
+
+    private int sb_reward_2;
+
+    private int sb_reward_3_4;
+
+    private int sb_reward_5_8;
+
+    private int sb_reward_9_16;
+
+    private int sb_reward_17_32;
+
+    private int sb_reward_33_64;
+
     @Override
     public int describeContents() {
         return 0;
@@ -120,6 +152,22 @@ public class Match implements Parcelable {
         dest.writeString(this.semifinal_battle_mode);
         dest.writeInt(this.article_id);
         dest.writeString(this.pattern);
+        dest.writeLong(this.reward_money);
+        dest.writeInt(this.reward_1);
+        dest.writeInt(this.reward_2);
+        dest.writeInt(this.reward_3_4);
+        dest.writeInt(this.reward_5_8);
+        dest.writeInt(this.reward_9_16);
+        dest.writeInt(this.reward_17_32);
+        dest.writeInt(this.reward_33_64);
+        dest.writeLong(this.reward_sb);
+        dest.writeInt(this.sb_reward_1);
+        dest.writeInt(this.sb_reward_2);
+        dest.writeInt(this.sb_reward_3_4);
+        dest.writeInt(this.sb_reward_5_8);
+        dest.writeInt(this.sb_reward_9_16);
+        dest.writeInt(this.sb_reward_17_32);
+        dest.writeInt(this.sb_reward_33_64);
     }
 
     public Match() {
@@ -151,6 +199,22 @@ public class Match implements Parcelable {
         this.semifinal_battle_mode = in.readString();
         this.article_id = in.readInt();
         this.pattern = in.readString();
+        this.reward_money = in.readLong();
+        this.reward_1 = in.readInt();
+        this.reward_2 = in.readInt();
+        this.reward_3_4 = in.readInt();
+        this.reward_5_8 = in.readInt();
+        this.reward_9_16 = in.readInt();
+        this.reward_17_32 = in.readInt();
+        this.reward_33_64 = in.readInt();
+        this.reward_sb = in.readLong();
+        this.sb_reward_1 = in.readInt();
+        this.sb_reward_2 = in.readInt();
+        this.sb_reward_3_4 = in.readInt();
+        this.sb_reward_5_8 = in.readInt();
+        this.sb_reward_9_16 = in.readInt();
+        this.sb_reward_17_32 = in.readInt();
+        this.sb_reward_33_64 = in.readInt();
     }
 
     public static final Creator<Match> CREATOR = new Creator<Match>() {
@@ -363,5 +427,133 @@ public class Match implements Parcelable {
 
     public void setPattern(String pattern) {
         this.pattern = pattern;
+    }
+
+    public long getReward_money() {
+        return reward_money;
+    }
+
+    public void setReward_money(long reward_money) {
+        this.reward_money = reward_money;
+    }
+
+    public int getReward_1() {
+        return reward_1;
+    }
+
+    public void setReward_1(int reward_1) {
+        this.reward_1 = reward_1;
+    }
+
+    public int getReward_2() {
+        return reward_2;
+    }
+
+    public void setReward_2(int reward_2) {
+        this.reward_2 = reward_2;
+    }
+
+    public int getReward_3_4() {
+        return reward_3_4;
+    }
+
+    public void setReward_3_4(int reward_3_4) {
+        this.reward_3_4 = reward_3_4;
+    }
+
+    public int getReward_5_8() {
+        return reward_5_8;
+    }
+
+    public void setReward_5_8(int reward_5_8) {
+        this.reward_5_8 = reward_5_8;
+    }
+
+    public int getReward_9_16() {
+        return reward_9_16;
+    }
+
+    public void setReward_9_16(int reward_9_16) {
+        this.reward_9_16 = reward_9_16;
+    }
+
+    public int getReward_17_32() {
+        return reward_17_32;
+    }
+
+    public void setReward_17_32(int reward_17_32) {
+        this.reward_17_32 = reward_17_32;
+    }
+
+    public int getReward_33_64() {
+        return reward_33_64;
+    }
+
+    public void setReward_33_64(int reward_33_64) {
+        this.reward_33_64 = reward_33_64;
+    }
+
+    public long getReward_sb() {
+        return reward_sb;
+    }
+
+    public void setReward_sb(long reward_sb) {
+        this.reward_sb = reward_sb;
+    }
+
+    public int getSb_reward_1() {
+        return sb_reward_1;
+    }
+
+    public void setSb_reward_1(int sb_reward_1) {
+        this.sb_reward_1 = sb_reward_1;
+    }
+
+    public int getSb_reward_2() {
+        return sb_reward_2;
+    }
+
+    public void setSb_reward_2(int sb_reward_2) {
+        this.sb_reward_2 = sb_reward_2;
+    }
+
+    public int getSb_reward_3_4() {
+        return sb_reward_3_4;
+    }
+
+    public void setSb_reward_3_4(int sb_reward_3_4) {
+        this.sb_reward_3_4 = sb_reward_3_4;
+    }
+
+    public int getSb_reward_5_8() {
+        return sb_reward_5_8;
+    }
+
+    public void setSb_reward_5_8(int sb_reward_5_8) {
+        this.sb_reward_5_8 = sb_reward_5_8;
+    }
+
+    public int getSb_reward_9_16() {
+        return sb_reward_9_16;
+    }
+
+    public void setSb_reward_9_16(int sb_reward_9_16) {
+        this.sb_reward_9_16 = sb_reward_9_16;
+    }
+
+    public int getSb_reward_17_32() {
+        return sb_reward_17_32;
+    }
+
+    public void setSb_reward_17_32(int sb_reward_17_32) {
+        this.sb_reward_17_32 = sb_reward_17_32;
+    }
+
+    public int getSb_reward_33_64() {
+        return sb_reward_33_64;
+    }
+
+    public void setSb_reward_33_64(int sb_reward_33_64) {
+        this.sb_reward_33_64 = sb_reward_33_64;
     }
 }

@@ -44,7 +44,7 @@ public class MatchViewHolder extends BaseViewHolder<Match> {
     public void setData(Match data) {
         mTvID.setText(String.format(getContext().getString(R.string.label_match_id), data.getCompetition_id()));
         mTvState.setText(data.getStatus());
-        mDvThumb.setImageURI(Uri.parse(data.getGame_img()));
+        mDvThumb.setImageURI(Uri.parse(data.getGame_name()));
         mTvTitle.setText(data.getTitle());
         mTvTime.setText(data.getStart_time());
         itemView.setOnClickListener(v -> {
