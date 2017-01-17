@@ -49,7 +49,7 @@ public class UserModel extends AbsModel {
      * @return 发送结果
      */
     public Observable<Boolean> updateCaptcha(String mobile) {
-        return ServicesClient.getServices().sendCaptchaUpdate(mobile, LUtils.getPreferences().getString("key", "")).compose(new DefaultTransform<>());
+        return ServicesClient.getServices().sendCaptchaUpdate(mobile, LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
     }
 
     public Observable<User> login(String mobile, String password) {
@@ -84,7 +84,7 @@ public class UserModel extends AbsModel {
      * @return
      */
     public Observable<Sign> getSignDetail() {
-        return ServicesClient.getServices().signDetail(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
+        return ServicesClient.getServices().signDetail(LUtils.getPreferences().getString("token", ""), 1, 2017).compose(new DefaultTransform<>());
     }
 
     /**
@@ -114,6 +114,13 @@ public class UserModel extends AbsModel {
     public Observable<List<Withdraw>> getWithdrawList(Integer page) {
         return ServicesClient.getServices().withdrawRecord(LUtils.getPreferences().getString("token", ""), page)
                 .compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 提现
+     */
+    public Observable<Boolean> withdraw(Integer money) {
+        return ServicesClient.getServices().withdraw(LUtils.getPreferences().getString("token", ""), money).compose(new DefaultTransform<>());
     }
 
     /**

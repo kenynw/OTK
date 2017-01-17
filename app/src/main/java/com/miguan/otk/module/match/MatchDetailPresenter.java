@@ -8,6 +8,8 @@ import com.dsk.chain.expansion.data.BaseDataActivityPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.model.MatchModel;
 import com.miguan.otk.model.bean.Match;
+import com.miguan.otk.model.services.ServicesResponse;
+import com.sgun.utils.LUtils;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.media.UMImage;
@@ -34,11 +36,24 @@ class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity
         MatchModel.getInstance().getMatchDetail(mMatchID).subscribe(getDataSubscriber());
     }
 
-    public void share(Match match) {
+    public void share() {
+        LUtils.toast(getData().getTitle());
         new ShareAction(getView())
-                .withText(match.getTitle())
+                .withText(getData().getTitle())
                 .withMedia(new UMImage(getView(), R.mipmap.ic_launcher))
                 .open();
+    }
+
+    public void enter(String pwd, String code) {
+        MatchModel.getInstance().enter(mMatchID, pwd, code).unsafeSubscribe(new ServicesResponse<>());
+    }
+
+    public void sign() {
+        MatchModel.getInstance().sign(mMatchID).unsafeSubscribe(new ServicesResponse<>());
+    }
+
+    public void prepare() {
+        MatchModel.getInstance().sign(mMatchID).unsafeSubscribe(new ServicesResponse<>());
     }
 
     @Override
@@ -66,6 +81,14 @@ class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity
         rulesFragment1.setArguments(bundle);
         fragments.add(rulesFragment1);
         return fragments;
+    }
+
+    public String getFormatDate(long time) {
+        String days = (time / (1000 * 3600 * 24)) + "";
+        String hours = ((time % (1000 * 3600 * 24)) / (1000 * 3600)) + "";
+        String minutes = ((time % (1000 * 3600)) / (1000 * 60)) + "";
+        String seconds = (time % (1000 * 60) / 1000) + "";
+        return String.format("%1$s:%2$s:%3$s:%4$s", days, hours, minutes, seconds);
     }
 
 }

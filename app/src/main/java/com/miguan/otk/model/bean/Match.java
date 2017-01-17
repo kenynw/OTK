@@ -32,7 +32,7 @@ public class Match implements Parcelable {
 
     private String rank;
 
-    private String status;
+    private int status;
 
     /**
      * 可参与人数
@@ -139,7 +139,7 @@ public class Match implements Parcelable {
         dest.writeInt(this.game_type);
         dest.writeString(this.game_all);
         dest.writeString(this.rank);
-        dest.writeString(this.status);
+        dest.writeInt(this.status);
         dest.writeString(this.competitors);
         dest.writeString(this.count_competitor);
         dest.writeString(this.substitute_competitors);
@@ -186,7 +186,7 @@ public class Match implements Parcelable {
         this.game_type = in.readInt();
         this.game_all = in.readString();
         this.rank = in.readString();
-        this.status = in.readString();
+        this.status = in.readInt();
         this.competitors = in.readString();
         this.count_competitor = in.readString();
         this.substitute_competitors = in.readString();
@@ -325,11 +325,11 @@ public class Match implements Parcelable {
         this.rank = rank;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

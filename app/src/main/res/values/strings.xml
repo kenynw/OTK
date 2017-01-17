@@ -68,7 +68,7 @@
     <string name="btn_sign_in">签到</string>
     <string name="btn_sign_in_now">立即签到</string>
     <string name="btn_shop">撒币商城</string>
-    <string name="btn_take_cash">提现</string>
+    <string name="btn_withdraw">提现</string>
     <string name="btn_withdraw_record">提现记录</string>
     <string name="btn_today_match">今日赛事</string>
     <string name="btn_wechat">微信</string>
@@ -148,6 +148,7 @@
     <string name="label_upload_image">上传截图：</string>
     <string name="label_username">用户名：</string>
 
+    <string name="hint_alipay">支付宝帐号</string>
     <string name="hint_captcha">输入4位验证码</string>
     <string name="hint_confirm_password">再次输入密码</string>
     <string name="hint_feedback_contact">输入邮箱或QQ（选填）</string>

@@ -92,7 +92,7 @@
             android:layout_toRightOf="@id/tv_bind_new"
             android:background="@color/white"
             android:ems="10"
-            android:hint="@string/hint_password"
+            android:hint="@string/hint_alipay"
             android:inputType="text"
             android:textColorHint="@color/text_hint" />
 

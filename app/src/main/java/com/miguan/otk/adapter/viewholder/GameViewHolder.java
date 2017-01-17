@@ -1,6 +1,7 @@
 package com.miguan.otk.adapter.viewholder;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -35,7 +36,7 @@ public class GameViewHolder extends BaseViewHolder<Game> {
 
     @Override
     public void setData(Game data) {
-//        mDvIcon.setImageURI(Uri.parse(data.getGame_icon()));
+        mDvIcon.setImageURI(Uri.parse(data.getGame_img()));
         mTvName.setText(data.getGame_name());
         mTvAccount.setText(data.getGame_account());
         itemView.setOnClickListener(v -> {

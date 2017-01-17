@@ -5,6 +5,7 @@ import com.miguan.otk.model.bean.Feedback;
 import com.miguan.otk.model.bean.Game;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;
+import com.miguan.otk.model.bean.Mission;
 import com.miguan.otk.model.bean.News;
 import com.miguan.otk.model.bean.Schedule;
 import com.miguan.otk.model.bean.Sign;
@@ -177,7 +178,9 @@ public interface Services {
     @FormUrlEncoded
     @POST("user/sign/signdata")
     Observable<Sign> signDetail(
-            @Field("token") CharSequence token
+            @Field("token") CharSequence token,
+            @Field("month") Integer month,
+            @Field("year") Integer year
     );
 
     /**
@@ -219,9 +222,8 @@ public interface Services {
     );
 
     /**
-     * 提现记录
+     * 提现记录首页
      * @param token 登录令牌
-     * @param page 页数
      * @return
      */
     @GET("user/record/getcashrecord")
@@ -230,7 +232,7 @@ public interface Services {
     );
 
     /**
-     * 提现记录
+     * 提现记录列表
      * @param token 登录令牌
      * @param page 页数
      * @return
@@ -239,6 +241,18 @@ public interface Services {
     Observable<List<Withdraw>> withdrawRecord(
             @Query("token") CharSequence token,
             @Query("page") Integer page
+    );
+
+    /**
+     * 提现记录列表
+     * @param token 登录令牌
+     * @param money 提现金额
+     * @return
+     */
+    @GET("user/record/deposit")
+    Observable<Boolean> withdraw(
+            @Query("token") CharSequence token,
+            @Query("money") Integer money
     );
 
     /**
@@ -374,6 +388,36 @@ public interface Services {
             @Field("round") int round
     );
 
+    /**
+     * 赛事报名
+     *
+     * @param matchID 赛事ID
+     * @param password 密码(选填)
+     * @param code 邀请码(选填)
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/competition/join")
+    Observable<Schedule> competitionEnter(
+            @Field("token") String token,
+            @Field("competition_id") int matchID,
+            @Field("password") String password,
+            @Field("invitation_code") String code
+    );
+
+    /**
+     * 赛事签到
+     *
+     * @param matchID 赛事ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/competition/sign")
+    Observable<Schedule> competitionSign(
+            @Field("token") String token,
+            @Field("competition_id") int matchID
+    );
+
     ////////////////////其他//////////////////////
     /**
      * 资讯列表
@@ -399,6 +443,30 @@ public interface Services {
     Observable<Splash> splash(
             @Path("type") String type,
             @Query("mobile") Integer mobile
+    );
+
+    /**
+     * 每日任务
+     *
+     * @param token 登录
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/task/task")
+    Observable<List<Mission>> missionList(
+            @Field("token") String token
+    );
+
+    /**
+     * 每日任务领取奖励
+     *
+     * @param token 登录
+     * @return
+     */
+    @POST("user/task/taskscore")
+    Observable<Mission> missionDole(
+            @Field("token") String token,
+            @Field("task_id") int missionID
     );
 
     /**

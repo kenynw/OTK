@@ -9,13 +9,10 @@
     android:orientation="horizontal"
     android:padding="@dimen/horizontal_margin">
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/dv_mission_image"
+    <ImageView
+        android:id="@+id/iv_mission_image"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        app:actualImageScaleType="centerCrop"
-        app:placeholderImage="@mipmap/def_image_loading"
-        app:placeholderImageScaleType="centerCrop"
         />
 
     <LinearLayout
@@ -67,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="领取任务"
+            android:enabled="false"
             />
 
     </LinearLayout>

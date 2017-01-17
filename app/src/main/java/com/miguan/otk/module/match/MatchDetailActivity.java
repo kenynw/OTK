@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -45,8 +48,6 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
     @Bind(R.id.id_stickynavlayout_viewpager)
     ViewPager mPager;
 
-    private Match mMatch;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,17 +79,15 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
     @Override
     public void setData(Match match) {
         EventBus.getDefault().post(match);
-        mMatch = match;
         mTvID.setText(String.format(getString(R.string.label_match_id), match.getCompetition_id()));
         mTvCost.setText(String.format(getString(R.string.label_match_cost), match.getCost()));
         mTvTitle.setText(match.getTitle());
-        mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), getFormatDate(Long.valueOf(match.getGame_time()) * 1000)));
-        mBtnStatus.setText(match.getGame_status());
+        mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), getPresenter().getFormatDate(Long.valueOf(match.getGame_time()) * 1000)));
         new CountDownTimer(Long.valueOf(match.getGame_time()) * 1000, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), getFormatDate(millisUntilFinished)));
+                mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), getPresenter().getFormatDate(millisUntilFinished)));
             }
 
             @Override
@@ -96,6 +95,40 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
 
             }
         }.start();
+
+        mBtnStatus.setText(match.getGame_status());
+        switch (match.getStatus()) {
+            case 2: // 报名
+                if (match.getGame_type() == 0) {
+                    getPresenter().enter(null, null);
+                } else {
+                    mBtnStatus.setOnClickListener(status -> {
+                        View view = LayoutInflater.from(this).inflate(R.layout.dialog_enter_password, null);
+                        AlertDialog dialog = new AlertDialog.Builder(MatchDetailActivity.this).setView(view).show();
+                        TextView tvTitle = (TextView) view.findViewById(R.id.tv_dialog_enter_title);
+                        EditText tvPwd = (EditText) view.findViewById(R.id.et_dialog_enter_password);
+                        Button btnOk = (Button) view.findViewById(R.id.btn_dialog_ok);
+                        Button btnCancel = (Button) view.findViewById(R.id.btn_dialog_cancel);
+
+                        tvTitle.setText("请输入赛事密码");
+                        btnOk.setOnClickListener(v -> {
+                            String pwd = tvPwd.getText().toString().trim();
+                            getPresenter().enter(match.getGame_type() == 1 ? pwd : null, match.getGame_type() == 2 ? pwd : null);
+                        });
+                        btnCancel.setOnClickListener(v -> dialog.dismiss());
+                    });
+                }
+                break;
+            case 3: // 签到
+                mBtnStatus.setOnClickListener(v -> getPresenter().sign());
+                break;
+            case 4: // 准备
+                mBtnStatus.setOnClickListener(v -> getPresenter().prepare());
+                break;
+            default:
+                mBtnStatus.setEnabled(false);
+                break;
+        }
     }
 
     @Override
@@ -106,16 +139,8 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        getPresenter().share(mMatch);
+        getPresenter().share();
         return super.onOptionsItemSelected(item);
-    }
-
-    private String getFormatDate(long time) {
-        String days = (time / (1000 * 3600 * 24)) + "";
-        String hours = ((time % (1000 * 3600 * 24)) / (1000 * 3600)) + "";
-        String minutes = ((time % (1000 * 3600)) / (1000 * 60)) + "";
-        String seconds = (time % (1000 * 60) / 1000) + "";
-        return String.format("%1$s:%2$s:%3$s:%4$s", days, hours, minutes, seconds);
     }
 
 }

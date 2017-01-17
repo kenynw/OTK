@@ -1,6 +1,7 @@
 package com.miguan.otk.model;
 
 import com.dsk.chain.model.AbsModel;
+import com.miguan.otk.model.bean.Mission;
 import com.miguan.otk.model.bean.Schedule;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;
@@ -64,6 +65,24 @@ public class MatchModel extends AbsModel {
     }
 
     /**
+     * 赛事报名
+     * @param matchID 赛事ID
+     * @return
+     */
+    public Observable<Schedule> enter(int matchID, String password, String code) {
+        return ServicesClient.getServices().competitionEnter(LUtils.getPreferences().getString("token", ""), matchID, password, code).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 赛事签到
+     * @param matchID 赛事ID
+     * @return
+     */
+    public Observable<Schedule> sign(int matchID) {
+        return ServicesClient.getServices().competitionSign(LUtils.getPreferences().getString("token", ""), matchID).compose(new DefaultTransform<>());
+    }
+
+    /**
      * 我的参赛列表
      * @param page 当前页数
      * @return
@@ -79,6 +98,20 @@ public class MatchModel extends AbsModel {
      */
     public Observable<List<Schedule>> getAgainstList(int page) {
         return ServicesClient.getServices().againstList(LUtils.getPreferences().getString("token", ""), page).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 每日任务列表
+     */
+    public Observable<List<Mission>> getMissionList() {
+        return ServicesClient.getServices().missionList(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 每日任务奖励领取
+     */
+    public Observable<Mission> doleMission(int missionID) {
+        return ServicesClient.getServices().missionDole(LUtils.getPreferences().getString("token", ""), missionID).compose(new DefaultTransform<>());
     }
 
 }

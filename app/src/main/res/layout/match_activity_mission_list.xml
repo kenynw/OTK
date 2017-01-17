@@ -11,26 +11,40 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:background="@color/white"
-        android:gravity="center"
-        android:lineSpacingMultiplier="1.4"
-        android:text="任务说明：\n每日任务需要从这里领取，领取过后完成才有效\n每日任务将在每日24：00：00后重置任务"
-        android:textAppearance="@style/TextBody"/>
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/horizontal_margin"
-        android:text="每日任务"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
 
-    <com.jude.easyrecyclerview.EasyRecyclerView
-        android:id="@+id/recycle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.4"
+                android:text="任务说明：\n每日任务需要从这里领取，领取过后完成才有效\n每日任务将在每日24：00：00后重置任务"
+                android:textAppearance="@style/TextBody"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/horizontal_margin"
+                android:text="每日任务"
+                />
+
+            <com.jude.easyrecyclerview.EasyRecyclerView
+                android:id="@+id/recycle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

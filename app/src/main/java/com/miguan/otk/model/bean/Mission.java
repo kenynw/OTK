@@ -9,18 +9,18 @@ import android.os.Parcelable;
 
 public class Mission implements Parcelable {
 
-    private String mission_name;
+    private int id;
 
-    private String mission_state;
+    private String title;
 
-    private String mission_image;
+    private String comment;
 
-    private String mission_desc;
+    private String score;
 
-    private String mission_bonus;
-
-    private String mission_status;
-
+    /**
+     * (int) - 状态是否完成任务（0：完成任务未领取撒币，1：完成任务已领取撒币 2：没做任务）
+     */
+    private int status;
 
     @Override
     public int describeContents() {
@@ -29,24 +29,22 @@ public class Mission implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.mission_name);
-        dest.writeString(this.mission_state);
-        dest.writeString(this.mission_image);
-        dest.writeString(this.mission_desc);
-        dest.writeString(this.mission_bonus);
-        dest.writeString(this.mission_status);
+        dest.writeInt(this.id);
+        dest.writeString(this.title);
+        dest.writeString(this.comment);
+        dest.writeString(this.score);
+        dest.writeInt(this.status);
     }
 
     public Mission() {
     }
 
     protected Mission(Parcel in) {
-        this.mission_name = in.readString();
-        this.mission_state = in.readString();
-        this.mission_image = in.readString();
-        this.mission_desc = in.readString();
-        this.mission_bonus = in.readString();
-        this.mission_status = in.readString();
+        this.id = in.readInt();
+        this.title = in.readString();
+        this.comment = in.readString();
+        this.score = in.readString();
+        this.status = in.readInt();
     }
 
     public static final Creator<Mission> CREATOR = new Creator<Mission>() {
@@ -61,51 +59,43 @@ public class Mission implements Parcelable {
         }
     };
 
-    public String getMission_name() {
-        return mission_name;
+    public int getMission_id() {
+        return id;
     }
 
-    public void setMission_name(String mission_name) {
-        this.mission_name = mission_name;
+    public void setMission_id(int mission_id) {
+        this.id = mission_id;
     }
 
-    public String getMission_state() {
-        return mission_state;
+    public String getTitle() {
+        return title;
     }
 
-    public void setMission_state(String mission_state) {
-        this.mission_state = mission_state;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getMission_image() {
-        return mission_image;
+    public String getComment() {
+        return comment;
     }
 
-    public void setMission_image(String mission_image) {
-        this.mission_image = mission_image;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
-    public String getMission_desc() {
-        return mission_desc;
+    public String getScore() {
+        return score;
     }
 
-    public void setMission_desc(String mission_desc) {
-        this.mission_desc = mission_desc;
+    public void setScore(String score) {
+        this.score = score;
     }
 
-    public String getMission_bonus() {
-        return mission_bonus;
+    public int getStatus() {
+        return status;
     }
 
-    public void setMission_bonus(String mission_bonus) {
-        this.mission_bonus = mission_bonus;
-    }
-
-    public String getMission_status() {
-        return mission_status;
-    }
-
-    public void setMission_status(String mission_status) {
-        this.mission_status = mission_status;
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

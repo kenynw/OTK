@@ -9,26 +9,27 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/tv_dialog_cash_in_close"
+        android:id="@+id/tv_dialog_close"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:drawableRight="@drawable/umeng_update_close_bg_normal"
         android:gravity="center"
         android:paddingLeft="32dp"
-        android:text="@string/btn_take_cash"
+        android:text="@string/btn_withdraw"
         android:textAppearance="@style/TextSubhead"
         />
 
-    <EditText
-        android:id="@+id/et_dialog_cash_in_amount"
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_dialog_withdraw_amount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/horizontal_margin"
         android:layout_marginRight="@dimen/horizontal_margin"
         android:background="@drawable/stroke_gray_shape"
         android:ems="10"
-        android:inputType="number"/>
+        android:inputType="number"
+        android:text="15"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -41,7 +42,7 @@
         />
 
     <Button
-        android:id="@+id/btn_dialog_cash_in_ok"
+        android:id="@+id/btn_dialog_ok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/horizontal_margin"

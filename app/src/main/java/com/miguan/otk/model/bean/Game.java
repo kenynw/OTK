@@ -11,7 +11,7 @@ public class Game implements Parcelable {
 
     private int id;
 
-    private String game_icon;
+    private String game_img;
 
     private String game_name;
 
@@ -25,7 +25,7 @@ public class Game implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.id);
-        dest.writeString(this.game_icon);
+        dest.writeString(this.game_img);
         dest.writeString(this.game_name);
         dest.writeString(this.game_account);
     }
@@ -35,7 +35,7 @@ public class Game implements Parcelable {
 
     protected Game(Parcel in) {
         this.id = in.readInt();
-        this.game_icon = in.readString();
+        this.game_img = in.readString();
         this.game_name = in.readString();
         this.game_account = in.readString();
     }
@@ -60,12 +60,12 @@ public class Game implements Parcelable {
         this.id = id;
     }
 
-    public String getGame_icon() {
-        return game_icon;
+    public String getGame_img() {
+        return game_img;
     }
 
-    public void setGame_icon(String game_icon) {
-        this.game_icon = game_icon;
+    public void setGame_img(String game_img) {
+        this.game_img = game_img;
     }
 
     public String getGame_name() {

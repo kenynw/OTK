@@ -16,7 +16,7 @@
         android:layout_height="56dp"
         android:layout_weight="2"
         android:paddingRight="@dimen/horizontal_margin"
-        app:actualImageScaleType="centerCrop"
+        app:actualImageScaleType="center"
         app:placeholderImage="@mipmap/def_image_loading"
         app:placeholderImageScaleType="centerCrop"
         />
