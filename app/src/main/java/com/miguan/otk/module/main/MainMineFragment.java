@@ -25,7 +25,7 @@ import com.miguan.otk.module.user.MessageActivity;
 import com.miguan.otk.module.user.MyMatchActivity;
 import com.miguan.otk.module.user.MyOrderActivity;
 import com.miguan.otk.module.user.ProfileActivity;
-import com.miguan.otk.module.user.SignInActivity;
+import com.miguan.otk.module.user.SignActivity;
 import com.miguan.otk.module.user.WithdrawListActivity;
 import com.sgun.utils.LUtils;
 
@@ -100,7 +100,7 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
         mBtnLogin.setOnClickListener(v -> getPresenter().isLogin());
         mBtnStore.setOnClickListener(v -> getPresenter().toActivity(StoreHomeActivity.class));
         mBtnMyMatch.setOnClickListener(v -> getPresenter().toActivity(MyMatchActivity.class));
-        mBtnSign.setOnClickListener(v -> getPresenter().toActivity(SignInActivity.class));
+        mBtnSign.setOnClickListener(v -> getPresenter().toActivity(SignActivity.class));
         mBtnBalance.setOnClickListener(v -> getPresenter().toActivity(BalanceDetailActivity.class));
         mBtnRecordCash.setOnClickListener(v -> getPresenter().toActivity(WithdrawListActivity.class));
         mBtnOrder.setOnClickListener(v -> getPresenter().toActivity(MyOrderActivity.class));
@@ -136,6 +136,10 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
         if (!LUtils.getPreferences().getString("token", "").isEmpty())
             LUtils.getPreferences().edit().putString("token", " ").apply();
         isLogin(false);
+    }
+
+    public void setAvatar(Uri uri) {
+        mDvAvatar.setImageURI(uri);
     }
 
     public void isLogin(boolean isLogin) {

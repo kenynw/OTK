@@ -1,6 +1,7 @@
 package com.miguan.otk.module.user;
 
 import android.os.Bundle;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
@@ -8,15 +9,15 @@ import android.widget.TextView;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
-import com.miguan.otk.model.bean.User;
+import com.miguan.otk.model.bean.Sign;
 
 import java.util.Calendar;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-@RequiresPresenter(SignInPresenter.class)
-public class SignInActivity extends BaseDataActivity<SignInPresenter, User> {
+@RequiresPresenter(SignPresenter.class)
+public class SignActivity extends BaseDataActivity<SignPresenter, Sign> {
 
     @Bind(R.id.tv_sign_series_desc)
     TextView mTvSeriesDesc;
@@ -27,8 +28,8 @@ public class SignInActivity extends BaseDataActivity<SignInPresenter, User> {
     @Bind(R.id.btn_sign_now)
     Button mBtnSign;
 
-    @Bind(R.id.tv_sign_rules)
-    TextView mTvRules;
+    @Bind(R.id.wv_sign_rules)
+    WebView mWvRules;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,16 @@ public class SignInActivity extends BaseDataActivity<SignInPresenter, User> {
         mCalendarView.setMaxDate(System.currentTimeMillis());
         mCalendarView.setFirstDayOfWeek(2);
 
-        mBtnSign.setOnClickListener(v -> getPresenter().sign());
     }
 
+    @Override
+    public void setData(Sign sign) {
+        if (sign.getIsqiandao() == 1) {
+            mBtnSign.setEnabled(false);
+        } else {
+            mBtnSign.setOnClickListener(v -> getPresenter().sign());
+        }
+        mTvSeriesDesc.setText(String.format(getString(R.string.text_sign_series_desc), 7 - sign.getIstoday()));
+        mWvRules.loadData(sign.getDescription(), "text/html; charset=utf-8", null);
+    }
 }

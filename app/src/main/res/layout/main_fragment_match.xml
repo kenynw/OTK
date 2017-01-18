@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     >
 
-    <ScrollView
+    <com.miguan.otk.widget.CustomNestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -94,7 +94,6 @@
                 android:id="@+id/rv_main_home_commend"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:dividerHeight="10dp"
                 android:minHeight="88dp"
                 android:paddingLeft="@dimen/horizontal_margin"
                 android:paddingRight="@dimen/horizontal_margin"
@@ -119,7 +118,6 @@
                 android:id="@+id/rv_main_home_today"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="88dp"
                 android:paddingLeft="@dimen/horizontal_margin"
                 android:paddingRight="@dimen/horizontal_margin"
                 />
@@ -150,6 +148,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </com.miguan.otk.widget.CustomNestedScrollView>
 
 </android.support.v4.widget.SwipeRefreshLayout>

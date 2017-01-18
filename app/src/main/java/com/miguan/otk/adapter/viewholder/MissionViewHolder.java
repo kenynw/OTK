@@ -11,7 +11,6 @@ import com.miguan.otk.R;
 import com.miguan.otk.model.MatchModel;
 import com.miguan.otk.model.bean.Mission;
 import com.miguan.otk.model.services.ServicesResponse;
-import com.sgun.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -54,7 +53,6 @@ public class MissionViewHolder extends BaseViewHolder<Mission> {
             mBtnDole.setText("领取奖励");
             mBtnDole.setEnabled(true);
             mBtnDole.setOnClickListener(v -> {
-                LUtils.toast("id: " + data.getMission_id());
                 MatchModel.getInstance().doleMission(data.getMission_id()).unsafeSubscribe(new ServicesResponse<Mission>() {
                     @Override
                     public void onNext(Mission mission) {

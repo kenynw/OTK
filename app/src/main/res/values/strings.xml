@@ -134,7 +134,7 @@
     <string name="label_my_coin">我的元宝：%s</string>
     <string name="label_mobile">手机号</string>
     <string name="label_order_num">订单号：%s</string>
-    <string name="label_profile_area">所在地区：</string>
+    <string name="label_profile_area">地址：</string>
     <string name="label_pwd">密码</string>
     <string name="label_pwd_confirm">重复密码</string>
     <string name="label_pwd_new">新密码</string>
@@ -151,6 +151,7 @@
     <string name="hint_alipay">支付宝帐号</string>
     <string name="hint_captcha">输入4位验证码</string>
     <string name="hint_confirm_password">再次输入密码</string>
+    <string name="hint_email">请输入邮箱</string>
     <string name="hint_feedback_contact">输入邮箱或QQ（选填）</string>
     <string name="hint_feedback_content">尽情吐槽吧~</string>
     <string name="text_feedback_qq">客服QQ：123456789</string>
@@ -158,12 +159,13 @@
     <string name="hint_introduction">有趣的个人介绍会吸引更多粉丝哦</string>
     <string name="hint_league_title">请输入您的公会名</string>
     <string name="hint_league_intro">请输入公会简介</string>
-    <string name="hint_username">用户名长度为6&#8211;20位</string>
+    <string name="hint_mobile">请输入的手机号</string>
     <string name="hint_new_password">请输入新密码</string>
     <string name="hint_nickname">不少2个汉字</string>
-    <string name="hint_mobile">请输入的手机号</string>
     <string name="hint_old_password">请输入旧密码</string>
     <string name="hint_password">请输入密码</string>
+    <string name="hint_qq">请输入QQ</string>
+    <string name="hint_username">用户名长度为6&#8211;20位</string>
 
     <string name="dialog_cash_in">1. 最小提现金额为 15 元，申请后会在一周内到账。\n2. 网站会对50元以下的的提现收取1元转账手续费（不含50），所以大家要多多的累积奖金哦。\n3. 成功申请提现后账户余额会先扣除，如果出现提现失败，申请的金额会返还到账户上，对提现有相关的问题可以联系客服。</string>
     <string name="dialog_clear_cache">是否清除本地所有图片和内容缓存？</string>

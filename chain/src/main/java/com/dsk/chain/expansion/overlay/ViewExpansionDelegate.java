@@ -30,6 +30,8 @@ public abstract class ViewExpansionDelegate {
 
     public void showProgressBar() {}
 
+    public void showProgressBar(String msg) {}
+
     public void hideProgressBar() {}
 
     public void showErrorPage() {}

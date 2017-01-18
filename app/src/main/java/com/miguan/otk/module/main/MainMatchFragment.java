@@ -63,7 +63,6 @@ public class MainMatchFragment extends BaseDataFragment<MainMatchPresenter, Home
         ButterKnife.bind(this, view);
 
         mRefreshLayout.setOnRefreshListener(getPresenter());
-
         mRcvCommend.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRcvCommend.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         mRcvToday.setLayoutManager(new LinearLayoutManager(getActivity()));

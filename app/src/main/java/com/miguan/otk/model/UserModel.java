@@ -72,10 +72,9 @@ public class UserModel extends AbsModel {
         return ServicesClient.getServices().userProfile(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
     }
 
-    public Observable<User> setProfile(String qq, String email, String actuality, String birthday, String province, String city, String sign) {
-        return ServicesClient.getServices().modifyProfile(
-                LUtils.getPreferences().getString("token", ""),
-                qq, email, actuality, birthday, province, city, sign
+    public Observable<Boolean> setProfile(String photo, String qq, String email, String actuality, String birthday, String province, String city, String sign) {
+        return ServicesClient.getServices().modifyProfile(LUtils.getPreferences().getString("token", ""),
+                photo, qq, email, actuality, birthday, province, city, sign
         ).compose(new DefaultTransform<>());
     }
 
@@ -83,7 +82,7 @@ public class UserModel extends AbsModel {
      * 签到信息
      * @return
      */
-    public Observable<Sign> getSignDetail() {
+    public Observable<Sign> getSignInfo() {
         return ServicesClient.getServices().signDetail(LUtils.getPreferences().getString("token", ""), 1, 2017).compose(new DefaultTransform<>());
     }
 

@@ -75,7 +75,7 @@
         </activity>
         <activity android:name=".module.match.MissionListActivity">
         </activity>
-        <activity android:name=".module.user.SignInActivity">
+        <activity android:name=".module.user.SignActivity">
         </activity>
         <activity android:name=".module.user.MessageListActivity">
         </activity>

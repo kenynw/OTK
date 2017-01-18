@@ -3,31 +3,33 @@ package com.miguan.otk.model.bean;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
 /**
  * Copyright (c) 2017/1/11. LiaoPeiKun Inc. All rights reserved.
  */
 
 public class Sign implements Parcelable {
 
-    private Cause cause;
+    private List<Cause> cause;
 
     private String score;
 
     private String money;
 
-    private String istoday;
+    private int istoday;
 
-    private String isqiandao;
+    private int isqiandao;
 
     private String visits;
 
     private String description;
 
-    private static class Cause implements Parcelable {
+    public static class Cause implements Parcelable {
 
         private String sign_in_date;
 
-        private String sign_in_count;
+        private int sign_in_count;
 
         private String sign;
 
@@ -39,16 +41,16 @@ public class Sign implements Parcelable {
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeString(this.sign_in_date);
-            dest.writeString(this.sign_in_count);
+            dest.writeInt(this.sign_in_count);
             dest.writeString(this.sign);
         }
 
         public Cause() {
         }
 
-        protected Cause(Parcel in) {
+        Cause(Parcel in) {
             this.sign_in_date = in.readString();
-            this.sign_in_count = in.readString();
+            this.sign_in_count = in.readInt();
             this.sign = in.readString();
         }
 
@@ -72,11 +74,11 @@ public class Sign implements Parcelable {
             this.sign_in_date = sign_in_date;
         }
 
-        public String getSign_in_count() {
+        public int getSign_in_count() {
             return sign_in_count;
         }
 
-        public void setSign_in_count(String sign_in_count) {
+        public void setSign_in_count(int sign_in_count) {
             this.sign_in_count = sign_in_count;
         }
 
@@ -96,11 +98,11 @@ public class Sign implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(this.cause, flags);
+        dest.writeTypedList(this.cause);
         dest.writeString(this.score);
         dest.writeString(this.money);
-        dest.writeString(this.istoday);
-        dest.writeString(this.isqiandao);
+        dest.writeInt(this.istoday);
+        dest.writeInt(this.isqiandao);
         dest.writeString(this.visits);
         dest.writeString(this.description);
     }
@@ -109,11 +111,11 @@ public class Sign implements Parcelable {
     }
 
     protected Sign(Parcel in) {
-        this.cause = in.readParcelable(Cause.class.getClassLoader());
+        this.cause = in.createTypedArrayList(Cause.CREATOR);
         this.score = in.readString();
         this.money = in.readString();
-        this.istoday = in.readString();
-        this.isqiandao = in.readString();
+        this.istoday = in.readInt();
+        this.isqiandao = in.readInt();
         this.visits = in.readString();
         this.description = in.readString();
     }
@@ -130,11 +132,11 @@ public class Sign implements Parcelable {
         }
     };
 
-    public Cause getCause() {
+    public List<Cause> getCause() {
         return cause;
     }
 
-    public void setCause(Cause cause) {
+    public void setCause(List<Cause> cause) {
         this.cause = cause;
     }
 
@@ -154,19 +156,19 @@ public class Sign implements Parcelable {
         this.money = money;
     }
 
-    public String getIstoday() {
+    public int getIstoday() {
         return istoday;
     }
 
-    public void setIstoday(String istoday) {
+    public void setIstoday(int istoday) {
         this.istoday = istoday;
     }
 
-    public String getIsqiandao() {
+    public int getIsqiandao() {
         return isqiandao;
     }
 
-    public void setIsqiandao(String isqiandao) {
+    public void setIsqiandao(int isqiandao) {
         this.isqiandao = isqiandao;
     }
 

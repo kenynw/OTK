@@ -145,9 +145,10 @@ public interface Services {
      * @return
      */
     @FormUrlEncoded
-    @POST("user/message/index")
-    Observable<User> modifyProfile(
+    @POST("user/message/edit")
+    Observable<Boolean> modifyProfile(
             @Field("token") CharSequence token,
+            @Field("photo") CharSequence photo,
             @Field("qq") CharSequence qq,
             @Field("email") CharSequence email,
             @Field("actuality") CharSequence actuality,
@@ -463,10 +464,11 @@ public interface Services {
      * @param token 登录
      * @return
      */
+    @FormUrlEncoded
     @POST("user/task/taskscore")
     Observable<Mission> missionDole(
             @Field("token") String token,
-            @Field("task_id") int missionID
+            @Field("id") int missionID
     );
 
     /**

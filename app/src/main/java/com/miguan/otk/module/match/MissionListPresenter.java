@@ -21,5 +21,4 @@ public class MissionListPresenter extends BaseListActivityPresenter<MissionListA
         MatchModel.getInstance().getMissionList().unsafeSubscribe(getRefreshSubscriber());
     }
 
-
 }

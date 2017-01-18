@@ -110,7 +110,6 @@
                     android:id="@+id/tv_profile_uid"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:drawableRight="@mipmap/ic_more"
                     android:gravity="center_vertical"
                     tools:text="54545"
                     />

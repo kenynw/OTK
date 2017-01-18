@@ -9,12 +9,12 @@ import com.miguan.otk.model.services.ServicesResponse;
  * Copyright (c) 2016/12/23. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class SignInPresenter extends BaseDataActivityPresenter<SignInActivity, Sign> {
+public class SignPresenter extends BaseDataActivityPresenter<SignActivity, Sign> {
 
     @Override
-    protected void onCreateView(SignInActivity view) {
+    protected void onCreateView(SignActivity view) {
         super.onCreateView(view);
-        UserModel.getInstance().getSignDetail().unsafeSubscribe(getDataSubscriber());
+        UserModel.getInstance().getSignInfo().unsafeSubscribe(getDataSubscriber());
     }
 
     public void sign() {

@@ -38,8 +38,20 @@ public class DefaultViewExpansionDelegate extends ViewExpansionDelegate {
         mProgressDialog.setCancelable(false);
         mProgressDialog.setMessage("请稍等");
         mProgressDialog.show();
-//            mProgressDialog.setIndeterminateDrawable(new IndeterminateProgressDrawable(getActivity()));
-//            getContainer().addView(mProgressDialog, getLayoutParams());
+    }
+
+    @Override
+    public void showProgressBar(String msg) {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
+
+        mContent = getContainer().findViewById(R.id.layout_content);
+        if (mContent != null) mContent.setVisibility(View.INVISIBLE);
+        mProgressDialog = new ProgressDialog(getActivity());
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.setMessage(msg);
+        mProgressDialog.show();
     }
 
     @Override

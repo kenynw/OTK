@@ -69,6 +69,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
                 android:textAppearance="@style/TextSubhead"
                 tools:text="炉石传说——OTK电竞常规赛#287"
                 />

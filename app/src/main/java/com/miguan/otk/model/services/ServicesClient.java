@@ -2,7 +2,7 @@ package com.miguan.otk.model.services;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

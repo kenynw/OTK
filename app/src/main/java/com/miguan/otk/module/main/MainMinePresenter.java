@@ -2,6 +2,7 @@ package com.miguan.otk.module.main;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 
@@ -49,6 +50,11 @@ public class MainMinePresenter extends BaseDataFragmentPresenter<MainMineFragmen
     @Subscribe(threadMode = ThreadMode.POSTING)
     public void onLoginEvent(User user) {
         setData();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void setAvatar(Uri uri) {
+        getView().setAvatar(uri);
     }
 
     boolean isLogin() {
