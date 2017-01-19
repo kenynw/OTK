@@ -17,9 +17,13 @@ public class Sign implements Parcelable {
 
     private String money;
 
+    private String currency;
+
     private int istoday;
 
     private int isqiandao;
+
+    private int baoxiangscore;
 
     private String visits;
 
@@ -101,8 +105,10 @@ public class Sign implements Parcelable {
         dest.writeTypedList(this.cause);
         dest.writeString(this.score);
         dest.writeString(this.money);
+        dest.writeString(this.currency);
         dest.writeInt(this.istoday);
         dest.writeInt(this.isqiandao);
+        dest.writeInt(this.baoxiangscore);
         dest.writeString(this.visits);
         dest.writeString(this.description);
     }
@@ -114,8 +120,10 @@ public class Sign implements Parcelable {
         this.cause = in.createTypedArrayList(Cause.CREATOR);
         this.score = in.readString();
         this.money = in.readString();
+        this.currency = in.readString();
         this.istoday = in.readInt();
         this.isqiandao = in.readInt();
+        this.baoxiangscore = in.readInt();
         this.visits = in.readString();
         this.description = in.readString();
     }
@@ -156,6 +164,14 @@ public class Sign implements Parcelable {
         this.money = money;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     public int getIstoday() {
         return istoday;
     }
@@ -170,6 +186,14 @@ public class Sign implements Parcelable {
 
     public void setIsqiandao(int isqiandao) {
         this.isqiandao = isqiandao;
+    }
+
+    public int getBaoxiangscore() {
+        return baoxiangscore;
+    }
+
+    public void setBaoxiangscore(int baoxiangscore) {
+        this.baoxiangscore = baoxiangscore;
     }
 
     public String getVisits() {

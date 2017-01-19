@@ -38,4 +38,11 @@
         <item>聊天室</item>
     </string-array>
 
+    <string-array name="items_profile_jobs">
+        <item>学生党</item>
+        <item>上班族</item>
+        <item>家里蹲</item>
+        <item>其他</item>
+    </string-array>
+
 </resources>

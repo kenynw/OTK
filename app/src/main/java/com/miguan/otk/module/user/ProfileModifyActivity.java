@@ -49,7 +49,7 @@ public class ProfileModifyActivity extends ChainBaseActivity<ProfileModifyPresen
                         LUtils.toast("请输入内容");
                         return;
                     }
-                    getPresenter().submit(mEtInput.getText().toString().trim(), null, null);
+                    getPresenter().submit("qq", mEtInput.getText().toString().trim());
                 });
                 break;
             case 1 :
@@ -61,7 +61,7 @@ public class ProfileModifyActivity extends ChainBaseActivity<ProfileModifyPresen
                         LUtils.toast("请输入内容");
                         return;
                     }
-                    getPresenter().submit(null, mEtInput.getText().toString().trim(), null);
+                    getPresenter().submit("email", mEtInput.getText().toString().trim());
                 });
                 break;
             case 2 :
@@ -77,7 +77,7 @@ public class ProfileModifyActivity extends ChainBaseActivity<ProfileModifyPresen
                         LUtils.toast("请输入内容");
                         return;
                     }
-                    getPresenter().submit(null, null, mEtInput.getText().toString().trim());
+                    getPresenter().submit("sign", mEtInput.getText().toString().trim());
                 });
                 break;
         }

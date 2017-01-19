@@ -63,8 +63,7 @@ public class CustomNestedScrollView extends NestedScrollView {
 
     class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
         @Override
-        public boolean onScroll(MotionEvent e1, MotionEvent e2,
-                                float distanceX, float distanceY) {
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
             if (Math.abs(distanceY) > Math.abs(distanceX)) {
                 return true;
             }

@@ -58,4 +58,8 @@ public class SignActivity extends BaseDataActivity<SignPresenter, Sign> {
         mTvSeriesDesc.setText(String.format(getString(R.string.text_sign_series_desc), 7 - sign.getIstoday()));
         mWvRules.loadData(sign.getDescription(), "text/html; charset=utf-8", null);
     }
+
+    public void setBtnDisable() {
+        mBtnSign.setEnabled(false);
+    }
 }

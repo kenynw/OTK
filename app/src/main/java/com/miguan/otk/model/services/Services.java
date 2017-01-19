@@ -15,8 +15,10 @@ import com.miguan.otk.model.bean.Version;
 import com.miguan.otk.model.bean.Withdraw;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -140,22 +142,21 @@ public interface Services {
 
     /**
      * 个人资料修改
-     *
-     * @param token 登录令牌
+     * token
+     * photo
+     * qq
+     * email
+     * actuality
+     * birthday
+     * province
+     * city
+     * sign
      * @return
      */
     @FormUrlEncoded
     @POST("user/message/edit")
     Observable<Boolean> modifyProfile(
-            @Field("token") CharSequence token,
-            @Field("photo") CharSequence photo,
-            @Field("qq") CharSequence qq,
-            @Field("email") CharSequence email,
-            @Field("actuality") CharSequence actuality,
-            @Field("birthday") CharSequence birthday,
-            @Field("province") CharSequence province,
-            @Field("city") CharSequence city,
-            @Field("sign") CharSequence sign
+            @FieldMap Map<String, String> request
     );
 
     /**
@@ -166,7 +167,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("user/sign/index")
-    Observable<Boolean> sign(
+    Observable<Sign> sign(
             @Field("token") CharSequence token
     );
 

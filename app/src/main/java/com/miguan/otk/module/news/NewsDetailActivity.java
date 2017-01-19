@@ -11,7 +11,8 @@ import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.News;
-import com.sgun.utils.LUtils;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.media.UMImage;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -22,14 +23,16 @@ public class NewsDetailActivity extends BaseDataActivity<NewsDetailPresenter, Ne
     @Bind(R.id.wv_news_detail)
     WebView mWebView;
 
+    private News mNews;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_activity_detail);
         ButterKnife.bind(this);
 
-        News news = getIntent().getParcelableExtra("news");
-        mWebView.loadUrl(news.getUrl());
+        mNews = getIntent().getParcelableExtra("news");
+        mWebView.loadUrl(mNews.getUrl());
 
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setWebViewClient(new WebViewClient() {
@@ -55,7 +58,10 @@ public class NewsDetailActivity extends BaseDataActivity<NewsDetailPresenter, Ne
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        LUtils.toast("分享中");
+        new ShareAction(this).withTitle(mNews.getTitle())
+                .withMedia(new UMImage(this, R.mipmap.ic_launcher))
+                .withTargetUrl(mNews.getUrl())
+                .open();
         return super.onOptionsItemSelected(item);
     }
 }

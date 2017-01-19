@@ -17,6 +17,8 @@ import com.sgun.utils.LUtils;
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import rx.Observable;
 import rx.functions.Func1;
@@ -47,6 +49,22 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
         UserModel.getInstance().getProfile().unsafeSubscribe(getDataSubscriber());
     }
 
+    public void setProfile(String key, String value) {
+        Map<String, String> map = new HashMap<>();
+        map.put(key, value);
+        setProfile(map);
+    }
+
+    public void setProfile(Map<String, String> map) {
+        UserModel.getInstance().setProfile(map).unsafeSubscribe(new ServicesResponse<Boolean>() {
+            @Override
+            public void onNext(Boolean aBoolean) {
+                if (aBoolean) LUtils.toast("修改成功");
+                else LUtils.toast("修改失败");
+            }
+        });
+    }
+
     public void toModify(User user, int type) {
         Intent i = new Intent(getView(), ProfileModifyActivity.class);
         i.putExtra("type", type);
@@ -59,7 +77,7 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
                 .flatMap(new Func1<String, Observable<Boolean>>() {
                     @Override
                     public Observable<Boolean> call(String s) {
-                        return UserModel.getInstance().setProfile(s, null, null, null, null, null, null, null);
+                        return UserModel.getInstance().setProfile("photo", s);
                     }
                 })
                 .doAfterTerminate(() -> getView().getExpansionDelegate().hideProgressBar())

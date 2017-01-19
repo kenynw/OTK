@@ -9,7 +9,7 @@
         <!--友盟-->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5563e50967e58e4bbf00179c"/>
+            android:value="588017bb82b63511c5002678"/>
         <!-- ###################分享##################### -->
         <activity
             android:name="com.umeng.socialize.editorpage.ShareActivity"

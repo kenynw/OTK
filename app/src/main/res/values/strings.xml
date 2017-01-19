@@ -96,12 +96,14 @@
     <string name="text_reward">总奖金</string>
     <string name="text_reward_winner">冠军独享</string>
     <string name="text_reward_2">亚军</string>
-    <string name="text_reward_3_4">第3-&#8211;4名</string>
+    <string name="text_reward_3_4">第3&#8211;4名</string>
     <string name="text_reward_5_8">第5&#8211;8名</string>
     <string name="text_reward_9_16">第9&#8211;16名</string>
     <string name="text_reward_17_32">第17&#8211;32名</string>
     <string name="text_reward_33_64">第33&#8211;64名</string>
     <string name="text_share">分享</string>
+    <string name="text_sign_bonus">今日签到获得撒币%s！\n</string>
+    <string name="text_sign_series_bonus">人品爆炸，从宝箱内开出了%d撒币！</string>
     <string name="text_sign_series_desc">距离宝箱开启，还需连续签到%d天</string>
     <string name="text_slogan">打造一个有温度的的线上比赛平台</string>
     <string name="text_special_rules">特殊规则</string>

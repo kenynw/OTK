@@ -99,6 +99,8 @@
         </activity>
         <activity android:name=".module.user.BindAlipayActivity">
         </activity>
+        <activity android:name=".module.user.AreaActivity">
+        </activity>
     </application>
 
 </manifest>

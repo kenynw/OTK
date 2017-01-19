@@ -12,7 +12,9 @@ import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
 import com.sgun.utils.LUtils;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import rx.Observable;
 
@@ -72,10 +74,16 @@ public class UserModel extends AbsModel {
         return ServicesClient.getServices().userProfile(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
     }
 
-    public Observable<Boolean> setProfile(String photo, String qq, String email, String actuality, String birthday, String province, String city, String sign) {
-        return ServicesClient.getServices().modifyProfile(LUtils.getPreferences().getString("token", ""),
-                photo, qq, email, actuality, birthday, province, city, sign
-        ).compose(new DefaultTransform<>());
+    public Observable<Boolean> setProfile(Map<String, String> map) {
+        map.put("token", LUtils.getPreferences().getString("token", ""));
+        return ServicesClient.getServices().modifyProfile(map).compose(new DefaultTransform<>());
+    }
+
+    public Observable<Boolean> setProfile(String key, String value) {
+        Map<String, String> map = new HashMap<>();
+        map.put("token", LUtils.getPreferences().getString("token", ""));
+        map.put(key, value);
+        return ServicesClient.getServices().modifyProfile(map).compose(new DefaultTransform<>());
     }
 
     /**
@@ -90,7 +98,7 @@ public class UserModel extends AbsModel {
      * 签到
      * @return
      */
-    public Observable<Boolean> sign() {
+    public Observable<Sign> sign() {
         return ServicesClient.getServices().sign(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
     }
 

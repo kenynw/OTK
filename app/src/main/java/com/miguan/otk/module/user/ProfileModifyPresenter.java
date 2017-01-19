@@ -18,8 +18,8 @@ public class ProfileModifyPresenter extends Presenter<ProfileModifyActivity> {
         super.onCreate(view, saveState);
     }
 
-    public void submit(String qq, String email, String intro) {
-        UserModel.getInstance().setProfile(null, qq, email, null, null, null, null, intro)
+    public void submit(String key, String value) {
+        UserModel.getInstance().setProfile(key, value)
                 .unsafeSubscribe(new ServicesResponse<Boolean>() {
                     @Override
                     public void onNext(Boolean aBoolean) {

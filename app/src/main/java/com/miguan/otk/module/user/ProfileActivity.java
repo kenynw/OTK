@@ -1,8 +1,12 @@
 package com.miguan.otk.module.user;
 
+import android.app.DatePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -16,6 +20,14 @@ import com.miguan.otk.model.bean.User;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -76,6 +88,7 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
         mTvJob.setOnClickListener(v -> showJobItems());
         mTvBorn.setText(user.getBirthday());
         mTvBorn.setOnClickListener(v -> showDatePick());
+        mTvArea.setOnClickListener(v -> startActivity(new Intent(this, AreaActivity.class)));
         mTvIntro.setText(user.getSign());
         mTvQQ.setOnClickListener(v -> getPresenter().toModify(user, 0));
         mTvEmail.setOnClickListener(v -> getPresenter().toModify(user, 1));
@@ -101,11 +114,32 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
     }
 
     public void showJobItems() {
-
+        new AlertDialog.Builder(this).setItems(R.array.items_profile_jobs, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                mTvJob.setText(getResources().getStringArray(R.array.items_profile_jobs)[which]);
+                getPresenter().setProfile("actuality", which + "");
+            }
+        }).show();
     }
 
     public void showDatePick() {
-
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+        try {
+            Date date = format.parse(mTvBorn.getText().toString().trim().isEmpty() ? "1970-01-01" : mTvBorn.getText().toString().trim());
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            DatePickerDialog dialog = new DatePickerDialog(this,
+                    (datePicker, year, monthOfYear, dayOfMonth) -> {
+                        String born = String.format("%d-%02d-%d", year, monthOfYear + 1, dayOfMonth);
+                        mTvBorn.setText(born);
+                        getPresenter().setProfile("birthday", born);
+                    },
+                    calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DATE));
+            dialog.show();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public void dismissDialog() {
@@ -115,6 +149,18 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void setAvatar(Uri uri) {
         mDvAvatar.setImageURI(uri);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void setArea(StringBuilder area) {
+        mTvArea.setText(area.toString());
+        String[] strings = area.toString().split(" ");
+        Map<String, String> map = new HashMap<>();
+        map.put("province", strings[0]);
+        map.put("city", strings[1]);
+        map.put("area", strings[2]);
+
+        getPresenter().setProfile(map);
     }
 
 }
