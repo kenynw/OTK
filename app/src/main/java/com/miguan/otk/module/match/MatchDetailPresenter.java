@@ -7,8 +7,10 @@ import android.support.v4.app.Fragment;
 import com.dsk.chain.expansion.data.BaseDataActivityPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.model.MatchModel;
+import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.services.ServicesResponse;
+import com.miguan.otk.module.battle.BattleActivity;
 import com.sgun.utils.LUtils;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
@@ -33,7 +35,11 @@ class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity
     @Override
     protected void onCreateView(MatchDetailActivity view) {
         super.onCreateView(view);
-        MatchModel.getInstance().getMatchDetail(mMatchID).subscribe(getDataSubscriber());
+        setData();
+    }
+
+    public void setData() {
+        MatchModel.getInstance().getMatchDetail(mMatchID).unsafeSubscribe(getDataSubscriber());
     }
 
     public void share() {
@@ -49,11 +55,25 @@ class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity
     }
 
     public void sign() {
-        MatchModel.getInstance().sign(mMatchID).unsafeSubscribe(new ServicesResponse<>());
+        MatchModel.getInstance().sign(mMatchID).unsafeSubscribe(new ServicesResponse<Boolean>() {
+            @Override
+            public void onNext(Boolean aBoolean) {
+
+            }
+        });
     }
 
-    public void prepare() {
-        MatchModel.getInstance().sign(mMatchID).unsafeSubscribe(new ServicesResponse<>());
+    public void getBattleID() {
+        MatchModel.getInstance().getBattleID(mMatchID).unsafeSubscribe(new ServicesResponse<Battle>() {
+            @Override
+            public void onNext(Battle battle) {
+                if (battle.getBattle_id() > 0) {
+                    Intent intent = new Intent(getView(), BattleActivity.class);
+                    intent.putExtra("battle_id", battle.getBattle_id());
+                    getView().startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override

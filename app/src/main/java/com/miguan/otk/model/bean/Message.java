@@ -11,15 +11,39 @@ public class Message implements Parcelable {
 
     private int message_id;
 
-    private String message_title;
+    private String system;
 
-    private String message_image;
+    private String competition;
 
-    private String message_desc;
+    /**
+     * 推送对象 0:全部1：指定用户 2:指定赛事
+     * @return
+     */
+    private String object;
 
-    private String message_content;
+    /**
+     * 赛事ID或用户UID
+     * @return
+     */
+    private int object_id;
 
-    private String message_date;
+    /**
+     * 是否跳转链接 0:无链接 1：url(应用内)2：url(浏览器)3：赛事ID4：资讯ID 5:商品ID
+     * @return
+     */
+    private int is_url;
+
+    private String url;
+
+    private String content;
+
+    private String create_time;
+
+    /**
+     * 消息类型(1系统消息,2比赛消息)
+     * @return
+     */
+    private int type;
 
     @Override
     public int describeContents() {
@@ -29,11 +53,15 @@ public class Message implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.message_id);
-        dest.writeString(this.message_title);
-        dest.writeString(this.message_image);
-        dest.writeString(this.message_desc);
-        dest.writeString(this.message_content);
-        dest.writeString(this.message_date);
+        dest.writeString(this.system);
+        dest.writeString(this.competition);
+        dest.writeString(this.object);
+        dest.writeInt(this.object_id);
+        dest.writeInt(this.is_url);
+        dest.writeString(this.url);
+        dest.writeString(this.content);
+        dest.writeString(this.create_time);
+        dest.writeInt(this.type);
     }
 
     public Message() {
@@ -41,11 +69,15 @@ public class Message implements Parcelable {
 
     protected Message(Parcel in) {
         this.message_id = in.readInt();
-        this.message_title = in.readString();
-        this.message_image = in.readString();
-        this.message_desc = in.readString();
-        this.message_content = in.readString();
-        this.message_date = in.readString();
+        this.system = in.readString();
+        this.competition = in.readString();
+        this.object = in.readString();
+        this.object_id = in.readInt();
+        this.is_url = in.readInt();
+        this.url = in.readString();
+        this.content = in.readString();
+        this.create_time = in.readString();
+        this.type = in.readInt();
     }
 
     public static final Creator<Message> CREATOR = new Creator<Message>() {
@@ -68,43 +100,75 @@ public class Message implements Parcelable {
         this.message_id = message_id;
     }
 
-    public String getMessage_title() {
-        return message_title;
+    public String getSystem() {
+        return system;
     }
 
-    public void setMessage_title(String message_title) {
-        this.message_title = message_title;
+    public void setSystem(String system) {
+        this.system = system;
     }
 
-    public String getMessage_image() {
-        return message_image;
+    public String getCompetition() {
+        return competition;
     }
 
-    public void setMessage_image(String message_image) {
-        this.message_image = message_image;
+    public void setCompetition(String competition) {
+        this.competition = competition;
     }
 
-    public String getMessage_desc() {
-        return message_desc;
+    public String getObject() {
+        return object;
     }
 
-    public void setMessage_desc(String message_desc) {
-        this.message_desc = message_desc;
+    public void setObject(String object) {
+        this.object = object;
     }
 
-    public String getMessage_content() {
-        return message_content;
+    public int getObject_id() {
+        return object_id;
     }
 
-    public void setMessage_content(String message_content) {
-        this.message_content = message_content;
+    public void setObject_id(int object_id) {
+        this.object_id = object_id;
     }
 
-    public String getMessage_date() {
-        return message_date;
+    public int getIs_url() {
+        return is_url;
     }
 
-    public void setMessage_date(String message_date) {
-        this.message_date = message_date;
+    public void setIs_url(int is_url) {
+        this.is_url = is_url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

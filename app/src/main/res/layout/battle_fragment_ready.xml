@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:padding="@dimen/horizontal_margin"
+        android:text="@string/text_prepare_phase"
+        android:textAppearance="@style/TextSubhead"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/horizontal_margin"
+        android:text="点击“准备”按钮进入比赛，准备截断结束之后必须互相添加对手，同事在网页聊天室、游戏里说明是否进行卡组选择界面的截图"
+        />
+
+    <Button
+        android:id="@+id/btn_battle_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+</merge>

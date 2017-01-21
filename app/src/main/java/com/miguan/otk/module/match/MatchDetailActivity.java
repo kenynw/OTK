@@ -92,17 +92,25 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
 
             @Override
             public void onFinish() {
-
+                getPresenter().setData();
             }
         }.start();
 
         mBtnStatus.setText(match.getGame_status());
         switch (match.getStatus()) {
             case 2: // 报名
-                if (match.getGame_type() == 0) {
-                    getPresenter().enter(null, null);
-                } else {
-                    mBtnStatus.setOnClickListener(status -> {
+                mBtnStatus.setOnClickListener(status -> {
+                    if (match.getGame_type() == 0) {
+                        if (match.getCost() > 0) {
+                            new AlertDialog.Builder(this)
+                                    .setMessage(String.format("是否消耗%d报名比赛", match.getCost()))
+                                    .setPositiveButton(getString(R.string.btn_ok), (dialog, which) -> getPresenter().enter(null, null))
+                                    .setNegativeButton(getString(R.string.btn_cancel), null)
+                                    .show();
+                        } else {
+                            getPresenter().enter(null, null);
+                        }
+                    } else {
                         View view = LayoutInflater.from(this).inflate(R.layout.dialog_enter_password, null);
                         AlertDialog dialog = new AlertDialog.Builder(MatchDetailActivity.this).setView(view).show();
                         TextView tvTitle = (TextView) view.findViewById(R.id.tv_dialog_enter_title);
@@ -116,17 +124,18 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
                             getPresenter().enter(match.getGame_type() == 1 ? pwd : null, match.getGame_type() == 2 ? pwd : null);
                         });
                         btnCancel.setOnClickListener(v -> dialog.dismiss());
-                    });
-                }
+                    }
+                });
                 break;
             case 3: // 签到
                 mBtnStatus.setOnClickListener(v -> getPresenter().sign());
                 break;
             case 4: // 准备
-                mBtnStatus.setOnClickListener(v -> getPresenter().prepare());
+                mBtnStatus.setOnClickListener(v -> getPresenter().getBattleID());
                 break;
             default:
-                mBtnStatus.setEnabled(false);
+//                mBtnStatus.setEnabled(false);
+                mBtnStatus.setOnClickListener(v -> getPresenter().getBattleID());
                 break;
         }
     }

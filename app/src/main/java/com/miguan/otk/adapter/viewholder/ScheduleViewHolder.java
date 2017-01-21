@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
-import com.miguan.otk.model.bean.Schedule;
+import com.miguan.otk.model.bean.Battle;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
  * Copyright (c) 2016/12/23. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class ScheduleViewHolder extends BaseViewHolder<Schedule> {
+public class ScheduleViewHolder extends BaseViewHolder<Battle> {
 
     @Bind(R.id.tv_vs_player_a)
     TextView mTvA;
@@ -25,7 +25,7 @@ public class ScheduleViewHolder extends BaseViewHolder<Schedule> {
     }
 
     @Override
-    public void setData(Schedule against) {
-        mTvA.setText(String.format("%s VS %s", against.getA_name(), against.getB_name()));
+    public void setData(Battle against) {
+        mTvA.setText(String.format("%s VS %s", against.getA_username(), against.getB_username()));
     }
 }

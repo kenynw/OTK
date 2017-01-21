@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context="com.miguan.otk.module.against.ContactJudgeActivity">
+    tools:context="com.miguan.otk.module.battle.ContactJudgeActivity">
 
     <include layout="@layout/include_toolbar"/>
 

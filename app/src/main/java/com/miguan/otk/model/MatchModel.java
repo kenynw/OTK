@@ -1,10 +1,10 @@
 package com.miguan.otk.model;
 
 import com.dsk.chain.model.AbsModel;
-import com.miguan.otk.model.bean.Mission;
-import com.miguan.otk.model.bean.Schedule;
+import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;
+import com.miguan.otk.model.bean.Mission;
 import com.miguan.otk.model.bean.User;
 import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
@@ -60,7 +60,7 @@ public class MatchModel extends AbsModel {
      * @param matchID 赛事ID
      * @return
      */
-    public Observable<Schedule> getCompetitionSchedule(int matchID, int round) {
+    public Observable<Battle> getCompetitionSchedule(int matchID, int round) {
         return ServicesClient.getServices().competitionSchedule(matchID, round).compose(new DefaultTransform<>());
     }
 
@@ -69,7 +69,7 @@ public class MatchModel extends AbsModel {
      * @param matchID 赛事ID
      * @return
      */
-    public Observable<Schedule> enter(int matchID, String password, String code) {
+    public Observable<Battle> enter(int matchID, String password, String code) {
         return ServicesClient.getServices().competitionEnter(LUtils.getPreferences().getString("token", ""), matchID, password, code).compose(new DefaultTransform<>());
     }
 
@@ -78,8 +78,12 @@ public class MatchModel extends AbsModel {
      * @param matchID 赛事ID
      * @return
      */
-    public Observable<Schedule> sign(int matchID) {
+    public Observable<Boolean> sign(int matchID) {
         return ServicesClient.getServices().competitionSign(LUtils.getPreferences().getString("token", ""), matchID).compose(new DefaultTransform<>());
+    }
+
+    public Observable<Battle> getBattleID(int competitionID) {
+        return ServicesClient.getServices().battleID(LUtils.getPreferences().getString("token", ""), competitionID).compose(new DefaultTransform<>());
     }
 
     /**
@@ -89,15 +93,6 @@ public class MatchModel extends AbsModel {
      */
     public Observable<List<Match>> getMyMatchList(int page) {
         return ServicesClient.getServices().myMatchList(LUtils.getPreferences().getString("token", ""), page).compose(new DefaultTransform<>());
-    }
-
-    /**
-     * 我的对战记录
-     * @param page 当前页数
-     * @return
-     */
-    public Observable<List<Schedule>> getAgainstList(int page) {
-        return ServicesClient.getServices().againstList(LUtils.getPreferences().getString("token", ""), page).compose(new DefaultTransform<>());
     }
 
     /**

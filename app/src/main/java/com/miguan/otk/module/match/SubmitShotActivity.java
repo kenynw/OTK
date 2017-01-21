@@ -9,7 +9,7 @@ import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.TitlePagerAdapter;
 import com.miguan.otk.model.bean.Match;
-import com.miguan.otk.module.against.ScreenshotFragment;
+import com.miguan.otk.module.battle.ScreenshotFragment;
 
 import java.util.ArrayList;
 import java.util.List;

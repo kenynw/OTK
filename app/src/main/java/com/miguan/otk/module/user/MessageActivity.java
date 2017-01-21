@@ -11,11 +11,13 @@ import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Message;
 
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(MessagePresenter.class)
-public class MessageActivity extends BaseDataActivity<MessagePresenter, Message> {
+public class MessageActivity extends BaseDataActivity<MessagePresenter, List<Message>> {
 
     @Bind(R.id.tv_message_system)
     TextView mTvSystem;
@@ -35,12 +37,12 @@ public class MessageActivity extends BaseDataActivity<MessagePresenter, Message>
     }
 
     @Override
-    public void setData(Message message) {
-        SpannableString spSystem = new SpannableString("系统消息\n" + message.getMessage_desc());
+    public void setData(List<Message> messages) {
+        SpannableString spSystem = new SpannableString("系统消息\n" + messages.get(0).getContent());
         spSystem.setSpan(new TextAppearanceSpan(this, R.style.TextCaption), 4, spSystem.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         mTvSystem.setText(spSystem);
 
-        SpannableString spMatch = new SpannableString("比赛消息\n" + message.getMessage_desc());
+        SpannableString spMatch = new SpannableString("比赛消息\n" + messages.get(1).getContent());
         spMatch.setSpan(new TextAppearanceSpan(this, R.style.TextCaption), 4, spSystem.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         mTvMatch.setText(spMatch);
     }

@@ -29,6 +29,12 @@ public class User implements Parcelable {
 
     private String birthday;
 
+    private String province;
+
+    private String city;
+
+    private String area;
+
     private String sign;
 
     @Override
@@ -48,6 +54,9 @@ public class User implements Parcelable {
         dest.writeString(this.email);
         dest.writeString(this.actuality);
         dest.writeString(this.birthday);
+        dest.writeString(this.province);
+        dest.writeString(this.city);
+        dest.writeString(this.area);
         dest.writeString(this.sign);
     }
 
@@ -65,6 +74,9 @@ public class User implements Parcelable {
         this.email = in.readString();
         this.actuality = in.readString();
         this.birthday = in.readString();
+        this.province = in.readString();
+        this.city = in.readString();
+        this.area = in.readString();
         this.sign = in.readString();
     }
 
@@ -158,6 +170,30 @@ public class User implements Parcelable {
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 
     public String getSign() {

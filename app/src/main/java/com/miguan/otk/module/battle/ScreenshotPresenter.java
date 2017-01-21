@@ -1,4 +1,4 @@
-package com.miguan.otk.module.against;
+package com.miguan.otk.module.battle;
 
 import com.dsk.chain.bijection.Presenter;
 

@@ -12,6 +12,9 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@color/bgWindow</item>
         <item name="actionBarSize">56dp</item>
+
+        <!--<item name="android:popupMenuStyle">@style/PopupMenu</item>-->
+        <!--<item name="android:dropDownListViewStyle">@style/DropDownListView</item>-->
     </style>
 
     <style name="AppTheme" parent="AppTheme.Base" />
@@ -19,7 +22,7 @@
     <style name="LaunchTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/bg_splash</item>
     </style>
-
+    
     <style name="TextTitle" parent="TextAppearance.AppCompat.Title" />
     <style name="TextSubhead" parent="TextAppearance.AppCompat.Subhead"/>
     <style name="TextBody" parent="TextAppearance.AppCompat.Body1" />

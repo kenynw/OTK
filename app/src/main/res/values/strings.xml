@@ -115,6 +115,7 @@
     <string name="label_apply_money">申请金额%d</string>
     <string name="label_avatar">头像：</string>
     <string name="label_balance">余额：%s</string>
+    <string name="label_battle_id">对战ID：%d</string>
     <string name="label_born">生辰：</string>
     <string name="label_captcha">验证码</string>
     <string name="label_cash_account">提现支付宝帐号：</string>
@@ -129,7 +130,7 @@
     <string name="label_game_account">游戏帐号：</string>
     <string name="label_introduction">签名：</string>
     <string name="label_job">现状：</string>
-    <string name="label_match_cost">报名费：%s</string>
+    <string name="label_match_cost">报名费：%d</string>
     <string name="label_match_id">赛事ID：%d</string>
     <string name="label_match_state">赛事状态：%1$s%2$s</string>
     <string name="label_my_balance">我的撒币：%1$d&#160;&#160;我的元宝：%2$d</string>

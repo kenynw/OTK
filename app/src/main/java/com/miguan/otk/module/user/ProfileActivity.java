@@ -75,6 +75,7 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
         ButterKnife.bind(this);
 
         mLyAvatar.setOnClickListener(v -> showPickDialog());
+        mTvArea.setOnClickListener(v -> startActivity(new Intent(this, AreaActivity.class)));
     }
 
     @Override
@@ -88,7 +89,7 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
         mTvJob.setOnClickListener(v -> showJobItems());
         mTvBorn.setText(user.getBirthday());
         mTvBorn.setOnClickListener(v -> showDatePick());
-        mTvArea.setOnClickListener(v -> startActivity(new Intent(this, AreaActivity.class)));
+        mTvArea.setText(String.format("%1$s %2$s %3$s", user.getProvince(), user.getCity(), user.getArea()));
         mTvIntro.setText(user.getSign());
         mTvQQ.setOnClickListener(v -> getPresenter().toModify(user, 0));
         mTvEmail.setOnClickListener(v -> getPresenter().toModify(user, 1));

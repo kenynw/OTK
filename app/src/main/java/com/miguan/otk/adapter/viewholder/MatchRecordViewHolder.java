@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
-import com.miguan.otk.model.bean.Schedule;
+import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.module.match.MatchDetailActivity;
 
 import butterknife.Bind;
@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
  * Copyright (c) 2016/12/20. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class MatchRecordViewHolder extends BaseViewHolder<Schedule> {
+public class MatchRecordViewHolder extends BaseViewHolder<Battle> {
 
     @Bind(R.id.tv_record_title)
     TextView mTvTitle;
@@ -44,7 +44,7 @@ public class MatchRecordViewHolder extends BaseViewHolder<Schedule> {
     }
 
     @Override
-    public void setData(Schedule against) {
+    public void setData(Battle against) {
         mTvTitle.setText(against.getTitle());
         mTvStatus.setText(against.getResult());
         mTvUserA.setText(against.getUser_a().getUsername());

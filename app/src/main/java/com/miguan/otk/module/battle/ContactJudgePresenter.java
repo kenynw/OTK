@@ -1,4 +1,4 @@
-package com.miguan.otk.module.against;
+package com.miguan.otk.module.battle;
 
 import android.content.Intent;
 import android.net.Uri;

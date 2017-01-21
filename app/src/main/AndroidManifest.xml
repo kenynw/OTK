@@ -83,7 +83,7 @@
         </activity>
         <activity android:name=".module.news.NewsDetailActivity">
         </activity>
-        <activity android:name=".module.against.AgainstActivity">
+        <activity android:name=".module.battle.BattleActivity">
         </activity>
         <activity android:name=".module.match.SubmitShotActivity">
         </activity>
@@ -91,7 +91,7 @@
         <!-- android:name="MODEL" -->
         <!-- android:value="com.miguan.otk.model.UserModel" -->
         <!-- /> -->
-        <activity android:name=".module.against.ContactJudgeActivity">
+        <activity android:name=".module.battle.ContactJudgeActivity">
         </activity>
         <activity android:name=".module.user.ProfileModifyActivity">
         </activity>

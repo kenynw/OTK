@@ -54,7 +54,7 @@ public class Match implements Parcelable {
      */
     private String count_sub_competitor;
 
-    private String cost;
+    private int cost;
 
     private String qq_group_url;
 
@@ -144,7 +144,7 @@ public class Match implements Parcelable {
         dest.writeString(this.count_competitor);
         dest.writeString(this.substitute_competitors);
         dest.writeString(this.count_sub_competitor);
-        dest.writeString(this.cost);
+        dest.writeInt(this.cost);
         dest.writeString(this.qq_group_url);
         dest.writeString(this.rule);
         dest.writeString(this.battle_mode);
@@ -191,7 +191,7 @@ public class Match implements Parcelable {
         this.count_competitor = in.readString();
         this.substitute_competitors = in.readString();
         this.count_sub_competitor = in.readString();
-        this.cost = in.readString();
+        this.cost = in.readInt();
         this.qq_group_url = in.readString();
         this.rule = in.readString();
         this.battle_mode = in.readString();
@@ -365,11 +365,11 @@ public class Match implements Parcelable {
         this.count_sub_competitor = count_sub_competitor;
     }
 
-    public String getCost() {
+    public int getCost() {
         return cost;
     }
 
-    public void setCost(String cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 

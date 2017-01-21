@@ -5,6 +5,7 @@ import com.dsk.chain.model.AbsModel;
 import com.miguan.otk.model.bean.Balance;
 import com.miguan.otk.model.bean.Feedback;
 import com.miguan.otk.model.bean.Game;
+import com.miguan.otk.model.bean.Message;
 import com.miguan.otk.model.bean.Sign;
 import com.miguan.otk.model.bean.User;
 import com.miguan.otk.model.bean.Withdraw;
@@ -156,6 +157,20 @@ public class UserModel extends AbsModel {
      */
     public Observable<Boolean> updateGameAccount(int id, String account) {
         return ServicesClient.getServices().updateGameAccount(LUtils.getPreferences().getString("token", ""), id, account).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 消息分类最新一条
+     */
+    public Observable<List<Message>> getMessageDesc() {
+        return ServicesClient.getServices().getMessageDesc(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 消息列表
+     */
+    public Observable<List<Message>> getMessageList() {
+        return ServicesClient.getServices().getMessageList(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
     }
 
     /**

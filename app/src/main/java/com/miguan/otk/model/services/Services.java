@@ -5,9 +5,10 @@ import com.miguan.otk.model.bean.Feedback;
 import com.miguan.otk.model.bean.Game;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;
+import com.miguan.otk.model.bean.Message;
 import com.miguan.otk.model.bean.Mission;
 import com.miguan.otk.model.bean.News;
-import com.miguan.otk.model.bean.Schedule;
+import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Sign;
 import com.miguan.otk.model.bean.Splash;
 import com.miguan.otk.model.bean.User;
@@ -204,7 +205,7 @@ public interface Services {
      * @return
      */
     @GET("user/banner/record")
-    Observable<List<Schedule>> againstList(
+    Observable<List<Battle>> againstList(
             @Query("token") CharSequence token,
             @Query("page") Integer page
     );
@@ -303,6 +304,24 @@ public interface Services {
     );
 
     /**
+     * 消息分类最新一条
+     */
+    @FormUrlEncoded
+    @POST("user/systemmessage/message")
+    Observable<List<Message>> getMessageDesc(
+            @Field("token") String token
+    );
+
+    /**
+     * 消息列表
+     */
+    @FormUrlEncoded
+    @POST("user/systemmessage/system-message")
+    Observable<List<Message>> getMessageList(
+            @Field("token") String token
+    );
+
+    /**
      * 吐槽一下
      * @param token 登录令牌
      * @param type  类型（0:产品建议、1:发现BUG、2:举报作弊、3:其他）
@@ -385,7 +404,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("competition/competition/table")
-    Observable<Schedule> competitionSchedule(
+    Observable<Battle> competitionSchedule(
             @Field("competition_id") int matchID,
             @Field("round") int round
     );
@@ -400,11 +419,68 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("competition/competition/join")
-    Observable<Schedule> competitionEnter(
+    Observable<Battle> competitionEnter(
             @Field("token") String token,
             @Field("competition_id") int matchID,
             @Field("password") String password,
             @Field("invitation_code") String code
+    );
+
+    /**
+     * 对战页面
+     *
+     * @param battleID 赛事ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/battle/index")
+    Observable<Battle> battleDetail(
+            @Field("token") String token,
+            @Field("battle_id") int battleID
+    );
+
+    /**
+     * 对战准备
+     *
+     * @param matchID 赛事ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/battle/ready")
+    Observable<Boolean> ready(
+            @Field("token") String token,
+            @Field("competition_id") int matchID
+    );
+
+    /**
+     * 对战pick
+     *
+     * @param matchID 赛事ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/battle/pick")
+    Observable<Boolean> pick(
+            @Field("token") String token,
+            @Field("competition_id") int matchID,
+            @Field("car1") int car1,
+            @Field("car2") int car2,
+            @Field("car3") int car3,
+            @Field("car4") int car4
+    );
+
+    /**
+     * 对战ban
+     *
+     * @param matchID 赛事ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/battle/ban")
+    Observable<Boolean> ban(
+            @Field("token") String token,
+            @Field("competition_id") int matchID,
+            @Field("ban") int ban
     );
 
     /**
@@ -414,10 +490,23 @@ public interface Services {
      * @return
      */
     @FormUrlEncoded
-    @POST("competition/competition/sign")
-    Observable<Schedule> competitionSign(
+    @POST("competition/competition/joinsign")
+    Observable<Boolean> competitionSign(
             @Field("token") String token,
             @Field("competition_id") int matchID
+    );
+
+    /**
+     * 获取对战信息
+     *
+     * @param competitionID 赛事ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/competition/battle")
+    Observable<Battle> battleID(
+            @Field("token") String token,
+            @Field("competition_id") int competitionID
     );
 
     ////////////////////其他//////////////////////

@@ -14,7 +14,7 @@ import com.dsk.chain.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.viewholder.ScheduleViewHolder;
-import com.miguan.otk.model.bean.Schedule;
+import com.miguan.otk.model.bean.Battle;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
  * Copyright (c) 2016/12/22. LiaoPeiKun Inc. All rights reserved.
  */
 @RequiresPresenter(ScheduleListPresenter.class)
-public class ScheduleListFragment extends BaseListFragment<ScheduleListPresenter, Schedule> {
+public class ScheduleListFragment extends BaseListFragment<ScheduleListPresenter, Battle> {
 
     @Bind(R.id.tv_vs_round)
     TextView mTvRound;
@@ -46,12 +46,12 @@ public class ScheduleListFragment extends BaseListFragment<ScheduleListPresenter
         return view;
     }
 
-    public void setData(Schedule schedule) {
+    public void setData(Battle schedule) {
         mTvRound.setText(String.format(getString(R.string.text_which_rounds), schedule.getRound_count()));
     }
 
     @Override
-    public BaseViewHolder<Schedule> createViewHolder(ViewGroup parent, int viewType) {
+    public BaseViewHolder<Battle> createViewHolder(ViewGroup parent, int viewType) {
         return new ScheduleViewHolder(parent);
     }
 
