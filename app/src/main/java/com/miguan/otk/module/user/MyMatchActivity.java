@@ -9,8 +9,8 @@ import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.TitlePagerAdapter;
-import com.miguan.otk.module.match.MatchListFragment;
 import com.miguan.otk.module.match.MatchRecordFragment;
+import com.miguan.otk.module.battle.BattleRecordFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,9 +40,9 @@ public class MyMatchActivity extends ChainBaseActivity<MyMatchPresenter> {
 
     private List<Fragment> getFragments() {
         List<Fragment> fragments = new ArrayList<>();
-        MatchListFragment mlf = new MatchListFragment();
+        MatchRecordFragment mlf = new MatchRecordFragment();
         fragments.add(mlf);
-        MatchRecordFragment mrf = new MatchRecordFragment();
+        BattleRecordFragment mrf = new BattleRecordFragment();
         fragments.add(mrf);
         return fragments;
     }

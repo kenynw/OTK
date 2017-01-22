@@ -9,7 +9,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Battle;
-import com.miguan.otk.module.match.MatchDetailActivity;
+import com.miguan.otk.module.battle.BattleActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
  * Copyright (c) 2016/12/20. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class MatchRecordViewHolder extends BaseViewHolder<Battle> {
+public class BattleRecordViewHolder extends BaseViewHolder<Battle> {
 
     @Bind(R.id.tv_record_title)
     TextView mTvTitle;
@@ -38,22 +38,22 @@ public class MatchRecordViewHolder extends BaseViewHolder<Battle> {
     @Bind(R.id.tv_record_user_b)
     TextView mTvUserB;
 
-    public MatchRecordViewHolder(ViewGroup parent) {
+    public BattleRecordViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_list_match_record);
         ButterKnife.bind(this, itemView);
     }
 
     @Override
-    public void setData(Battle against) {
-        mTvTitle.setText(against.getTitle());
-        mTvStatus.setText(against.getResult());
-        mTvUserA.setText(against.getUser_a().getUsername());
-        mDvUserA.setImageURI(Uri.parse(against.getUser_a().getPhoto()));
-        mTvUserB.setText(against.getUser_b().getUsername());
-        mDvUserB.setImageURI(Uri.parse(against.getUser_b().getPhoto()));
+    public void setData(Battle battle) {
+        mTvTitle.setText(battle.getTitle());
+        mTvStatus.setText(battle.getResult());
+        mTvUserA.setText(battle.getUser_a().getUsername());
+        mDvUserA.setImageURI(Uri.parse(battle.getUser_a().getPhoto()));
+        mTvUserB.setText(battle.getUser_b().getUsername());
+        mDvUserB.setImageURI(Uri.parse(battle.getUser_b().getPhoto()));
         itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), MatchDetailActivity.class);
-            intent.putExtra("match_id", against.getCompetition_id());
+            Intent intent = new Intent(getContext(), BattleActivity.class);
+            intent.putExtra("battle_id", battle.getRecord_id());
             getContext().startActivity(intent);
         });
     }

@@ -1,8 +1,9 @@
 package com.miguan.otk.module.battle;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,7 +12,6 @@ import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Battle;
-import com.miguan.otk.module.match.SubmitShotActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -49,12 +49,6 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
     @Bind(R.id.tv_battle_mode)
     TextView mTvMode;
 
-    @Bind(R.id.btn_battle_judge)
-    Button mBtnContact;
-
-    @Bind(R.id.btn_battle_screenshot)
-    Button mBtnScreenshot;
-
     @Bind(R.id.btn_battle_status)
     Button mBtnStatus;
 
@@ -64,8 +58,6 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
         setContentView(R.layout.match_activity_battle);
         ButterKnife.bind(this);
 
-        mBtnContact.setOnClickListener(v -> startActivity(new Intent(this, ContactJudgeActivity.class)));
-        mBtnScreenshot.setOnClickListener(v -> startActivity(new Intent(this, SubmitShotActivity.class)));
     }
 
     @Override
@@ -84,25 +76,50 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
         mTvScore.setText(battle.getBattle_score());
         mTvStatus.setText(battle.getStatus());
         mTvMode.setText(battle.getBattle_mode());
-
-        mBtnStatus.setText(battle.getStatus());
-        switch (battle.getBattle_status()) {
-            case 1: // 准备
-                mBtnStatus.setOnClickListener(v -> getPresenter().ready());
-                break;
-            case 2: // pick
-//                mBtnStatus.setOnClickListener();
-                break;
-            case 3: // ban
-                break;
-            case 4: // 比赛中
-                break;
-            case 5: // 结束
-                break;
-            case 6: //  争议
-                break;
-            default: // 未开始
-                break;
-        }
+        setStatus(battle);
     }
+
+    public void setStatus(Battle battle) {
+        mBtnStatus.setText(battle.getStatus());
+
+battle.setBattle_status(3);
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("battle", battle);
+
+        Fragment fragment;
+        if (battle.getBattle_status() == 1 || battle.getBattle_status() == 5) {
+            fragment = new ReadyFragment();
+            fragment.setArguments(bundle);
+        } else {
+            fragment = new BattlingFragment();
+            fragment.setArguments(bundle);
+        }
+        ft.replace(R.id.container_battle, fragment);
+        ft.commit();
+//
+//        switch (battle.getBattle_status()) {
+//            case 1: // 准备
+////                mBtnStatus.setOnClickListener(v -> getPresenter().ready());
+//                LUtils.toast("准备");
+//
+//                break;
+//            case 2: // pick
+////                mBtnStatus.setOnClickListener();
+//                break;
+//            case 3: // ban
+//                break;
+//            case 4: // 比赛中
+//                break;
+//            case 5: // 结束
+//
+//                break;
+//            case 6: //  争议
+//                break;
+//            default: // 未开始
+//                break;
+//        }
+    }
+
 }

@@ -455,32 +455,43 @@ public interface Services {
     /**
      * 对战pick
      *
-     * @param matchID 赛事ID
+     * @param battle_id 对战ID
      * @return
      */
     @FormUrlEncoded
     @POST("competition/battle/pick")
     Observable<Boolean> pick(
             @Field("token") String token,
-            @Field("competition_id") int matchID,
-            @Field("car1") int car1,
-            @Field("car2") int car2,
-            @Field("car3") int car3,
-            @Field("car4") int car4
+            @Field("battle_id") int battle_id,
+            @FieldMap() Map<String, String> carPics
     );
 
     /**
      * 对战ban
      *
-     * @param matchID 赛事ID
+     * @param battleID 赛事ID
      * @return
      */
     @FormUrlEncoded
     @POST("competition/battle/ban")
     Observable<Boolean> ban(
             @Field("token") String token,
-            @Field("competition_id") int matchID,
-            @Field("ban") int ban
+            @Field("battle_id") int battleID,
+            @Field("ban") String ban
+    );
+
+    /**
+     * 对战提交结果
+     *
+     * @param battleID 赛事ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/battle/record")
+    Observable<Boolean> submitResult(
+            @Field("token") String token,
+            @Field("battle_id") int battleID,
+            @Field("role") String role
     );
 
     /**

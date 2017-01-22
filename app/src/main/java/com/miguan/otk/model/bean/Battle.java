@@ -13,6 +13,8 @@ public class Battle implements Parcelable {
 
     private int battle_id;
 
+    private int record_id;
+
     private int winner_id;
 
     private int competition_id;
@@ -38,7 +40,7 @@ public class Battle implements Parcelable {
 
     private User user_b;
 
-    private String a_user_id;
+    private int a_user_id;
 
     private String a_gameaccount;
 
@@ -70,7 +72,7 @@ public class Battle implements Parcelable {
 
     private String a_pic3;
 
-    private String b_user_id;
+    private int b_user_id;
 
     private String b_gameaccount;
 
@@ -134,6 +136,7 @@ public class Battle implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.battle_id);
+        dest.writeInt(this.record_id);
         dest.writeInt(this.winner_id);
         dest.writeInt(this.competition_id);
         dest.writeInt(this.round_id);
@@ -145,7 +148,7 @@ public class Battle implements Parcelable {
         dest.writeString(this.status);
         dest.writeParcelable(this.user_a, flags);
         dest.writeParcelable(this.user_b, flags);
-        dest.writeString(this.a_user_id);
+        dest.writeInt(this.a_user_id);
         dest.writeString(this.a_gameaccount);
         dest.writeString(this.a_username);
         dest.writeString(this.a_photo);
@@ -161,7 +164,7 @@ public class Battle implements Parcelable {
         dest.writeString(this.a_pic1);
         dest.writeString(this.a_pic2);
         dest.writeString(this.a_pic3);
-        dest.writeString(this.b_user_id);
+        dest.writeInt(this.b_user_id);
         dest.writeString(this.b_gameaccount);
         dest.writeString(this.b_username);
         dest.writeString(this.b_photo);
@@ -196,6 +199,7 @@ public class Battle implements Parcelable {
 
     protected Battle(Parcel in) {
         this.battle_id = in.readInt();
+        this.record_id = in.readInt();
         this.winner_id = in.readInt();
         this.competition_id = in.readInt();
         this.round_id = in.readInt();
@@ -207,7 +211,7 @@ public class Battle implements Parcelable {
         this.status = in.readString();
         this.user_a = in.readParcelable(User.class.getClassLoader());
         this.user_b = in.readParcelable(User.class.getClassLoader());
-        this.a_user_id = in.readString();
+        this.a_user_id = in.readInt();
         this.a_gameaccount = in.readString();
         this.a_username = in.readString();
         this.a_photo = in.readString();
@@ -223,7 +227,7 @@ public class Battle implements Parcelable {
         this.a_pic1 = in.readString();
         this.a_pic2 = in.readString();
         this.a_pic3 = in.readString();
-        this.b_user_id = in.readString();
+        this.b_user_id = in.readInt();
         this.b_gameaccount = in.readString();
         this.b_username = in.readString();
         this.b_photo = in.readString();
@@ -273,6 +277,14 @@ public class Battle implements Parcelable {
         this.battle_id = battle_id;
     }
 
+    public int getRecord_id() {
+        return record_id;
+    }
+
+    public void setRecord_id(int record_id) {
+        this.record_id = record_id;
+    }
+
     public int getWinner_id() {
         return winner_id;
     }
@@ -305,8 +317,8 @@ public class Battle implements Parcelable {
         this.level = level;
     }
 
-    public String getIs_end() {
-        return is_end;
+    public boolean getIs_end() {
+        return is_end.equals("Y");
     }
 
     public void setIs_end(String is_end) {
@@ -361,11 +373,11 @@ public class Battle implements Parcelable {
         this.user_b = user_b;
     }
 
-    public String getA_user_id() {
+    public int getA_user_id() {
         return a_user_id;
     }
 
-    public void setA_user_id(String a_user_id) {
+    public void setA_user_id(int a_user_id) {
         this.a_user_id = a_user_id;
     }
 
@@ -489,11 +501,11 @@ public class Battle implements Parcelable {
         this.a_pic3 = a_pic3;
     }
 
-    public String getB_user_id() {
+    public int getB_user_id() {
         return b_user_id;
     }
 
-    public void setB_user_id(String b_user_id) {
+    public void setB_user_id(int b_user_id) {
         this.b_user_id = b_user_id;
     }
 

@@ -73,6 +73,13 @@
     <string name="btn_today_match">今日赛事</string>
     <string name="btn_wechat">微信</string>
 
+
+    <string name="text_ban_title">BAN英雄阶段</string>
+    <string name="text_ban_notice">请禁用英雄！</string>
+    <string name="text_ban_desc">在对方选择的英雄中禁用一个英雄，对方在本轮比赛不能使用该因英雄</string>
+    <string name="text_baned_desc">提交成功！等待对手提交PICK结果后进入BAN阶段。当第一轮比赛时间倒计时为0，未提交PICK结果的一方直接判负</string>
+    <string name="text_battle_ended">比赛结束</string>
+    <string name="text_battle_ended_desc">%s获得了胜利</string>
     <string name="text_contact">官网地址：www.otkpk.com\n新浪微博：@otk游戏竞技\n微信公众号：otk游戏竞技\n官方QQ群：77327504</string>
     <string name="text_copyright">copyright 2016 捷信宇(厦门)科技</string>
     <string name="text_contact_judge_title">点击下方的联系方式可以找我们</string>
@@ -92,6 +99,10 @@
     <string name="text_match_support">赛事赞助</string>
     <string name="text_match_qq_group">OTK炉石传说赛事①群 ：77327504</string>
     <string name="text_overwatch">守望先锋</string>
+    <string name="text_pick_title">Pick英雄阶段</string>
+    <string name="text_pick_notice">请选择出战英雄！</string>
+    <string name="text_pick_desc">选择出战英雄，你在本轮比赛中只能使用你选择的英雄,每个英雄获胜后不能继续使用（限本轮）</string>
+    <string name="text_picked_desc">提交成功！等待对手提交PICK结果后进入BAN阶段当第一轮比赛时间倒计时为0，未提交PICK结果的一方直接判负</string>
     <string name="text_prepare_phase">准备阶段</string>
     <string name="text_reward">总奖金</string>
     <string name="text_reward_winner">冠军独享</string>

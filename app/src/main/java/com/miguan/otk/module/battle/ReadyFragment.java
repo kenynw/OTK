@@ -1,13 +1,16 @@
 package com.miguan.otk.module.battle;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.dsk.chain.bijection.ChainFragment;
+import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Battle;
 
@@ -18,20 +21,17 @@ import butterknife.ButterKnife;
  * Copyright (c) 2017/1/6. LiaoPeiKun Inc. All rights reserved.
  */
 
+@RequiresPresenter(ReadyPresenter.class)
 public class ReadyFragment extends ChainFragment<ReadyPresenter> {
 
-    @Bind(R.id.btn_battle_status)
-    Button mBtnStatus;
+    @Bind(R.id.tv_battle_status_title)
+    TextView mTvTitle;
 
-    private Battle mBattle;
+    @Bind(R.id.tv_battle_status_desc)
+    TextView mTvDesc;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null && getArguments().containsKey("battle")) {
-            mBattle = getArguments().getParcelable("battle");
-        }
-    }
+    @Bind(R.id.btn_battle_status_save)
+    Button mBtnSave;
 
     @Nullable
     @Override
@@ -39,14 +39,28 @@ public class ReadyFragment extends ChainFragment<ReadyPresenter> {
         View view = inflater.inflate(R.layout.battle_fragment_ready, container, false);
         ButterKnife.bind(this, view);
 
-        if (mBattle.getBattle_status() == 1) {
-            mBtnStatus.setText("准备");
-            mBtnStatus.setOnClickListener(v -> getPresenter().ready(mBattle.getBattle_id()));
-        } else {
-            mBtnStatus.setText("已准备");
-            mBtnStatus.setEnabled(false);
+        return view;
+    }
+
+    public void setData(Battle battle) {
+        if (battle.getBattle_status() == 1) {
+            mBtnSave.setText("准备");
+            mBtnSave.setOnClickListener(v -> getPresenter().ready(battle.getBattle_id()));
+        } else if (battle.getBattle_status() == 2) {
+            mBtnSave.setText("已准备");
+            mBtnSave.setEnabled(false);
+        } else if (battle.getBattle_status() == 5) {
+            mTvTitle.setText(R.string.text_battle_ended);
+            mTvDesc.setText(String.format(getString(R.string.text_battle_ended_desc), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")));
+
+            mBtnSave.setText("结束");
+            if (battle.getIs_end()) mBtnSave.setVisibility(View.GONE);
+            else mBtnSave.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), BattleActivity.class);
+                intent.putExtra("battle_id", battle.getBattle_id());
+                startActivity(intent);
+            });
         }
 
-        return view;
     }
 }

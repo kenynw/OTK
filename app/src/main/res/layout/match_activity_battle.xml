@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/match_activity_against"
     android:layout_width="match_parent"
@@ -12,8 +13,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:baselineAligned="false"
         android:divider="@drawable/div_gray"
@@ -33,12 +33,15 @@
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/dv_battle_a_avatar"
                 style="@style/LargeAvatar"
+                app:roundAsCircle="false"
                 />
 
             <TextView
                 android:id="@+id/tv_battle_a_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
                 tools:text="机智的黄图哥"
                 />
 
@@ -106,12 +109,15 @@
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/dv_battle_b_avatar"
                 style="@style/LargeAvatar"
+                app:roundAsCircle="false"
                 />
 
             <TextView
                 android:id="@+id/tv_battle_b_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/vertical_margin"
+                android:layout_marginTop="@dimen/vertical_margin"
                 tools:text="机智的黄图哥"
                 />
 
@@ -131,23 +137,19 @@
         android:layout_height="8dp"/>
 
     <FrameLayout
+        android:id="@+id/container_battle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/black"
-        />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
         android:background="@color/white"
         />
 
     <Button
+        android:id="@+id/btn_battle_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="准备"
+        android:visibility="gone"
         />
 
 </LinearLayout>

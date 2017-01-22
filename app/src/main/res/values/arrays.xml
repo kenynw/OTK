@@ -45,4 +45,16 @@
         <item>其他</item>
     </string-array>
 
+    <string-array name="items_pick_list">
+        <item>德鲁伊</item>
+        <item>法师</item>
+        <item>猎人</item>
+        <item>牧师</item>
+        <item>潜行者</item>
+        <item>萨满</item>
+        <item>圣骑士</item>
+        <item>术士</item>
+        <item>战士</item>
+    </string-array>
+
 </resources>

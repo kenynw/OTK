@@ -1,14 +1,14 @@
 package com.miguan.otk.module.match;
 
 import com.dsk.chain.expansion.list.BaseListFragmentPresenter;
-import com.miguan.otk.model.BattleModel;
-import com.miguan.otk.model.bean.Battle;
+import com.miguan.otk.model.MatchModel;
+import com.miguan.otk.model.bean.Match;
 
 /**
- * Copyright (c) 2016/12/20. LiaoPeiKun Inc. All rights reserved.
+ * Copyright (c) 2016/12/1. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class MatchRecordPresenter extends BaseListFragmentPresenter<MatchRecordFragment, Battle> {
+public class MatchRecordPresenter extends BaseListFragmentPresenter<MatchRecordFragment, Match> {
 
     @Override
     protected void onCreateView(MatchRecordFragment view) {
@@ -18,11 +18,11 @@ public class MatchRecordPresenter extends BaseListFragmentPresenter<MatchRecordF
 
     @Override
     public void onRefresh() {
-        BattleModel.getInstance().getBattleList(1).unsafeSubscribe(getRefreshSubscriber());
+        MatchModel.getInstance().getMyMatchList(1).unsafeSubscribe(getRefreshSubscriber());
     }
 
     @Override
     public void onLoadMore() {
-        BattleModel.getInstance().getBattleList(getCurPage()).unsafeSubscribe(getMoreSubscriber());
+        MatchModel.getInstance().getMyMatchList(getCurPage()).unsafeSubscribe(getMoreSubscriber());
     }
 }
