@@ -308,7 +308,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("user/systemmessage/message")
-    Observable<List<Message>> getMessageDesc(
+    Observable<Message> getMessageDesc(
             @Field("token") String token
     );
 
@@ -318,7 +318,9 @@ public interface Services {
     @FormUrlEncoded
     @POST("user/systemmessage/system-message")
     Observable<List<Message>> getMessageList(
-            @Field("token") String token
+            @Field("token") String token,
+            @Field("type") Integer type,
+            @Field("page") Integer page
     );
 
     /**
@@ -449,7 +451,7 @@ public interface Services {
     @POST("competition/battle/ready")
     Observable<Boolean> ready(
             @Field("token") String token,
-            @Field("competition_id") int matchID
+            @Field("battle_id") int matchID
     );
 
     /**

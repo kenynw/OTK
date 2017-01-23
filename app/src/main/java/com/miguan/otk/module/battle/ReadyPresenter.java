@@ -7,6 +7,8 @@ import com.miguan.otk.model.BattleModel;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.services.ServicesResponse;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * Copyright (c) 2017/1/21. LiaoPeiKun Inc. All rights reserved.
  */
@@ -30,7 +32,12 @@ public class ReadyPresenter extends Presenter<ReadyFragment> {
     }
 
     public void ready(int battleID) {
-        BattleModel.getInstance().ready(battleID).unsafeSubscribe(new ServicesResponse<>());
+        BattleModel.getInstance().ready(battleID).unsafeSubscribe(new ServicesResponse<Boolean>() {
+            @Override
+            public void onNext(Boolean aBoolean) {
+                EventBus.getDefault().post(mBattle);
+            }
+        });
     }
 
 }

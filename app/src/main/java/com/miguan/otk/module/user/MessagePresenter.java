@@ -6,18 +6,15 @@ import com.dsk.chain.expansion.data.BaseDataActivityPresenter;
 import com.miguan.otk.model.UserModel;
 import com.miguan.otk.model.bean.Message;
 
-import java.util.List;
-
 /**
  * Copyright (c) 2016/12/26. LiaoPeiKun Inc. All rights reserved.
  */
 
-class MessagePresenter extends BaseDataActivityPresenter<MessageActivity, List<Message>> {
+class MessagePresenter extends BaseDataActivityPresenter<MessageActivity, Message> {
 
     @Override
     protected void onCreateView(MessageActivity view) {
         super.onCreateView(view);
-        Message message = new Message();
         UserModel.getInstance().getMessageDesc().unsafeSubscribe(getDataSubscriber());
     }
 

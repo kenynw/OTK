@@ -108,7 +108,7 @@ public class Battle implements Parcelable {
 
     private int user_type;
 
-    private String is_wait;
+    private Boolean is_wait;
 
     private int battle_status;
 
@@ -182,7 +182,7 @@ public class Battle implements Parcelable {
         dest.writeString(this.b_pic3);
         dest.writeString(this.ready_time);
         dest.writeInt(this.user_type);
-        dest.writeString(this.is_wait);
+        dest.writeValue(this.is_wait);
         dest.writeInt(this.battle_status);
         dest.writeInt(this.round_count);
         dest.writeString(this.round);
@@ -245,7 +245,7 @@ public class Battle implements Parcelable {
         this.b_pic3 = in.readString();
         this.ready_time = in.readString();
         this.user_type = in.readInt();
-        this.is_wait = in.readString();
+        this.is_wait = (Boolean) in.readValue(Boolean.class.getClassLoader());
         this.battle_status = in.readInt();
         this.round_count = in.readInt();
         this.round = in.readString();
@@ -645,11 +645,11 @@ public class Battle implements Parcelable {
         this.user_type = user_type;
     }
 
-    public String getIs_wait() {
+    public Boolean getIs_wait() {
         return is_wait;
     }
 
-    public void setIs_wait(String is_wait) {
+    public void setIs_wait(Boolean is_wait) {
         this.is_wait = is_wait;
     }
 

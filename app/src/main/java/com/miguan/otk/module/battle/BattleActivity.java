@@ -2,6 +2,7 @@ package com.miguan.otk.module.battle;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.Button;
@@ -82,8 +83,6 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
     public void setStatus(Battle battle) {
         mBtnStatus.setText(battle.getStatus());
 
-battle.setBattle_status(3);
-
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         Bundle bundle = new Bundle();
         bundle.putParcelable("battle", battle);
@@ -98,7 +97,11 @@ battle.setBattle_status(3);
         }
         ft.replace(R.id.container_battle, fragment);
         ft.commit();
-//
+
+        if (battle.getIs_wait()) {
+            new Handler().postDelayed(() -> getPresenter().setData(), 10000);
+        }
+
 //        switch (battle.getBattle_status()) {
 //            case 1: // 准备
 ////                mBtnStatus.setOnClickListener(v -> getPresenter().ready());

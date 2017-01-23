@@ -11,13 +11,11 @@ import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Message;
 
-import java.util.List;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(MessagePresenter.class)
-public class MessageActivity extends BaseDataActivity<MessagePresenter, List<Message>> {
+public class MessageActivity extends BaseDataActivity<MessagePresenter, Message> {
 
     @Bind(R.id.tv_message_system)
     TextView mTvSystem;
@@ -37,12 +35,16 @@ public class MessageActivity extends BaseDataActivity<MessagePresenter, List<Mes
     }
 
     @Override
-    public void setData(List<Message> messages) {
-        SpannableString spSystem = new SpannableString("系统消息\n" + messages.get(0).getContent());
+    public void setData(Message message) {
+        SpannableString spSystem = new SpannableString("系统消息\n" + message.getSystem().getContent());
         spSystem.setSpan(new TextAppearanceSpan(this, R.style.TextCaption), 4, spSystem.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         mTvSystem.setText(spSystem);
+//
+//        SpannableString spannableString = new SpannableString(getString(R.string.btn_message_system) + message.getSystem());
+//        int textSize = (int) getResources().getDimension(R.dimen.text_size_caption_material);
+//        spannableString.setSpan(new TextAppearanceSpan(this, R.style.TextCaption), 4, message.getSystem().length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        SpannableString spMatch = new SpannableString("比赛消息\n" + messages.get(1).getContent());
+        SpannableString spMatch = new SpannableString("比赛消息\n" + message.getCompetition().getContent());
         spMatch.setSpan(new TextAppearanceSpan(this, R.style.TextCaption), 4, spSystem.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         mTvMatch.setText(spMatch);
     }

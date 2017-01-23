@@ -30,6 +30,6 @@ public class MessageViewHolder extends BaseViewHolder<Message> {
     @Override
     public void setData(Message data) {
         mTvDate.setText(data.getCreate_time());
-        mTvContent.setText(String.format("%s\n%s", data.getContent(), data.getContent()));
+        mTvContent.setText(data.getContent());
     }
 }

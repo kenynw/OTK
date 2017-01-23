@@ -1,6 +1,5 @@
 package com.miguan.otk.module.user;
 
-import android.os.Bundle;
 import android.view.ViewGroup;
 
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -11,12 +10,6 @@ import com.miguan.otk.adapter.viewholder.MessageViewHolder;
 
 @RequiresPresenter(MessageListPresenter.class)
 public class MessageListActivity extends BaseListActivity<MessageListPresenter> {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setToolbarTitle(getIntent().getIntExtra("type", 0) == 1 ? R.string.title_activity_message_match : R.string.title_activity_message_system);
-    }
 
     @Override
     protected BaseViewHolder createViewHolder(ViewGroup parent, int viewType) {

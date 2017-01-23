@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.OverScroller;
 
 import com.miguan.otk.R;
-import com.sgun.utils.LUtils;
 
 
 public class StickyNavLayout extends LinearLayout implements NestedScrollingParent {
@@ -104,7 +103,6 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
         if (hiddenTop || showTop) {
             scrollBy(0, dy);
             consumed[1] = dy;
-            LUtils.log("消耗");
         }
         if (mListener != null) {
             mListener.onHeaderScroll(getScrollY(), getScrollY() == mTopViewHeight);
@@ -145,7 +143,6 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
     @Override
     public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
         Log.e(TAG, "onNestedScroll");
-        LUtils.log("dxConsumed: " + dxConsumed + "\ndyConsumed:" + dyConsumed + "\ndxUnconsumed:" + dxUnconsumed + "\ndyUnconsumed: " + dyUnconsumed);
     }
 
     @Override

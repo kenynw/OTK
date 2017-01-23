@@ -55,6 +55,8 @@
     <string name="btn_login">登录</string>
     <string name="btn_logout">退出登录</string>
     <string name="btn_message">消息</string>
+    <string name="btn_message_system">系统消息</string>
+    <string name="btn_message_match">比赛通知</string>
     <string name="btn_my_match">我的比赛</string>
     <string name="btn_my_order">我的订单</string>
     <string name="btn_ok">确定</string>
@@ -72,7 +74,6 @@
     <string name="btn_withdraw_record">提现记录</string>
     <string name="btn_today_match">今日赛事</string>
     <string name="btn_wechat">微信</string>
-
 
     <string name="text_ban_title">BAN英雄阶段</string>
     <string name="text_ban_notice">请禁用英雄！</string>

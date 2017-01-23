@@ -18,6 +18,8 @@ import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.TitlePagerAdapter;
 import com.miguan.otk.model.bean.Match;
+import com.miguan.otk.model.services.MatchDetailServices;
+import com.miguan.otk.utils.PollingUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -55,6 +57,8 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
         setToolbarTitle(R.string.title_activity_match_detail);
         ButterKnife.bind(this);
 
+        PollingUtils.startPollingService(this, 5, MatchDetailServices.class, MatchDetailServices.ACTION);
+
         mPager.setAdapter(new TitlePagerAdapter(this, R.array.tab_match_detail, getPresenter().getFragments(), getSupportFragmentManager()));
         mTabLayout.setupWithViewPager(mPager);
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -83,22 +87,27 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
         mTvCost.setText(String.format(getString(R.string.label_match_cost), match.getCost()));
         mTvTitle.setText(match.getTitle());
         mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), getPresenter().getFormatDate(Long.valueOf(match.getGame_time()) * 1000)));
-        new CountDownTimer(Long.valueOf(match.getGame_time()) * 1000, 1000) {
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-                mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), getPresenter().getFormatDate(millisUntilFinished)));
-            }
+        long time = Long.valueOf(match.getGame_time());
+        if (time > 0) {
+            new CountDownTimer(time * 1000, 1000) {
 
-            @Override
-            public void onFinish() {
-                getPresenter().setData();
-            }
-        }.start();
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), getPresenter().getFormatDate(millisUntilFinished)));
+                }
+
+                @Override
+                public void onFinish() {
+                    getPresenter().setData();
+                }
+            }.start();
+        }
 
         mBtnStatus.setText(match.getGame_status());
         switch (match.getStatus()) {
-            case 2: // 报名
+            case 2 & 3: // 报名
+                mBtnStatus.setEnabled(true);
                 mBtnStatus.setOnClickListener(status -> {
                     if (match.getGame_type() == 0) {
                         if (match.getCost() > 0) {
@@ -127,17 +136,41 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
                     }
                 });
                 break;
-            case 3: // 签到
+            case 5: // 已报名
+                setEnrolled();
+                break;
+            case 6: // 签到
+                mBtnStatus.setEnabled(true);
                 mBtnStatus.setOnClickListener(v -> getPresenter().sign());
                 break;
-            case 4: // 准备
+            case 7: // 已签到
+                setSigned();
+                break;
+            case 8 & 9: // 准备 & 正在进行
+                mBtnStatus.setEnabled(true);
                 mBtnStatus.setOnClickListener(v -> getPresenter().getBattleID());
                 break;
             default:
-//                mBtnStatus.setEnabled(false);
-                mBtnStatus.setOnClickListener(v -> getPresenter().getBattleID());
+                mBtnStatus.setEnabled(false);
+//                mBtnStatus.setOnClickListener(v -> getPresenter().getBattleID());
                 break;
         }
+    }
+
+    public void setEnrolled() {
+        mBtnStatus.setText("已报名");
+        mBtnStatus.setEnabled(false);
+    }
+
+    public void setSigned() {
+        mBtnStatus.setText("已签到");
+        mBtnStatus.setEnabled(false);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
     }
 
     @Override

@@ -3,8 +3,6 @@ package com.miguan.otk.module.battle;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,7 @@ import android.widget.TextView;
 
 import com.dsk.chain.bijection.ChainFragment;
 import com.dsk.chain.bijection.RequiresPresenter;
-import com.dsk.chain.expansion.list.DividerGridItemDecoration;
+import com.jude.exgridview.ExGridView;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.PickAdapter;
 import com.miguan.otk.model.bean.Battle;
@@ -48,7 +46,7 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
     TextView mTvDesc;
 
     @Bind(R.id.rcv_battling_list)
-    RecyclerView mRecycle;
+    ExGridView mRecycle;
 
     @Bind(R.id.btn_battling_save)
     Button mBtnPick;
@@ -62,9 +60,6 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
         mBtnContact.setOnClickListener(v -> startActivity(new Intent(getActivity(), ContactJudgeActivity.class)));
         mBtnScreenshot.setOnClickListener(v -> startActivity(new Intent(getActivity(), SubmitShotActivity.class)));
 //        mBtnChatroom.setOnClickListener(v -> startActivity(new Intent()));
-
-        mRecycle.setLayoutManager(new GridLayoutManager(getActivity(), 5));
-        mRecycle.addItemDecoration(new DividerGridItemDecoration(getActivity()));
 
         return view;
     }
@@ -83,8 +78,8 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
             mTvNotice.setText(R.string.text_ban_notice);
             mTvDesc.setText(R.string.text_ban_desc);
 
-            PickAdapter adapter = new PickAdapter(getActivity(), new String[] {"德鲁伊", "法师", "猎人", "牧师"});
-            mRecycle.setAdapter(adapter);
+//            PickAdapter adapter = new PickAdapter(getActivity(), new String[] {"德鲁伊", "法师", "猎人", "牧师"});
+//            mRecycle.setAdapter(adapter);
             mBtnPick.setOnClickListener(v -> getPresenter().ban(""));
         }
     }

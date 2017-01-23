@@ -11,8 +11,9 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <TextView
+    <Button
         android:id="@+id/tv_message_system"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@mipmap/ic_launcher"
@@ -24,7 +25,7 @@
         android:maxLines="3"
         android:textAppearance="@style/TextBody"
         android:padding="@dimen/horizontal_margin"
-        tools:text="系统消息欢迎参加OTK双12天选赛，报名即可获万元奖金欢迎参加OTK双12天选赛，报名即可获万元奖金"
+        android:text="@string/btn_message_system"
         />
 
     <TextView
@@ -40,7 +41,7 @@
         android:maxLines="3"
         android:textAppearance="@style/TextBody"
         android:padding="@dimen/horizontal_margin"
-        tools:text="系统消息欢迎参加OTK双12天选赛，报名即可获万元奖金欢迎参加OTK双12天选赛，报名即可获万元奖金"
+        android:text="@string/btn_message_match"
         />
 
 </LinearLayout>

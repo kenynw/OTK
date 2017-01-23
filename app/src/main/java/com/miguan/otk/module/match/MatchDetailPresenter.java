@@ -11,7 +11,6 @@ import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.services.ServicesResponse;
 import com.miguan.otk.module.battle.BattleActivity;
-import com.sgun.utils.LUtils;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.media.UMImage;
@@ -19,12 +18,16 @@ import com.umeng.socialize.media.UMImage;
 import java.util.ArrayList;
 import java.util.List;
 
+import rx.functions.Action1;
+
 /**
  * Copyright (c) 2016/11/25. LiaoPeiKun Inc. All rights reserved.
  */
 class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity, Match> {
 
     private int mMatchID;
+
+    private Match mMatch;
 
     @Override
     protected void onCreate(MatchDetailActivity view, Bundle saveState) {
@@ -38,27 +41,48 @@ class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity
         setData();
     }
 
+    public void test() {
+    }
+
     public void setData() {
-        MatchModel.getInstance().getMatchDetail(mMatchID).unsafeSubscribe(getDataSubscriber());
+        MatchModel.getInstance().getMatchDetail(mMatchID)
+                .doOnNext(new Action1<Match>() {
+                    @Override
+                    public void call(Match match) {
+
+                    }
+                })
+                .unsafeSubscribe(new ServicesResponse<Match>() {
+            @Override
+            public void onNext(Match match) {
+                getView().setData(match);
+                mMatch = match;
+            }
+        });
     }
 
     public void share() {
-        LUtils.toast(getData().getTitle());
+        if (mMatch == null) return;
         new ShareAction(getView())
-                .withText(getData().getTitle())
+                .withText(mMatch.getTitle())
                 .withMedia(new UMImage(getView(), R.mipmap.ic_launcher))
                 .open();
     }
 
     public void enter(String pwd, String code) {
-        MatchModel.getInstance().enter(mMatchID, pwd, code).unsafeSubscribe(new ServicesResponse<>());
+        MatchModel.getInstance().enter(mMatchID, pwd, code).unsafeSubscribe(new ServicesResponse<Battle>() {
+            @Override
+            public void onNext(Battle battle) {
+                getView().setEnrolled();
+            }
+        });
     }
 
     public void sign() {
         MatchModel.getInstance().sign(mMatchID).unsafeSubscribe(new ServicesResponse<Boolean>() {
             @Override
             public void onNext(Boolean aBoolean) {
-
+                getView().setSigned();
             }
         });
     }

@@ -9,11 +9,11 @@ import android.os.Parcelable;
 
 public class Message implements Parcelable {
 
-    private int message_id;
+    private int id;
 
-    private String system;
+    private Message system;
 
-    private String competition;
+    private Message competition;
 
     /**
      * 推送对象 0:全部1：指定用户 2:指定赛事
@@ -25,7 +25,7 @@ public class Message implements Parcelable {
      * 赛事ID或用户UID
      * @return
      */
-    private int object_id;
+    private String object_id;
 
     /**
      * 是否跳转链接 0:无链接 1：url(应用内)2：url(浏览器)3：赛事ID4：资讯ID 5:商品ID
@@ -52,11 +52,11 @@ public class Message implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.message_id);
-        dest.writeString(this.system);
-        dest.writeString(this.competition);
+        dest.writeInt(this.id);
+        dest.writeParcelable(this.system, flags);
+        dest.writeParcelable(this.competition, flags);
         dest.writeString(this.object);
-        dest.writeInt(this.object_id);
+        dest.writeString(this.object_id);
         dest.writeInt(this.is_url);
         dest.writeString(this.url);
         dest.writeString(this.content);
@@ -68,11 +68,11 @@ public class Message implements Parcelable {
     }
 
     protected Message(Parcel in) {
-        this.message_id = in.readInt();
-        this.system = in.readString();
-        this.competition = in.readString();
+        this.id = in.readInt();
+        this.system = in.readParcelable(Message.class.getClassLoader());
+        this.competition = in.readParcelable(Message.class.getClassLoader());
         this.object = in.readString();
-        this.object_id = in.readInt();
+        this.object_id = in.readString();
         this.is_url = in.readInt();
         this.url = in.readString();
         this.content = in.readString();
@@ -92,27 +92,27 @@ public class Message implements Parcelable {
         }
     };
 
-    public int getMessage_id() {
-        return message_id;
+    public int getId() {
+        return id;
     }
 
-    public void setMessage_id(int message_id) {
-        this.message_id = message_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getSystem() {
+    public Message getSystem() {
         return system;
     }
 
-    public void setSystem(String system) {
+    public void setSystem(Message system) {
         this.system = system;
     }
 
-    public String getCompetition() {
+    public Message getCompetition() {
         return competition;
     }
 
-    public void setCompetition(String competition) {
+    public void setCompetition(Message competition) {
         this.competition = competition;
     }
 
@@ -124,11 +124,11 @@ public class Message implements Parcelable {
         this.object = object;
     }
 
-    public int getObject_id() {
+    public String getObject_id() {
         return object_id;
     }
 
-    public void setObject_id(int object_id) {
+    public void setObject_id(String object_id) {
         this.object_id = object_id;
     }
 

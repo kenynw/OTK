@@ -34,7 +34,9 @@ public class MatchModel extends AbsModel {
      * @return
      */
     public Observable<Match> getMatchDetail(int matchID) {
-        return ServicesClient.getServices().matchDetail(LUtils.getPreferences().getString("token", ""), matchID).compose(new DefaultTransform<>());
+        return ServicesClient.getServices()
+                .matchDetail(LUtils.getPreferences().getString("token", ""), matchID)
+                .compose(new DefaultTransform<>());
     }
 
     /**

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 
+import com.jude.exgridview.ExGridView;
 import com.miguan.otk.R;
 import com.sgun.utils.LUtils;
 
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
  * Copyright (c) 2017/1/22. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class BanPickView extends RecyclerView {
+public class BanPickView extends ExGridView {
 
     private int mColumnCount;
 
@@ -39,10 +40,13 @@ public class BanPickView extends RecyclerView {
 
     public BanPickView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
+        initial(attrs);
     }
 
-    private void init(AttributeSet attrs) {
+    private void initial(AttributeSet attrs) {
+        String[] pickList = getContext().getResources().getStringArray(R.array.items_pick_list);
+
+
         TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.BanPickView);
         try {
             mColumnCount = ta.getInteger(R.styleable.BanPickView_columnCount, 5);
@@ -54,7 +58,7 @@ public class BanPickView extends RecyclerView {
         }
     }
 
-    private class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+    public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         private RecyclerView.Adapter mAdapter;
 
@@ -85,7 +89,7 @@ public class BanPickView extends RecyclerView {
             @Bind(R.id.iv_pick_thumb)
             ImageView mIvThumb;
 
-            @Bind(R.id.cb_pick_name)
+            @Bind(R.id.cb_pick_status)
             CheckBox mCbName;
 
             public ViewHolder(View itemView) {

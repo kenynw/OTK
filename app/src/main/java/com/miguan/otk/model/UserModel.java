@@ -162,15 +162,15 @@ public class UserModel extends AbsModel {
     /**
      * 消息分类最新一条
      */
-    public Observable<List<Message>> getMessageDesc() {
+    public Observable<Message> getMessageDesc() {
         return ServicesClient.getServices().getMessageDesc(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
     }
 
     /**
      * 消息列表
      */
-    public Observable<List<Message>> getMessageList() {
-        return ServicesClient.getServices().getMessageList(LUtils.getPreferences().getString("token", "")).compose(new DefaultTransform<>());
+    public Observable<List<Message>> getMessageList(Integer type, Integer page) {
+        return ServicesClient.getServices().getMessageList(LUtils.getPreferences().getString("token", ""), type, page).compose(new DefaultTransform<>());
     }
 
     /**
