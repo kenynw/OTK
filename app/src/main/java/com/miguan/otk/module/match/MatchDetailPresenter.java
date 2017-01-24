@@ -18,8 +18,6 @@ import com.umeng.socialize.media.UMImage;
 import java.util.ArrayList;
 import java.util.List;
 
-import rx.functions.Action1;
-
 /**
  * Copyright (c) 2016/11/25. LiaoPeiKun Inc. All rights reserved.
  */
@@ -46,19 +44,13 @@ class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity
 
     public void setData() {
         MatchModel.getInstance().getMatchDetail(mMatchID)
-                .doOnNext(new Action1<Match>() {
-                    @Override
-                    public void call(Match match) {
-
-                    }
-                })
                 .unsafeSubscribe(new ServicesResponse<Match>() {
-            @Override
-            public void onNext(Match match) {
-                getView().setData(match);
-                mMatch = match;
-            }
-        });
+                    @Override
+                    public void onNext(Match match) {
+                        getView().setData(match);
+                        mMatch = match;
+                    }
+                });
     }
 
     public void share() {

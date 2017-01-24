@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -29,6 +30,9 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
     @Bind(R.id.tv_battle_a_status)
     TextView mTvAStatus;
 
+    @Bind(R.id.tv_battle_a_isready)
+    TextView mTvAIsready;
+
     @Bind(R.id.dv_battle_b_avatar)
     SimpleDraweeView mDvBAvatar;
 
@@ -37,6 +41,9 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
 
     @Bind(R.id.tv_battle_b_status)
     TextView mTvBStatus;
+
+    @Bind(R.id.tv_battle_b_isready)
+    TextView mTvBIsready;
 
     @Bind(R.id.tv_battle_round)
     TextView mTvRound;
@@ -81,6 +88,13 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
     }
 
     public void setStatus(Battle battle) {
+        if (battle.getBattle_status_user() == 2) mTvAIsready.setVisibility(View.VISIBLE);
+        else if (battle.getBattle_status_user() == 3) mTvBIsready.setVisibility(View.VISIBLE);
+        else {
+            mTvAIsready.setVisibility(View.GONE);
+            mTvBIsready.setVisibility(View.GONE);
+        }
+
         mBtnStatus.setText(battle.getStatus());
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -96,7 +110,7 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
             fragment.setArguments(bundle);
         }
         ft.replace(R.id.container_battle, fragment);
-        ft.commit();
+        ft.commitAllowingStateLoss();
 
         if (battle.getIs_wait()) {
             new Handler().postDelayed(() -> getPresenter().setData(), 10000);

@@ -465,7 +465,7 @@ public interface Services {
     Observable<Boolean> pick(
             @Field("token") String token,
             @Field("battle_id") int battle_id,
-            @FieldMap() Map<String, String> carPics
+            @FieldMap() Map<String, Integer> carPics
     );
 
     /**
@@ -479,7 +479,7 @@ public interface Services {
     Observable<Boolean> ban(
             @Field("token") String token,
             @Field("battle_id") int battleID,
-            @Field("ban") String ban
+            @Field("ban") Integer ban
     );
 
     /**

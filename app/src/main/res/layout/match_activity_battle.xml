@@ -11,138 +11,215 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:baselineAligned="false"
-        android:divider="@drawable/div_gray"
-        android:orientation="horizontal"
-        android:showDividers="middle"
-        >
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="@dimen/horizontal_margin"
-            >
-
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/dv_battle_a_avatar"
-                style="@style/LargeAvatar"
-                app:roundAsCircle="false"
-                />
-
-            <TextView
-                android:id="@+id/tv_battle_a_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/vertical_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                tools:text="机智的黄图哥"
-                />
-
-            <TextView
-                android:id="@+id/tv_battle_a_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="准备倒计时00:05:51"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/vertical_margin"
-            android:paddingTop="@dimen/vertical_margin"
-            >
-
-            <TextView
-                android:id="@+id/tv_battle_round"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="第一轮（准备）"/>
-
-            <TextView
-                android:id="@+id/tv_battle_score"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textAppearance="@style/TextTitle"
-                android:textSize="48sp"
-                tools:text="0&#160;:&#160;0"
-                />
-
-            <TextView
-                android:id="@+id/tv_battle_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="未开始"
-                />
-
-            <TextView
-                android:id="@+id/tv_battle_mode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                tools:text="BO5"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="@dimen/horizontal_margin"
-            >
-
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/dv_battle_b_avatar"
-                style="@style/LargeAvatar"
-                app:roundAsCircle="false"
-                />
-
-            <TextView
-                android:id="@+id/tv_battle_b_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/vertical_margin"
-                android:layout_marginTop="@dimen/vertical_margin"
-                tools:text="机智的黄图哥"
-                />
-
-            <TextView
-                android:id="@+id/tv_battle_b_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="准备倒计时00:05:51"
-                />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="8dp"/>
-
-    <FrameLayout
-        android:id="@+id/container_battle"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/white"
-        />
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:baselineAligned="false"
+                android:divider="@drawable/div_gray"
+                android:orientation="horizontal"
+                android:showDividers="middle"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/dv_battle_a_avatar"
+                            style="@style/LargeAvatar"
+                            android:layout_width="88dp"
+                            android:layout_height="88dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/vertical_margin"
+                            app:roundAsCircle="false"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_battle_a_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/dv_battle_a_avatar"
+                            android:gravity="center"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            tools:text="机智的黄图哥"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_battle_a_isready"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignBottom="@id/tv_battle_a_name"
+                            android:layout_centerInParent="true"
+                            android:background="#5f000000"
+                            android:gravity="center"
+                            android:text="准备完毕"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_title_material"
+                            android:visibility="gone"
+                            />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_battle_a_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bgWindow"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        tools:text="准备倒计时00:05:51"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_battle_round"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        tools:text="第一轮（准备）"/>
+
+                    <TextView
+                        android:id="@+id/tv_battle_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextTitle"
+                        android:textSize="48sp"
+                        tools:text="0&#160;:&#160;0"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_battle_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        tools:text="未开始"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_battle_mode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        tools:text="BO5"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/dv_battle_b_avatar"
+                            style="@style/LargeAvatar"
+                            android:layout_width="88dp"
+                            android:layout_height="88dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/vertical_margin"
+                            app:roundAsCircle="false"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_battle_b_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/dv_battle_b_avatar"
+                            android:gravity="center"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            tools:text="机智的黄图哥"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_battle_b_isready"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignBottom="@id/tv_battle_b_name"
+                            android:layout_centerInParent="true"
+                            android:background="#5f000000"
+                            android:gravity="center"
+                            android:text="准备完毕"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_title_material"
+                            android:visibility="gone"
+                            />
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_battle_b_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bgWindow"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        tools:text="准备倒计时00:05:51"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp"/>
+
+            <FrameLayout
+                android:id="@+id/container_battle"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <Button
         android:id="@+id/btn_battle_status"

@@ -76,7 +76,7 @@ public class BattleModel extends AbsModel {
      * @param map pick列表 car1 car2 car3 car4
      * @return
      */
-    public Observable<Boolean> pick(int battleID, Map<String, String> map) {
+    public Observable<Boolean> pick(int battleID, Map<String, Integer> map) {
         return ServicesClient.getServices().pick(
                 LUtils.getPreferences().getString("token", ""), battleID, map).compose(new DefaultTransform<>());
     }
@@ -87,7 +87,7 @@ public class BattleModel extends AbsModel {
      * @param ban ban
      * @return
      */
-    public Observable<Boolean> ban(int battleID, String ban) {
+    public Observable<Boolean> ban(int battleID, Integer ban) {
         return ServicesClient.getServices().ban(LUtils.getPreferences().getString("token", ""), battleID, ban).compose(new DefaultTransform<>());
     }
 

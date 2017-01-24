@@ -44,11 +44,13 @@ public class ReadyFragment extends ChainFragment<ReadyPresenter> {
 
     public void setData(Battle battle) {
         if (battle.getBattle_status() == 1) {
-            mBtnSave.setText("准备");
-            mBtnSave.setOnClickListener(v -> getPresenter().ready(battle.getBattle_id()));
-        } else if (battle.getBattle_status() == 2) {
-            mBtnSave.setText("已准备");
-            mBtnSave.setEnabled(false);
+            if ((battle.getUser_type() == 1 && battle.getBattle_status_user() == 2) || (battle.getUser_type() == 2 && battle.getBattle_status_user() == 3)) {
+                mBtnSave.setText("已准备");
+                mBtnSave.setEnabled(false);
+            } else {
+                mBtnSave.setText("准备");
+                mBtnSave.setOnClickListener(v -> getPresenter().ready(battle.getBattle_id()));
+            }
         } else if (battle.getBattle_status() == 5) {
             mTvTitle.setText(R.string.text_battle_ended);
             mTvDesc.setText(String.format(getString(R.string.text_battle_ended_desc), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")));

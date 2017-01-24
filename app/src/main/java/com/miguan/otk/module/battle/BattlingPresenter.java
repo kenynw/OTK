@@ -6,9 +6,12 @@ import com.dsk.chain.bijection.Presenter;
 import com.miguan.otk.model.BattleModel;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.services.ServicesResponse;
+import com.sgun.utils.LUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,7 +36,12 @@ public class BattlingPresenter extends Presenter<BattlingFragment> {
         getView().setData(mBattle);
     }
 
-    public void pick(Map<String, String> map) {
+    public void pick(List<Integer> list) {
+        Map<String, Integer> map = new HashMap<>();
+        for (int i=0; i<list.size(); i++) {
+            map.put("car" + (i + 1), list.get(i) + 1);
+            LUtils.log("index: " + list.get(i));
+        }
         BattleModel.getInstance().pick(mBattle.getBattle_id(), map).unsafeSubscribe(new ServicesResponse<Boolean>() {
             @Override
             public void onNext(Boolean aBoolean) {
@@ -45,7 +53,7 @@ public class BattlingPresenter extends Presenter<BattlingFragment> {
         });
     }
 
-    public void ban(String ban) {
+    public void ban(Integer ban) {
         BattleModel.getInstance().ban(mBattle.getBattle_id(), ban).unsafeSubscribe(new ServicesResponse<Boolean>() {
             @Override
             public void onNext(Boolean aBoolean) {

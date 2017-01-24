@@ -18,8 +18,6 @@ import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.TitlePagerAdapter;
 import com.miguan.otk.model.bean.Match;
-import com.miguan.otk.model.services.MatchDetailServices;
-import com.miguan.otk.utils.PollingUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -56,8 +54,6 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
         setContentView(R.layout.match_activity_detail);
         setToolbarTitle(R.string.title_activity_match_detail);
         ButterKnife.bind(this);
-
-        PollingUtils.startPollingService(this, 5, MatchDetailServices.class, MatchDetailServices.ACTION);
 
         mPager.setAdapter(new TitlePagerAdapter(this, R.array.tab_match_detail, getPresenter().getFragments(), getSupportFragmentManager()));
         mTabLayout.setupWithViewPager(mPager);

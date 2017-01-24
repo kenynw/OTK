@@ -5,14 +5,14 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/iv_pick_thumb"
+        android:id="@+id/iv_hero_thumb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@mipmap/ic_launcher"
         />
 
     <CheckBox
-        android:id="@+id/cb_pick_status"
+        android:id="@+id/cb_hero_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -20,5 +20,11 @@
         android:textAppearance="@style/TextSubhead"
         android:textColor="@color/white"
         />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_hero_mask"
+        android:background="#5f000000" />
 
 </FrameLayout>

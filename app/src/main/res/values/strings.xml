@@ -60,7 +60,6 @@
     <string name="btn_my_match">我的比赛</string>
     <string name="btn_my_order">我的订单</string>
     <string name="btn_ok">确定</string>
-    <string name="btn_pa">确定</string>
     <string name="btn_qq">QQ</string>
     <string name="btn_register">注册</string>
     <string name="btn_recent_game">最近赛事</string>
@@ -70,6 +69,7 @@
     <string name="btn_sign_in">签到</string>
     <string name="btn_sign_in_now">立即签到</string>
     <string name="btn_shop">撒币商城</string>
+    <string name="btn_submit">提交</string>
     <string name="btn_withdraw">提现</string>
     <string name="btn_withdraw_record">提现记录</string>
     <string name="btn_today_match">今日赛事</string>

@@ -112,6 +112,8 @@ public class Battle implements Parcelable {
 
     private int battle_status;
 
+    private int battle_status_user;
+
     private int round_count;
 
     private String round;
@@ -184,6 +186,7 @@ public class Battle implements Parcelable {
         dest.writeInt(this.user_type);
         dest.writeValue(this.is_wait);
         dest.writeInt(this.battle_status);
+        dest.writeInt(this.battle_status_user);
         dest.writeInt(this.round_count);
         dest.writeString(this.round);
         dest.writeString(this.battle_times);
@@ -247,6 +250,7 @@ public class Battle implements Parcelable {
         this.user_type = in.readInt();
         this.is_wait = (Boolean) in.readValue(Boolean.class.getClassLoader());
         this.battle_status = in.readInt();
+        this.battle_status_user = in.readInt();
         this.round_count = in.readInt();
         this.round = in.readString();
         this.battle_times = in.readString();
@@ -659,6 +663,14 @@ public class Battle implements Parcelable {
 
     public void setBattle_status(int battle_status) {
         this.battle_status = battle_status;
+    }
+
+    public int getBattle_status_user() {
+        return battle_status_user;
+    }
+
+    public void setBattle_status_user(int battle_status_user) {
+        this.battle_status_user = battle_status_user;
     }
 
     public int getRound_count() {
