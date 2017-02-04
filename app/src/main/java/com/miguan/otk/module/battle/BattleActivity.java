@@ -113,7 +113,7 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
         ft.commitAllowingStateLoss();
 
         if (battle.getIs_wait()) {
-            new Handler().postDelayed(() -> getPresenter().setData(), 10000);
+            new Handler().postDelayed(() -> getPresenter().setData(null), 5000);
         }
 
 //        switch (battle.getBattle_status()) {

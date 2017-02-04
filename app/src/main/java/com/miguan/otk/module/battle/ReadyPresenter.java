@@ -37,6 +37,12 @@ public class ReadyPresenter extends Presenter<ReadyFragment> {
             public void onNext(Boolean aBoolean) {
                 EventBus.getDefault().post(mBattle);
             }
+
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                EventBus.getDefault().post(mBattle);
+            }
         });
     }
 

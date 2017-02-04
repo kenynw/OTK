@@ -50,6 +50,8 @@
     <string name="btn_from_camera">拍照</string>
     <string name="btn_from_gallery">从相册中上传</string>
     <string name="btn_game_account">游戏帐号</string>
+    <string name="btn_i_win">我 赢了</string>
+    <string name="btn_i_lost">对手 赢了</string>
     <string name="btn_join_qq_group">加入官方Q群</string>
     <string name="btn_league_join">加入公会</string>
     <string name="btn_login">登录</string>
@@ -81,6 +83,7 @@
     <string name="text_baned_desc">提交成功！等待对手提交PICK结果后进入BAN阶段。当第一轮比赛时间倒计时为0，未提交PICK结果的一方直接判负</string>
     <string name="text_battle_ended">比赛结束</string>
     <string name="text_battle_ended_desc">%s获得了胜利</string>
+    <string name="text_controversial_desc">双方均提交自己胜利/失败，保存好相关证据截图，请先尝试重新提交结果，无法重新提交主动联系裁判进行处理。裁判QQ：1655647371</string>
     <string name="text_contact">官网地址：www.otkpk.com\n新浪微博：@otk游戏竞技\n微信公众号：otk游戏竞技\n官方QQ群：77327504</string>
     <string name="text_copyright">copyright 2016 捷信宇(厦门)科技</string>
     <string name="text_contact_judge_title">点击下方的联系方式可以找我们</string>
@@ -119,6 +122,7 @@
     <string name="text_sign_series_desc">距离宝箱开启，还需连续签到%d天</string>
     <string name="text_slogan">打造一个有温度的的线上比赛平台</string>
     <string name="text_special_rules">特殊规则</string>
+    <string name="text_submit_result_desc">您提交的结果为：%1$s&#160;%2$s&#160;赢了\n正在等待对手提交比赛结果</string>
     <string name="text_upload_avatar">上传头像</string>
     <string name="text_which_rounds">第%d轮</string>
 

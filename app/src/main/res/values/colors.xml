@@ -10,7 +10,7 @@
 
     <!--背景颜色，添加bg前缀-->
     <color name="bgWindow">#f3f3f3</color>
-    <color name="bgActionBar">#eee</color>
+    <color name="bgActionBar">#666</color>
 
     <!--文本颜色，添加text前缀-->
     <color name="textPrimary">#333</color>

@@ -91,4 +91,23 @@ public class BattleModel extends AbsModel {
         return ServicesClient.getServices().ban(LUtils.getPreferences().getString("token", ""), battleID, ban).compose(new DefaultTransform<>());
     }
 
+    /**
+     * 对战提交结果
+     * @param battleID 赛事ID
+     * @param winnerID ban
+     * @return
+     */
+    public Observable<Boolean> submit(int battleID, Integer winnerID) {
+        return ServicesClient.getServices().submitResult(LUtils.getPreferences().getString("token", ""), battleID, winnerID).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 重置对战结果
+     * @param battleID 赛事ID
+     * @return
+     */
+    public Observable<Boolean> resubmit(int battleID) {
+        return ServicesClient.getServices().resubmitResult(LUtils.getPreferences().getString("token", ""), battleID).compose(new DefaultTransform<>());
+    }
+
 }

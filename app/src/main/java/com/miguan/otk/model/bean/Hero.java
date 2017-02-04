@@ -11,9 +11,11 @@ public class Hero implements Parcelable {
 
     private String name;
 
-    private int res;
-
     private int index;
+
+    private boolean isCheck;
+
+    private boolean isBan;
 
     @Override
     public int describeContents() {
@@ -23,8 +25,9 @@ public class Hero implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.name);
-        dest.writeInt(this.res);
         dest.writeInt(this.index);
+        dest.writeByte(this.isCheck ? (byte) 1 : (byte) 0);
+        dest.writeByte(this.isBan ? (byte) 1 : (byte) 0);
     }
 
     public Hero() {
@@ -32,8 +35,9 @@ public class Hero implements Parcelable {
 
     protected Hero(Parcel in) {
         this.name = in.readString();
-        this.res = in.readInt();
         this.index = in.readInt();
+        this.isCheck = in.readByte() != 0;
+        this.isBan = in.readByte() != 0;
     }
 
     public static final Creator<Hero> CREATOR = new Creator<Hero>() {
@@ -56,19 +60,27 @@ public class Hero implements Parcelable {
         this.name = name;
     }
 
-    public int getRes() {
-        return res;
-    }
-
-    public void setRes(int res) {
-        this.res = res;
-    }
-
     public int getIndex() {
         return index;
     }
 
     public void setIndex(int index) {
         this.index = index;
+    }
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public void setCheck(boolean check) {
+        isCheck = check;
+    }
+
+    public boolean isBan() {
+        return isBan;
+    }
+
+    public void setBan(boolean ban) {
+        isBan = ban;
     }
 }

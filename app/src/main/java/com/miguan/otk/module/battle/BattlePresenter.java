@@ -7,6 +7,7 @@ import com.miguan.otk.model.BattleModel;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.services.ServicesResponse;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -21,17 +22,18 @@ public class BattlePresenter extends BaseDataActivityPresenter<BattleActivity, B
     @Override
     protected void onCreate(BattleActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
+        EventBus.getDefault().register(this);
         mBattleID = getView().getIntent().getIntExtra("battle_id", 0);
     }
 
     @Override
     protected void onCreateView(BattleActivity view) {
         super.onCreateView(view);
-        setData();
+        setData(null);
     }
 
     @Subscribe(threadMode = ThreadMode.POSTING)
-    public void setData() {
+    public void setData(Battle battle) {
         BattleModel.getInstance().getBattleDetail(mBattleID).unsafeSubscribe(new ServicesResponse<Battle>() {
             @Override
             public void onNext(Battle battle) {
@@ -40,13 +42,9 @@ public class BattlePresenter extends BaseDataActivityPresenter<BattleActivity, B
         });
     }
 
-    public void ready() {
-        BattleModel.getInstance().ready(mBattleID).unsafeSubscribe(new ServicesResponse<Boolean>() {
-            @Override
-            public void onNext(Boolean aBoolean) {
-
-            }
-        });
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
-
 }

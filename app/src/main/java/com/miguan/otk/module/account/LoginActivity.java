@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.sgun.utils.LUtils;
-import com.umeng.socialize.bean.SHARE_MEDIA;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -37,12 +35,6 @@ public class LoginActivity extends ChainBaseActivity<LoginPresenter> {
     @Bind(R.id.btn_login_submit)
     Button mBtnLogin;
 
-    @Bind(R.id.tv_login_qq)
-    TextView mTvQQ;
-
-    @Bind(R.id.tv_login_wx)
-    TextView mTvWx;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +45,8 @@ public class LoginActivity extends ChainBaseActivity<LoginPresenter> {
         mBtnForgot.setOnClickListener(v -> startActivity(new Intent(this, ForgotActivity.class)));
         mBtnRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
         mBtnLogin.setOnClickListener(v -> checkInput());
-        mTvQQ.setOnClickListener(v -> getPresenter().doOauthVerify(SHARE_MEDIA.QQ));
-        mTvWx.setOnClickListener(v -> getPresenter().doOauthVerify(SHARE_MEDIA.WEIXIN));
+//        mTvQQ.setOnClickListener(v -> getPresenter().doOauthVerify(SHARE_MEDIA.QQ));
+//        mTvWx.setOnClickListener(v -> getPresenter().doOauthVerify(SHARE_MEDIA.WEIXIN));
     }
 
     private void checkInput() {

@@ -9,10 +9,10 @@ import android.widget.ImageView;
 
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
+import com.miguan.otk.model.bean.Hero;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -37,13 +37,13 @@ public class BanPickAdapter extends BaseAdapter {
 
     private Context mContext;
 
-    private List<Integer> mHeroList = new ArrayList<>();
+    private List<Hero> mHeroList = new ArrayList<>();
 
-    private List<Integer> mSelected = new ArrayList<>();
+    private List<Hero> mSelected = new ArrayList<>();
 
     private int mMode;
 
-    public BanPickAdapter(Context context, List<Integer> list, int mode) {
+    public BanPickAdapter(Context context, List<Hero> list, int mode) {
         mContext = context;
         mHeroList = list;
         mMode = mode;
@@ -52,29 +52,18 @@ public class BanPickAdapter extends BaseAdapter {
     public BanPickAdapter(Context context, int mode) {
         mContext = context;
         for (int i=0; i<HERO_RES.length; i++) {
-            mHeroList.add(i);
+            Hero hero = new Hero();
+            hero.setName(context.getResources().getStringArray(R.array.items_pick_list)[i]);
+            hero.setIndex(i + 1);
+            hero.setCheck(false);
+            mHeroList.add(hero);
         }
         mMode = mode;
     }
 
-    public void select(Integer index) {
-        if (mSelected.contains(index)) {
-            mSelected.remove(index);
-        } else {
-            mSelected.add(index);
-        }
+    public void select(Hero hero) {
+        hero.setCheck(!hero.isCheck());
         notifyDataSetChanged();
-    }
-
-    public Map<String, String> getSelected() {
-//        if (mSelected != null && mSelected.size() > 0) {
-//            Map<String, String> map = new HashMap<>();
-//            for (int i = 0; i < mSelected.size(); i++) {
-//                map.put("car" + (i + 1), mSelected.get(i));
-//            }
-//            return map;
-//        }
-        return null;
     }
 
     @Override
@@ -83,7 +72,7 @@ public class BanPickAdapter extends BaseAdapter {
     }
 
     @Override
-    public Integer getItem(int position) {
+    public Hero getItem(int position) {
         return mHeroList.get(position);
     }
 
@@ -95,11 +84,11 @@ public class BanPickAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         PickViewHolder holder = new PickViewHolder(parent);
-        holder.setData(position);
+        holder.setData(mHeroList.get(position));
         return holder.itemView;
     }
 
-    class PickViewHolder extends BaseViewHolder<Integer> {
+    class PickViewHolder extends BaseViewHolder<Hero> {
 
         @Bind(R.id.iv_hero_thumb)
         ImageView mIvThumb;
@@ -116,23 +105,21 @@ public class BanPickAdapter extends BaseAdapter {
         }
 
         @Override
-        public void setData(Integer hero) {
-            mIvThumb.setImageResource(HERO_RES[hero]);
+        public void setData(Hero hero) {
+            mIvThumb.setImageResource(HERO_RES[hero.getIndex() - 1]);
             if (mMode == MODE_PICK) {
                 mCbName.setVisibility(View.VISIBLE);
-                mCbName.setChecked(mSelected.contains(hero));
+                mCbName.setChecked(hero.isCheck());
                 mMask.setVisibility(View.GONE);
             } else if (mMode == MODE_BAN) {
                 mCbName.setVisibility(View.GONE);
-                mMask.setVisibility(mSelected.contains(hero) ? View.VISIBLE : View.GONE);
+                mMask.setVisibility(hero.isCheck() ? View.VISIBLE : View.GONE);
             } else {
                 mCbName.setVisibility(View.GONE);
-                mMask.setVisibility(View.GONE);
+                mMask.setVisibility(hero.isBan() ? View.VISIBLE : View.GONE);
             }
-            if (mMode != MODE_SHOW) {
-                itemView.setOnClickListener(v -> {
-                    if (mListener != null) mListener.onItemClick(hero);
-                });
+            if (mListener != null) {
+                itemView.setOnClickListener(v -> mListener.onItemClick(hero));
             }
         }
 
@@ -145,7 +132,7 @@ public class BanPickAdapter extends BaseAdapter {
     }
 
     public interface OnItemClickListener {
-        void onItemClick(Integer index);
+        void onItemClick(Hero hero);
     }
 
 }

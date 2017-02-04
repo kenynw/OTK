@@ -492,8 +492,21 @@ public interface Services {
     @POST("competition/battle/record")
     Observable<Boolean> submitResult(
             @Field("token") String token,
-            @Field("battle_id") int battleID,
-            @Field("role") String role
+            @Field("battle_id") Integer battleID,
+            @Field("role") Integer role
+    );
+
+    /**
+     * 重置对战结果
+     *
+     * @param battleID 赛事ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/battle/unrecord")
+    Observable<Boolean> resubmitResult(
+            @Field("token") String token,
+            @Field("battle_id") Integer battleID
     );
 
     /**
