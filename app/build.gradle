@@ -61,7 +61,7 @@ dependencies {
     //    compile 'com.dsk:chain:1.0.0'
     compile 'com.facebook.fresco:fresco:0.14.1'
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.jude:imageprovider:2.0.2'
+    compile 'com.jude:imageprovider:2.1.1'
     compile 'com.jude:exgridview:1.1.5'
     compile 'com.dsk:utils:1.0.1'
     final RETROFIT_VERSION = '2.1.0'

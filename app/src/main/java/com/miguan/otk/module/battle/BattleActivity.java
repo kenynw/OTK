@@ -102,7 +102,7 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
         bundle.putParcelable("battle", battle);
 
         Fragment fragment;
-        if (battle.getBattle_status() == 1 || battle.getBattle_status() == 5) {
+        if (battle.getBattle_status() == 1 || battle.getBattle_status() == 5 || battle.getBattle_status() == 0) {
             fragment = new ReadyFragment();
             fragment.setArguments(bundle);
         } else {

@@ -42,6 +42,7 @@
     <string name="btn_clear_cache">清理缓存</string>
     <string name="btn_commend_match">推荐比赛</string>
     <string name="btn_daily_mission">每日任务</string>
+    <string name="btn_eg_screenshot">截图示例</string>
     <string name="btn_enroll">报名</string>
     <string name="btn_enroll_list">报名列表(%1$s/%2$s)</string>
     <string name="btn_exchange_now">立即兑换</string>
@@ -72,6 +73,7 @@
     <string name="btn_sign_in_now">立即签到</string>
     <string name="btn_shop">撒币商城</string>
     <string name="btn_submit">提交</string>
+    <string name="btn_upload_screenshot">上传截图</string>
     <string name="btn_withdraw">提现</string>
     <string name="btn_withdraw_record">提现记录</string>
     <string name="btn_today_match">今日赛事</string>

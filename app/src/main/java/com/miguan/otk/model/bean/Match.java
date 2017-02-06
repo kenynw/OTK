@@ -58,6 +58,8 @@ public class Match implements Parcelable {
 
     private String qq_group_url;
 
+    private String share_url;
+
     /**
      * 规则内容
      */
@@ -146,6 +148,7 @@ public class Match implements Parcelable {
         dest.writeString(this.count_sub_competitor);
         dest.writeInt(this.cost);
         dest.writeString(this.qq_group_url);
+        dest.writeString(this.share_url);
         dest.writeString(this.rule);
         dest.writeString(this.battle_mode);
         dest.writeString(this.final_battle_mode);
@@ -193,6 +196,7 @@ public class Match implements Parcelable {
         this.count_sub_competitor = in.readString();
         this.cost = in.readInt();
         this.qq_group_url = in.readString();
+        this.share_url = in.readString();
         this.rule = in.readString();
         this.battle_mode = in.readString();
         this.final_battle_mode = in.readString();
@@ -379,6 +383,14 @@ public class Match implements Parcelable {
 
     public void setQq_group_url(String qq_group_url) {
         this.qq_group_url = qq_group_url;
+    }
+
+    public String getShare_url() {
+        return share_url;
+    }
+
+    public void setShare_url(String share_url) {
+        this.share_url = share_url;
     }
 
     public String getRule() {

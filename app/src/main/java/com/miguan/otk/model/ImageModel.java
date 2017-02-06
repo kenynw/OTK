@@ -71,12 +71,12 @@ public class ImageModel extends AbsModel {
                             if (serviceException != null) {
                                 LUtils.toast("图片上传失败");
                             }
+                            LUtils.toast("图片上传失败");
                         }
                     });
                 })
                .map(s -> s.replace(OSS_PATH, ""))
                .compose(new DefaultTransform<>());
-
     }
 
     /**

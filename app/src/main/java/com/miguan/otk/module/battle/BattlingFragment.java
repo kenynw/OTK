@@ -17,7 +17,6 @@ import com.miguan.otk.R;
 import com.miguan.otk.adapter.BanPickAdapter;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Hero;
-import com.miguan.otk.module.match.SubmitShotActivity;
 import com.miguan.otk.widget.SectionView;
 import com.sgun.utils.LUtils;
 
@@ -103,7 +102,7 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
 
         mBtnCopy.setOnClickListener(v -> getPresenter().copyName(mTvOpponent.getText().toString().trim()));
         mBtnContact.setOnClickListener(v -> startActivity(new Intent(getActivity(), ContactJudgeActivity.class)));
-        mBtnScreenshot.setOnClickListener(v -> startActivity(new Intent(getActivity(), SubmitShotActivity.class)));
+        mBtnScreenshot.setOnClickListener(v -> getPresenter().toShot());
 //        mBtnChatroom.setOnClickListener(v -> startActivity(new Intent()));
 
         return view;
@@ -214,42 +213,46 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
                 mSectionStatus.setVisibility(View.GONE);
                 mGridHeros.setVisibility(View.GONE);
                 mBtnSave.setVisibility(View.GONE);
-                mLyOngoing.setVisibility(View.VISIBLE);
                 mLyResult.setVisibility(View.VISIBLE);
-                mTvAAccount.setText(battle.getA_gameaccount());
-                mTvBAccount.setText(battle.getB_gameaccount());
                 mBtnImWin.setOnClickListener(v -> getPresenter().submit(battle.getUser_type() == 1 ? battle.getA_user_id() : battle.getB_user_id()));
                 mBtnImLost.setOnClickListener(v -> getPresenter().submit(battle.getUser_type() == 2 ? battle.getA_user_id() : battle.getB_user_id()));
 
-                List<Hero> listA = new ArrayList<>();
-                List<Hero> listB = new ArrayList<>();
-                for (int i=1; i<(battle.getBattle_mode().equals("BO4") ? 5 : 4); i++) {
-                    Hero heroA = new Hero();
-                    Hero heroB = new Hero();
-                    try {
-                        String carA = (String) battle.getClass().getMethod("getA_" + "car" + i).invoke(battle);
-                        heroA.setIndex(Integer.valueOf(carA));
-                        heroA.setBan(carA.equals(battle.getA_ban()));
+                if (!battle.getBattle_mode().equals("BO1")) {
+                    mLyOngoing.setVisibility(View.VISIBLE);
+                    mTvAAccount.setText(battle.getA_gameaccount());
+                    mTvBAccount.setText(battle.getB_gameaccount());
 
-                        String carB = (String) battle.getClass().getMethod("getB_" + "car" + i).invoke(battle);
-                        heroB.setIndex(Integer.valueOf(carB));
-                        heroB.setBan(carB.equals(battle.getB_ban()));
-                    } catch (NoSuchMethodException e) {
-                        e.printStackTrace();
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
+                    List<Hero> listA = new ArrayList<>();
+                    List<Hero> listB = new ArrayList<>();
+                    for (int i=1; i<(battle.getBattle_mode().equals("BO4") ? 5 : 4); i++) {
+                        Hero heroA = new Hero();
+                        Hero heroB = new Hero();
+                        try {
+                            String carA = (String) battle.getClass().getMethod("getA_" + "car" + i).invoke(battle);
+                            heroA.setIndex(Integer.valueOf(carA));
+                            heroA.setBan(carA.equals(battle.getA_ban()));
+
+                            String carB = (String) battle.getClass().getMethod("getB_" + "car" + i).invoke(battle);
+                            heroB.setIndex(Integer.valueOf(carB));
+                            heroB.setBan(carB.equals(battle.getB_ban()));
+                        } catch (NoSuchMethodException e) {
+                            e.printStackTrace();
+                        } catch (InvocationTargetException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+                        listA.add(heroA);
+                        listB.add(heroB);
                     }
-                    listA.add(heroA);
-                    listB.add(heroB);
+
+                    BanPickAdapter adapterA = new BanPickAdapter(getActivity(), listA, BanPickAdapter.MODE_SHOW);
+                    mGridABans.setAdapter(adapterA);
+
+                    BanPickAdapter adapterB = new BanPickAdapter(getActivity(), listB, BanPickAdapter.MODE_SHOW);
+                    mGridBBans.setAdapter(adapterB);
                 }
 
-                BanPickAdapter adapterA = new BanPickAdapter(getActivity(), listA, BanPickAdapter.MODE_SHOW);
-                mGridABans.setAdapter(adapterA);
-
-                BanPickAdapter adapterB = new BanPickAdapter(getActivity(), listB, BanPickAdapter.MODE_SHOW);
-                mGridBBans.setAdapter(adapterB);
             }
         }
 

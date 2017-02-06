@@ -43,7 +43,11 @@ public class ReadyFragment extends ChainFragment<ReadyPresenter> {
     }
 
     public void setData(Battle battle) {
-        if (battle.getBattle_status() == 1) {
+        if (battle.getBattle_status() == 0) {
+            mTvTitle.setText("等待对手生成");
+            mTvDesc.setText("您的对手还没有结束当前比赛，请耐心等待");
+            mBtnSave.setEnabled(false);
+        } else if (battle.getBattle_status() == 1) {
             if ((battle.getUser_type() == 1 && battle.getBattle_status_user() == 2) || (battle.getUser_type() == 2 && battle.getBattle_status_user() == 3)) {
                 mBtnSave.setText("已准备");
                 mBtnSave.setEnabled(false);

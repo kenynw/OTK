@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools"
     android:divider="@drawable/div_gray"
     android:orientation="vertical"
     android:showDividers="middle">
@@ -11,8 +11,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="@dimen/horizontal_margin"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:paddingTop="8dp"
         >
 
         <TextView
@@ -31,8 +35,12 @@
         <Button
             android:id="@+id/btn_shot_deck_select_1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_check"
+            android:layout_height="@dimen/widget_small_height"
+            android:background="@drawable/btn_stroke_radius_primary_dark"
+            android:text="@string/btn_upload_screenshot"
+            android:textColor="@color/text_color_primarydark2secondary"
+            android:textSize="@dimen/text_size_body_material"
+            android:tag="1"
             />
 
     </LinearLayout>
@@ -40,8 +48,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="@dimen/horizontal_margin"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:paddingTop="8dp"
         >
 
         <TextView
@@ -60,8 +72,12 @@
         <Button
             android:id="@+id/btn_shot_deck_select_2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_check"
+            android:layout_height="@dimen/widget_small_height"
+            android:background="@drawable/btn_stroke_radius_primary_dark"
+            android:text="@string/btn_upload_screenshot"
+            android:textColor="@color/text_color_primarydark2secondary"
+            android:textSize="@dimen/text_size_body_material"
+            android:tag="2"
             />
 
     </LinearLayout>
@@ -69,8 +85,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="@dimen/horizontal_margin"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:paddingTop="8dp"
         >
 
         <TextView
@@ -89,8 +109,12 @@
         <Button
             android:id="@+id/btn_shot_round_one"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_check"
+            android:layout_height="@dimen/widget_small_height"
+            android:background="@drawable/btn_stroke_radius_primary_dark"
+            android:text="@string/btn_upload_screenshot"
+            android:textColor="@color/text_color_primarydark2secondary"
+            android:textSize="@dimen/text_size_body_material"
+            android:tag="3"
             />
 
     </LinearLayout>
@@ -98,8 +122,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="@dimen/horizontal_margin"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:paddingTop="8dp"
         >
 
         <TextView
@@ -118,8 +146,12 @@
         <Button
             android:id="@+id/btn_shot_round_two"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_check"
+            android:layout_height="@dimen/widget_small_height"
+            android:background="@drawable/btn_stroke_radius_primary_dark"
+            android:text="@string/btn_upload_screenshot"
+            android:textColor="@color/text_color_primarydark2secondary"
+            android:textSize="@dimen/text_size_body_material"
+            android:tag="4"
             />
 
     </LinearLayout>
@@ -127,8 +159,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="@dimen/horizontal_margin"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:paddingTop="8dp"
         >
 
         <TextView
@@ -147,10 +183,23 @@
         <Button
             android:id="@+id/btn_shot_round_third"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_check"
+            android:layout_height="@dimen/widget_small_height"
+            android:background="@drawable/btn_stroke_radius_primary_dark"
+            android:text="@string/btn_upload_screenshot"
+            android:textColor="@color/text_color_primarydark2secondary"
+            android:textSize="@dimen/text_size_body_material"
+            android:tag="5"
             />
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/ic_warning"
+        android:padding="@dimen/horizontal_margin"
+        android:text="@string/btn_eg_screenshot"
+        android:drawablePadding="8dp"
+        android:textAppearance="@style/TextCaption"/>
 
 </LinearLayout>

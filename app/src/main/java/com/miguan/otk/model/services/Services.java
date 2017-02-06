@@ -535,6 +535,21 @@ public interface Services {
             @Field("competition_id") int competitionID
     );
 
+    /**
+     * 对战提交截图
+     *
+     * @param battleID 对战ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/competition/upload")
+    Observable<Battle> battleUpload(
+            @Field("token") String token,
+            @Field("battle_id") int battleID,
+            @Field("kind") String kind,
+            @Field("photo") String photo
+    );
+
     ////////////////////其他//////////////////////
     /**
      * 资讯列表

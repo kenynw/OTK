@@ -1,6 +1,7 @@
 package com.miguan.otk.model;
 
 import android.content.Context;
+import android.net.Uri;
 
 import com.dsk.chain.model.AbsModel;
 import com.miguan.otk.model.bean.Battle;
@@ -8,10 +9,12 @@ import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
 import com.sgun.utils.LUtils;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
 import rx.Observable;
+import rx.functions.Func1;
 
 /**
  * Copyright (c) 2017/1/21. LiaoPeiKun Inc. All rights reserved.
@@ -30,6 +33,7 @@ public class BattleModel extends AbsModel {
 
     /**
      * 我的对战记录
+     *
      * @param page 当前页数
      * @return
      */
@@ -40,29 +44,12 @@ public class BattleModel extends AbsModel {
     public Observable<Battle> getBattleDetail(int battleID) {
         return ServicesClient.getServices()
                 .battleDetail(LUtils.getPreferences().getString("token", ""), battleID)
-//                .single(new Func1<Battle, Boolean>() {
-//                    @Override
-//                    public Boolean call(Battle battle) {
-//                        if (battle.getBattle_status() != 0) {
-//                            LUtils.toast("getBattle_status" + battle.getBattle_status());
-//                            return true;
-//                        }
-//                        return false;
-//                    }
-//                })
-//                .doAfterTerminate(() -> {
-//                    getBattleDetail(battleID).subscribe(new ServicesResponse<Battle>() {
-//                        @Override
-//                        public void onNext(Battle battle) {
-//                            LUtils.log("这是后台线程");
-//                        }
-//                    });
-//                })
                 .compose(new DefaultTransform<>());
     }
 
     /**
      * 对战准备
+     *
      * @param matchID 赛事ID
      * @return
      */
@@ -72,8 +59,9 @@ public class BattleModel extends AbsModel {
 
     /**
      * 对战Pick
+     *
      * @param battleID 赛事ID
-     * @param map pick列表 car1 car2 car3 car4
+     * @param map      pick列表 car1 car2 car3 car4
      * @return
      */
     public Observable<Boolean> pick(int battleID, Map<String, Integer> map) {
@@ -83,8 +71,9 @@ public class BattleModel extends AbsModel {
 
     /**
      * 对战Ban
+     *
      * @param battleID 赛事ID
-     * @param ban ban
+     * @param ban      ban
      * @return
      */
     public Observable<Boolean> ban(int battleID, Integer ban) {
@@ -93,6 +82,7 @@ public class BattleModel extends AbsModel {
 
     /**
      * 对战提交结果
+     *
      * @param battleID 赛事ID
      * @param winnerID ban
      * @return
@@ -103,11 +93,29 @@ public class BattleModel extends AbsModel {
 
     /**
      * 重置对战结果
+     *
      * @param battleID 赛事ID
      * @return
      */
     public Observable<Boolean> resubmit(int battleID) {
         return ServicesClient.getServices().resubmitResult(LUtils.getPreferences().getString("token", ""), battleID).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 提交对战截图
+     *
+     * @param battleID 赛事ID
+     * @return
+     */
+    public Observable<Battle> upload(Uri uri, int battleID, String kind) {
+        return ImageModel.getInstance().uploadImageAsync(new File(uri.getPath()))
+                .flatMap(new Func1<String, Observable<Battle>>() {
+                    @Override
+                    public Observable<Battle> call(String s) {
+                        LUtils.log("uri: " + uri + ", battle id: " + battleID + ", kind: " + kind + ", path: " + s);
+                        return ServicesClient.getServices().battleUpload(LUtils.getPreferences().getString("token", ""), battleID, kind, s);
+                    }
+                });
     }
 
 }

@@ -72,7 +72,6 @@ public class BaseDataActivityPresenter<V extends BaseDataActivity,M> extends Pre
         return mData;
     }
 
-
     /**
      * 获取存放数据的subscriber，通常用于
      *

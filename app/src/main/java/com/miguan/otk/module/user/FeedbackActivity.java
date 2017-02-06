@@ -67,13 +67,10 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> {
             mDialog = new BottomSheetDialog(this);
 
             View view = View.inflate(this, R.layout.dialog_bottom_pick_picture, null);
-            Button btnGallery = (Button) view.findViewById(R.id.btn_pick_from_gallery);
-            Button btnCamera = (Button) view.findViewById(R.id.btn_pick_from_camera);
-            Button btnCancel = (Button) view.findViewById(R.id.btn_pick_cancel);
+            view.findViewById(R.id.btn_pick_from_gallery).setOnClickListener(v -> getPresenter().pickImage(0));
+            view.findViewById(R.id.btn_pick_from_camera).setOnClickListener(v -> getPresenter().pickImage(1));
+            view.findViewById(R.id.btn_pick_cancel).setOnClickListener(v -> dismissDialog());
 
-            btnGallery.setOnClickListener(v -> getPresenter().pickImage(0));
-            btnCamera.setOnClickListener(v -> getPresenter().pickImage(1));
-            btnCancel.setOnClickListener(v -> dismissDialog());
             mDialog.setContentView(view);
             mDialog.getWindow().findViewById(R.id.design_bottom_sheet).setBackgroundResource(android.R.color.transparent);
         }

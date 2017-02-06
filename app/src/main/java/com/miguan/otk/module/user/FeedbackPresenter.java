@@ -56,7 +56,6 @@ class FeedbackPresenter extends Presenter<FeedbackActivity> implements OnImageSe
 
     @Override
     public void onImageSelect() {
-        LUtils.toast("onImageSelect");
     }
 
     @Override

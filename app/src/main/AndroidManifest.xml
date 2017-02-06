@@ -85,7 +85,7 @@
         </activity>
         <activity android:name=".module.battle.BattleActivity">
         </activity>
-        <activity android:name=".module.match.SubmitShotActivity">
+        <activity android:name=".module.battle.ShotDetailActivity">
         </activity>
         <!-- <meta-data -->
         <!-- android:name="MODEL" -->
@@ -100,6 +100,8 @@
         <activity android:name=".module.user.BindAlipayActivity">
         </activity>
         <activity android:name=".module.user.AreaActivity">
+        </activity>
+        <activity android:name=".module.battle.ShotBrowseActivity">
         </activity>
     </application>
 

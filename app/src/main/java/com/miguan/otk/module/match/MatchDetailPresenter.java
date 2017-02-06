@@ -57,6 +57,7 @@ class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity
         if (mMatch == null) return;
         new ShareAction(getView())
                 .withText(mMatch.getTitle())
+                .withTargetUrl(mMatch.getShare_url())
                 .withMedia(new UMImage(getView(), R.mipmap.ic_launcher))
                 .open();
     }

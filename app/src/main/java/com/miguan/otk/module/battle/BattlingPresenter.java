@@ -3,6 +3,7 @@ package com.miguan.otk.module.battle;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.dsk.chain.bijection.Presenter;
@@ -86,6 +87,12 @@ public class BattlingPresenter extends Presenter<BattlingFragment> {
         ClipboardManager cm = (ClipboardManager) (getView().getActivity()).getSystemService(Context.CLIPBOARD_SERVICE);
         cm.setPrimaryClip(ClipData.newPlainText(null, name));
         LUtils.toast("复制成功");
+    }
+
+    public void toShot() {
+        Intent intent = new Intent(getView().getActivity(), ShotDetailActivity.class);
+        intent.putExtra("battle", mBattle);
+        getView().startActivity(intent);
     }
 
 }
