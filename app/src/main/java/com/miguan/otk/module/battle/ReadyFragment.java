@@ -43,7 +43,22 @@ public class ReadyFragment extends ChainFragment<ReadyPresenter> {
     }
 
     public void setData(Battle battle) {
-        if (battle.getBattle_status() == 0) {
+        if (battle.getBattle_status() == 5) {
+            mTvTitle.setText(R.string.text_battle_ended);
+            mTvDesc.setText(String.format(getString(R.string.text_battle_ended_desc), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")));
+
+            mBtnSave.setText("结束");
+            if (battle.getIs_end()) mBtnSave.setVisibility(View.GONE);
+            else mBtnSave.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), BattleActivity.class);
+                intent.putExtra("battle_id", battle.getBattle_id());
+                startActivity(intent);
+            });
+        } else if (battle.getUser_type() == 0 || battle.getUser_type() == 3) {
+            mBtnSave.setVisibility(View.GONE);
+            mTvTitle.setText("比赛阶段");
+            mTvDesc.setText(String.format("%s阶段比赛正在进行中", battle.getBattle_times()));
+        } else if (battle.getBattle_status() == 0) {
             mTvTitle.setText("等待对手生成");
             mTvDesc.setText("您的对手还没有结束当前比赛，请耐心等待");
             mBtnSave.setEnabled(false);
@@ -55,17 +70,6 @@ public class ReadyFragment extends ChainFragment<ReadyPresenter> {
                 mBtnSave.setText("准备");
                 mBtnSave.setOnClickListener(v -> getPresenter().ready(battle.getBattle_id()));
             }
-        } else if (battle.getBattle_status() == 5) {
-            mTvTitle.setText(R.string.text_battle_ended);
-            mTvDesc.setText(String.format(getString(R.string.text_battle_ended_desc), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")));
-
-            mBtnSave.setText("结束");
-            if (battle.getIs_end()) mBtnSave.setVisibility(View.GONE);
-            else mBtnSave.setOnClickListener(v -> {
-                Intent intent = new Intent(getActivity(), BattleActivity.class);
-                intent.putExtra("battle_id", battle.getBattle_id());
-                startActivity(intent);
-            });
         }
 
     }

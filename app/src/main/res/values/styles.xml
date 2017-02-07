@@ -28,7 +28,9 @@
     <style name="TextBody" parent="TextAppearance.AppCompat.Body1" >
         <item name="android:textColor">@color/textBody</item>
     </style>
-    <style name="TextCaption" parent="TextAppearance.AppCompat.Caption"/>
+    <style name="TextCaption" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/textSecondary</item>
+    </style>
 
     <style name="TitleToolbar" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:layout_width">match_parent</item>
@@ -36,6 +38,11 @@
         <item name="android:background">@color/bgActionBar</item>
         <item name="com.miguan.otk:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="com.miguan.otk:theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+    </style>
+
+    <style name="TabText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_body_material</item>
     </style>
 
     <style name="Avatar">

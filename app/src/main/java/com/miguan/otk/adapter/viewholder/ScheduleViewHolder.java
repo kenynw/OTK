@@ -1,11 +1,13 @@
 package com.miguan.otk.adapter.viewholder;
 
+import android.content.Intent;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Battle;
+import com.miguan.otk.module.battle.BattleActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -25,7 +27,12 @@ public class ScheduleViewHolder extends BaseViewHolder<Battle> {
     }
 
     @Override
-    public void setData(Battle against) {
-        mTvA.setText(String.format("%s VS %s", against.getA_username(), against.getB_username()));
+    public void setData(Battle battle) {
+        mTvA.setText(String.format("%s VS %s", battle.getA_username(), battle.getB_username()));
+        itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), BattleActivity.class);
+            intent.putExtra("battle_id", battle.getBattle_id());
+            getContext().startActivity(intent);
+        });
     }
 }

@@ -1,7 +1,6 @@
 package com.miguan.otk.model;
 
 import android.content.Context;
-import android.net.Uri;
 
 import com.dsk.chain.model.AbsModel;
 import com.miguan.otk.model.bean.Battle;
@@ -9,12 +8,10 @@ import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
 import com.sgun.utils.LUtils;
 
-import java.io.File;
 import java.util.List;
 import java.util.Map;
 
 import rx.Observable;
-import rx.functions.Func1;
 
 /**
  * Copyright (c) 2017/1/21. LiaoPeiKun Inc. All rights reserved.
@@ -107,15 +104,8 @@ public class BattleModel extends AbsModel {
      * @param battleID 赛事ID
      * @return
      */
-    public Observable<Battle> upload(Uri uri, int battleID, String kind) {
-        return ImageModel.getInstance().uploadImageAsync(new File(uri.getPath()))
-                .flatMap(new Func1<String, Observable<Battle>>() {
-                    @Override
-                    public Observable<Battle> call(String s) {
-                        LUtils.log("uri: " + uri + ", battle id: " + battleID + ", kind: " + kind + ", path: " + s);
-                        return ServicesClient.getServices().battleUpload(LUtils.getPreferences().getString("token", ""), battleID, kind, s);
-                    }
-                });
+    public Observable<Battle> upload(String uriPath, int battleID, String kind) {
+        return ServicesClient.getServices().battleUpload(LUtils.getPreferences().getString("token", ""), battleID, kind, uriPath).compose(new DefaultTransform<>());
     }
 
 }

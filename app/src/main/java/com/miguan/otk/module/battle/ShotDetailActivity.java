@@ -37,14 +37,19 @@ public class ShotDetailActivity extends BaseDataActivity<ShotDetailPresenter, Ba
     @Override
     public void setData(Battle battle) {
         List<Fragment> list = new ArrayList<>();
-        Bundle bundle = new Bundle();
-        bundle.putInt("battle_id", battle.getBattle_id());
 
         ShotListFragment fragmentA = new ShotListFragment();
-        fragmentA.setArguments(bundle);
-        ShotListFragment fragmentB = new ShotListFragment();
-        fragmentB.setArguments(bundle);
+        Bundle bundleA = new Bundle();
+        bundleA.putParcelable("battle", battle);
+        bundleA.putInt("type", 1);
+        fragmentA.setArguments(bundleA);
         list.add(fragmentA);
+
+        ShotListFragment fragmentB = new ShotListFragment();
+        Bundle bundleB = new Bundle();
+        bundleB.putParcelable("battle", battle);
+        bundleB.putInt("type", 2);
+        fragmentB.setArguments(bundleB);
         list.add(fragmentB);
 
         mPager.setAdapter(new TitlePagerAdapter(this, new String[] {battle.getA_username(), battle.getB_username()}, list, getSupportFragmentManager()));

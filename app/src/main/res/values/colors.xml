@@ -16,7 +16,7 @@
     <color name="textPrimary">#333</color>
     <color name="textBody">#444</color>
     <color name="textSecondary">#aaa</color><!-- 54% black -->
-    <color name="textHint">#bdbdbd</color>
+    <color name="textHint">#aaa</color>
 
     <!--分割线颜色，添加div前缀-->
     <color name="divGray">#666</color>
@@ -24,5 +24,6 @@
     <!--区分状态时，按下时的颜色，添加pressed后缀-->
     <!--区分状态时，选中时的颜色，添加selected后缀-->
     <!--区分状态时，不可用时的颜色，添加disable后缀-->
+    <color name="disable_btn">#ccc</color>
 
 </resources>

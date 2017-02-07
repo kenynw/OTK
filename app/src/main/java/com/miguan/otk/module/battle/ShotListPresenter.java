@@ -4,17 +4,18 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.dsk.chain.bijection.Presenter;
+import com.dsk.chain.expansion.data.BaseDataFragmentPresenter;
 import com.jude.library.imageprovider.OnImageSelectListener;
+import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.widget.ImageProvider;
 
 /**
  * Copyright (c) 2017/1/4. LiaoPeiKun Inc. All rights reserved.
  */
 
-class ShotListPresenter extends Presenter<ShotListFragment> implements OnImageSelectListener {
+class ShotListPresenter extends BaseDataFragmentPresenter<ShotListFragment, Battle> implements OnImageSelectListener {
 
-    private int mBattleID;
+    private Battle mBattle;
 
     private String mKind;
 
@@ -23,8 +24,14 @@ class ShotListPresenter extends Presenter<ShotListFragment> implements OnImageSe
     @Override
     protected void onCreate(ShotListFragment view, Bundle saveState) {
         super.onCreate(view, saveState);
-        mBattleID = getView().getArguments().getInt("battle_id", 0);
+        mBattle = getView().getArguments().getParcelable("battle");
         mImageProvider = new ImageProvider(getView());
+    }
+
+    @Override
+    protected void onCreateView(ShotListFragment view) {
+        super.onCreateView(view);
+        publishData(mBattle);
     }
 
     public void pickImage(int type, String kind) {
@@ -47,8 +54,8 @@ class ShotListPresenter extends Presenter<ShotListFragment> implements OnImageSe
     @Override
     public void onImageLoaded(Uri uri) {
         Intent intent = new Intent(getView().getActivity(), ShotBrowseActivity.class);
-        intent.putExtra("battle_id", mBattleID);
-        intent.putExtra("uri", uri.toString());
+        intent.putExtra("battle_id", mBattle.getBattle_id());
+        intent.putExtra("uri", uri.getPath());
         intent.putExtra("kind", mKind);
         getView().startActivity(intent);
     }
@@ -63,4 +70,12 @@ class ShotListPresenter extends Presenter<ShotListFragment> implements OnImageSe
         super.onResult(requestCode, resultCode, data);
         mImageProvider.onActivityResult(requestCode, resultCode, data);
     }
+
+    public void showImageBrowse(String uri) {
+        Intent intent = new Intent(getView().getActivity(), ShotBrowseActivity.class);
+        intent.putExtra("uri", uri);
+        intent.putExtra("kind", mKind);
+        getView().startActivity(intent);
+    }
+
 }

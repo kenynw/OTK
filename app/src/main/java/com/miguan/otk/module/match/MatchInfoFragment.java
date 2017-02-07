@@ -2,11 +2,10 @@ package com.miguan.otk.module.match;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -24,16 +23,16 @@ import butterknife.ButterKnife;
 public class MatchInfoFragment extends BaseDataFragment<MatchInfoPresenter, Match> {
 
     @Bind(R.id.tv_match_desc)
-    WebView mTvDesc;
+    TextView mTvDesc;
 
-    @Bind(R.id.btn_match_enroll)
-    Button mBtnEnroll;
+    @Bind(R.id.tv_match_enroll)
+    TextView mTvEnroll;
 
-    @Bind(R.id.btn_match_bench)
-    Button mBtnBench;
+    @Bind(R.id.tv_match_bench)
+    TextView mTvBench;
 
-    @Bind(R.id.btn_match_qq_group)
-    Button mBtnGroup;
+    @Bind(R.id.tv_match_qq_group)
+    TextView mTvGroup;
 
     @Bind(R.id.tv_reward)
     TextView mTvReward;
@@ -70,13 +69,14 @@ public class MatchInfoFragment extends BaseDataFragment<MatchInfoPresenter, Matc
 
     @Override
     public void setData(Match match) {
-        mTvDesc.loadData(match.getContent(), "text/html;charset=utf-8", null);
+//        mTvDesc.loadData(match.getContent(), "text/html;charset=utf-8", null);
+        mTvDesc.setText(Html.fromHtml(match.getContent()));
 
-        mBtnEnroll.setText(String.format(getString(R.string.btn_enroll_list), match.getCount_competitor(), match.getCompetitors()));
-        mBtnEnroll.setOnClickListener(v -> getPresenter().toUserList(match.getCompetition_id(), 1));
-        mBtnBench.setText(String.format(getString(R.string.btn_bench_list), match.getCount_sub_competitor(), match.getSubstitute_competitors()));
-        mBtnBench.setOnClickListener(v -> getPresenter().toUserList(match.getCompetition_id(), 2));
-        mBtnGroup.setOnClickListener(v -> getPresenter().toQQGroup(match.getQq_group_url()));
+        mTvEnroll.setText(String.format(getString(R.string.btn_enroll_list), match.getCount_competitor(), match.getCompetitors()));
+        mTvEnroll.setOnClickListener(v -> getPresenter().toUserList(match.getCompetition_id(), 1));
+        mTvBench.setText(String.format(getString(R.string.btn_bench_list), match.getCount_sub_competitor(), match.getSubstitute_competitors()));
+        mTvBench.setOnClickListener(v -> getPresenter().toUserList(match.getCompetition_id(), 2));
+        mTvGroup.setOnClickListener(v -> getPresenter().toQQGroup(match.getQq_group_url()));
 
         // 设置奖金 操蛋又冗余的代码
         mTvReward.setText(String.format("￥%s", match.getReward_money()>0 ? match.getReward_money() : match.getReward_sb()));

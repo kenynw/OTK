@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -26,11 +27,11 @@ public class LoginActivity extends ChainBaseActivity<LoginPresenter> {
     @Bind(R.id.et_login_password)
     EditText mEtPassword;
 
-    @Bind(R.id.btn_login_forgot)
-    Button mBtnForgot;
+    @Bind(R.id.tv_login_forgot)
+    TextView mTvForgot;
 
-    @Bind(R.id.btn_login_register)
-    Button mBtnRegister;
+    @Bind(R.id.tv_login_register)
+    TextView mTvRegister;
 
     @Bind(R.id.btn_login_submit)
     Button mBtnLogin;
@@ -42,8 +43,8 @@ public class LoginActivity extends ChainBaseActivity<LoginPresenter> {
         setToolbarTitle(R.string.title_activity_login);
         ButterKnife.bind(this);
 
-        mBtnForgot.setOnClickListener(v -> startActivity(new Intent(this, ForgotActivity.class)));
-        mBtnRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
+        mTvForgot.setOnClickListener(v -> startActivity(new Intent(this, ForgotActivity.class)));
+        mTvRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
         mBtnLogin.setOnClickListener(v -> checkInput());
 //        mTvQQ.setOnClickListener(v -> getPresenter().doOauthVerify(SHARE_MEDIA.QQ));
 //        mTvWx.setOnClickListener(v -> getPresenter().doOauthVerify(SHARE_MEDIA.WEIXIN));

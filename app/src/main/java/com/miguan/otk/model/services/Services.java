@@ -542,7 +542,7 @@ public interface Services {
      * @return
      */
     @FormUrlEncoded
-    @POST("competition/competition/upload")
+    @POST("competition/battle/upload")
     Observable<Battle> battleUpload(
             @Field("token") String token,
             @Field("battle_id") int battleID,

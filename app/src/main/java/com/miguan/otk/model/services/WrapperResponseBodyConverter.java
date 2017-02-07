@@ -35,6 +35,7 @@ public class WrapperResponseBodyConverter<T> implements Converter<ResponseBody, 
 
             int status = data.getInt("status");
             if (status != 1) {
+                LUtils.log(TAG, value.string());
                 throw new ServiceException(status, data.getString("msg"));
             }
 

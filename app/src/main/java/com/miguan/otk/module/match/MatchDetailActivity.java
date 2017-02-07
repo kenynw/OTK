@@ -5,6 +5,9 @@ import android.os.CountDownTimer;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,9 +35,6 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
 
     @Bind(R.id.tv_match_detail_cost)
     TextView mTvCost;
-
-    @Bind(R.id.tv_match_detail_id)
-    TextView mTvID;
 
     @Bind(R.id.tv_match_detail_status)
     TextView mTvStatus;
@@ -79,10 +79,16 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
     @Override
     public void setData(Match match) {
         EventBus.getDefault().post(match);
-        mTvID.setText(String.format(getString(R.string.label_match_id), match.getCompetition_id()));
-        mTvCost.setText(String.format(getString(R.string.label_match_cost), match.getCost()));
-        mTvTitle.setText(match.getTitle());
+        mTvCost.setText(String.format(getString(R.string.label_match_id_cost), match.getCompetition_id(), match.getCost()));
         mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), getPresenter().getFormatDate(Long.valueOf(match.getGame_time()) * 1000)));
+
+        SpannableString spanString = new SpannableString(match.getTitle());
+        if (match.getGame_type() > 0) {
+            spanString = new SpannableString(match.getTitle() + " img");
+            ImageSpan imageSpan = new ImageSpan(this, match.getGame_type() == 1 ? R.mipmap.ic_match_type_private : R.mipmap.ic_match_type_invite);
+            spanString.setSpan(imageSpan, (match.getTitle() + " ").length(), (match.getTitle() + " img").length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        mTvTitle.setText(spanString);
 
         long time = Long.valueOf(match.getGame_time());
         if (time > 0) {

@@ -64,7 +64,7 @@
     <string name="btn_my_order">我的订单</string>
     <string name="btn_ok">确定</string>
     <string name="btn_qq">QQ</string>
-    <string name="btn_register">注册</string>
+    <string name="btn_register">新用户注册</string>
     <string name="btn_recent_game">最近赛事</string>
     <string name="btn_skip">%d秒跳过</string>
     <string name="btn_send_captcha">发送验证码</string>
@@ -148,7 +148,7 @@
     <string name="label_game_account">游戏帐号：</string>
     <string name="label_introduction">签名：</string>
     <string name="label_job">现状：</string>
-    <string name="label_match_cost">报名费：%d</string>
+    <string name="label_match_id_cost">赛事ID：%1$d&#160;&#160;&#160;报名费：%2$d撒币</string>
     <string name="label_match_id">赛事ID：%d</string>
     <string name="label_match_state">赛事状态：%1$s%2$s</string>
     <string name="label_my_balance">我的撒币：%1$d&#160;&#160;我的元宝：%2$d</string>

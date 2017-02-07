@@ -31,7 +31,8 @@ public class ShotBrowseActivity extends ChainBaseActivity<ShotBrowsePresenter> {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_save, menu);
+        int battleID = getIntent().getIntExtra("battle_id", 0);
+        if (battleID > 0) getMenuInflater().inflate(R.menu.menu_save, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

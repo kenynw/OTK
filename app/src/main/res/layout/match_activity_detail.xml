@@ -17,77 +17,70 @@
         android:layout_below="@id/toolbar"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@id/id_stickynavlayout_topview"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv_match_detail_title"
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:padding="@dimen/horizontal_margin"
-                android:textAppearance="@style/TextSubhead"
-                tools:text="木子姐姐建的自定义常规赛（联系QQ群：0592110）"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/bg_match_detail"
                 />
 
             <LinearLayout
+                android:id="@id/id_stickynavlayout_topview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/horizontal_margin"
-                android:paddingRight="@dimen/horizontal_margin"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/horizontal_margin"
                 >
 
                 <TextView
-                    android:id="@+id/tv_match_detail_cost"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/widget_tiny_height"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:gravity="left|center_vertical"
-                    android:paddingRight="@dimen/horizontal_margin"
-                    android:textAppearance="@style/TextCaption"
-                    tools:text="@string/label_match_id"
+                    android:id="@+id/tv_match_detail_title"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_subhead_material"
+                    tools:text="木子姐姐建的自定义常规赛（联系QQ群：0592110）"
                     />
 
                 <TextView
-                    android:id="@+id/tv_match_detail_id"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/widget_tiny_height"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:gravity="right|center_vertical"
-                    android:textAppearance="@style/TextCaption"
-                    tools:text="@string/label_match_id"
+                    android:id="@+id/tv_match_detail_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/vertical_margin"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="@dimen/text_size_body_material"
+                    tools:text="@string/label_match_id_cost"
                     />
+
+                <TextView
+                    android:id="@+id/tv_match_detail_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextBody"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="@dimen/text_size_body_material"
+                    tools:text="@string/label_match_state"
+                    />
+
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_match_detail_status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="1dp"
-                android:background="@color/white"
-                android:padding="@dimen/horizontal_margin"
-                android:text="@string/label_match_state"
-                android:textAppearance="@style/TextBody"
-                />
-
-        </LinearLayout>
+        </FrameLayout>
 
         <android.support.design.widget.TabLayout
             android:id="@+id/id_stickynavlayout_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            app:tabSelectedTextColor="@color/colorPrimary"
-            app:tabTextColor="@color/textSecondary"
+            app:tabIndicatorColor="@color/colorPrimaryDark"
+            app:tabIndicatorHeight="4dp"
+            app:tabSelectedTextColor="@color/colorPrimaryDark"
+            app:tabTextAppearance="@style/TabText"
+            app:tabTextColor="@color/textBody"
             />
 
         <android.support.v4.view.ViewPager
@@ -98,22 +91,16 @@
 
     </com.miguan.otk.widget.StickyNavLayout>
 
-    <FrameLayout
+    <Button
+        android:id="@+id/btn_match_detail_status"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/widget_medium_height"
         android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:padding="@dimen/horizontal_margin"
-        >
-
-        <Button
-            android:id="@+id/btn_match_detail_status"
-            style="@style/Base.Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_enroll"
-            />
-
-    </FrameLayout>
+        android:background="@drawable/btn_primary2dark_selector"
+        android:text="@string/btn_enroll"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_subhead_material"
+        android:textStyle="bold"
+        />
 
 </RelativeLayout>

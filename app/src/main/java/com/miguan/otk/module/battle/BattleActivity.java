@@ -60,6 +60,8 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
     @Bind(R.id.btn_battle_status)
     Button mBtnStatus;
 
+    private Fragment mFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,16 +103,20 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
         Bundle bundle = new Bundle();
         bundle.putParcelable("battle", battle);
 
-        Fragment fragment;
-        if (battle.getBattle_status() == 1 || battle.getBattle_status() == 5 || battle.getBattle_status() == 0) {
-            fragment = new ReadyFragment();
-            fragment.setArguments(bundle);
-        } else {
-            fragment = new BattlingFragment();
-            fragment.setArguments(bundle);
+        if (mFragment != null) {
+            ft.remove(mFragment);
         }
-        ft.replace(R.id.container_battle, fragment);
-        ft.commitAllowingStateLoss();
+
+        if (battle.getBattle_status() == 1 || battle.getBattle_status() == 5 || battle.getBattle_status() == 0
+                || battle.getUser_type() == 0 || battle.getUser_type() == 3) {
+            mFragment = new ReadyFragment();
+            mFragment.setArguments(bundle);
+        } else {
+            mFragment = new BattlingFragment();
+            mFragment.setArguments(bundle);
+        }
+        ft.add(R.id.container_battle, mFragment);
+        ft.commit();
 
         if (battle.getIs_wait()) {
             new Handler().postDelayed(() -> getPresenter().setData(null), 5000);
