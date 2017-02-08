@@ -27,7 +27,7 @@ public class RecyclerStringAdapter extends RecyclerView.Adapter<RecyclerStringAd
     @Override
     public SpecViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         TextView textView = new Button(mContext);
-        textView.setBackgroundResource(R.drawable.stroke_gray_shape);
+        textView.setBackgroundResource(R.drawable.btn_stroke_gray_radius_shape);
         return new SpecViewHolder(textView);
     }
 

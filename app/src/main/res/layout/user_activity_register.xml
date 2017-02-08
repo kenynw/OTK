@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,132 +9,104 @@
     android:orientation="vertical"
     tools:context=".module.account.RegisterActivity">
 
-    <include layout="@layout/include_toolbar"/>
-
-    <LinearLayout
+    <ImageView
         android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/bg_account_header"
+        />
+
+    <ImageView
+        android:id="@+id/iv_register_back"
+        android:layout_width="@dimen/widget_medium_height"
         android:layout_height="@dimen/widget_medium_height"
-        android:background="@color/white"
-        android:orientation="horizontal">
+        android:scaleType="center"
+        android:src="@mipmap/ic_back"
+        />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:gravity="center"
-            android:text="@string/label_mobile"/>
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/et_register_mobile"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:background="@color/white"
-            android:drawablePadding="8dp"
-            android:hint="@string/hint_mobile"
-            android:inputType="phone"
-            android:textColorHint="@color/text_hint"
-            android:textSize="@dimen/text_size_body_material"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
-        android:background="@color/white"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:gravity="center"
-            android:text="@string/label_captcha"/>
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/et_register_captcha"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:drawablePadding="8dp"
-            android:ems="4"
-            android:hint="@string/hint_captcha"
-            android:inputType="number"
-            android:maxLength="4"
-            android:maxLines="1"
-            android:textColorHint="@color/text_hint"
-            android:textSize="@dimen/text_size_body_material"/>
-
-        <Button
-            android:id="@+id/btn_register_captcha"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:layout_marginRight="@dimen/horizontal_margin"
-            android:gravity="center"
-            android:text="@string/btn_send_captcha"
-            android:textSize="@dimen/text_size_caption_material"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
-        android:background="@color/white"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:gravity="center"
-            android:text="@string/label_username"/>
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/et_register_username"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:background="@color/white"
-            android:hint="@string/hint_username"
-            android:inputType="text"
-            android:textColorHint="@color/text_hint"
-            android:textSize="@dimen/text_size_body_material"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
-        android:background="@color/white"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:gravity="center"
-            android:text="@string/label_pwd"/>
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/et_register_password"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:background="@color/white"
-            android:hint="@string/hint_password"
-            android:inputType="textPassword"
-            android:textColorHint="@color/text_hint"
-            android:textSize="@dimen/text_size_body_material"/>
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_register_submit"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/vertical_margin"
-        android:text="@string/btn_register"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_subhead_material"/>
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        >
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/horizontal_margin"
+            android:paddingRight="@dimen/horizontal_margin"
+            android:paddingTop="8dp"
+            >
+
+            <EditText
+                android:id="@+id/et_register_mobile"
+                style="@style/UserEditText"
+                android:hint="@string/hint_mobile"
+                android:inputType="phone"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_medium_height"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/horizontal_margin"
+                >
+
+                <EditText
+                    android:id="@+id/et_register_captcha"
+                    style="@style/UserEditText"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_captcha"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    />
+
+                <Button
+                    android:id="@+id/btn_register_captcha"
+                    android:layout_width="80dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/btn_stroke_gray_radius_shape"
+                    android:gravity="center"
+                    android:text="@string/btn_send_captcha"
+                    android:textColor="@color/textBody"
+                    android:textSize="@dimen/text_size_caption_material"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_register_username"
+                style="@style/UserEditText"
+                android:hint="@string/hint_username"
+                android:textColorHint="@color/text_hint"
+                />
+
+            <EditText
+                android:id="@+id/et_register_password"
+                style="@style/UserEditText"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                />
+
+            <Button
+                android:id="@+id/btn_register_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/vertical_margin"
+                android:background="@drawable/btn_black_radius_selector"
+                android:text="@string/btn_register"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subhead_material"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

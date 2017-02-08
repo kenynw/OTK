@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="horizontal"
-    android:padding="@dimen/horizontal_margin">
+    android:padding="@dimen/horizontal_margin"
+    >
 
     <ImageView
         android:id="@+id/iv_mission_image"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="@dimen/widget_medium_height"
+        android:layout_height="@dimen/widget_medium_height"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/horizontal_margin"
+        android:layout_marginRight="@dimen/horizontal_margin"
+        android:src="@mipmap/ic_mission_against"
         />
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_weight="1"
         android:orientation="vertical"
         >
@@ -26,47 +31,32 @@
             android:id="@+id/tv_mission_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextBody"
+            android:textAppearance="@style/TextSubhead"
+            android:textStyle="bold"
             tools:text="报名并签到一场常规赛"
-            />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
             />
 
         <TextView
             android:id="@+id/tv_mission_desc"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:textAppearance="@style/TextCaption"
-            tools:text="打场比赛活动筋骨吧"
+            tools:text="打场比赛活动筋骨吧 +2000撒币"
             />
 
     </LinearLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_mission_dole"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-
-        <TextView
-            android:id="@+id/tv_mission_bonus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="25000撒币"
-            />
-
-        <Button
-            android:id="@+id/btn_mission_dole"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="领取任务"
-            android:enabled="false"
-            />
-
-    </LinearLayout>
+        android:layout_height="32dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/btn_stroke_primary_dark_radius_selector"
+        android:textColor="@color/text_color_primarydark2secondary"
+        android:textSize="@dimen/text_size_body_material"
+        android:textStyle="bold"
+        tools:text="做任务"
+        />
 
 </LinearLayout>

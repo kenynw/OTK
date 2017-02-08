@@ -18,16 +18,11 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.User;
 
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -132,7 +127,7 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
             calendar.setTime(date);
             DatePickerDialog dialog = new DatePickerDialog(this,
                     (datePicker, year, monthOfYear, dayOfMonth) -> {
-                        String born = String.format("%d-%02d-%d", year, monthOfYear + 1, dayOfMonth);
+                        String born = year + "-" + String.format("%02d", monthOfYear + 1) + "-" + dayOfMonth;
                         mTvBorn.setText(born);
                         getPresenter().setProfile("birthday", born);
                     },
@@ -145,23 +140,6 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
 
     public void dismissDialog() {
         if (null != mDialog && mDialog.isShowing()) mDialog.dismiss();
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void setAvatar(Uri uri) {
-        mDvAvatar.setImageURI(uri);
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void setArea(StringBuilder area) {
-        mTvArea.setText(area.toString());
-        String[] strings = area.toString().split(" ");
-        Map<String, String> map = new HashMap<>();
-        map.put("province", strings[0]);
-        map.put("city", strings[1]);
-        map.put("area", strings[2]);
-
-        getPresenter().setProfile(map);
     }
 
 }

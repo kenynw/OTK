@@ -4,7 +4,7 @@
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/textSecondary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -12,12 +12,16 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@color/bgWindow</item>
         <item name="actionBarSize">56dp</item>
-
+        <item name="android:textColorPrimary">@color/textBody</item>
         <!--<item name="android:popupMenuStyle">@style/PopupMenu</item>-->
         <!--<item name="android:dropDownListViewStyle">@style/DropDownListView</item>-->
     </style>
 
-    <style name="AppTheme" parent="AppTheme.Base" />
+    <style name="AppTheme" parent="AppTheme.Base"/>
+
+    <style name="DividerAppTheme" parent="AppTheme.Base">
+        <item name="android:listDivider">@drawable/divider_space_shape</item>
+    </style>
 
     <style name="LaunchTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/bg_splash</item>
@@ -25,7 +29,7 @@
 
     <style name="TextTitle" parent="TextAppearance.AppCompat.Title" />
     <style name="TextSubhead" parent="TextAppearance.AppCompat.Subhead"/>
-    <style name="TextBody" parent="TextAppearance.AppCompat.Body1" >
+    <style name="TextBody" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textColor">@color/textBody</item>
     </style>
     <style name="TextCaption" parent="TextAppearance.AppCompat.Caption">
@@ -69,8 +73,16 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="UserEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/widget_medium_height</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColorHint">@color/textHint</item>
+        <item name="android:inputType">text</item>
+        <item name="android:paddingLeft">@dimen/horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/horizontal_margin</item>
+        <item name="android:textAppearance">@style/TextBody</item>
+        <item name="android:maxLines">1</item>
+    </style>
 
 </resources>

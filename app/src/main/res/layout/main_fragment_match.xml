@@ -80,6 +80,7 @@
                 android:layout_height="@dimen/vertical_margin"/>
 
             <TextView
+                android:id="@+id/tv_main_match_commend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/indicator_primary_dark_label"
@@ -95,15 +96,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="88dp"
-                android:paddingLeft="@dimen/horizontal_margin"
-                android:paddingRight="@dimen/horizontal_margin"
                 />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/vertical_margin"/>
-
             <TextView
+                android:id="@+id/tv_main_match_todays"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/indicator_primary_yellow_label"
@@ -118,15 +114,10 @@
                 android:id="@+id/rv_main_home_today"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/horizontal_margin"
-                android:paddingRight="@dimen/horizontal_margin"
                 />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/vertical_margin"/>
-
             <TextView
+                android:id="@+id/tv_main_match_recent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/indicator_primary_dark_label"
@@ -142,8 +133,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="88dp"
-                android:paddingLeft="@dimen/horizontal_margin"
-                android:paddingRight="@dimen/horizontal_margin"
                 />
 
         </LinearLayout>

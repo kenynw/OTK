@@ -2,6 +2,7 @@ package com.dsk.chain.expansion.list;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.DividerItemDecoration;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -69,7 +70,7 @@ public abstract class BaseListActivity<P extends BaseListActivityPresenter> exte
             if (mListConfig.mItemDecoration != null) {
                 mListView.addItemDecoration(mListConfig.mItemDecoration, mListConfig.mDecorationOrientation);
             } else {
-                mListView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
+                mListView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
             }
         }
     }

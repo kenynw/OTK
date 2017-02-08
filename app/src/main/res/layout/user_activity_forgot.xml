@@ -1,142 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".module.account.ForgotActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context=".module.account.ForgotActivity">
 
-    <include layout="@layout/include_toolbar" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/bg_account_header"
+        />
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/iv_forgot_back"
+        android:layout_width="@dimen/widget_medium_height"
+        android:layout_height="@dimen/widget_medium_height"
+        android:scaleType="center"
+        android:src="@mipmap/ic_back"
+        />
+
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vertical_margin"
-        android:background="@color/white">
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        >
 
-        <TextView
-            android:id="@+id/tv_reset_pwd_mobile"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:gravity="center"
-            android:text="@string/label_mobile" />
-
-        <EditText
-            android:id="@+id/et_forgot_mobile"
-            style="@style/TextBody"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:layout_toRightOf="@id/tv_reset_pwd_mobile"
+            android:layout_height="wrap_content"
             android:background="@color/white"
-            android:ems="10"
-            android:hint="@string/hint_username"
-            android:inputType="phone"
-            android:maxLength="11"
-            android:textColorHint="@color/text_hint" />
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/horizontal_margin"
+            android:paddingRight="@dimen/horizontal_margin"
+            android:paddingTop="8dp"
+            >
 
-        <TextView
-            android:id="@+id/tv_reset_pwd_code"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/tv_reset_pwd_mobile"
-            android:gravity="center"
-            android:text="@string/label_captcha" />
+            <EditText
+                android:id="@+id/et_forgot_mobile"
+                style="@style/UserEditText"
+                android:hint="@string/hint_mobile"
+                android:inputType="phone"
+                android:maxLength="11"
+                />
 
-        <EditText
-            android:id="@+id/et_forgot_captcha"
-            style="@style/TextBody"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/et_forgot_mobile"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:layout_toRightOf="@id/tv_reset_pwd_code"
-            android:background="@color/white"
-            android:ems="6"
-            android:hint="@string/hint_captcha"
-            android:inputType="number"
-            android:maxLength="6"
-            android:textColorHint="@color/text_hint" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/horizontal_margin"
+                >
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/et_forgot_mobile" />
+                <EditText
+                    android:id="@+id/et_forgot_captcha"
+                    style="@style/UserEditText"
+                    android:layout_weight="1"
+                    android:ems="6"
+                    android:hint="@string/hint_captcha"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    />
 
-        <Button
-            android:id="@+id/btn_forgot_captcha"
-            android:layout_width="80dp"
-            android:layout_height="32dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/et_forgot_mobile"
-            android:layout_marginTop="8dp"
-            android:text="@string/btn_send_captcha"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_caption_material" />
+                <Button
+                    android:id="@+id/btn_forgot_captcha"
+                    android:layout_width="80dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/btn_stroke_gray_radius_shape"
+                    android:gravity="center"
+                    android:text="@string/btn_send_captcha"
+                    android:textColor="@color/textBody"
+                    android:textSize="@dimen/text_size_caption_material"
+                    />
 
-        <TextView
-            android:id="@+id/tv_forgot_new"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/et_forgot_captcha"
-            android:gravity="center"
-            android:text="@string/label_pwd_new" />
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/et_forgot_new"
-            style="@style/TextBody"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/et_forgot_captcha"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:layout_toRightOf="@id/tv_forgot_new"
-            android:background="@color/white"
-            android:ems="10"
-            android:hint="@string/hint_password"
-            android:inputType="textPassword"
-            android:textColorHint="@color/text_hint" />
+            <EditText
+                android:id="@+id/et_forgot_new"
+                style="@style/UserEditText"
+                android:background="@color/white"
+                android:ems="10"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/et_forgot_captcha" />
+            <EditText
+                android:id="@+id/et_forgot_confirm"
+                style="@style/UserEditText"
+                android:hint="@string/hint_confirm_password"
+                android:inputType="textPassword"
+                />
 
-        <TextView
-            android:id="@+id/tv_forgot_confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/tv_forgot_new"
-            android:gravity="center"
-            android:text="@string/label_pwd_confirm" />
+            <Button
+                android:id="@+id/btn_forgot_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/vertical_margin"
+                android:background="@drawable/btn_black_radius_selector"
+                android:text="@string/btn_ok"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_subhead_material"
+                android:textStyle="bold"
+                />
 
-        <EditText
-            android:id="@+id/et_forgot_confirm"
-            style="@style/TextBody"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/widget_medium_height"
-            android:layout_below="@id/et_forgot_new"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:layout_toRightOf="@id/tv_forgot_confirm"
-            android:background="@color/white"
-            android:ems="10"
-            android:hint="@string/hint_confirm_password"
-            android:inputType="textPassword"
-            android:textColorHint="@color/text_hint" />
+        </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@id/et_forgot_new" />
+    </android.support.v7.widget.CardView>
 
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/btn_forgot_save"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/vertical_margin"
-        android:text="@string/btn_ok"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_subhead_material" />
-
-</LinearLayout>
+</RelativeLayout>

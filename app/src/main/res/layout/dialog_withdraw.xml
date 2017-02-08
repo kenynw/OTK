@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/horizontal_margin"
         android:layout_marginRight="@dimen/horizontal_margin"
-        android:background="@drawable/stroke_gray_shape"
+        android:background="@drawable/btn_stroke_gray_radius_shape"
         android:ems="10"
         android:inputType="number"
         android:text="15"/>
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/horizontal_margin"
         android:layout_marginRight="@dimen/horizontal_margin"
-        android:background="@drawable/stroke_gray_shape"
+        android:background="@drawable/btn_stroke_gray_radius_shape"
         android:text="@string/btn_ok"
         />
 

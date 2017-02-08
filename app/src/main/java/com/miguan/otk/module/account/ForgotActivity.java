@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -15,6 +16,9 @@ import butterknife.ButterKnife;
 
 @RequiresPresenter(ForgotPresenter.class)
 public class ForgotActivity extends ChainBaseActivity<ForgotPresenter> {
+
+    @Bind(R.id.iv_forgot_back)
+    ImageView mIvBack;
 
     @Bind(R.id.et_forgot_mobile)
     EditText mEtMobile;
@@ -41,6 +45,7 @@ public class ForgotActivity extends ChainBaseActivity<ForgotPresenter> {
         setToolbarTitle(R.string.title_activity_forgot);
         ButterKnife.bind(this);
 
+        mIvBack.setOnClickListener(v -> finish());
         mBtnCaptcha.setOnClickListener(v -> checkCaptcha());
         mBtnSave.setOnClickListener(v -> checkInput());
     }

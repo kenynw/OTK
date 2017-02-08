@@ -15,6 +15,8 @@ import com.miguan.otk.model.services.ServicesResponse;
 import com.sgun.utils.LUtils;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 import java.util.HashMap;
@@ -39,7 +41,7 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
         mUser = view.getIntent().getParcelableExtra("user");
         mImageProvider = new ImageProvider(getView());
 
-        EventBus.getDefault().register(getView());
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -129,9 +131,30 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
 
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void setAvatar(Uri uri) {
+        mUser.setPhoto(uri.getPath());
+        getView().setData(mUser);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void setArea(StringBuilder area) {
+        String[] strings = area.toString().split(" ");
+        mUser.setProvince(strings[0]);
+        mUser.setCity(strings[1]);
+        mUser.setArea(strings[2]);
+        getView().setData(mUser);
+
+        Map<String, String> map = new HashMap<>();
+        map.put("province", strings[0]);
+        map.put("city", strings[1]);
+        map.put("area", strings[2]);
+        setProfile(map);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(getView());
+        EventBus.getDefault().unregister(this);
     }
 }

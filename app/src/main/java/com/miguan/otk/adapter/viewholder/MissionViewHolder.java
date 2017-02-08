@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 
 public class MissionViewHolder extends BaseViewHolder<Mission> {
 
-    private static final int[] ICONS = new int[] {R.mipmap.ic_like, R.mipmap.ic_back, R.mipmap.ic_launcher};
+    private static final int[] ICONS = new int[] {R.mipmap.ic_mission_enroll, R.mipmap.ic_mission_against, R.mipmap.ic_mission_winner};
 
     @Bind(R.id.iv_mission_image)
     ImageView mIvIcon;
@@ -31,9 +31,6 @@ public class MissionViewHolder extends BaseViewHolder<Mission> {
 
     @Bind(R.id.tv_mission_desc)
     TextView mTvDesc;
-
-    @Bind(R.id.tv_mission_bonus)
-    TextView mTvBonus;
 
     @Bind(R.id.btn_mission_dole)
     Button mBtnDole;
@@ -47,8 +44,7 @@ public class MissionViewHolder extends BaseViewHolder<Mission> {
     public void setData(Mission data) {
         mIvIcon.setImageResource(ICONS[getLayoutPosition() % ICONS.length]);
         mTvName.setText(data.getTitle());
-        mTvDesc.setText(data.getComment());
-        mTvBonus.setText(data.getScore());
+        mTvDesc.setText(data.getComment() + " +" + data.getScore() + "撒币");
         if (data.getStatus() == 0) {
             mBtnDole.setText("领取奖励");
             mBtnDole.setEnabled(true);
@@ -63,6 +59,7 @@ public class MissionViewHolder extends BaseViewHolder<Mission> {
             });
         } else if (data.getStatus() == 1) {
             mBtnDole.setText("已完成");
+            mBtnDole.setEnabled(false);
         } else {
             mBtnDole.setText("去完成");
             mBtnDole.setEnabled(true);

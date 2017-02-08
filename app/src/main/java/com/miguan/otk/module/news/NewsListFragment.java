@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.list.BaseListFragment;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-import com.miguan.otk.adapter.viewholder.NewsViewHolder;
 import com.miguan.otk.model.bean.News;
 
 /**

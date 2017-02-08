@@ -35,7 +35,7 @@
         android:id="@+id/btn_goods_detail_pay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/stroke_gray_shape"
+        android:background="@drawable/btn_stroke_gray_radius_shape"
         android:text="@string/btn_exchange_now"
         />
 

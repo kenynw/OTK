@@ -6,6 +6,7 @@ import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.list.BaseListActivity;
 import com.dsk.chain.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
+import com.miguan.otk.R;
 import com.miguan.otk.adapter.viewholder.AreaViewHolder;
 import com.miguan.otk.model.bean.Area;
 
@@ -19,6 +20,11 @@ public class AreaActivity extends BaseListActivity<AreaFragmentPresenter> {
     @Override
     public BaseViewHolder<Area> createViewHolder(ViewGroup parent, int viewType) {
         return new AreaViewHolder(parent);
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_toolbar_list;
     }
 
     @Override

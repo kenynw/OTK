@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
@@ -20,6 +21,9 @@ import butterknife.ButterKnife;
  */
 @RequiresPresenter(LoginPresenter.class)
 public class LoginActivity extends ChainBaseActivity<LoginPresenter> {
+
+    @Bind(R.id.iv_login_back)
+    ImageView mIvBack;
 
     @Bind(R.id.et_login_username)
     EditText mEtMobile;
@@ -43,6 +47,7 @@ public class LoginActivity extends ChainBaseActivity<LoginPresenter> {
         setToolbarTitle(R.string.title_activity_login);
         ButterKnife.bind(this);
 
+        mIvBack.setOnClickListener(v -> finish());
         mTvForgot.setOnClickListener(v -> startActivity(new Intent(this, ForgotActivity.class)));
         mTvRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
         mBtnLogin.setOnClickListener(v -> checkInput());

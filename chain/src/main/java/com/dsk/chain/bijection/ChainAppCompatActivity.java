@@ -31,7 +31,7 @@ public abstract class ChainAppCompatActivity<PresenterType extends Presenter> ex
     }
 
     @Override
-    public void onPostCreate(Bundle savedInstanceState) {
+    protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         if (mLifeCycleDelegate != null) mLifeCycleDelegate.onPostCreate(savedInstanceState);
         mHelper.onPostCreate();

@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -18,6 +19,9 @@ import butterknife.ButterKnife;
 
 @RequiresPresenter(RegisterPresenter.class)
 public class RegisterActivity extends ChainBaseActivity<RegisterPresenter> {
+
+    @Bind(R.id.iv_register_back)
+    ImageView mIvBack;
 
     @Bind(R.id.et_register_mobile)
     EditText mEtMobile;
@@ -44,6 +48,7 @@ public class RegisterActivity extends ChainBaseActivity<RegisterPresenter> {
         setToolbarTitle(R.string.title_activity_register);
         ButterKnife.bind(this);
 
+        mIvBack.setOnClickListener(v -> finish());
         mBtnCaptcha.setOnClickListener(v -> checkCaptcha());
         mBtnSubmit.setOnClickListener(v -> checkInput());
     }

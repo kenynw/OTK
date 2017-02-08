@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataFragment;
@@ -31,6 +32,15 @@ import butterknife.ButterKnife;
  */
 @RequiresPresenter(MainMatchPresenter.class)
 public class MainMatchFragment extends BaseDataFragment<MainMatchPresenter, Home> {
+
+    @Bind(R.id.tv_main_match_commend)
+    TextView mTvCommend;
+
+    @Bind(R.id.tv_main_match_todays)
+    TextView mTvTodays;
+
+    @Bind(R.id.tv_main_match_recent)
+    TextView mTvRecent;
 
     @Bind(R.id.swipe_main_match_refresh)
     SwipeRefreshLayout mRefreshLayout;
@@ -63,12 +73,15 @@ public class MainMatchFragment extends BaseDataFragment<MainMatchPresenter, Home
         ButterKnife.bind(this, view);
 
         mRefreshLayout.setOnRefreshListener(getPresenter());
+
+        DividerItemDecoration spaceDecoration = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
+        mRcvCommend.addItemDecoration(spaceDecoration);
+        mRcvToday.addItemDecoration(spaceDecoration);
+        mRcvRecent.addItemDecoration(spaceDecoration);
+
         mRcvCommend.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRcvCommend.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         mRcvToday.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRcvToday.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         mRcvRecent.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRcvRecent.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
 
         mBtnDaily.setOnClickListener(v -> startActivity(new Intent(getActivity(), MissionListActivity.class)));
         mBtnMyMatch.setOnClickListener(v -> startActivity(new Intent(getActivity(), MyMatchActivity.class)));
@@ -81,9 +94,30 @@ public class MainMatchFragment extends BaseDataFragment<MainMatchPresenter, Home
         mBannerPager.setAdapter(new BannerPagerAdapter(getActivity(), home.getBanners()));
         mIndicator.setViewPager(mBannerPager);
 
-        mRcvCommend.setAdapter(new HomeMatchAdapter(getActivity(), home.getRecommends()));
-        mRcvToday.setAdapter(new HomeMatchAdapter(getActivity(), home.getTodays()));
-        mRcvRecent.setAdapter(new HomeMatchAdapter(getActivity(), home.getLatelys()));
+        if (home.getRecommends().size() > 0) {
+            mRcvCommend.setVisibility(View.VISIBLE);
+            mTvCommend.setVisibility(View.VISIBLE);
+            mRcvCommend.setAdapter(new HomeMatchAdapter(getActivity(), home.getRecommends()));
+        } else {
+            mRcvCommend.setVisibility(View.GONE);
+            mTvCommend.setVisibility(View.GONE);
+        }
+        if (home.getTodays().size() > 0) {
+            mRcvToday.setVisibility(View.VISIBLE);
+            mTvTodays.setVisibility(View.VISIBLE);
+            mRcvToday.setAdapter(new HomeMatchAdapter(getActivity(), home.getTodays()));
+        } else {
+            mRcvToday.setVisibility(View.GONE);
+            mTvTodays.setVisibility(View.GONE);
+        }
+        if (home.getLatelys().size() > 0) {
+            mRcvRecent.setVisibility(View.VISIBLE);
+            mTvRecent.setVisibility(View.VISIBLE);
+            mRcvRecent.setAdapter(new HomeMatchAdapter(getActivity(), home.getLatelys()));
+        } else {
+            mRcvRecent.setVisibility(View.GONE);
+            mTvRecent.setVisibility(View.GONE);
+        }
         if (mRefreshLayout.isRefreshing()) mRefreshLayout.setRefreshing(false);
     }
 
