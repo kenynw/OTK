@@ -5,6 +5,7 @@ import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.bean.Mission;
+import com.miguan.otk.model.bean.Schedule;
 import com.miguan.otk.model.bean.User;
 import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
@@ -62,7 +63,7 @@ public class MatchModel extends AbsModel {
      * @param matchID 赛事ID
      * @return
      */
-    public Observable<Battle> getCompetitionSchedule(int matchID, int round) {
+    public Observable<Schedule> getCompetitionSchedule(int matchID, int round) {
         return ServicesClient.getServices().competitionSchedule(matchID, round).compose(new DefaultTransform<>());
     }
 

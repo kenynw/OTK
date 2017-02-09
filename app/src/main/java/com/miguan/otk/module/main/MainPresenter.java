@@ -26,6 +26,7 @@ class MainPresenter extends BaseDataActivityPresenter<MainActivity, Splash> impl
     protected void onCreateView(MainActivity view) {
         super.onCreateView(view);
         CommonModel.getInstance().getSplashImage("read-opening", null).unsafeSubscribe(getDataSubscriber());
+        CommonModel.getInstance().update(getView());
     }
 
     public MainFragmentAdapter getAdapter() {

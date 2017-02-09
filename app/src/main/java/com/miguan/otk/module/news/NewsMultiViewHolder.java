@@ -1,5 +1,6 @@
 package com.miguan.otk.module.news;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,7 +33,9 @@ public class NewsMultiViewHolder extends BaseViewHolder<News> {
     public NewsMultiViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_list_news_multi);
         ButterKnife.bind(this, itemView);
-
+        if (LUtils.getScreenWidth() >= 1080) {
+            mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, getContext().getResources().getDimension(R.dimen.text_size_title_material));
+        }
     }
 
     @Override

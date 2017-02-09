@@ -11,10 +11,6 @@ public class Message implements Parcelable {
 
     private int id;
 
-    private Message system;
-
-    private Message competition;
-
     /**
      * 推送对象 0:全部1：指定用户 2:指定赛事
      * @return
@@ -53,8 +49,6 @@ public class Message implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.id);
-        dest.writeParcelable(this.system, flags);
-        dest.writeParcelable(this.competition, flags);
         dest.writeString(this.object);
         dest.writeString(this.object_id);
         dest.writeInt(this.is_url);
@@ -69,8 +63,6 @@ public class Message implements Parcelable {
 
     protected Message(Parcel in) {
         this.id = in.readInt();
-        this.system = in.readParcelable(Message.class.getClassLoader());
-        this.competition = in.readParcelable(Message.class.getClassLoader());
         this.object = in.readString();
         this.object_id = in.readString();
         this.is_url = in.readInt();
@@ -98,22 +90,6 @@ public class Message implements Parcelable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Message getSystem() {
-        return system;
-    }
-
-    public void setSystem(Message system) {
-        this.system = system;
-    }
-
-    public Message getCompetition() {
-        return competition;
-    }
-
-    public void setCompetition(Message competition) {
-        this.competition = competition;
     }
 
     public String getObject() {

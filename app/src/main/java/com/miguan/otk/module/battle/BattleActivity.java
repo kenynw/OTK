@@ -2,7 +2,7 @@ package com.miguan.otk.module.battle;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
+import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -62,16 +62,21 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
 
     private Fragment mFragment;
 
+    private CountDownTimer mStatusTimer;
+
+    private int mCurrentStatus = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.match_activity_battle);
         ButterKnife.bind(this);
-
     }
 
     @Override
     public void setData(Battle battle) {
+        if (battle.getBattle_status_user() == mCurrentStatus) return;
+
         setToolbarTitle(String.format(getString(R.string.label_battle_id), battle.getBattle_id()));
 
         mDvAAvatar.setImageURI(Uri.parse(battle.getA_photo()));
@@ -90,6 +95,23 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
     }
 
     public void setStatus(Battle battle) {
+        mCurrentStatus = battle.getBattle_status_user();
+        if (battle.getBattle_status() == 1) {
+            if (mStatusTimer != null) mStatusTimer.cancel();
+            mStatusTimer = new CountDownTimer(battle.getReady_time() * 1000 - System.currentTimeMillis(), 1000) {
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    mTvAStatus.setText(getPresenter().getFormatDate(millisUntilFinished));
+                }
+
+                @Override
+                public void onFinish() {
+
+                }
+
+            }.start();
+        }
         if (battle.getBattle_status_user() == 2) mTvAIsready.setVisibility(View.VISIBLE);
         else if (battle.getBattle_status_user() == 3) mTvBIsready.setVisibility(View.VISIBLE);
         else {
@@ -117,10 +139,6 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
         }
         ft.add(R.id.container_battle, mFragment);
         ft.commit();
-
-        if (battle.getIs_wait()) {
-            new Handler().postDelayed(() -> getPresenter().setData(null), 5000);
-        }
 
 //        switch (battle.getBattle_status()) {
 //            case 1: // 准备

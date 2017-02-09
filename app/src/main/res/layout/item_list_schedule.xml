@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/stroke_gray_shape"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_schedule_a_score"
+        android:layout_width="@dimen/widget_tiny_height"
+        android:layout_height="@dimen/widget_small_height"
+        android:layout_margin="1dp"
+        android:gravity="center"
+        android:textColor="@color/textBody"
+        android:textSize="@dimen/text_size_body_material"
+        android:textStyle="bold"
+        tools:text="2"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/div_gray"
+        />
+
+    <TextView
+        android:id="@+id/tv_schedule_a_username"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:textAppearance="@style/TextBody"
+        android:textStyle="bold"
+        tools:text="名字长黄"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_schedule_vs"
+        />
+
+    <TextView
+        android:id="@+id/tv_schedule_b_username"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:textAppearance="@style/TextBody"
+        android:textStyle="bold"
+        tools:text="名字长一点的黄"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/div_gray"
+        />
+
+    <TextView
+        android:id="@+id/tv_schedule_b_score"
+        android:layout_width="@dimen/widget_tiny_height"
+        android:layout_height="@dimen/widget_small_height"
+        android:layout_margin="1dp"
+        android:gravity="center"
+        android:textColor="@color/textBody"
+        android:textSize="@dimen/text_size_body_material"
+        android:textStyle="bold"
+        tools:text="0"/>
+
+</LinearLayout>

@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:divider="@drawable/div_gray"
-    android:orientation="vertical"
+    android:background="@color/bgWindow"
     android:fitsSystemWindows="true"
-    android:showDividers="middle">
+    android:orientation="vertical"
+    >
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_main_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@drawable/bottom_shadow"
         android:fitsSystemWindows="true"
+        app:tabIndicatorColor="@color/colorPrimaryDark"
+        app:tabIndicatorHeight="4dp"
+        app:tabSelectedTextColor="@color/colorPrimaryDark"
+        app:tabTextAppearance="@style/TabText"
+        app:tabTextColor="@color/textBody"
         />
 
     <android.support.v4.view.ViewPager

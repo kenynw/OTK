@@ -27,9 +27,9 @@ public class BattlingPresenter extends Presenter<BattlingFragment> {
 
     private Battle mBattle;
 
-    private ServicesResponse<Boolean> mSubscriber = new ServicesResponse<Boolean>() {
+    private ServicesResponse<Battle> mSubscriber = new ServicesResponse<Battle>() {
         @Override
-        public void onNext(Boolean aBoolean) {
+        public void onNext(Battle aBoolean) {
             EventBus.getDefault().post(mBattle);
         }
 
@@ -52,15 +52,6 @@ public class BattlingPresenter extends Presenter<BattlingFragment> {
     protected void onCreateView(BattlingFragment view) {
         super.onCreateView(view);
         getView().setData(mBattle);
-    }
-
-    public void ready(int battleID) {
-        BattleModel.getInstance().ready(battleID).unsafeSubscribe(new ServicesResponse<Boolean>() {
-            @Override
-            public void onNext(Boolean aBoolean) {
-                EventBus.getDefault().post(mBattle);
-            }
-        });
     }
 
     public void pick(List<Hero> list) {

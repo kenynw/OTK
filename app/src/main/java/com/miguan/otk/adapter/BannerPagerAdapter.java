@@ -13,6 +13,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Banner;
+import com.miguan.otk.model.bean.News;
 import com.miguan.otk.module.common.WebActivity;
 import com.miguan.otk.module.match.MatchDetailActivity;
 import com.miguan.otk.module.news.NewsDetailActivity;
@@ -58,7 +59,10 @@ public class BannerPagerAdapter extends PagerAdapter {
             switch (banner.getType()) {
                 case 1 :
                     Intent newsIntent = new Intent(mContext, NewsDetailActivity.class);
-                    newsIntent.putExtra("url", banner.getUrl());
+                    News news = new News();
+                    news.setUrl(banner.getUrl());
+                    news.setTitle(banner.getTitle());
+                    newsIntent.putExtra("news", news);
                     mContext.startActivity(newsIntent);
                     break;
                 case 2 :

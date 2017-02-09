@@ -109,16 +109,6 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
     }
 
     public void setData(Battle battle) {
-        // 准备
-        if (battle.getBattle_status() == 1) {
-            if ((battle.getUser_type() == 1 && battle.getBattle_status_user() == 2) || (battle.getUser_type() == 2 && battle.getBattle_status_user() == 3)) {
-                mBtnSave.setText("已准备");
-                mBtnSave.setEnabled(false);
-            } else {
-                mBtnSave.setText("准备");
-                mBtnSave.setOnClickListener(v -> getPresenter().ready(battle.getBattle_id()));
-            }
-        }
 
         // 比赛处于pick阶段
         if (battle.getBattle_status() == 2) {
@@ -254,20 +244,6 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
                 }
 
             }
-        }
-
-        // 结束
-        if (battle.getBattle_status() == 5) {
-            mTvTitle.setText(R.string.text_battle_ended);
-            mTvDesc.setText(String.format(getString(R.string.text_battle_ended_desc), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")));
-
-            mBtnSave.setText("结束");
-            if (battle.getIs_end()) mBtnSave.setVisibility(View.GONE);
-            else mBtnSave.setOnClickListener(v -> {
-                Intent intent = new Intent(getActivity(), BattleActivity.class);
-                intent.putExtra("battle_id", battle.getBattle_id());
-                startActivity(intent);
-            });
         }
 
         // 争议

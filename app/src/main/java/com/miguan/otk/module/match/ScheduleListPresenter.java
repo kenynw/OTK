@@ -5,13 +5,13 @@ import android.support.annotation.NonNull;
 
 import com.dsk.chain.expansion.list.BaseListFragmentPresenter;
 import com.miguan.otk.model.MatchModel;
-import com.miguan.otk.model.bean.Battle;
+import com.miguan.otk.model.bean.Schedule;
 
 /**
  * Copyright (c) 2016/12/22. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class ScheduleListPresenter extends BaseListFragmentPresenter<ScheduleListFragment, Battle> {
+public class ScheduleListPresenter extends BaseListFragmentPresenter<ScheduleListFragment, Schedule> {
 
     private int mMatchID = 0;
 
@@ -37,7 +37,7 @@ public class ScheduleListPresenter extends BaseListFragmentPresenter<ScheduleLis
     public void onRefresh() {
         MatchModel.getInstance().getCompetitionSchedule(mMatchID, mRound)
                 .doOnNext(schedule -> getView().setData(schedule))
-                .map(Battle::getBattles)
+                .map(Schedule::getBattles)
                 .unsafeSubscribe(getRefreshSubscriber());
     }
 

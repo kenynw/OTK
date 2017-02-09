@@ -50,7 +50,7 @@ public class BattleModel extends AbsModel {
      * @param matchID 赛事ID
      * @return
      */
-    public Observable<Boolean> ready(int matchID) {
+    public Observable<Battle> ready(int matchID) {
         return ServicesClient.getServices().ready(LUtils.getPreferences().getString("token", ""), matchID).compose(new DefaultTransform<>());
     }
 
@@ -61,7 +61,7 @@ public class BattleModel extends AbsModel {
      * @param map      pick列表 car1 car2 car3 car4
      * @return
      */
-    public Observable<Boolean> pick(int battleID, Map<String, Integer> map) {
+    public Observable<Battle> pick(int battleID, Map<String, Integer> map) {
         return ServicesClient.getServices().pick(
                 LUtils.getPreferences().getString("token", ""), battleID, map).compose(new DefaultTransform<>());
     }
@@ -73,7 +73,7 @@ public class BattleModel extends AbsModel {
      * @param ban      ban
      * @return
      */
-    public Observable<Boolean> ban(int battleID, Integer ban) {
+    public Observable<Battle> ban(int battleID, Integer ban) {
         return ServicesClient.getServices().ban(LUtils.getPreferences().getString("token", ""), battleID, ban).compose(new DefaultTransform<>());
     }
 
@@ -84,7 +84,7 @@ public class BattleModel extends AbsModel {
      * @param winnerID ban
      * @return
      */
-    public Observable<Boolean> submit(int battleID, Integer winnerID) {
+    public Observable<Battle> submit(int battleID, Integer winnerID) {
         return ServicesClient.getServices().submitResult(LUtils.getPreferences().getString("token", ""), battleID, winnerID).compose(new DefaultTransform<>());
     }
 
@@ -94,7 +94,7 @@ public class BattleModel extends AbsModel {
      * @param battleID 赛事ID
      * @return
      */
-    public Observable<Boolean> resubmit(int battleID) {
+    public Observable<Battle> resubmit(int battleID) {
         return ServicesClient.getServices().resubmitResult(LUtils.getPreferences().getString("token", ""), battleID).compose(new DefaultTransform<>());
     }
 

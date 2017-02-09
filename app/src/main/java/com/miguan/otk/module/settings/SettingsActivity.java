@@ -24,6 +24,9 @@ public class SettingsActivity extends ChainBaseActivity<SettingsPresenter> {
     @Bind(R.id.btn_setting_logout)
     Button mBtnLogout;
 
+    @Bind(R.id.btn_check_update)
+    Button mBtnUpdate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,7 @@ public class SettingsActivity extends ChainBaseActivity<SettingsPresenter> {
 
         mBtnClear.setOnClickListener(v -> showDialog());
         mBtnAbout.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
+        mBtnUpdate.setOnClickListener(v -> getPresenter().checkUpdate());
         mBtnLogout.setOnClickListener(v -> getPresenter().logout());
     }
 

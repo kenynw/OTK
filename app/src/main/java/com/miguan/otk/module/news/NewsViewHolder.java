@@ -1,6 +1,7 @@
 package com.miguan.otk.module.news;
 
 import android.net.Uri;
+import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -31,12 +32,15 @@ public class NewsViewHolder extends BaseViewHolder<News> {
     public NewsViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_list_news);
         ButterKnife.bind(this, itemView);
+        if (LUtils.getScreenWidth() >= 1080) {
+            mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, getContext().getResources().getDimension(R.dimen.text_size_title_material));
+        }
     }
 
     @Override
     public void setData(News news) {
-        int width = (LUtils.getScreenWidth() - LUtils.dp2px(8) * 4) / 3;
-        int height = (2 * (LUtils.getScreenWidth() - 4 * LUtils.dp2px(8)) / 9);
+        int width = (LUtils.getScreenWidth() - LUtils.dp2px(16) * 4) / 3;
+        int height = (2 * (LUtils.getScreenWidth() - 4 * LUtils.dp2px(16)) / 9);
         ViewGroup.LayoutParams lp = mDvThumb.getLayoutParams();
         lp.width = width;
         lp.height = height;

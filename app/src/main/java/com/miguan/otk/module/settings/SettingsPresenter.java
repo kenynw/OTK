@@ -1,6 +1,7 @@
 package com.miguan.otk.module.settings;
 
 import com.dsk.chain.bijection.Presenter;
+import com.miguan.otk.model.CommonModel;
 import com.sgun.utils.LUtils;
 
 /**
@@ -16,6 +17,10 @@ public class SettingsPresenter extends Presenter<SettingsActivity> {
     public void logout() {
         LUtils.getPreferences().edit().putString("token", "").apply();
         getView().finish();
+    }
+
+    public void checkUpdate() {
+        CommonModel.getInstance().checkUpdate(getView());
     }
 
 }

@@ -9,6 +9,7 @@ import com.miguan.otk.model.bean.Message;
 import com.miguan.otk.model.bean.Mission;
 import com.miguan.otk.model.bean.News;
 import com.miguan.otk.model.bean.Battle;
+import com.miguan.otk.model.bean.Schedule;
 import com.miguan.otk.model.bean.Sign;
 import com.miguan.otk.model.bean.Splash;
 import com.miguan.otk.model.bean.User;
@@ -308,7 +309,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("user/systemmessage/message")
-    Observable<Message> getMessageDesc(
+    Observable<List<Message>> getMessageDesc(
             @Field("token") String token
     );
 
@@ -406,7 +407,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("competition/competition/table")
-    Observable<Battle> competitionSchedule(
+    Observable<Schedule> competitionSchedule(
             @Field("competition_id") int matchID,
             @Field("round") int round
     );
@@ -449,7 +450,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("competition/battle/ready")
-    Observable<Boolean> ready(
+    Observable<Battle> ready(
             @Field("token") String token,
             @Field("battle_id") int matchID
     );
@@ -462,7 +463,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("competition/battle/pick")
-    Observable<Boolean> pick(
+    Observable<Battle> pick(
             @Field("token") String token,
             @Field("battle_id") int battle_id,
             @FieldMap() Map<String, Integer> carPics
@@ -476,7 +477,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("competition/battle/ban")
-    Observable<Boolean> ban(
+    Observable<Battle> ban(
             @Field("token") String token,
             @Field("battle_id") int battleID,
             @Field("ban") Integer ban
@@ -490,7 +491,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("competition/battle/record")
-    Observable<Boolean> submitResult(
+    Observable<Battle> submitResult(
             @Field("token") String token,
             @Field("battle_id") Integer battleID,
             @Field("role") Integer role
@@ -504,7 +505,7 @@ public interface Services {
      */
     @FormUrlEncoded
     @POST("competition/battle/unrecord")
-    Observable<Boolean> resubmitResult(
+    Observable<Battle> resubmitResult(
             @Field("token") String token,
             @Field("battle_id") Integer battleID
     );
@@ -610,7 +611,7 @@ public interface Services {
      */
     @GET("system/system/version-upgrade")
     Observable<Version> checkUpdate(
-            @Path("version") String version
+            @Query("version") String version
     );
 
 }

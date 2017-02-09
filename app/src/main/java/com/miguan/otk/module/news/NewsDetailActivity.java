@@ -32,7 +32,8 @@ public class NewsDetailActivity extends BaseDataActivity<NewsDetailPresenter, Ne
         ButterKnife.bind(this);
 
         mNews = getIntent().getParcelableExtra("news");
-        mWebView.loadUrl(mNews.getUrl());
+        if(mNews != null) mWebView.loadUrl(mNews.getUrl());
+        else mWebView.loadUrl(getIntent().getStringExtra("url"));
 
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setWebViewClient(new WebViewClient() {

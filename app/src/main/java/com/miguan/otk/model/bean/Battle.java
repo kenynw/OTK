@@ -104,7 +104,7 @@ public class Battle implements Parcelable {
 
     private String b_pic3;
 
-    private String ready_time;
+    private long ready_time;
 
     private int user_type;
 
@@ -182,7 +182,7 @@ public class Battle implements Parcelable {
         dest.writeString(this.b_pic1);
         dest.writeString(this.b_pic2);
         dest.writeString(this.b_pic3);
-        dest.writeString(this.ready_time);
+        dest.writeLong(this.ready_time);
         dest.writeInt(this.user_type);
         dest.writeValue(this.is_wait);
         dest.writeInt(this.battle_status);
@@ -246,7 +246,7 @@ public class Battle implements Parcelable {
         this.b_pic1 = in.readString();
         this.b_pic2 = in.readString();
         this.b_pic3 = in.readString();
-        this.ready_time = in.readString();
+        this.ready_time = in.readLong();
         this.user_type = in.readInt();
         this.is_wait = (Boolean) in.readValue(Boolean.class.getClassLoader());
         this.battle_status = in.readInt();
@@ -633,11 +633,11 @@ public class Battle implements Parcelable {
         this.b_pic3 = b_pic3;
     }
 
-    public String getReady_time() {
+    public long getReady_time() {
         return ready_time;
     }
 
-    public void setReady_time(String ready_time) {
+    public void setReady_time(long ready_time) {
         this.ready_time = ready_time;
     }
 

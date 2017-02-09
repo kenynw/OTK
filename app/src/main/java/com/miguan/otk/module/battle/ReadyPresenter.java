@@ -32,9 +32,9 @@ public class ReadyPresenter extends Presenter<ReadyFragment> {
     }
 
     public void ready(int battleID) {
-        BattleModel.getInstance().ready(battleID).unsafeSubscribe(new ServicesResponse<Boolean>() {
+        BattleModel.getInstance().ready(battleID).unsafeSubscribe(new ServicesResponse<Battle>() {
             @Override
-            public void onNext(Boolean aBoolean) {
+            public void onNext(Battle aBoolean) {
                 EventBus.getDefault().post(mBattle);
             }
 
