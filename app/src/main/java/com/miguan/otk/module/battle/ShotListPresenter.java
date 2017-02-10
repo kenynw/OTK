@@ -13,7 +13,7 @@ import com.miguan.otk.widget.ImageProvider;
  * Copyright (c) 2017/1/4. LiaoPeiKun Inc. All rights reserved.
  */
 
-class ShotListPresenter extends BaseDataFragmentPresenter<ShotListFragment, Battle> implements OnImageSelectListener {
+public class ShotListPresenter extends BaseDataFragmentPresenter<ShotListFragment, Battle> implements OnImageSelectListener {
 
     private Battle mBattle;
 

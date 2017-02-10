@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-class LoginPresenter extends Presenter<LoginActivity> implements Runnable {
+public class LoginPresenter extends Presenter<LoginActivity> {
 
     @Override
     protected void onCreateView(LoginActivity view) {
@@ -25,7 +25,7 @@ class LoginPresenter extends Presenter<LoginActivity> implements Runnable {
 
     }
 
-    void login(String mobile, String password) {
+    public void login(String mobile, String password) {
         UserModel.getInstance().login(mobile, password).subscribe(new ServicesResponse<User>() {
             @Override
             public void onNext(User user) {
@@ -38,7 +38,7 @@ class LoginPresenter extends Presenter<LoginActivity> implements Runnable {
         });
     }
 
-    void doOauthVerify(SHARE_MEDIA media) {
+    public void doOauthVerify(SHARE_MEDIA media) {
         UMShareAPI.get(getView()).doOauthVerify(getView(), media, new UMAuthListener() {
             @Override
             public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
@@ -63,8 +63,4 @@ class LoginPresenter extends Presenter<LoginActivity> implements Runnable {
         UMShareAPI.get(getView()).onActivityResult(requestCode, resultCode, data);
     }
 
-    @Override
-    public void run() {
-
-    }
 }

@@ -12,7 +12,7 @@ import com.miguan.otk.model.bean.Splash;
 /**
  * Created by LPK on 2016/11/22.
  */
-class MainPresenter extends BaseDataActivityPresenter<MainActivity, Splash> implements TabLayout.OnTabSelectedListener {
+public class MainPresenter extends BaseDataActivityPresenter<MainActivity, Splash> implements TabLayout.OnTabSelectedListener {
 
     private MainFragmentAdapter mAdapter;
 

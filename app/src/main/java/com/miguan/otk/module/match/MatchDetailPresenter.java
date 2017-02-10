@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Copyright (c) 2016/11/25. LiaoPeiKun Inc. All rights reserved.
  */
-class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity, Match> {
+public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity, Match> {
 
     private int mMatchID;
 

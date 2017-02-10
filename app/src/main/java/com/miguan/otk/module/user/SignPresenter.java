@@ -17,7 +17,12 @@ public class SignPresenter extends BaseDataActivityPresenter<SignActivity, Sign>
     @Override
     protected void onCreateView(SignActivity view) {
         super.onCreateView(view);
-        UserModel.getInstance().getSignInfo().unsafeSubscribe(getDataSubscriber());
+        UserModel.getInstance().getSignInfo(0, 2017).unsafeSubscribe(new ServicesResponse<Sign>() {
+            @Override
+            public void onNext(Sign sign) {
+                getView().setData(sign);
+            }
+        });
     }
 
     public void sign() {

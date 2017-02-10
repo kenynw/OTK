@@ -11,7 +11,7 @@ import com.miguan.otk.model.bean.User;
  * Copyright (c) 2016/12/22. LiaoPeiKun Inc. All rights reserved.
  */
 
-class CompetitorListPresenter extends BaseListActivityPresenter<CompetitorListActivity, User> {
+public class CompetitorListPresenter extends BaseListActivityPresenter<CompetitorListActivity, User> {
 
     private int mCompetitionID;
 

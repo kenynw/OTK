@@ -10,7 +10,7 @@ import rx.Observable;
 /**
  * Copyright (c) 2016/12/16. LiaoPeiKun Inc. All rights reserved.
  */
-class GoodsDetailPresenter extends BaseDataActivityPresenter<GoodsDetailActivity, Goods> {
+public class GoodsDetailPresenter extends BaseDataActivityPresenter<GoodsDetailActivity, Goods> {
 
     private Goods mGoods;
 

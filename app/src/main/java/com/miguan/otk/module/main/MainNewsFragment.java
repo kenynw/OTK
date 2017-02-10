@@ -40,7 +40,7 @@ public class MainNewsFragment extends ChainFragment<MainNewsPresenter> {
         ButterKnife.bind(this, view);
 
         List<Fragment> fragments = new ArrayList<>();
-        for (int i = 1; i < getResources().getStringArray(R.array.tab_news_list).length; i++) {
+        for (int i = 1; i < getResources().getStringArray(R.array.tab_news_list).length + 1; i++) {
             NewsListFragment fragment = new NewsListFragment();
             Bundle bundle = new Bundle();
             bundle.putInt("type", i);

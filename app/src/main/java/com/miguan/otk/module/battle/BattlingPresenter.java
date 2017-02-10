@@ -66,7 +66,7 @@ public class BattlingPresenter extends Presenter<BattlingFragment> {
         BattleModel.getInstance().ban(mBattle.getBattle_id(), ban).unsafeSubscribe(mSubscriber);
     }
 
-    void submit(Integer winnerID) {
+    public void submit(Integer winnerID) {
         BattleModel.getInstance().submit(mBattle.getBattle_id(), winnerID).unsafeSubscribe(mSubscriber);
     }
 

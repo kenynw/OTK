@@ -15,7 +15,6 @@ import com.dsk.chain.expansion.data.BaseDataFragment;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.User;
-import com.miguan.otk.module.settings.SettingsActivity;
 import com.miguan.otk.module.store.StoreHomeActivity;
 import com.miguan.otk.module.user.AddressListActivity;
 import com.miguan.otk.module.user.BalanceDetailActivity;
@@ -97,7 +96,7 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
 
         mBtnMessage.setOnClickListener(v -> getPresenter().toActivity(MessageActivity.class));
         mLayoutUser.setOnClickListener(v -> getPresenter().toActivity(ProfileActivity.class));
-        mBtnLogin.setOnClickListener(v -> getPresenter().isLogin());
+        mBtnLogin.setOnClickListener(v -> getPresenter().toLogin());
         mBtnStore.setOnClickListener(v -> getPresenter().toActivity(StoreHomeActivity.class));
         mBtnMyMatch.setOnClickListener(v -> getPresenter().toActivity(MyMatchActivity.class));
         mBtnSign.setOnClickListener(v -> getPresenter().toActivity(SignActivity.class));
@@ -107,7 +106,7 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
         mBtnGameAccount.setOnClickListener(v -> getPresenter().toActivity(GameAccountActivity.class));
         mBtnAddress.setOnClickListener(v -> getPresenter().toActivity(AddressListActivity.class));
         mBtnFeedback.setOnClickListener(v -> getPresenter().toActivity(FeedbackActivity.class));
-        mBtnSettings.setOnClickListener(v -> getPresenter().toActivity(SettingsActivity.class));
+        mBtnSettings.setOnClickListener(v -> getPresenter().toSettings());
 
         return view;
     }

@@ -29,8 +29,7 @@
         </activity>
         <activity
             android:name=".module.main.MainActivity"
-            android:theme="@style/DividerAppTheme"
-            />
+            android:theme="@style/DividerAppTheme"/>
         <activity android:name=".module.account.LoginActivity"/>
         <activity android:name=".module.account.ForgotActivity"/>
         <activity android:name=".module.account.RegisterActivity"/>

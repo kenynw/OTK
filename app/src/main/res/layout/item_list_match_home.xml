@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/horizontal_margin"
-    android:layout_marginRight="@dimen/horizontal_margin"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="3dp"
     >
@@ -15,7 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/horizontal_margin"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
         >
 
         <LinearLayout
@@ -29,8 +32,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:includeFontPadding="false"
                 android:textColor="@color/textSecondary"
-                android:textSize="@dimen/text_size_body_material"
+                android:textSize="13sp"
                 tools:text="OTK炉石传说元旦跨年超值赛事"
                 />
 
@@ -38,6 +42,7 @@
                 android:id="@+id/tv_match_home_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:includeFontPadding="false"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/text_size_body_material"
                 tools:text="今日19：14"
@@ -48,9 +53,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="6.5dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingBottom="8dp"
-            android:paddingTop="8dp"
             >
 
             <TextView
@@ -58,7 +64,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:includeFontPadding="false"
                 android:textAppearance="@style/TextTitle"
+                android:textStyle="bold"
                 tools:text="57000撒币"
                 />
 
@@ -83,12 +91,14 @@
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/dv_match_home_game_icon"
                 style="@style/TinyAvatar"
+                android:layout_marginRight="4dp"
                 />
 
             <TextView
                 android:id="@+id/tv_match_home_game_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:includeFontPadding="false"
                 android:textColor="@color/textSecondary"
                 android:textSize="@dimen/text_size_body_material"
                 tools:text="炉石传说"
@@ -104,7 +114,6 @@
                 android:id="@+id/iv_match_home_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextTitle"
                 />
 
         </LinearLayout>

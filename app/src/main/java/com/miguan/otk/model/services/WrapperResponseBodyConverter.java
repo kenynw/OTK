@@ -35,7 +35,6 @@ public class WrapperResponseBodyConverter<T> implements Converter<ResponseBody, 
 
             int status = data.getInt("status");
             if (status != 1) {
-                LUtils.log(TAG, value.string());
                 throw new ServiceException(status, data.getString("msg"));
             }
 
@@ -48,7 +47,7 @@ public class WrapperResponseBodyConverter<T> implements Converter<ResponseBody, 
             }
 
             return new Gson().fromJson(result, mType);
-        } catch (JSONException | IllegalStateException e) {
+        } catch (JSONException e) {
             throw new ServiceException(0, "数据解析错误");
         }
     }

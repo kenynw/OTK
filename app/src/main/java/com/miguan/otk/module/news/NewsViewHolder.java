@@ -39,8 +39,8 @@ public class NewsViewHolder extends BaseViewHolder<News> {
 
     @Override
     public void setData(News news) {
-        int width = (LUtils.getScreenWidth() - LUtils.dp2px(16) * 4) / 3;
-        int height = (2 * (LUtils.getScreenWidth() - 4 * LUtils.dp2px(16)) / 9);
+        int width = (LUtils.getScreenWidth() - LUtils.dp2px(8) * 4) / 3;
+        int height = (2 * (LUtils.getScreenWidth() - 4 * LUtils.dp2px(8)) / 9);
         ViewGroup.LayoutParams lp = mDvThumb.getLayoutParams();
         lp.width = width;
         lp.height = height;

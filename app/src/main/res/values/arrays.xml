@@ -57,4 +57,16 @@
         <item>战士</item>
     </string-array>
 
+    <string-array name="default_avatar_urls">
+        <item>images/head/head_man_1.png</item>
+        <item>images/head/head_man_3.png</item>
+        <item>images/head/head_man_4.png</item>
+        <item>images/head/head_man_5.png</item>
+        <item>images/head/head_woman_1.png</item>
+        <item>images/head/head_woman_2.png</item>
+        <item>images/head/head_woman_3.png</item>
+        <item>images/head/head_woman_4.png</item>
+        <item>images/head/head_woman_5.png</item>
+    </string-array>
+
 </resources>

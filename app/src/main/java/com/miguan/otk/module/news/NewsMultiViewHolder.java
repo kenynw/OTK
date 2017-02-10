@@ -43,12 +43,12 @@ public class NewsMultiViewHolder extends BaseViewHolder<News> {
         mTvTitle.setText(news.getTitle());
         mTvDate.setText(news.getCreate_time());
 
-        int height = (2 * (LUtils.getScreenWidth() - 4 * LUtils.dp2px(16)) / 9);
+        int height = (2 * (LUtils.getScreenWidth() - 4 * LUtils.dp2px(8)) / 9);
         ViewGroup.LayoutParams layoutParams = mGridImages.getLayoutParams();
         layoutParams.height = height;
         mGridImages.setLayoutParams(layoutParams);
 
-        int width = (LUtils.getScreenWidth() - 4 * LUtils.dp2px(16)) / 3;
+        int width = (LUtils.getScreenWidth() - 4 * LUtils.dp2px(8)) / 3;
         for (int i=0; i<news.getImg().length; i++) {
             SimpleDraweeView dv = (SimpleDraweeView) LayoutInflater.from(getContext()).inflate(R.layout.item_grid_image, mGridImages, false);
             dv.setImageURI(news.getImg()[i]);

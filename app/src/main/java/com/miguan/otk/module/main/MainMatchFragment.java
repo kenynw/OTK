@@ -1,6 +1,5 @@
 package com.miguan.otk.module.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -83,8 +82,8 @@ public class MainMatchFragment extends BaseDataFragment<MainMatchPresenter, Home
         mRcvToday.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRcvRecent.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mBtnDaily.setOnClickListener(v -> startActivity(new Intent(getActivity(), MissionListActivity.class)));
-        mBtnMyMatch.setOnClickListener(v -> startActivity(new Intent(getActivity(), MyMatchActivity.class)));
+        mBtnDaily.setOnClickListener(v -> getPresenter().toActivity(MissionListActivity.class));
+        mBtnMyMatch.setOnClickListener(v -> getPresenter().toActivity(MyMatchActivity.class));
 
         return view;
     }

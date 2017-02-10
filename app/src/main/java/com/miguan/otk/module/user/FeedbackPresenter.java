@@ -8,19 +8,24 @@ import com.dsk.chain.bijection.Presenter;
 import com.jude.exgridview.PieceViewGroup;
 import com.jude.library.imageprovider.ImageProvider;
 import com.jude.library.imageprovider.OnImageSelectListener;
+import com.miguan.otk.model.ImageModel;
 import com.miguan.otk.model.UserModel;
 import com.miguan.otk.model.bean.Feedback;
 import com.miguan.otk.model.services.ServicesResponse;
 import com.sgun.utils.LUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import rx.Observable;
+import rx.functions.Func1;
 
 /**
  * Copyright (c) 2016/11/29. LiaoPeiKun Inc. All rights reserved.
  */
 
-class FeedbackPresenter extends Presenter<FeedbackActivity> implements OnImageSelectListener, PieceViewGroup.OnViewDeleteListener {
+public class FeedbackPresenter extends Presenter<FeedbackActivity> implements OnImageSelectListener, PieceViewGroup.OnViewDeleteListener {
 
     private List<Uri> mUris;
 
@@ -33,7 +38,7 @@ class FeedbackPresenter extends Presenter<FeedbackActivity> implements OnImageSe
         mImageProvider = new ImageProvider(getView());
     }
 
-    void pickImage(int type) {
+    public void pickImage(int type) {
         switch (type) {
             case 0:
                 mImageProvider.getImageFromAlbum(this);
@@ -43,15 +48,40 @@ class FeedbackPresenter extends Presenter<FeedbackActivity> implements OnImageSe
         }
     }
 
-    void save(int type, String contact, String content) {
-        UserModel.getInstance().saveFeedback(type, contact, content, "")
-                .unsafeSubscribe(new ServicesResponse<Feedback>() {
-                    @Override
-                    public void onNext(Feedback feedback) {
-                        getView().finish();
-                        LUtils.toast("谢谢反馈");
-                    }
-                });
+    public void save(int type, String contact, String content) {
+        if (mUris.size() > 0) {
+            Observable.from(mUris)
+                    .map(uri -> new File(uri.getPath()))
+                    .flatMap(new Func1<File, Observable<String>>() {
+                        @Override
+                        public Observable<String> call(File file) {
+                            return ImageModel.getInstance().uploadImageAsync(file);
+                        }
+                    })
+                    .flatMap(new Func1<String, Observable<Feedback>>() {
+                        @Override
+                        public Observable<Feedback> call(String s) {
+                            LUtils.log("Image: " + s);
+                            return UserModel.getInstance().saveFeedback(type, contact, content, s);
+                        }
+                    })
+                    .unsafeSubscribe(new ServicesResponse<Feedback>() {
+                        @Override
+                        public void onNext(Feedback feedback) {
+                            getView().finish();
+                            LUtils.toast("谢谢反馈");
+                        }
+                    });
+        } else {
+            UserModel.getInstance().saveFeedback(type, contact, content, "")
+                    .unsafeSubscribe(new ServicesResponse<Feedback>() {
+                        @Override
+                        public void onNext(Feedback feedback) {
+                            getView().finish();
+                            LUtils.toast("谢谢反馈");
+                        }
+                    });
+        }
     }
 
     @Override
@@ -67,7 +97,6 @@ class FeedbackPresenter extends Presenter<FeedbackActivity> implements OnImageSe
 
     @Override
     public void onError() {
-        LUtils.toast("onError");
     }
 
     @Override

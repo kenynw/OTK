@@ -9,9 +9,9 @@ import com.sgun.utils.LUtils;
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.
  */
-class RegisterPresenter extends Presenter<RegisterActivity> {
+public class RegisterPresenter extends Presenter<RegisterActivity> {
 
-    void sendCaptcha(String mobile) {
+    public void sendCaptcha(String mobile) {
         UserModel.getInstance().registerCaptcha(mobile).subscribe(new ServicesResponse<Boolean>() {
             @Override
             public void onNext(Boolean result) {
@@ -20,7 +20,7 @@ class RegisterPresenter extends Presenter<RegisterActivity> {
         });
     }
 
-    void register(String username, String mobile, String captcha, String password) {
+    public void register(String username, String mobile, String captcha, String password) {
         UserModel.getInstance().register(username, mobile, captcha, password).subscribe(new ServicesResponse<User>() {
             @Override
             public void onNext(User user) {

@@ -52,6 +52,7 @@ public class SignActivity extends BaseDataActivity<SignPresenter, Sign> {
     public void setData(Sign sign) {
         if (sign.getIsqiandao() == 1) {
             mBtnSign.setEnabled(false);
+            mBtnSign.setText("已签到");
         } else {
             mBtnSign.setOnClickListener(v -> getPresenter().sign());
         }

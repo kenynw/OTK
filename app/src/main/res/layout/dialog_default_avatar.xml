@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_activity_default_avatar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <com.jude.exgridview.ExGridView
+        android:id="@+id/grid_default_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:grid_as_square="true"
+        app:grid_column="3"
+        app:grid_divider_horizontal="8dp"
+        app:grid_divider_vertical="8dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/btn_default_avatar_ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_ok"
+            />
+
+        <Button
+            android:id="@+id/btn_default_avatar_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_cancel"
+            />
+    </LinearLayout>
+
+</LinearLayout>

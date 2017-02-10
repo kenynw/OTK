@@ -13,7 +13,7 @@ import rx.Observable;
 /**
  * Copyright (c) 2016/12/19. LiaoPeiKun Inc. All rights reserved.
  */
-class PayPresenter extends BaseDataActivityPresenter<PayActivity, Order> {
+public class PayPresenter extends BaseDataActivityPresenter<PayActivity, Order> {
 
     @Override
     protected void onCreateView(PayActivity view) {

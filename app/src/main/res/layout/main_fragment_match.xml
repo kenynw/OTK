@@ -77,10 +77,6 @@
 
             </LinearLayout>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/vertical_margin"/>
-
             <TextView
                 android:id="@+id/tv_main_match_commend"
                 android:layout_width="wrap_content"
@@ -90,7 +86,8 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/horizontal_margin"
                 android:text="@string/btn_commend_match"
-                android:textAppearance="@style/TextBody"
+                android:textAppearance="@style/TextSubhead"
+                android:textStyle="bold"
                 />
 
             <android.support.v7.widget.RecyclerView
@@ -109,7 +106,8 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/horizontal_margin"
                 android:text="@string/btn_today_match"
-                android:textAppearance="@style/TextBody"
+                android:textAppearance="@style/TextSubhead"
+                android:textStyle="bold"
                 />
 
             <android.support.v7.widget.RecyclerView
@@ -127,7 +125,8 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/horizontal_margin"
                 android:text="@string/btn_recent_game"
-                android:textAppearance="@style/TextBody"
+                android:textAppearance="@style/TextSubhead"
+                android:textStyle="bold"
                 />
 
             <android.support.v7.widget.RecyclerView

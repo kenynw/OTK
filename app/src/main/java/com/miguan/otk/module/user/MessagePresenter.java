@@ -12,7 +12,7 @@ import java.util.List;
  * Copyright (c) 2016/12/26. LiaoPeiKun Inc. All rights reserved.
  */
 
-class MessagePresenter extends BaseDataActivityPresenter<MessageActivity, List<Message>> {
+public class MessagePresenter extends BaseDataActivityPresenter<MessageActivity, List<Message>> {
 
     @Override
     protected void onCreateView(MessageActivity view) {

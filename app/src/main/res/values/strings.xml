@@ -42,6 +42,7 @@
     <string name="btn_clear_cache">清理缓存</string>
     <string name="btn_commend_match">推荐比赛</string>
     <string name="btn_daily_mission">每日任务</string>
+    <string name="btn_default_avatar">默认头像</string>
     <string name="btn_eg_screenshot">截图示例</string>
     <string name="btn_enroll">报名</string>
     <string name="btn_enroll_list">报名列表(%1$s/%2$s)</string>

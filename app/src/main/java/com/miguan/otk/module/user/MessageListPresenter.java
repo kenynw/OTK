@@ -11,7 +11,7 @@ import com.miguan.otk.model.bean.Message;
  * Copyright (c) 2016/12/26. LiaoPeiKun Inc. All rights reserved.
  */
 
-class MessageListPresenter extends BaseListActivityPresenter<MessageListActivity, Message> {
+public class MessageListPresenter extends BaseListActivityPresenter<MessageListActivity, Message> {
 
     private int mType;
 

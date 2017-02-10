@@ -94,7 +94,7 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
                 });
     }
 
-    void pickImage(int type) {
+    public void pickImage(int type) {
         getView().dismissDialog();
         switch (type) {
             case 0:
@@ -102,6 +102,7 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
                 break;
             case 1:
                 mImageProvider.getImageFromCamera(this);
+                break;
         }
     }
 

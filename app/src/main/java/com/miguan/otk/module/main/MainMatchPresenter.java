@@ -1,15 +1,19 @@
 package com.miguan.otk.module.main;
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.TextUtils;
 
 import com.dsk.chain.expansion.data.BaseDataFragmentPresenter;
 import com.miguan.otk.model.MatchModel;
 import com.miguan.otk.model.bean.Home;
+import com.miguan.otk.module.account.LoginActivity;
+import com.sgun.utils.LUtils;
 
 /**
  *  2016. LiaoPeiKun Inc. All rights reserved.
  */
-class MainMatchPresenter extends BaseDataFragmentPresenter<MainMatchFragment, Home> implements SwipeRefreshLayout.OnRefreshListener {
+public class MainMatchPresenter extends BaseDataFragmentPresenter<MainMatchFragment, Home> implements SwipeRefreshLayout.OnRefreshListener {
 
     @Override
     protected void onCreateView(MainMatchFragment view) {
@@ -21,4 +25,20 @@ class MainMatchPresenter extends BaseDataFragmentPresenter<MainMatchFragment, Ho
     public void onRefresh() {
         MatchModel.getInstance().getHome().unsafeSubscribe(getSubscriber());
     }
+
+    public void toActivity(Class clazz) {
+        if (isLogin()) {
+            getView().startActivity(new Intent(getView().getActivity(), clazz));
+        }
+    }
+
+    private boolean isLogin() {
+        if (TextUtils.isEmpty(LUtils.getPreferences().getString("token", ""))) {
+            Intent intent = new Intent(getView().getActivity(), LoginActivity.class);
+            getView().startActivity(intent);
+            return false;
+        }
+        return true;
+    }
+
 }

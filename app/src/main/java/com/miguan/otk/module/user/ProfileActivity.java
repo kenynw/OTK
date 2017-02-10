@@ -8,13 +8,16 @@ import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.jude.exgridview.ExGridView;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.User;
 
@@ -61,6 +64,7 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
     TextView mTvIntro;
 
     private BottomSheetDialog mDialog;
+    private String mIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,10 +102,13 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
             View view = View.inflate(this, R.layout.dialog_bottom_pick_picture, null);
             Button btnGallery = (Button) view.findViewById(R.id.btn_pick_from_gallery);
             Button btnCamera = (Button) view.findViewById(R.id.btn_pick_from_camera);
+            Button btnDefault = (Button) view.findViewById(R.id.btn_pick_from_default);
             Button btnCancel = (Button) view.findViewById(R.id.btn_pick_cancel);
 
+            btnDefault.setVisibility(View.VISIBLE);
             btnGallery.setOnClickListener(v -> getPresenter().pickImage(0));
             btnCamera.setOnClickListener(v -> getPresenter().pickImage(1));
+            btnDefault.setOnClickListener(v -> showDefaultDialog());
             btnCancel.setOnClickListener(v -> dismissDialog());
             mDialog.setContentView(view);
             mDialog.getWindow().findViewById(R.id.design_bottom_sheet).setBackgroundResource(android.R.color.transparent);
@@ -136,6 +143,23 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showDefaultDialog() {
+        View view = View.inflate(this, R.layout.dialog_default_avatar, null);
+        AlertDialog dialog = new AlertDialog.Builder(this).setView(view).show();
+        ExGridView gridView = (ExGridView) view.findViewById(R.id.grid_default_avatar);
+        String[] urlList = getResources().getStringArray(R.array.default_avatar_urls);
+        for (int i=0; i<urlList.length; i++) {
+            ImageView iv = new ImageView(this);
+            String avatar = urlList[i];
+            iv.setImageResource(getResources().getIdentifier("default_avatar_" + i, "mipmap", getPackageName()));
+            iv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            iv.setOnClickListener(clickView -> mIndex = avatar);
+            gridView.addView(iv);
+        }
+        view.findViewById(R.id.btn_default_avatar_ok).setOnClickListener(v -> getPresenter().setProfile("photo", mIndex));
+        view.findViewById(R.id.btn_default_avatar_cancel).setOnClickListener(v -> dialog.dismiss());
     }
 
     public void dismissDialog() {
