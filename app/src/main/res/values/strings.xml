@@ -70,7 +70,7 @@
     <string name="btn_skip">%d秒跳过</string>
     <string name="btn_send_captcha">发送验证码</string>
     <string name="btn_settings">设置</string>
-    <string name="btn_sign_in">签到</string>
+    <string name="btn_sign_in">每日签到</string>
     <string name="btn_sign_in_now">立即签到</string>
     <string name="btn_shop">撒币商城</string>
     <string name="btn_submit">提交</string>
@@ -127,6 +127,7 @@
     <string name="text_slogan">打造一个有温度的的线上比赛平台</string>
     <string name="text_special_rules">特殊规则</string>
     <string name="text_submit_result_desc">您提交的结果为：%1$s&#160;%2$s&#160;赢了\n正在等待对手提交比赛结果</string>
+    <string name="text_to_login">点击登录</string>
     <string name="text_upload_avatar">上传头像</string>
     <string name="text_which_rounds">第%d轮</string>
 
@@ -153,7 +154,6 @@
     <string name="label_match_id_cost">赛事ID：%1$d&#160;&#160;&#160;报名费：%2$d撒币</string>
     <string name="label_match_id">赛事ID：%d</string>
     <string name="label_match_state">赛事状态：%1$s%2$s</string>
-    <string name="label_my_balance">我的撒币：%1$d&#160;&#160;我的元宝：%2$d</string>
     <string name="label_my_coin">我的元宝：%s</string>
     <string name="label_mobile">手机号</string>
     <string name="label_order_num">订单号：%s</string>
@@ -198,5 +198,4 @@
 
     <string name="menu_add">添加</string>
     <string name="menu_save">保存</string>
-
 </resources>

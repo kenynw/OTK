@@ -22,6 +22,7 @@ import com.miguan.otk.module.match.MissionListActivity;
 import com.miguan.otk.module.user.MyMatchActivity;
 import com.miguan.otk.widget.CirclePageIndicator;
 import com.miguan.otk.widget.HeadViewPager;
+import com.sgun.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -70,6 +71,10 @@ public class MainMatchFragment extends BaseDataFragment<MainMatchPresenter, Home
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_fragment_match, container, false);
         ButterKnife.bind(this, view);
+
+        ViewGroup.LayoutParams lp = mBannerPager.getLayoutParams();
+        lp.height = LUtils.getScreenWidth() *  8 / 15;
+        mBannerPager.setLayoutParams(lp);
 
         mRefreshLayout.setOnRefreshListener(getPresenter());
 

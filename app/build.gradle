@@ -63,6 +63,7 @@ dependencies {
     compile 'com.jude:imageprovider:2.1.1'
     compile 'com.jude:exgridview:1.1.5'
     compile 'com.dsk:utils:1.0.1'
+    compile 'com.prolificinteractive:material-calendarview:1.4.2'
     final RETROFIT_VERSION = '2.1.0'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"

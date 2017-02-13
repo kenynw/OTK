@@ -1,5 +1,7 @@
 package com.miguan.otk.model.services;
 
+import android.content.Intent;
+
 import com.sgun.utils.LUtils;
 
 import rx.Subscriber;
@@ -30,8 +32,11 @@ public class ServicesResponse<T> extends Subscriber<T> {
     }
 
     private void serviceError(ServiceException e) {
-        if (e.getCode() == -2) {
+        if (e.getCode() == 3) {
             LUtils.getPreferences().edit().clear().apply();
+            Intent intent = new Intent();
+            intent.setAction("com.miguan.otk:login");
+
         }
         LUtils.toast(e.getMsg());
     }

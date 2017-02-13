@@ -17,6 +17,7 @@ import com.miguan.otk.model.bean.News;
 import com.miguan.otk.module.common.WebActivity;
 import com.miguan.otk.module.match.MatchDetailActivity;
 import com.miguan.otk.module.news.NewsDetailActivity;
+import com.sgun.utils.LUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,8 @@ public class BannerPagerAdapter extends PagerAdapter {
                 .setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP)
                 .build();
         SimpleDraweeView dv = new SimpleDraweeView(mContext, hierarchy);
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        int height = LUtils.getScreenWidth() * 8 / 15;
+        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height);
         dv.setLayoutParams(lp);
 
         Banner banner = mBannerList.get(position);

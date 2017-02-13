@@ -91,7 +91,8 @@ public class UserModel extends AbsModel {
      * 签到信息
      * @return
      */
-    public Observable<Sign> getSignInfo(Integer month, Integer year) {
+    public Observable<Sign> getSignInfo(String month, Integer year) {
+        LUtils.log("month: " + month + ", year: " + year);
         return ServicesClient.getServices().signDetail(LUtils.getPreferences().getString("token", ""), month, year).compose(new DefaultTransform<>());
     }
 

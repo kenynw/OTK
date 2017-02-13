@@ -25,7 +25,7 @@
                 <com.miguan.otk.widget.HeadViewPager
                     android:id="@+id/pager_match_banner"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="180dp"
                     />
 
                 <com.miguan.otk.widget.CirclePageIndicator

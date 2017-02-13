@@ -183,7 +183,7 @@ public interface Services {
     @POST("user/sign/signdata")
     Observable<Sign> signDetail(
             @Field("token") CharSequence token,
-            @Field("month") Integer month,
+            @Field("month") String month,
             @Field("year") Integer year
     );
 

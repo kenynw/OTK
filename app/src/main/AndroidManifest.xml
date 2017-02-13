@@ -30,7 +30,11 @@
         <activity
             android:name=".module.main.MainActivity"
             android:theme="@style/DividerAppTheme"/>
-        <activity android:name=".module.account.LoginActivity"/>
+        <activity android:name=".module.account.LoginActivity">
+            <intent-filter>
+                <action android:name="com.miguan.otk.login" />
+            </intent-filter>
+        </activity>
         <activity android:name=".module.account.ForgotActivity"/>
         <activity android:name=".module.account.RegisterActivity"/>
         <activity android:name=".module.match.MatchDetailActivity">

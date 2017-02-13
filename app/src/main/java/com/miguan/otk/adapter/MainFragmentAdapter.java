@@ -18,7 +18,7 @@ import java.util.List;
 
 public class MainFragmentAdapter extends FragmentPagerAdapter {
 
-    private static final String[] TITLES = new String[] {"资讯", "比赛", "个人"};
+    private static final String[] TITLES = new String[] {"资讯", "比赛", "我的"};
 
     private static final int[] sICONS = new int[] {
             R.drawable.tab_main_news_selector, R.drawable.tab_main_match_selector, R.drawable.tab_main_mine_selector
