@@ -37,18 +37,14 @@ public class ScheduleViewHolder extends BaseViewHolder<Schedule> {
 
     @Override
     public void setData(Schedule schedule) {
-        mTvAScore.setBackgroundColor(getContext().getResources().getColor(
-                schedule.getWinner_id() == 1 ? R.color.colorPrimaryDark : R.color.white
-        ));
-        mTvAScore.setTextColor(getContext().getResources().getColor(
-                schedule.getWinner_id() == 1 ? R.color.white : R.color.textBody
-        ));
-        mTvBScore.setBackgroundColor(getContext().getResources().getColor(
-                schedule.getWinner_id() == 2 ? R.color.colorPrimaryDark : R.color.white)
-        );
-        mTvBScore.setTextColor(getContext().getResources().getColor(
-                schedule.getWinner_id() == 2 ? R.color.white : R.color.textBody
-        ));
+        int colorPrimary = getContext().getResources().getColor(R.color.colorPrimaryDark);
+        int colorWhite = getContext().getResources().getColor(R.color.white);
+        int textBody = getContext().getResources().getColor(R.color.textBody);
+        mTvAScore.setBackgroundColor(schedule.getA_score() > schedule.getB_score() ? colorPrimary : colorWhite);
+        mTvAScore.setTextColor(schedule.getA_score() > schedule.getB_score() ? colorWhite : textBody);
+        mTvBScore.setBackgroundColor(schedule.getB_score() > schedule.getA_score() ? colorPrimary : colorWhite);
+        mTvBScore.setTextColor(schedule.getB_score() > schedule.getA_score() ? colorWhite : textBody);
+
         mTvAScore.setText(schedule.getA_score() + "");
         mTvAUsername.setText(schedule.getA_name());
         mTvBScore.setText(schedule.getB_score() + "");

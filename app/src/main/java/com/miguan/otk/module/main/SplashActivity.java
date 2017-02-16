@@ -1,6 +1,7 @@
 package com.miguan.otk.module.main;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -9,6 +10,11 @@ import com.miguan.otk.model.bean.Splash;
 
 @RequiresPresenter(SplashPresenter.class)
 public class SplashActivity extends BaseDataActivity<SplashPresenter, Splash> {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public void setData(Splash splash) {

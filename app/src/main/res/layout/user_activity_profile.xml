@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:divider="@drawable/div_gray"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:showDividers="middle"
     tools:context=".module.user.ProfileActivity">
@@ -36,10 +37,10 @@
                     android:id="@+id/tv_profile_avatar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:padding="@dimen/horizontal_margin"
                     android:text="@string/label_avatar"
                     android:textAppearance="@style/TextBody"
-                    android:layout_gravity="center_vertical"
                     />
 
                 <com.facebook.drawee.view.SimpleDraweeView

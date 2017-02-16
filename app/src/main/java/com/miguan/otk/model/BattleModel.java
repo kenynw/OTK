@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.dsk.chain.model.AbsModel;
 import com.miguan.otk.model.bean.Battle;
+import com.miguan.otk.model.bean.Screenshot;
 import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
 import com.sgun.utils.LUtils;
@@ -96,6 +97,16 @@ public class BattleModel extends AbsModel {
      */
     public Observable<Battle> resubmit(int battleID) {
         return ServicesClient.getServices().resubmitResult(LUtils.getPreferences().getString("token", ""), battleID).compose(new DefaultTransform<>());
+    }
+
+    /**
+     * 对战截图信息
+     *
+     * @param battleID 赛事ID
+     * @return
+     */
+    public Observable<Screenshot> uploadInfo(int battleID, String role) {
+        return ServicesClient.getServices().battleUploadInfo(LUtils.getPreferences().getString("token", ""), battleID, role).compose(new DefaultTransform<>());
     }
 
     /**

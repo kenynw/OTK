@@ -79,10 +79,15 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
 
         setToolbarTitle(String.format(getString(R.string.label_battle_id), battle.getBattle_id()));
 
+//        mDvAAvatar.setImageURI(Uri.parse(battle.getUser_type() == 1 ? battle.getA_photo() : battle.getB_photo()));
+//        mTvAName.setText(battle.getUser_type() == 1 ? battle.getA_username() : battle.getB_username());
+//        mTvAStatus.setText(battle.getUser_type() == 1 ? battle.getA_status() : battle.getB_status());
+//        mDvBAvatar.setImageURI(Uri.parse(battle.getUser_type() == 1 ? battle.getB_photo() : battle.getA_photo()));
+//        mTvBName.setText(battle.getUser_type() == 1 ? battle.getB_username() : battle.getA_username());
+//        mTvBStatus.setText(battle.getUser_type() == 1 ? battle.getB_status() : battle.getA_status());
         mDvAAvatar.setImageURI(Uri.parse(battle.getA_photo()));
         mTvAName.setText(battle.getA_username());
         mTvAStatus.setText(battle.getA_status());
-
         mDvBAvatar.setImageURI(Uri.parse(battle.getB_photo()));
         mTvBName.setText(battle.getB_username());
         mTvBStatus.setText(battle.getB_status());
@@ -124,14 +129,12 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         Bundle bundle = new Bundle();
         bundle.putParcelable("battle", battle);
-
         if (mFragment != null) {
             ft.remove(mFragment);
         }
-
         if (battle.getBattle_status() == 1 || battle.getBattle_status() == 5 || battle.getBattle_status() == 0
                 || battle.getUser_type() == 0 || battle.getUser_type() == 3) {
-            mFragment = new ReadyFragment();
+            mFragment = new SimpleDescFragment();
             mFragment.setArguments(bundle);
         } else {
             mFragment = new BattlingFragment();
@@ -139,28 +142,6 @@ public class BattleActivity extends BaseDataActivity<BattlePresenter, Battle> {
         }
         ft.add(R.id.container_battle, mFragment);
         ft.commit();
-
-//        switch (battle.getBattle_status()) {
-//            case 1: // 准备
-////                mBtnStatus.setOnClickListener(v -> getPresenter().ready());
-//                LUtils.toast("准备");
-//
-//                break;
-//            case 2: // pick
-////                mBtnStatus.setOnClickListener();
-//                break;
-//            case 3: // ban
-//                break;
-//            case 4: // 比赛中
-//                break;
-//            case 5: // 结束
-//
-//                break;
-//            case 6: //  争议
-//                break;
-//            default: // 未开始
-//                break;
-//        }
     }
 
 }

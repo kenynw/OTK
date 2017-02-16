@@ -1,5 +1,7 @@
 package com.miguan.otk.module.battle;
 
+import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.dsk.chain.bijection.Presenter;
@@ -24,18 +26,18 @@ public class ShotBrowsePresenter extends Presenter<ShotBrowseActivity> {
 
     private String mKind;
 
-    private String mUri;
+    private Uri mUri;
 
     @Override
     protected void onCreate(ShotBrowseActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
         mBattleID = getView().getIntent().getIntExtra("battle_id", 0);
         mKind = getView().getIntent().getStringExtra("kind");
-        mUri = getView().getIntent().getStringExtra("uri");
+        mUri = getView().getIntent().getParcelableExtra("uri");
     }
 
     public void upload() {
-        ImageModel.getInstance().uploadImageAsync(new File(mUri))
+        ImageModel.getInstance().uploadImageAsync(new File(mUri.getPath()))
                 .flatMap(new Func1<String, Observable<Battle>>() {
                     @Override
                     public Observable<Battle> call(String s) {
@@ -46,6 +48,7 @@ public class ShotBrowsePresenter extends Presenter<ShotBrowseActivity> {
                     @Override
                     public void onNext(Battle result) {
                         LUtils.toast("上传成功");
+                        getView().setResult(Activity.RESULT_OK);
                         getView().finish();
                     }
                 });

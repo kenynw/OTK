@@ -14,6 +14,8 @@ import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Battle;
 
+import org.greenrobot.eventbus.EventBus;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -21,8 +23,8 @@ import butterknife.ButterKnife;
  * Copyright (c) 2017/1/6. LiaoPeiKun Inc. All rights reserved.
  */
 
-@RequiresPresenter(ReadyPresenter.class)
-public class ReadyFragment extends ChainFragment<ReadyPresenter> {
+@RequiresPresenter(SImpleDescPresenter.class)
+public class SimpleDescFragment extends ChainFragment<SImpleDescPresenter> {
 
     @Bind(R.id.tv_battle_status_title)
     TextView mTvTitle;
@@ -47,13 +49,19 @@ public class ReadyFragment extends ChainFragment<ReadyPresenter> {
             mTvTitle.setText(R.string.text_battle_ended);
             mTvDesc.setText(String.format(getString(R.string.text_battle_ended_desc), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")));
 
-            mBtnSave.setText("结束");
-            if (battle.getIs_end()) mBtnSave.setVisibility(View.GONE);
-            else mBtnSave.setOnClickListener(v -> {
-                Intent intent = new Intent(getActivity(), BattleActivity.class);
-                intent.putExtra("battle_id", battle.getBattle_id());
-                startActivity(intent);
-            });
+            if (battle.getWinner_id() == 1 && battle.getNext_battle_id() > 0) {
+                mBtnSave.setText("进入下一轮");
+                mBtnSave.setOnClickListener(v -> EventBus.getDefault().post(battle));
+            } else if (battle.getIs_end()) {
+                mBtnSave.setVisibility(View.GONE);
+            } else {
+                mBtnSave.setText("结束");
+                mBtnSave.setOnClickListener(v -> {
+                    Intent intent = new Intent(getActivity(), BattleActivity.class);
+                    intent.putExtra("battle_id", battle.getBattle_id());
+                    startActivity(intent);
+                });
+            }
         } else if (battle.getUser_type() == 0 || battle.getUser_type() == 3) {
             mBtnSave.setVisibility(View.GONE);
             mTvTitle.setText("比赛阶段");

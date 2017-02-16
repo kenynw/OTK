@@ -13,12 +13,12 @@ import org.greenrobot.eventbus.EventBus;
  * Copyright (c) 2017/1/21. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class ReadyPresenter extends Presenter<ReadyFragment> {
+public class SImpleDescPresenter extends Presenter<SimpleDescFragment> {
 
     private Battle mBattle;
 
     @Override
-    protected void onCreate(ReadyFragment view, Bundle saveState) {
+    protected void onCreate(SimpleDescFragment view, Bundle saveState) {
         super.onCreate(view, saveState);
         if (getView().getArguments() != null && getView().getArguments().containsKey("battle")) {
             mBattle = getView().getArguments().getParcelable("battle");
@@ -26,7 +26,7 @@ public class ReadyPresenter extends Presenter<ReadyFragment> {
     }
 
     @Override
-    protected void onCreateView(ReadyFragment view) {
+    protected void onCreateView(SimpleDescFragment view) {
         super.onCreateView(view);
         if (mBattle != null) getView().setData(mBattle);
     }

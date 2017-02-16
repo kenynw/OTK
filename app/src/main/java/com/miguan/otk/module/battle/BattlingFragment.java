@@ -109,6 +109,7 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
     }
 
     public void setData(Battle battle) {
+        mTvOpponent.setText(battle.getUser_type() == 1 ? battle.getB_gameaccount() : battle.getA_gameaccount());
 
         // 比赛处于pick阶段
         if (battle.getBattle_status() == 2) {
@@ -180,7 +181,6 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
                             adapter.select(index);
                         }
                     }
-                    LUtils.log("hero index: " + index + "hero name: ");
                 });
 
                 mGridHeros.setAdapter(adapter);

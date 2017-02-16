@@ -17,6 +17,8 @@ public class Battle implements Parcelable {
 
     private int winner_id;
 
+    private int next_battle_id;
+
     private int competition_id;
 
     private int round_id;
@@ -140,6 +142,7 @@ public class Battle implements Parcelable {
         dest.writeInt(this.battle_id);
         dest.writeInt(this.record_id);
         dest.writeInt(this.winner_id);
+        dest.writeInt(this.next_battle_id);
         dest.writeInt(this.competition_id);
         dest.writeInt(this.round_id);
         dest.writeString(this.level);
@@ -204,6 +207,7 @@ public class Battle implements Parcelable {
         this.battle_id = in.readInt();
         this.record_id = in.readInt();
         this.winner_id = in.readInt();
+        this.next_battle_id = in.readInt();
         this.competition_id = in.readInt();
         this.round_id = in.readInt();
         this.level = in.readString();
@@ -295,6 +299,14 @@ public class Battle implements Parcelable {
 
     public void setWinner_id(int winner_id) {
         this.winner_id = winner_id;
+    }
+
+    public int getNext_battle_id() {
+        return next_battle_id;
+    }
+
+    public void setNext_battle_id(int next_battle_id) {
+        this.next_battle_id = next_battle_id;
     }
 
     public int getCompetition_id() {

@@ -103,7 +103,10 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
                 public void onFinish() {
                     getPresenter().setData();
                 }
+
             }.start();
+        } else {
+            mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), match.getGame_status()));
         }
 
         mBtnStatus.setText(match.getGame_status());

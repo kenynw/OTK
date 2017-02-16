@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:divider="@drawable/div_gray"
     android:orientation="vertical"
-    android:showDividers="middle">
+    android:showDividers="middle"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,10 +37,10 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/widget_small_height"
             android:background="@drawable/btn_stroke_primary_dark_radius_selector"
+            android:tag="1"
             android:text="@string/btn_upload_screenshot"
             android:textColor="@color/text_color_primarydark2secondary"
             android:textSize="@dimen/text_size_body_material"
-            android:tag="1"
             />
 
     </LinearLayout>
@@ -74,10 +74,10 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/widget_small_height"
             android:background="@drawable/btn_stroke_primary_dark_radius_selector"
+            android:tag="2"
             android:text="@string/btn_upload_screenshot"
             android:textColor="@color/text_color_primarydark2secondary"
             android:textSize="@dimen/text_size_body_material"
-            android:tag="2"
             />
 
     </LinearLayout>
@@ -111,10 +111,10 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/widget_small_height"
             android:background="@drawable/btn_stroke_primary_dark_radius_selector"
+            android:tag="3"
             android:text="@string/btn_upload_screenshot"
             android:textColor="@color/text_color_primarydark2secondary"
             android:textSize="@dimen/text_size_body_material"
-            android:tag="3"
             />
 
     </LinearLayout>
@@ -148,10 +148,10 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/widget_small_height"
             android:background="@drawable/btn_stroke_primary_dark_radius_selector"
+            android:tag="4"
             android:text="@string/btn_upload_screenshot"
             android:textColor="@color/text_color_primarydark2secondary"
             android:textSize="@dimen/text_size_body_material"
-            android:tag="4"
             />
 
     </LinearLayout>
@@ -185,10 +185,10 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/widget_small_height"
             android:background="@drawable/btn_stroke_primary_dark_radius_selector"
+            android:tag="5"
             android:text="@string/btn_upload_screenshot"
             android:textColor="@color/text_color_primarydark2secondary"
             android:textSize="@dimen/text_size_body_material"
-            android:tag="5"
             />
 
     </LinearLayout>
@@ -197,9 +197,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@mipmap/ic_warning"
+        android:drawablePadding="8dp"
         android:padding="@dimen/horizontal_margin"
         android:text="@string/btn_eg_screenshot"
-        android:drawablePadding="8dp"
         android:textAppearance="@style/TextCaption"/>
 
 </LinearLayout>

@@ -10,6 +10,7 @@ import com.miguan.otk.model.bean.Mission;
 import com.miguan.otk.model.bean.News;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Schedule;
+import com.miguan.otk.model.bean.Screenshot;
 import com.miguan.otk.model.bean.Sign;
 import com.miguan.otk.model.bean.Splash;
 import com.miguan.otk.model.bean.User;
@@ -534,6 +535,20 @@ public interface Services {
     Observable<Battle> battleID(
             @Field("token") String token,
             @Field("competition_id") int competitionID
+    );
+
+    /**
+     * 对战截图列表
+     *
+     * @param battleID 对战ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/battle/uploadinfo")
+    Observable<Screenshot> battleUploadInfo(
+            @Field("token") String token,
+            @Field("battle_id") int battleID,
+            @Field("role") String role
     );
 
     /**

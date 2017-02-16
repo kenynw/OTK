@@ -4,10 +4,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.miguan.otk.R;
 
 import butterknife.Bind;
@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 public class ShotBrowseActivity extends ChainBaseActivity<ShotBrowsePresenter> {
 
     @Bind(R.id.dv_image_browse)
-    ImageView mDvImage;
+    SimpleDraweeView mDvImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,8 @@ public class ShotBrowseActivity extends ChainBaseActivity<ShotBrowsePresenter> {
         setContentView(R.layout.common_activity_image_browse);
         ButterKnife.bind(this);
 
-        String uri = getIntent().getStringExtra("uri");
-        mDvImage.setImageURI(Uri.parse(uri));
+        Uri uri = getIntent().getParcelableExtra("uri");
+        mDvImage.setImageURI(uri);
     }
 
     @Override
