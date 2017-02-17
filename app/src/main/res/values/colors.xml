@@ -6,6 +6,7 @@
 
     <color name="white">#ffffffff</color>
     <color name="black">#ff000000</color>
+    <color name="blue">#406dcd</color>
     <color name="yellowDark">#ffd200</color>
 
     <!--背景颜色，添加bg前缀-->

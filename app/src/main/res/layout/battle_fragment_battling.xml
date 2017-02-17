@@ -5,131 +5,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/horizontal_margin"
-        android:paddingRight="@dimen/horizontal_margin"
-        >
-
-        <TextView
-            android:id="@+id/tv_battling_opponent"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="对手游戏账号：机智的黄图哥#1234"
-            />
-
-        <Button
-            android:id="@+id/btn_pick_copy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="复制"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        >
-
-        <Button
-            android:id="@+id/btn_battling_judge"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_launcher"
-            android:text="联系裁判"
-            />
-
-        <Button
-            android:id="@+id/btn_battling_screenshot"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_launcher"
-            android:text="提交截图"
-            />
-
-        <Button
-            android:id="@+id/btn_battling_chatroom"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:drawableTop="@mipmap/ic_launcher"
-            android:text="聊天室"
-            />
-
-    </LinearLayout>
+    <include layout="@layout/include_battle_operation" />
 
     <com.miguan.otk.widget.SectionView
         android:id="@+id/section_battling_status"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:minHeight="88dp"
         />
-
-    <!--<include layout="@layout/include_battle_status"/>-->
 
     <com.jude.exgridview.ExGridView
         android:id="@+id/grid_battling_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="88dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
         app:grid_column="5"
+        app:grid_divider_horizontal="24dp"
+        app:grid_divider_vertical="24dp"
         />
 
-    <LinearLayout
-        android:id="@+id/layout_battling_ongoing"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"
-        >
-
-        <TextView
-            android:id="@+id/tv_battling_a_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="机智的黄图哥"
-            />
-
-        <com.jude.exgridview.ExGridView
-            android:id="@+id/grid_battling_a_bans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-        <TextView
-            android:id="@+id/tv_battling_b_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="机智的黄图哥"
-            />
-
-        <com.jude.exgridview.ExGridView
-            android:id="@+id/grid_battling_b_bans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-    </LinearLayout>
+    <include layout="@layout/include_battling_ongoing"/>
 
     <Button
         android:id="@+id/btn_battling_save"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonBattle"
         android:text="@string/btn_submit"
         />
 
@@ -143,8 +48,9 @@
 
         <Button
             android:id="@+id/btn_battling_im_win"
+            style="@style/ButtonBattle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/widget_medium_height"
             android:layout_weight="1"
             android:text="@string/btn_i_win"
             />
@@ -154,7 +60,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/white"
             android:text="@string/btn_i_lost"
+            android:textColor="@color/textBody"
+            android:textStyle="bold"
             />
 
     </LinearLayout>

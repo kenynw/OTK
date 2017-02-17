@@ -13,7 +13,7 @@ import org.greenrobot.eventbus.EventBus;
  * Copyright (c) 2017/1/21. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class SImpleDescPresenter extends Presenter<SimpleDescFragment> {
+public class SimpleDescPresenter extends Presenter<SimpleDescFragment> {
 
     private Battle mBattle;
 

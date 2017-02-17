@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="256dp"
+    android:background="@mipmap/bg_battle_header"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    tools:context="com.miguan.otk.module.battle.BattleActivity"
+    tools:showIn="@layout/match_activity_battle"
+    >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="25dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_battle_a_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lines="2"
+            android:maxLines="2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_caption_material"
+            android:textStyle="bold"
+            tools:text="机智的黄图哥机智的黄图哥机智的黄图哥"
+            />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dv_battle_a_avatar"
+            style="@style/LargeAvatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_battle_a_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QQ:692078286"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/text_size_caption_material"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:src="@mipmap/ic_hearth_stone_logo"
+            />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/tv_battle_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_body_material"
+            android:textStyle="bold"
+            tools:text="BO5 第一轮（准备）"
+            />
+
+        <TextView
+            android:id="@+id/tv_battle_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="@style/TextTitle"
+            android:textColor="@color/white"
+            android:textSize="64sp"
+            android:textStyle="bold"
+            tools:text="0&#160;:&#160;0"
+            />
+
+        <TextView
+            android:id="@+id/tv_battle_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:gravity="center"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/text_size_body_material"
+            tools:text="未开始"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="25dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_battle_b_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lines="2"
+            android:maxLines="2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_caption_material"
+            android:textStyle="bold"
+            tools:text="机智的黄图哥"
+            />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dv_battle_b_avatar"
+            style="@style/LargeAvatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_battle_b_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QQ:692078286"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/text_size_caption_material"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

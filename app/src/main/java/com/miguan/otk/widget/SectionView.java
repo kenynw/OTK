@@ -2,7 +2,6 @@ package com.miguan.otk.widget;
 
 import android.content.Context;
 import android.support.annotation.StringRes;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +44,7 @@ public class SectionView extends LinearLayout {
 
     private void init(Context context) {
         setOrientation(VERTICAL);
-        View view = LayoutInflater.from(context).inflate(R.layout.include_battle_status, this);
+        View view = LayoutInflater.from(context).inflate(R.layout.view_battle_section, this);
         ButterKnife.bind(this, view);
     }
 
@@ -66,10 +65,8 @@ public class SectionView extends LinearLayout {
     }
 
     public SectionView setNotice(String notice) {
-        if (!TextUtils.isEmpty(notice)) {
-            mTvNotice.setText(notice);
-            mTvNotice.setVisibility(VISIBLE);
-        }
+        mTvNotice.setText(notice);
+        mTvNotice.setVisibility(VISIBLE);
         return this;
     }
 

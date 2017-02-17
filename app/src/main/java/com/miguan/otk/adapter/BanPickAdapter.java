@@ -4,8 +4,9 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
@@ -62,7 +63,13 @@ public class BanPickAdapter extends BaseAdapter {
     }
 
     public void select(Hero hero) {
-        hero.setCheck(!hero.isCheck());
+        if (mSelected.contains(hero)) {
+            mSelected.remove(hero);
+            hero.setCheck(false);
+        } else {
+            mSelected.add(hero);
+            hero.setCheck(true);
+        }
         notifyDataSetChanged();
     }
 
@@ -90,14 +97,17 @@ public class BanPickAdapter extends BaseAdapter {
 
     class PickViewHolder extends BaseViewHolder<Hero> {
 
+        @Bind(R.id.ly_hero_item)
+        FrameLayout mLyItem;
+
         @Bind(R.id.iv_hero_thumb)
         ImageView mIvThumb;
 
-        @Bind(R.id.cb_hero_status)
-        CheckBox mCbName;
+        @Bind(R.id.iv_hero_status)
+        ImageView mIvStatus;
 
-        @Bind(R.id.view_hero_mask)
-        View mMask;
+        @Bind(R.id.tv_hero_mask)
+        TextView mTvMask;
 
         public PickViewHolder(ViewGroup parent) {
             super(parent, R.layout.item_grid_pick);
@@ -108,15 +118,15 @@ public class BanPickAdapter extends BaseAdapter {
         public void setData(Hero hero) {
             mIvThumb.setImageResource(HERO_RES[hero.getIndex() - 1]);
             if (mMode == MODE_PICK) {
-                mCbName.setVisibility(View.VISIBLE);
-                mCbName.setChecked(hero.isCheck());
-                mMask.setVisibility(View.GONE);
+                mIvThumb.setSelected(mSelected.contains(hero) && hero.isCheck());
+                mIvStatus.setVisibility(mSelected.contains(hero) && hero.isCheck() ? View.VISIBLE : View.GONE);
+                mTvMask.setVisibility(View.GONE);
             } else if (mMode == MODE_BAN) {
-                mCbName.setVisibility(View.GONE);
-                mMask.setVisibility(hero.isCheck() ? View.VISIBLE : View.GONE);
+                mIvStatus.setVisibility(View.GONE);
+                mTvMask.setVisibility(hero.isCheck() ? View.VISIBLE : View.GONE);
             } else {
-                mCbName.setVisibility(View.GONE);
-                mMask.setVisibility(hero.isBan() ? View.VISIBLE : View.GONE);
+                mIvStatus.setVisibility(View.GONE);
+                mTvMask.setVisibility(hero.isBan() ? View.VISIBLE : View.GONE);
             }
             if (mListener != null) {
                 itemView.setOnClickListener(v -> mListener.onItemClick(hero));

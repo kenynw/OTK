@@ -28,17 +28,19 @@
             <LinearLayout
                 android:id="@+id/ly_profile_avatar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:background="@color/white"
                 android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 >
 
                 <TextView
                     android:id="@+id/tv_profile_avatar"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:padding="@dimen/horizontal_margin"
+                    android:layout_weight="1"
                     android:text="@string/label_avatar"
                     android:textAppearance="@style/TextBody"
                     />
@@ -46,37 +48,34 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/dv_profile_avatar"
                     style="@style/Avatar"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="8dp"
-                    />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="@dimen/widget_small_height"
+                    android:layout_height="@dimen/widget_small_height"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
                     />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/horizontal_margin"
+                    android:layout_gravity="center_vertical|end"
                     android:src="@mipmap/ic_more"
                     />
 
             </LinearLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
                 android:background="@color/white"
-                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/horizontal_margin"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/label_username"
                     android:textAppearance="@style/TextBody"
                     />
@@ -85,24 +84,26 @@
                     android:id="@+id/tv_profile_username"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/textSecondary"
                     android:textSize="@dimen/text_size_body_material"
                     tools:text="OTK电竞"
                     />
 
-            </LinearLayout>
+            </FrameLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
                 android:background="@color/white"
-                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/horizontal_margin"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/label_uid"
                     android:textAppearance="@style/TextBody"
                     />
@@ -111,23 +112,31 @@
                     android:id="@+id/tv_profile_uid"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="@dimen/text_size_body_material"
                     tools:text="54545"
                     />
 
-            </LinearLayout>
+            </FrameLayout>
 
-            <LinearLayout
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/vertical_margin"
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_medium_height"
                 android:background="@color/white"
-                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/horizontal_margin"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/label_qq"
                     android:textAppearance="@style/TextBody"
                     />
@@ -136,52 +145,61 @@
                     android:id="@+id/tv_profile_qq"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:drawableEnd="@mipmap/ic_more"
+                    android:drawablePadding="20dp"
                     android:drawableRight="@mipmap/ic_more"
-                    android:gravity="center_vertical"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/textSecondary"
                     android:textSize="@dimen/text_size_body_material"
                     tools:text="6955454"
                     />
 
-            </LinearLayout>
+            </FrameLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
                 android:background="@color/white"
-                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 >
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/horizontal_margin"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/label_email"
-                    android:textAppearance="@style/TextBody"/>
+                    android:textAppearance="@style/TextBody"
+                    />
 
                 <TextView
                     android:id="@+id/tv_profile_email"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:drawableEnd="@mipmap/ic_more"
+                    android:drawablePadding="20dp"
                     android:drawableRight="@mipmap/ic_more"
-                    android:gravity="center_vertical"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/textSecondary"
                     android:textSize="@dimen/text_size_body_material"
                     tools:text="6955454@qq.com"
                     />
 
-            </LinearLayout>
+            </FrameLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
                 android:background="@color/white"
-                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/horizontal_margin"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/label_job"
                     android:textAppearance="@style/TextBody"
                     />
@@ -190,25 +208,29 @@
                     android:id="@+id/tv_profile_job"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:drawableEnd="@mipmap/ic_more"
+                    android:drawablePadding="20dp"
                     android:drawableRight="@mipmap/ic_more"
-                    android:gravity="center_vertical"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/textSecondary"
                     android:textSize="@dimen/text_size_body_material"
                     tools:text="学生党"
                     />
 
-            </LinearLayout>
+            </FrameLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
                 android:background="@color/white"
-                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/horizontal_margin"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/label_born"
                     android:textAppearance="@style/TextBody"
                     />
@@ -217,25 +239,29 @@
                     android:id="@+id/tv_profile_born"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:drawableEnd="@mipmap/ic_more"
+                    android:drawablePadding="20dp"
                     android:drawableRight="@mipmap/ic_more"
-                    android:gravity="center_vertical"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/textSecondary"
                     android:textSize="@dimen/text_size_body_material"
                     tools:text="1883-03-03"
                     />
 
-            </LinearLayout>
+            </FrameLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
                 android:background="@color/white"
-                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/horizontal_margin"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/label_profile_area"
                     android:textAppearance="@style/TextBody"
                     />
@@ -244,25 +270,29 @@
                     android:id="@+id/tv_profile_area"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/widget_medium_height"
+                    android:drawableEnd="@mipmap/ic_more"
+                    android:drawablePadding="20dp"
                     android:drawableRight="@mipmap/ic_more"
-                    android:gravity="center_vertical"
+                    android:gravity="center_vertical|end"
+                    android:textColor="@color/textSecondary"
                     android:textSize="@dimen/text_size_body_material"
                     tools:text="福建厦门"
                     />
 
-            </LinearLayout>
+            </FrameLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/widget_medium_height"
                 android:background="@color/white"
-                android:orientation="horizontal"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/horizontal_margin"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/label_introduction"
                     android:textAppearance="@style/TextBody"
                     />
@@ -271,14 +301,18 @@
                     android:id="@+id/tv_profile_intro"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/white"
+                    android:drawableEnd="@mipmap/ic_more"
+                    android:drawablePadding="20dp"
                     android:drawableRight="@mipmap/ic_more"
-                    android:gravity="center_vertical"
-                    android:hint="@string/hint_introduction"
+                    android:ellipsize="end"
+                    android:ems="20"
+                    android:gravity="center_vertical|end"
+                    android:text="@string/hint_introduction"
+                    android:textColor="@color/textSecondary"
                     android:textSize="@dimen/text_size_body_material"
                     />
 
-            </LinearLayout>
+            </FrameLayout>
 
         </LinearLayout>
 

@@ -88,6 +88,15 @@
         <item name="android:maxLines">1</item>
     </style>
 
+    <style name="ButtonBattle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/widget_medium_height</item>
+        <item name="android:background">@drawable/btn_primary2white_selector</item>
+        <item name="android:textColor">@color/text_color_white2primary</item>
+        <item name="android:textSize">@dimen/text_size_subhead_material</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>

@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.dsk.chain.bijection.Presenter;
 import com.miguan.otk.model.CommonModel;
+import com.miguan.otk.utils.DataCleanManager;
 import com.sgun.utils.LUtils;
 
 /**
@@ -12,8 +13,20 @@ import com.sgun.utils.LUtils;
 
 public class SettingsPresenter extends Presenter<SettingsActivity> {
 
+    @Override
+    protected void onCreateView(SettingsActivity view) {
+        super.onCreateView(view);
+        getData();
+    }
+
+    private void getData() {
+        getView().setData(DataCleanManager.getCacheSize(getView()), LUtils.getAppVersionName());
+    }
+
     public void clearCache() {
-        LUtils.toast("success");
+        DataCleanManager.cleanInternalCache(getView());
+        LUtils.toast("清除成功");
+        getData();
     }
 
     public void logout() {

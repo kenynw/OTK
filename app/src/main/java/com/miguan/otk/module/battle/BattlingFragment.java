@@ -41,14 +41,14 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
     @Bind(R.id.btn_pick_copy)
     Button mBtnCopy;
 
-    @Bind(R.id.btn_battling_judge)
-    Button mBtnContact;
+    @Bind(R.id.tv_battling_judge)
+    TextView mTvContact;
 
-    @Bind(R.id.btn_battling_screenshot)
-    Button mBtnScreenshot;
+    @Bind(R.id.tv_battling_screenshot)
+    TextView mTvScreenshot;
 
-    @Bind(R.id.btn_battling_chatroom)
-    Button mBtnChatroom;
+    @Bind(R.id.tv_battling_chatroom)
+    TextView mTvChatroom;
 
     @Bind(R.id.section_battling_status)
     SectionView mSectionStatus;
@@ -101,9 +101,9 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
         ButterKnife.bind(this, view);
 
         mBtnCopy.setOnClickListener(v -> getPresenter().copyName(mTvOpponent.getText().toString().trim()));
-        mBtnContact.setOnClickListener(v -> startActivity(new Intent(getActivity(), ContactJudgeActivity.class)));
-        mBtnScreenshot.setOnClickListener(v -> getPresenter().toShot());
-//        mBtnChatroom.setOnClickListener(v -> startActivity(new Intent()));
+        mTvContact.setOnClickListener(v -> startActivity(new Intent(getActivity(), ContactJudgeActivity.class)));
+        mTvScreenshot.setOnClickListener(v -> getPresenter().toShot());
+//        mTvChatroom.setOnClickListener(v -> startActivity(new Intent()));
 
         return view;
     }
@@ -113,7 +113,8 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
 
         // 比赛处于pick阶段
         if (battle.getBattle_status() == 2) {
-            if (battle.getBattle_status_user() == 5 && battle.getUser_type() == 1 || battle.getBattle_status_user() == 6 && battle.getUser_type() == 2) {
+            if (battle.getBattle_status_user() == 5 && battle.getUser_type() == 1
+                    || battle.getBattle_status_user() == 6 && battle.getUser_type() == 2) {
                 setPicked();
             } else {
                 mSectionStatus.setTitle(R.string.text_pick_title)

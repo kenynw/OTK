@@ -96,7 +96,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_medium_height"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/btn_primary2dark_selector"
+        android:background="@drawable/btn_primary2disable_selector"
         android:text="@string/btn_enroll"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_subhead_material"

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -15,17 +17,26 @@ import butterknife.ButterKnife;
 @RequiresPresenter(SettingsPresenter.class)
 public class SettingsActivity extends ChainBaseActivity<SettingsPresenter> {
 
-    @Bind(R.id.btn_setting_clear_cache)
-    Button mBtnClear;
+    @Bind(R.id.ly_setting_clear)
+    FrameLayout mLyClear;
 
-    @Bind(R.id.btn_setting_about_us)
-    Button mBtnAbout;
+    @Bind(R.id.tv_setting_clear_cache)
+    TextView mTvCache;
+
+    @Bind(R.id.tv_setting_about_us)
+    TextView mTvAbout;
 
     @Bind(R.id.btn_setting_logout)
     Button mBtnLogout;
 
-    @Bind(R.id.btn_check_update)
-    Button mBtnUpdate;
+    @Bind(R.id.ly_setting_update)
+    FrameLayout mLyUpdate;
+
+    @Bind(R.id.tv_setting_version)
+    TextView mTvVersion;
+
+    @Bind(R.id.tv_setting_push)
+    TextView mTvPush;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +45,15 @@ public class SettingsActivity extends ChainBaseActivity<SettingsPresenter> {
         setToolbarTitle(R.string.title_activity_settings);
         ButterKnife.bind(this);
 
-        mBtnClear.setOnClickListener(v -> showDialog());
-        mBtnAbout.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
-        mBtnUpdate.setOnClickListener(v -> getPresenter().checkUpdate());
+        mLyClear.setOnClickListener(v -> showDialog());
+        mTvAbout.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
+        mLyUpdate.setOnClickListener(v -> getPresenter().checkUpdate());
         mBtnLogout.setOnClickListener(v -> getPresenter().logout());
+    }
+
+    public void setData(String cache, String version) {
+        mTvCache.setText(cache);
+        mTvVersion.setText(String.format(getString(R.string.label_current_version), version));
     }
 
     private void showDialog() {

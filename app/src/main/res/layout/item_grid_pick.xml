@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ly_hero_item"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_oval"
+    >
 
     <ImageView
         android:id="@+id/iv_hero_thumb"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@mipmap/ic_launcher"
+        android:background="@drawable/bg_stroke_primary_oval_shape"
         />
 
-    <CheckBox
-        android:id="@+id/cb_hero_status"
+    <ImageView
+        android:id="@+id/iv_hero_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="right|top"
-        android:textAppearance="@style/TextSubhead"
-        android:textColor="@color/white"
+        android:layout_gravity="end|bottom"
+        android:src="@mipmap/ic_checked"
         />
 
-    <View
+    <TextView
+        android:id="@+id/tv_hero_mask"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/view_hero_mask"
-        android:background="#5f000000" />
+        android:background="@drawable/bg_stroke_trans_oval_shape"
+        android:gravity="center"
+        android:text="@string/text_ban"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_body_material"
+        android:textStyle="bold"
+        />
 
 </FrameLayout>

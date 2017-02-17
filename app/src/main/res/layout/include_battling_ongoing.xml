@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_battling_ongoing"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone"
+    >
+
+    <TextView
+        android:id="@+id/tv_battling_a_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/indicator_primary_dark_label"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/indicator_primary_dark_label"
+        android:padding="15dp"
+        android:textAppearance="@style/TextSubhead"
+        android:textStyle="bold"
+        tools:text="机智的黄图哥"
+        />
+
+    <com.jude.exgridview.ExGridView
+        android:id="@+id/grid_battling_a_bans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        app:grid_column="5"
+        app:grid_divider_horizontal="24dp"
+        app:grid_divider_vertical="24dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_battling_b_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/indicator_primary_yellow_label"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/indicator_primary_yellow_label"
+        android:padding="15dp"
+        android:textAppearance="@style/TextSubhead"
+        android:textStyle="bold"
+        tools:text="机智的黄图哥"
+        />
+
+    <com.jude.exgridview.ExGridView
+        android:id="@+id/grid_battling_b_bans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        app:grid_column="5"
+        app:grid_divider_horizontal="24dp"
+        app:grid_divider_vertical="24dp"
+        />
+
+</LinearLayout>

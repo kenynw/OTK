@@ -4,6 +4,7 @@ import android.view.ViewGroup;
 
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.list.BaseListActivity;
+import com.dsk.chain.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.viewholder.MessageViewHolder;
@@ -21,4 +22,8 @@ public class MessageListActivity extends BaseListActivity<MessageListPresenter> 
         return R.layout.activity_toolbar_list;
     }
 
+    @Override
+    public ListConfig getListConfig() {
+        return super.getListConfig().setHasItemDecoration(false);
+    }
 }

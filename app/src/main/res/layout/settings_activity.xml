@@ -12,48 +12,109 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <Button
-        android:id="@+id/btn_setting_clear_cache"
+    <FrameLayout
+        android:id="@+id/ly_setting_clear"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@color/white"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:drawableRight="@mipmap/ic_more"
-        android:gravity="center_vertical"
-        android:padding="4dp"
-        android:text="@string/btn_clear_cache"
-        android:textAppearance="@style/TextBody"/>
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        >
 
-    <Button
-        android:id="@+id/btn_setting_about_us"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
-        android:background="@color/white"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:drawableRight="@mipmap/ic_more"
-        android:gravity="center_vertical"
-        android:padding="4dp"
-        android:text="@string/btn_about_us"
-        android:textAppearance="@style/TextBody"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/btn_clear_cache"
+            android:textAppearance="@style/TextBody"
+            />
 
-    <Button
-        android:id="@+id/btn_check_update"
-        style="@style/TextBody"
+        <TextView
+            android:id="@+id/tv_setting_clear_cache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:drawableEnd="@mipmap/ic_more"
+            android:drawablePadding="@dimen/horizontal_margin"
+            android:drawableRight="@mipmap/ic_more"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/text_size_body_material"
+            tools:text="15.23MB"
+            />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_setting_about_us"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@color/white"
-        android:drawableLeft="@mipmap/ic_launcher"
+        android:drawableEnd="@mipmap/ic_more"
         android:drawableRight="@mipmap/ic_more"
         android:gravity="center_vertical"
-        android:padding="4dp"
-        android:text="@string/btn_check_update"/>
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:text="@string/tv_about_us"
+        android:textAppearance="@style/TextBody"
+        />
+
+    <FrameLayout
+        android:id="@+id/ly_setting_update"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:text="@string/btn_check_update"
+            android:textAppearance="@style/TextBody"/>
+
+        <TextView
+            android:id="@+id/tv_setting_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:drawableEnd="@mipmap/ic_more"
+            android:drawablePadding="@dimen/horizontal_margin"
+            android:drawableRight="@mipmap/ic_more"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/text_size_body_material"
+            tools:text="当前版本"
+            />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_setting_push"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:drawableEnd="@mipmap/ic_more"
+        android:drawableRight="@mipmap/ic_more"
+        android:gravity="center_vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:text="@string/tv_push"
+        android:textAppearance="@style/TextBody"
+        />
 
     <Button
         android:id="@+id/btn_setting_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/horizontal_margin"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="@dimen/widget_small_height"
+        android:background="@drawable/btn_stroke_gray_round_shape"
         android:text="@string/btn_logout"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/text_size_body_material"
         />
 
 </LinearLayout>

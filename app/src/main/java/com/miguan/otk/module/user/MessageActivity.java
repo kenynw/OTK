@@ -1,9 +1,7 @@
 package com.miguan.otk.module.user;
 
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.TextAppearanceSpan;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -19,11 +17,17 @@ import butterknife.ButterKnife;
 @RequiresPresenter(MessagePresenter.class)
 public class MessageActivity extends BaseDataActivity<MessagePresenter, List<Message>> {
 
+    @Bind(R.id.ly_message_system)
+    RelativeLayout mLySystem;
+
     @Bind(R.id.tv_message_system)
     TextView mTvSystem;
 
     @Bind(R.id.tv_message_match)
     TextView mTvMatch;
+
+    @Bind(R.id.ly_message_match)
+    RelativeLayout mLyMatch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +36,13 @@ public class MessageActivity extends BaseDataActivity<MessagePresenter, List<Mes
         setToolbarTitle(R.string.title_activity_message);
         ButterKnife.bind(this);
 
-        mTvSystem.setOnClickListener(v -> getPresenter().showMessageList(0));
-        mTvMatch.setOnClickListener(v -> getPresenter().showMessageList(1));
+        mLySystem.setOnClickListener(v -> getPresenter().showMessageList(1));
+        mLyMatch.setOnClickListener(v -> getPresenter().showMessageList(2));
     }
 
     @Override
     public void setData(List<Message> messages) {
-        SpannableString spSystem = new SpannableString("系统消息\n" + messages.get(0).getContent());
-        spSystem.setSpan(new TextAppearanceSpan(this, R.style.TextCaption), 4, spSystem.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-        mTvSystem.setText(spSystem);
-
-        SpannableString spMatch = new SpannableString("比赛消息\n" + messages.get(0).getContent());
-        spMatch.setSpan(new TextAppearanceSpan(this, R.style.TextCaption), 4, spSystem.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-        mTvMatch.setText(spMatch);
+        if (messages.size() > 0) mTvSystem.setText(messages.get(0).getContent());
+        if (messages.size() > 1) mTvMatch.setText(messages.get(1).getContent());
     }
 }

@@ -11,37 +11,120 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <Button
-        android:id="@+id/tv_message_system"
-        style="@style/Widget.AppCompat.Button.Borderless"
+    <RelativeLayout
+        android:id="@+id/ly_message_system"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:drawableRight="@mipmap/ic_more"
-        android:drawablePadding="8dp"
-        android:ellipsize="end"
-        android:gravity="center_vertical"
-        android:lineSpacingMultiplier="1.4"
-        android:maxLines="3"
-        android:textAppearance="@style/TextBody"
-        android:padding="@dimen/horizontal_margin"
-        android:text="@string/btn_message_system"
-        />
+        android:layout_height="70dp"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin">
 
-    <TextView
-        android:id="@+id/tv_message_match"
+        <ImageView
+            android:id="@+id/iv_message_system_icon"
+            android:layout_width="@dimen/widget_medium_height"
+            android:layout_height="@dimen/widget_medium_height"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_message_system"
+            />
+
+        <TextView
+            android:id="@+id/tv_message_system_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/iv_message_system_icon"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/iv_message_system_icon"
+            android:layout_toRightOf="@id/iv_message_system_icon"
+            android:text="@string/text_message_system"
+            android:textAppearance="@style/TextSubhead"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_message_system"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_message_system_icon"
+            android:layout_alignLeft="@id/tv_message_system_title"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignStart="@id/tv_message_system_title"
+            android:layout_toEndOf="@id/iv_message_system_icon"
+            android:layout_toRightOf="@id/iv_message_system_icon"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextBody"
+            tools:text="@string/text_message_system"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_right_arrow"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ly_message_match"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:drawableRight="@mipmap/ic_more"
-        android:drawablePadding="8dp"
-        android:ellipsize="end"
-        android:gravity="center_vertical"
-        android:lineSpacingMultiplier="1.4"
-        android:maxLines="3"
-        android:textAppearance="@style/TextBody"
-        android:padding="@dimen/horizontal_margin"
-        android:text="@string/btn_message_match"
-        />
+        android:layout_height="70dp"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin">
+
+        <ImageView
+            android:id="@+id/iv_message_match_icon"
+            android:layout_width="@dimen/widget_medium_height"
+            android:layout_height="@dimen/widget_medium_height"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_message_match"
+            />
+
+        <TextView
+            android:id="@+id/tv_message_match_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/iv_message_match_icon"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/iv_message_match_icon"
+            android:layout_toRightOf="@id/iv_message_match_icon"
+            android:text="@string/text_message_system"
+            android:textAppearance="@style/TextSubhead"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_message_match"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_message_match_icon"
+            android:layout_alignLeft="@id/tv_message_match_title"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignStart="@id/tv_message_match_title"
+            android:layout_toEndOf="@id/iv_message_match_icon"
+            android:layout_toRightOf="@id/iv_message_match_icon"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextBody"
+            tools:text="@string/text_message_match"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_right_arrow"
+            />
+
+    </RelativeLayout>
 
 </LinearLayout>

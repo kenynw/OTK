@@ -89,7 +89,7 @@ public class BanPickView extends ExGridView {
             @Bind(R.id.iv_hero_thumb)
             ImageView mIvThumb;
 
-            @Bind(R.id.cb_hero_status)
+            @Bind(R.id.iv_hero_status)
             CheckBox mCbName;
 
             public ViewHolder(View itemView) {
