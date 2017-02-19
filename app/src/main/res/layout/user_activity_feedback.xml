@@ -1,150 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".module.user.FeedbackActivity">
 
     <include layout="@layout/include_toolbar"/>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/horizontal_margin"
-        android:paddingRight="@dimen/horizontal_margin"
-        >
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/label_feedback_type"
-            />
-
-        <Spinner
-            android:id="@+id/spinner_feedback_type"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:entries="@array/spinner_feedback_type"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/horizontal_margin"
-        android:paddingRight="@dimen/horizontal_margin"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/label_contact"
-            />
-
-        <EditText
-            android:id="@+id/et_feedback_contact"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:gravity="center_vertical"
-            android:hint="@string/hint_feedback_contact"
-            android:inputType="text"
-            android:maxLines="1"
-            android:paddingLeft="@dimen/horizontal_margin"
-            android:textColor="@color/text_black_primary"
-            android:textColorHint="@color/text_hint"
-            android:textSize="@dimen/text_size_body_material"
-            />
-
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/et_feedback_content"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@color/white"
-        android:gravity="left"
-        android:hint="@string/hint_feedback_content"
-        android:inputType="textMultiLine"
-        android:maxEms="140"
-        android:padding="@dimen/vertical_margin"
-        android:textColor="@color/text_black_primary"
-        android:textColorHint="@color/text_hint"
-        android:textSize="@dimen/text_size_body_material"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:padding="@dimen/horizontal_margin"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/label_upload_image"
-            />
-
-        <com.jude.exgridview.PieceViewGroup
-            android:id="@+id/pv_feedback_image"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:background="@color/white"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="24dp"
+                android:text="@string/label_feedback_type"
+                android:textColor="@color/textBody"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_feedback_submit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/vertical_margin"
-        android:text="@string/btn_ok"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_subhead_material"
-        />
+            <RadioGroup
+                android:id="@+id/rgroup_feedback_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/horizontal_margin"
-        android:paddingRight="@dimen/horizontal_margin"
-        >
+                <com.jude.exgridview.ExGridView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    app:grid_as_square="false"
+                    app:grid_column="3"
+                    app:grid_divider_horizontal="@dimen/vertical_margin"
+                    app:grid_divider_vertical="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/horizontal_margin"
-            android:text="@string/text_feedback_wb"
-            android:textColor="@color/text_black_secondary"
-            android:textSize="@dimen/text_size_body_material"
-            />
+                    <RadioButton
+                        android:id="@+id/rbtn_game_hearthstone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/widget_small_height"
+                        android:background="@drawable/btn_primary2disable_radius_selector"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/text_feedback_product"
+                        android:textColor="@color/text_color_disable2white"
+                        android:textSize="@dimen/text_size_body_material"
+                        android:textStyle="bold" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            />
+                    <RadioButton
+                        android:id="@+id/rbtn_game_lol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/widget_small_height"
+                        android:layout_toEndOf="@id/rbtn_game_hearthstone"
+                        android:layout_toRightOf="@id/rbtn_game_hearthstone"
+                        android:background="@drawable/btn_primary2disable_radius_selector"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/text_feedback_bug"
+                        android:textColor="@color/text_color_disable2white"
+                        android:textSize="@dimen/text_size_body_material"
+                        android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/horizontal_margin"
-            android:text="@string/text_feedback_qq"
-            android:textColor="@color/text_black_secondary"
-            android:textSize="@dimen/text_size_body_material"
-            />
+                    <RadioButton
+                        android:id="@+id/rbtn_game_wzry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/widget_small_height"
+                        android:layout_toEndOf="@id/rbtn_game_lol"
+                        android:layout_toRightOf="@id/rbtn_game_lol"
+                        android:background="@drawable/btn_primary2disable_radius_selector"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/text_feedback_cheat"
+                        android:textColor="@color/text_color_disable2white"
+                        android:textSize="@dimen/text_size_body_material"
+                        android:textStyle="bold" />
 
-    </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/rbtn_game_overwatch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/widget_small_height"
+                        android:layout_toEndOf="@id/rbtn_game_wzry"
+                        android:layout_toRightOf="@id/rbtn_game_wzry"
+                        android:background="@drawable/btn_primary2disable_radius_selector"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="@string/text_other"
+                        android:textColor="@color/text_color_disable2white"
+                        android:textSize="@dimen/text_size_body_material"
+                        android:textStyle="bold" />
+
+                </com.jude.exgridview.ExGridView>
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="24dp"
+                android:text="@string/label_contact"
+                android:textColor="@color/textBody"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_feedback_contact"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/widget_medium_height"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_feedback_contact"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/horizontal_margin"
+                android:paddingRight="@dimen/horizontal_margin"
+                android:textAppearance="@style/TextBody"
+                android:textColorHint="@color/text_hint" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="24dp"
+                android:text="@string/label_feedback_content"
+                android:textColor="@color/textBody"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="?android:attr/windowBackground"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_feedback_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="128dp"
+                    android:gravity="start"
+                    android:hint="@string/hint_feedback_content"
+                    android:inputType="textMultiLine"
+                    android:maxEms="140"
+                    android:padding="@dimen/vertical_margin"
+                    android:textAppearance="@style/TextBody"
+                    android:textColorHint="@color/text_hint" />
+
+                <com.jude.exgridview.PieceViewGroup
+                    android:id="@+id/pv_feedback_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    app:grid_column="5"
+                    app:grid_divider_horizontal="10dp"
+                    app:grid_divider_vertical="10dp" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bgWindow">
+
+                <Button
+                    android:id="@+id/btn_feedback_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="@dimen/widget_small_height"
+                    android:layout_marginBottom="@dimen/widget_small_height"
+                    android:background="@drawable/btn_primary_radius_shape"
+                    android:text="@string/btn_ok"
+                    android:textColor="@color/text_color_white2primary"
+                    android:textSize="@dimen/text_size_body_material"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

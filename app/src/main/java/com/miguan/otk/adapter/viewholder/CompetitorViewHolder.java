@@ -18,10 +18,10 @@ import butterknife.ButterKnife;
 
 public class CompetitorViewHolder extends BaseViewHolder<User> {
 
-    @Bind(R.id.dv_enroll_avatar)
+    @Bind(R.id.dv_player_avatar)
     SimpleDraweeView mDvAvatar;
 
-    @Bind(R.id.tv_enroll_username)
+    @Bind(R.id.tv_player_username)
     TextView mTvUsername;
 
     public CompetitorViewHolder(ViewGroup parent) {

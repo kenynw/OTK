@@ -36,7 +36,7 @@ public class WithdrawViewHolder extends BaseViewHolder<Withdraw> {
 
     @Override
     public void setData(Withdraw data) {
-        mTvMoney.setText(String.format(getContext().getString(R.string.label_apply_money), data.getMoney()));
+        mTvMoney.setText(data.getMoney() + "");
         mTvStatus.setText(data.getStatus());
         mTvTime.setText(data.getTime());
         if (data.getMoney() > 15) {

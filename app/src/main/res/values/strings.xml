@@ -96,7 +96,15 @@
     <string name="text_copyright">copyright 2016 捷信宇(厦门)科技</string>
     <string name="text_contact_judge_title">点击下方的联系方式可以找我们</string>
     <string name="text_contact_judge_desc">如果页面没有自动跳转到裁判QQ，您可以尝试再次点击，或者是手动添加。</string>
+    <string name="text_common_rule">通用赛事规则 >></string>
+    <string name="text_common_rule_desc">采用通用赛事规则，请参赛前仔细阅读本网站的</string>
     <string name="text_detail_info">详情介绍</string>
+    <string name="text_feedback_qq">客服QQ：123456789</string>
+    <string name="text_feedback_wb">微博@OTK电竞</string>
+    <string name="text_feedback_product">产品建议</string>
+    <string name="text_feedback_bug">发现BUG</string>
+    <string name="text_feedback_cheat">举报作弊</string>
+    <string name="text_other">其他</string>
     <string name="text_game_account">游戏帐号</string>
     <string name="text_game_add_notice">备注：战网游戏需要添加数字战网号，如：otkxxx#1234</string>
     <string name="text_game_icon">游戏图标</string>
@@ -107,6 +115,9 @@
     <string name="text_judge_qq">裁判QQ—安娜：1655647371</string>
     <string name="text_lol">英雄联盟</string>
     <string name="text_match_bonus">赛事奖金</string>
+    <string name="text_match_final">决赛</string>
+    <string name="text_match_semfinal">半决赛</string>
+    <string name="text_match_battle">半决赛前</string>
     <string name="text_match_mode">比赛模式</string>
     <string name="text_match_support">赛事赞助</string>
     <string name="text_match_qq_group">OTK炉石传说赛事①群 ：77327504</string>
@@ -137,12 +148,15 @@
     <string name="text_to_login">点击登录</string>
     <string name="text_upload_avatar">上传头像</string>
     <string name="text_which_rounds">第%d轮</string>
+    <string name="text_wzry">王者荣耀</string>
 
     <string name="label_address">收货地址：</string>
     <string name="label_alipay">支付宝：</string>
-    <string name="label_apply_money">申请金额%d</string>
+    <string name="label_apply_money">申请金额</string>
     <string name="label_avatar">头像</string>
     <string name="label_balance">余额：%s</string>
+    <string name="label_balance_sb">拥有撒币：</string>
+    <string name="label_balance_money">拥有元宝：</string>
     <string name="label_battle_id">对战ID：%d</string>
     <string name="label_born">生辰</string>
     <string name="label_captcha">验证码</string>
@@ -156,7 +170,9 @@
     <string name="label_deck_selection_screen_2">卡组选择界面2：</string>
     <string name="label_email">邮箱</string>
     <string name="label_feedback_type">吐槽类型：</string>
+    <string name="label_feedback_content">吐槽内容：</string>
     <string name="label_game_account">游戏帐号：</string>
+    <string name="label_game_name">游戏名称：</string>
     <string name="label_introduction">签名</string>
     <string name="label_job">现状</string>
     <string name="label_match_id_cost">赛事ID：%1$d&#160;&#160;&#160;报名费：%2$d撒币</string>
@@ -185,8 +201,7 @@
     <string name="hint_email">请输入邮箱</string>
     <string name="hint_feedback_contact">输入邮箱或QQ（选填）</string>
     <string name="hint_feedback_content">尽情吐槽吧~</string>
-    <string name="text_feedback_qq">客服QQ：123456789</string>
-    <string name="text_feedback_wb">微博@OTK电竞</string>
+    <string name="hint_game_nickname">请输入您的游戏昵称</string>
     <string name="hint_introduction">有趣的个人介绍会吸引更多粉丝哦</string>
     <string name="hint_league_title">请输入您的公会名</string>
     <string name="hint_league_intro">请输入公会简介</string>

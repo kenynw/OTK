@@ -52,7 +52,7 @@ public class MatchViewHolder extends BaseViewHolder<Match> {
         Drawable drawable = getContext().getResources().getDrawable(data.getGame_type() == 1 ? R.mipmap.ic_match_type_private : R.mipmap.ic_match_type_invite);
         drawable.setBounds(0, 0, LUtils.dp2px(24), LUtils.dp2px(24));
 
-        mTvTitle.setCompoundDrawables(data.getGame_type() == 0 ? null : drawable, null, null, null);
+        mTvTitle.setCompoundDrawables(null, null, data.getGame_type() == 0 ? null : drawable, null);
         mTvTime.setText(data.getStart_time());
         itemView.setOnClickListener(v -> {
             Intent i = new Intent(getContext(), MatchDetailActivity.class);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/user_activity_game_account_add"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -14,9 +14,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/horizontal_margin"
-        android:text="@string/text_game_name"
-        android:textAppearance="@style/TextSubhead"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:paddingTop="24dp"
+        android:text="@string/label_game_name"
+        android:textColor="@color/textBody"
+        android:textSize="22sp"
+        android:textStyle="bold"
         />
 
     <RadioGroup
@@ -26,62 +31,139 @@
         android:orientation="horizontal"
         >
 
-        <RadioButton
-            android:id="@+id/rbtn_game_hearthstone"
-            android:layout_width="0dp"
+        <com.jude.exgridview.ExGridView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="@string/text_hearthstone"
-            />
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            app:grid_as_square="false"
+            app:grid_column="3"
+            app:grid_divider_horizontal="@dimen/vertical_margin"
+            app:grid_divider_vertical="10dp">
 
-        <RadioButton
-            android:id="@+id/rbtn_game_overwatch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/text_overwatch"
-            />
+            <RadioButton
+                android:id="@+id/rbtn_game_hearthstone"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_small_height"
+                android:background="@drawable/btn_primary2disable_radius_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/text_hearthstone"
+                android:textColor="@color/text_color_disable2white"
+                android:textSize="@dimen/text_size_body_material"
+                android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/rbtn_game_lol"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/text_lol"
-            />
+            <RadioButton
+                android:id="@+id/rbtn_game_lol"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_small_height"
+                android:layout_toEndOf="@id/rbtn_game_hearthstone"
+                android:layout_toRightOf="@id/rbtn_game_hearthstone"
+                android:background="@drawable/btn_primary2disable_radius_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/text_lol"
+                android:textColor="@color/text_color_disable2white"
+                android:textSize="@dimen/text_size_body_material"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rbtn_game_wzry"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_small_height"
+                android:layout_toEndOf="@id/rbtn_game_lol"
+                android:layout_toRightOf="@id/rbtn_game_lol"
+                android:background="@drawable/btn_primary2disable_radius_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/text_wzry"
+                android:textColor="@color/text_color_disable2white"
+                android:textSize="@dimen/text_size_body_material"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rbtn_game_overwatch"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/widget_small_height"
+                android:layout_toEndOf="@id/rbtn_game_wzry"
+                android:layout_toRightOf="@id/rbtn_game_wzry"
+                android:background="@drawable/btn_primary2disable_radius_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/text_overwatch"
+                android:textColor="@color/text_color_disable2white"
+                android:textSize="@dimen/text_size_body_material"
+                android:textStyle="bold" />
+
+        </com.jude.exgridview.ExGridView>
 
     </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/horizontal_margin"
         android:text="@string/label_game_account"
-        android:textAppearance="@style/TextSubhead"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:paddingTop="24dp"
+        android:textColor="@color/textBody"
+        android:textSize="22sp"
+        android:textStyle="bold"
         />
 
     <EditText
         android:id="@+id/et_game_account"
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_medium_height"
-        android:layout_marginLeft="@dimen/horizontal_margin"
-        android:layout_marginRight="@dimen/horizontal_margin"
-        android:background="@drawable/btn_stroke_gray_radius_shape"
-        android:inputType="text"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/bgWindow"
+        android:gravity="center"
+        android:hint="@string/hint_game_nickname"
+        android:inputType="text"
+        android:textAppearance="@style/TextBody"
+        android:textColorHint="@color/textHint" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/horizontal_margin"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
+        android:paddingEnd="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingStart="20dp"
         android:text="@string/text_game_add_notice"
+        android:textColor="@color/disable_btn"
+        android:textSize="@dimen/text_size_caption_material"
         />
 
-    <Button
-        android:id="@+id/btn_game_save"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_ok"
-        />
+        android:layout_height="match_parent"
+        android:background="@color/bgWindow"
+        >
+
+        <Button
+            android:id="@+id/btn_game_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_ok"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="@dimen/widget_small_height"
+            android:background="@drawable/btn_primary_radius_shape"
+            android:textColor="@color/text_color_white2primary"
+            android:textSize="@dimen/text_size_body_material"
+            android:textStyle="bold"
+            />
+
+    </FrameLayout>
 
 </LinearLayout>

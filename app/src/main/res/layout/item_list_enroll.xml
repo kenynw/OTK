@@ -6,16 +6,21 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:gravity="center_vertical"
+    android:paddingBottom="@dimen/vertical_margin"
+    android:paddingTop="@dimen/vertical_margin"
     android:orientation="horizontal">
 
     <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/dv_enroll_avatar"
+        android:id="@+id/dv_player_avatar"
         style="@style/Avatar"
-        android:layout_margin="@dimen/horizontal_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="@dimen/horizontal_margin"
+        android:layout_marginStart="20dp"
         />
 
     <TextView
-        android:id="@+id/tv_enroll_username"
+        android:id="@+id/tv_player_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextBody"
@@ -29,10 +34,14 @@
         />
 
     <TextView
+        android:id="@+id/tv_player_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/horizontal_margin"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         tools:text="签到"
+        android:textColor="@color/green"
+        android:textSize="13sp"
         />
 
 </LinearLayout>

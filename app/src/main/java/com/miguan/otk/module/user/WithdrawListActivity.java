@@ -58,7 +58,7 @@ public class WithdrawListActivity extends BaseListActivity<WithdrawListPresenter
         } else {
             mBtnBind.setVisibility(View.GONE);
             mBtnWithdraw.setVisibility(View.VISIBLE);
-            mTvBalance.setText(getString(R.string.label_cash_balance) + withdraw.getMoney());
+            mTvBalance.setText(withdraw.getMoney());
             mTvAccount.setText(withdraw.getAlipay_account());
             if (withdraw.getMoney() <= 15) {
                 mBtnWithdraw.setEnabled(false);

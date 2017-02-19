@@ -1,6 +1,7 @@
 package com.miguan.otk.module.match;
 
 import android.net.Uri;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -18,11 +19,14 @@ import butterknife.ButterKnife;
 
 public class UserViewHolder extends BaseViewHolder<User> {
 
-    @Bind(R.id.dv_enroll_avatar)
+    @Bind(R.id.dv_player_avatar)
     SimpleDraweeView mDvAvatar;
 
-    @Bind(R.id.tv_enroll_username)
+    @Bind(R.id.tv_player_username)
     TextView mTvUsername;
+
+    @Bind(R.id.tv_player_status)
+    TextView mTvStatus;
 
     public UserViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_list_enroll);
@@ -33,5 +37,11 @@ public class UserViewHolder extends BaseViewHolder<User> {
     public void setData(User data) {
         mDvAvatar.setImageURI(Uri.parse(data.getPhoto()));
         mTvUsername.setText(data.getUsername());
+        if (data.getSign().equals("0")) {
+            mTvStatus.setVisibility(View.VISIBLE);
+            mTvStatus.setText("已签到");
+        } else {
+            mTvStatus.setVisibility(View.GONE);
+        }
     }
 }

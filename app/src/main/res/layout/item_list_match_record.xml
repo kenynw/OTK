@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,10 +10,12 @@
 
     <TextView
         android:id="@+id/tv_record_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/horizontal_margin"
-        android:textAppearance="@style/TextSubhead"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textColor="@color/textSecondary"
+        android:textSize="13sp"
         tools:text="OTK炉石传说常规赛A（联系群12346586841）"
         />
 
@@ -26,34 +27,38 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="@dimen/horizontal_margin"
+            android:paddingBottom="20dp"
+            android:paddingTop="5dp"
             >
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/dv_record_user_a"
-                style="@style/LargeAvatar"
-                />
+                style="@style/Avatar" />
 
             <TextView
                 android:id="@+id/tv_record_user_a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
                 tools:text="名字长一点的黄图哥"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/TextCaption"
                 />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_match_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
+            android:textStyle="bold"
             tools:text="负 — 胜"
             />
 
@@ -62,21 +67,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical"
-            android:padding="@dimen/horizontal_margin"
-            >
+            android:paddingBottom="20dp"
+            android:paddingTop="5dp"
+            android:orientation="vertical">
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/dv_record_user_b"
-                style="@style/LargeAvatar"
-                />
+                style="@style/Avatar" />
 
             <TextView
                 android:id="@+id/tv_record_user_b"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:textAppearance="@style/TextCaption"
                 tools:text="名字长一点的黄图哥"
+                android:layout_marginTop="4dp"
                 />
 
         </LinearLayout>

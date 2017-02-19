@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.RadioGroup;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -22,8 +22,8 @@ import butterknife.ButterKnife;
 @RequiresPresenter(FeedbackPresenter.class)
 public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> {
 
-    @Bind(R.id.spinner_feedback_type)
-    Spinner mSpType;
+    @Bind(R.id.rgroup_feedback_type)
+    RadioGroup mRdGroup;
 
     @Bind(R.id.et_feedback_contact)
     EditText mEtContact;
@@ -56,7 +56,7 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> {
             LUtils.log("请填写内容");
             return;
         }
-        getPresenter().save(mSpType.getSelectedItemPosition(),
+        getPresenter().save(mRdGroup.getCheckedRadioButtonId(),
                 mEtContact.getText().toString().trim(),
                 mEtContent.getText().toString().trim()
         );

@@ -111,7 +111,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="@dimen/widget_small_height"
-        android:background="@drawable/btn_stroke_gray_round_shape"
+        android:background="@drawable/btn_stroke_disable_round_shape"
         android:text="@string/btn_logout"
         android:textColor="@color/textSecondary"
         android:textSize="@dimen/text_size_body_material"
