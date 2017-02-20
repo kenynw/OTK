@@ -2,6 +2,7 @@
     <string name="app_name">OTK电竞</string>
 
     <string name="title_activity_address">收货地址</string>
+    <string name="title_activity_add_account">添加账号</string>
     <string name="title_activity_balance_detail">余额明细</string>
     <string name="title_activity_bench">替补列表</string>
     <string name="title_activity_contact_judge">联系裁判</string>
@@ -30,8 +31,8 @@
     <string name="title_activity_pay">订单信息确认</string>
     <string name="title_activity_profile">个人资料</string>
 
-    <string name="tv_about_us">关于OTK</string>
     <string name="btn_address">收货地址</string>
+    <string name="btn_add_account">添加账号</string>
     <string name="btn_balance_detail">余额明细</string>
     <string name="btn_battle_contact">联系裁判</string>
     <string name="btn_battle_screenshot">提交截图</string>
@@ -84,6 +85,7 @@
     <string name="btn_today_match">今日赛事</string>
     <string name="btn_wechat">微信</string>
 
+    <string name="text_about_us">关于OTK</string>
     <string name="text_ban">禁用</string>
     <string name="text_ban_title">BAN英雄阶段</string>
     <string name="text_ban_notice">请禁用英雄！</string>
@@ -148,6 +150,7 @@
     <string name="text_to_login">点击登录</string>
     <string name="text_upload_avatar">上传头像</string>
     <string name="text_which_rounds">第%d轮</string>
+    <string name="text_withdraw_fee">(手续费 - 1)</string>
     <string name="text_wzry">王者荣耀</string>
 
     <string name="label_address">收货地址：</string>
@@ -199,8 +202,8 @@
     <string name="hint_captcha">验证码</string>
     <string name="hint_confirm_password">再次输入密码</string>
     <string name="hint_email">请输入邮箱</string>
-    <string name="hint_feedback_contact">输入邮箱或QQ（选填）</string>
-    <string name="hint_feedback_content">尽情吐槽吧~</string>
+    <string name="hint_feedback_contact">请留下您的联系方式（QQ、手机）</string>
+    <string name="hint_feedback_content">请写下您要吐槽的话吧&#8230;</string>
     <string name="hint_game_nickname">请输入您的游戏昵称</string>
     <string name="hint_introduction">有趣的个人介绍会吸引更多粉丝哦</string>
     <string name="hint_league_title">请输入您的公会名</string>

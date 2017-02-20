@@ -4,19 +4,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="60dp"
     android:background="@color/white"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="@dimen/horizontal_margin">
+    >
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/dv_game_icon"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/widget_small_height"
         android:layout_weight="2"
-        android:paddingRight="@dimen/horizontal_margin"
-        app:actualImageScaleType="center"
+        app:actualImageScaleType="fitCenter"
         app:placeholderImage="@mipmap/def_image_loading"
         app:placeholderImageScaleType="centerCrop"
         />
@@ -24,10 +23,11 @@
     <TextView
         android:id="@+id/tv_game_name"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
         android:gravity="center"
-        android:textAppearance="@style/TextSubhead"
+        android:textAppearance="@style/TextBody"
+        android:textStyle="bold"
         tools:text="炉石传说"
         />
 
@@ -35,9 +35,10 @@
         android:id="@+id/tv_game_account"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="4"
         android:gravity="center"
-        android:textAppearance="@style/TextSubhead"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/text_size_body_material"
         tools:text="白夜如一#5432"
         />
 

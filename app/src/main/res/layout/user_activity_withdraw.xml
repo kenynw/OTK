@@ -22,10 +22,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/horizontal_margin"
                 android:paddingRight="@dimen/horizontal_margin"
-                android:background="@color/white"
                 android:paddingTop="20dp"
                 >
 
@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/label_cash_balance"
                     android:textColor="@color/textSecondary"
-                    android:textSize="@dimen/text_size_subhead_material"
+                    android:textSize="@dimen/text_size_body_material"
                     />
 
                 <TextView
@@ -42,9 +42,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    tools:text="250"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/text_size_title_material"
+                    tools:text="250"
                     />
 
             </LinearLayout>
@@ -52,10 +52,10 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/horizontal_margin"
-                android:paddingRight="@dimen/horizontal_margin"
                 android:background="@color/white"
                 android:paddingBottom="@dimen/vertical_margin"
+                android:paddingLeft="@dimen/horizontal_margin"
+                android:paddingRight="@dimen/horizontal_margin"
                 >
 
                 <TextView
@@ -65,18 +65,18 @@
                     android:layout_alignParentBottom="true"
                     android:text="@string/label_cash_account"
                     android:textColor="@color/textSecondary"
-                    android:textSize="@dimen/text_size_subhead_material"
+                    android:textSize="@dimen/text_size_body_material"
                     />
 
                 <TextView
-                    android:layout_alignParentBottom="true"
-                    android:layout_width="wrap_content"
-                    android:layout_toEndOf="@id/tv_withdraw_label_account"
                     android:id="@+id/tv_withdraw_account"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/tv_withdraw_label_account"
                     android:layout_toRightOf="@id/tv_withdraw_label_account"
+                    android:textAppearance="@style/TextBody"
                     tools:text="234234"
-                    android:textAppearance="@style/TextTitle"
                     />
 
                 <Button
@@ -89,19 +89,7 @@
                     android:text="@string/btn_withdraw"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_size_body_material"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btn_withdraw_bind"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:background="@drawable/btn_primary_radius_shape"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_body_material"
-                    android:textStyle="bold"
-                    android:text="@string/btn_bind_alipay"
-                    android:visibility="gone"
-                    />
+                    android:textStyle="bold"/>
 
             </RelativeLayout>
 
@@ -113,7 +101,6 @@
                 android:id="@+id/recycle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
                 />

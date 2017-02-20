@@ -21,7 +21,7 @@ public class AboutActivity extends ChainBaseActivity<AboutPresenter> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity_about);
-        setToolbarTitle(R.string.tv_about_us);
+        setToolbarTitle(R.string.text_about_us);
         ButterKnife.bind(this);
 
         mTvVersion.setText(String.format("v %s", LUtils.getAppVersionName()));

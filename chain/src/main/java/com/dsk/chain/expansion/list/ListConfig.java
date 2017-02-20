@@ -166,7 +166,7 @@ public class ListConfig implements Cloneable {
         return this;
     }
 
-    public ListConfig setHasItemDecoration(boolean hasItemDecoration) {
+    public ListConfig hasItemDecoration(boolean hasItemDecoration) {
         mHasItemDecoration = hasItemDecoration;
         return this;
     }

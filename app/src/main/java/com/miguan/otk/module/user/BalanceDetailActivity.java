@@ -60,7 +60,7 @@ public class BalanceDetailActivity extends BaseDataActivity<BalanceDetailPresent
 
     @Override
     public void setData(User user) {
-        mTvSb.setText(String.format("我的撒币：\n%s", user.getCurrency()));
-        mTvMoney.setText(String.format("我的元宝：\n%s", user.getMoney()));
+        mTvSb.setText(user.getCurrency() + "");
+        mTvMoney.setText(user.getMoney() + "");
     }
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".module.user.FeedbackActivity">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              tools:context=".module.user.FeedbackActivity">
 
     <include layout="@layout/include_toolbar"/>
 
@@ -20,107 +20,97 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingStart="20dp"
-                android:paddingTop="24dp"
+                style="@style/LabelLarge"
                 android:text="@string/label_feedback_type"
-                android:textColor="@color/textBody"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                />
 
-            <RadioGroup
-                android:id="@+id/rgroup_feedback_type"
+            <com.jude.exgridview.ExGridView
+                android:id="@+id/grid_feedback_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                app:grid_as_square="false"
+                app:grid_column="3"
+                app:grid_divider_horizontal="@dimen/vertical_margin"
+                app:grid_divider_vertical="10dp">
 
-                <com.jude.exgridview.ExGridView
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/rbtn_game_hearthstone"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    app:grid_as_square="false"
-                    app:grid_column="3"
-                    app:grid_divider_horizontal="@dimen/vertical_margin"
-                    app:grid_divider_vertical="10dp">
+                    android:background="@drawable/btn_primary2disable_radius_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/text_feedback_product"
+                    android:textColor="@color/text_color_disable2white"
+                    android:textSize="@dimen/text_size_body_material"
+                    android:textStyle="bold"/>
 
-                    <RadioButton
-                        android:id="@+id/rbtn_game_hearthstone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/widget_small_height"
-                        android:background="@drawable/btn_primary2disable_radius_selector"
-                        android:button="@null"
-                        android:checked="true"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/text_feedback_product"
-                        android:textColor="@color/text_color_disable2white"
-                        android:textSize="@dimen/text_size_body_material"
-                        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/rbtn_game_lol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/rbtn_game_hearthstone"
+                    android:layout_toRightOf="@id/rbtn_game_hearthstone"
+                    android:background="@drawable/btn_primary2disable_radius_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/text_feedback_bug"
+                    android:textColor="@color/text_color_disable2white"
+                    android:textSize="@dimen/text_size_body_material"
+                    android:textStyle="bold"/>
 
-                    <RadioButton
-                        android:id="@+id/rbtn_game_lol"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/widget_small_height"
-                        android:layout_toEndOf="@id/rbtn_game_hearthstone"
-                        android:layout_toRightOf="@id/rbtn_game_hearthstone"
-                        android:background="@drawable/btn_primary2disable_radius_selector"
-                        android:button="@null"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/text_feedback_bug"
-                        android:textColor="@color/text_color_disable2white"
-                        android:textSize="@dimen/text_size_body_material"
-                        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/rbtn_game_wzry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/rbtn_game_lol"
+                    android:layout_toRightOf="@id/rbtn_game_lol"
+                    android:background="@drawable/btn_primary2disable_radius_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/text_feedback_cheat"
+                    android:textColor="@color/text_color_disable2white"
+                    android:textSize="@dimen/text_size_body_material"
+                    android:textStyle="bold"/>
 
-                    <RadioButton
-                        android:id="@+id/rbtn_game_wzry"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/widget_small_height"
-                        android:layout_toEndOf="@id/rbtn_game_lol"
-                        android:layout_toRightOf="@id/rbtn_game_lol"
-                        android:background="@drawable/btn_primary2disable_radius_selector"
-                        android:button="@null"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/text_feedback_cheat"
-                        android:textColor="@color/text_color_disable2white"
-                        android:textSize="@dimen/text_size_body_material"
-                        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/rbtn_game_overwatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/rbtn_game_wzry"
+                    android:layout_toRightOf="@id/rbtn_game_wzry"
+                    android:background="@drawable/btn_primary2disable_radius_selector"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/text_other"
+                    android:textColor="@color/text_color_disable2white"
+                    android:textSize="@dimen/text_size_body_material"
+                    android:textStyle="bold"/>
 
-                    <RadioButton
-                        android:id="@+id/rbtn_game_overwatch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/widget_small_height"
-                        android:layout_toEndOf="@id/rbtn_game_wzry"
-                        android:layout_toRightOf="@id/rbtn_game_wzry"
-                        android:background="@drawable/btn_primary2disable_radius_selector"
-                        android:button="@null"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="@string/text_other"
-                        android:textColor="@color/text_color_disable2white"
-                        android:textSize="@dimen/text_size_body_material"
-                        android:textStyle="bold" />
-
-                </com.jude.exgridview.ExGridView>
-
-            </RadioGroup>
+            </com.jude.exgridview.ExGridView>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingStart="20dp"
-                android:paddingTop="24dp"
+                style="@style/LabelLarge"
                 android:text="@string/label_contact"
-                android:textColor="@color/textBody"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                />
 
             <EditText
                 android:id="@+id/et_feedback_contact"
@@ -128,7 +118,7 @@
                 android:layout_height="@dimen/widget_medium_height"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:ems="10"
+                android:background="@color/bgWindow"
                 android:gravity="center_vertical"
                 android:hint="@string/hint_feedback_contact"
                 android:inputType="text"
@@ -136,40 +126,36 @@
                 android:paddingLeft="@dimen/horizontal_margin"
                 android:paddingRight="@dimen/horizontal_margin"
                 android:textAppearance="@style/TextBody"
-                android:textColorHint="@color/text_hint" />
+                android:textColorHint="@color/text_hint"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingLeft="20dp"
-                android:paddingStart="20dp"
-                android:paddingTop="24dp"
+                style="@style/LabelLarge"
                 android:text="@string/label_feedback_content"
-                android:textColor="@color/textBody"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
                 android:background="?android:attr/windowBackground"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <EditText
                     android:id="@+id/et_feedback_content"
                     android:layout_width="match_parent"
                     android:layout_height="128dp"
+                    android:background="@color/bgWindow"
                     android:gravity="start"
                     android:hint="@string/hint_feedback_content"
                     android:inputType="textMultiLine"
                     android:maxEms="140"
                     android:padding="@dimen/vertical_margin"
                     android:textAppearance="@style/TextBody"
-                    android:textColorHint="@color/text_hint" />
+                    android:textColorHint="@color/text_hint"
+                    />
 
                 <com.jude.exgridview.PieceViewGroup
                     android:id="@+id/pv_feedback_image"
@@ -180,7 +166,7 @@
                     android:paddingRight="10dp"
                     app:grid_column="5"
                     app:grid_divider_horizontal="10dp"
-                    app:grid_divider_vertical="10dp" />
+                    app:grid_divider_vertical="10dp"/>
 
             </LinearLayout>
 
@@ -193,15 +179,15 @@
                     android:id="@+id/btn_feedback_submit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/widget_small_height"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:layout_marginTop="@dimen/widget_small_height"
-                    android:layout_marginBottom="@dimen/widget_small_height"
                     android:background="@drawable/btn_primary_radius_shape"
                     android:text="@string/btn_ok"
                     android:textColor="@color/text_color_white2primary"
                     android:textSize="@dimen/text_size_body_material"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
             </FrameLayout>
 

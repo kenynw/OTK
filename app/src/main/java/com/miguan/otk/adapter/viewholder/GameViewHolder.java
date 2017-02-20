@@ -1,5 +1,6 @@
 package com.miguan.otk.adapter.viewholder;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.ViewGroup;
@@ -42,7 +43,7 @@ public class GameViewHolder extends BaseViewHolder<Game> {
         itemView.setOnClickListener(v -> {
             Intent i = new Intent(getContext(), GameAccountEditActivity.class);
             i.putExtra("game", data);
-            getContext().startActivity(i);
+            ((Activity) getContext()).startActivityForResult(i, 1);
         });
     }
 }

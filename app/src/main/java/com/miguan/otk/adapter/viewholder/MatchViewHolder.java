@@ -3,6 +3,7 @@ package com.miguan.otk.adapter.viewholder;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -25,9 +26,6 @@ public class MatchViewHolder extends BaseViewHolder<Match> {
     @Bind(R.id.tv_match_id)
     TextView mTvID;
 
-    @Bind(R.id.tv_match_status)
-    TextView mTvState;
-
     @Bind(R.id.dv_match_thumb)
     SimpleDraweeView mDvThumb;
 
@@ -37,6 +35,12 @@ public class MatchViewHolder extends BaseViewHolder<Match> {
     @Bind(R.id.tv_match_time)
     TextView mTvTime;
 
+    @Bind(R.id.tv_match_status)
+    TextView mTvStatus;
+
+    @Bind(R.id.tv_match_rank)
+    TextView mTvRank;
+
     public MatchViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_list_match);
         ButterKnife.bind(this, itemView);
@@ -45,7 +49,6 @@ public class MatchViewHolder extends BaseViewHolder<Match> {
     @Override
     public void setData(Match data) {
         mTvID.setText(String.format(getContext().getString(R.string.label_match_id), data.getCompetition_id()));
-        mTvState.setText(data.getGame_status());
         mDvThumb.setImageURI(Uri.parse(data.getGame_img()));
         mTvTitle.setText(data.getTitle());
 
@@ -54,6 +57,33 @@ public class MatchViewHolder extends BaseViewHolder<Match> {
 
         mTvTitle.setCompoundDrawables(null, null, data.getGame_type() == 0 ? null : drawable, null);
         mTvTime.setText(data.getStart_time());
+
+        mTvStatus.setText(data.getGame_status());
+        if (data.getStatus() == 5) {
+            mTvStatus.setTextColor(getContext().getResources().getColor(R.color.textSecondary));
+            if (data.getRank() > 0) {
+                mTvRank.setVisibility(View.VISIBLE);
+                switch (data.getRank()) {
+                    case 1 :
+                        mTvRank.setText("冠军");
+                        break;
+                    case 2 :
+                        mTvRank.setText("亚军");
+                        break;
+                    case 3 :
+                        mTvRank.setText("季军");
+                        break;
+                    default :
+                        mTvRank.setText(String.format("第%s名", data.getRank()));
+                        break;
+                }
+            } else {
+                mTvRank.setVisibility(View.GONE);
+            }
+        } else {
+            mTvStatus.setTextColor(getContext().getResources().getColor(R.color.colorAccent));
+        }
+
         itemView.setOnClickListener(v -> {
             Intent i = new Intent(getContext(), MatchDetailActivity.class);
             i.putExtra("match_id", data.getCompetition_id());

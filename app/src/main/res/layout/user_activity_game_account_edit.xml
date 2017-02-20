@@ -5,42 +5,65 @@
     android:id="@+id/user_activity_game_account_edit"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
     android:orientation="vertical"
     tools:context="com.miguan.otk.module.user.GameAccountEditActivity">
 
     <include layout="@layout/include_toolbar"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/horizontal_margin"
-        android:text="@string/text_game_account"
-        android:textAppearance="@style/TextSubhead"
-        />
-
-    <EditText
-        android:id="@+id/et_game_edit_name"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
-        android:layout_marginLeft="@dimen/horizontal_margin"
-        android:layout_marginRight="@dimen/horizontal_margin"
-        android:background="@drawable/btn_stroke_gray_radius_shape"
-        android:inputType="text"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/horizontal_margin"
-        android:text="@string/text_game_edit_notice"
-        />
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            style="@style/LabelLarge"
+            android:text="@string/label_game_name"
+            />
+
+        <EditText
+            android:id="@+id/et_game_edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/bgWindow"
+            android:gravity="center"
+            android:hint="@string/hint_game_nickname"
+            android:inputType="text"
+            android:textAppearance="@style/TextBody"
+            android:textColorHint="@color/textHint"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/text_game_edit_notice"
+            android:textColor="@color/disable_btn"
+            android:textSize="@dimen/text_size_caption_material"
+            />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_game_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="@dimen/widget_small_height"
+        android:background="@drawable/btn_primary_radius_shape"
         android:text="@string/btn_ok"
+        android:textColor="@color/text_color_white2primary"
+        android:textSize="@dimen/text_size_body_material"
+        android:textStyle="bold"
         />
 
 </LinearLayout>

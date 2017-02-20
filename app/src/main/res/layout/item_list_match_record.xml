@@ -4,9 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:divider="@drawable/div_gray"
     android:orientation="vertical"
-    android:showDividers="middle">
+    >
 
     <TextView
         android:id="@+id/tv_record_title"
@@ -56,10 +55,23 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:visibility="gone"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
             android:textStyle="bold"
-            tools:text="负 — 胜"
+            tools:text="进行中"
+            />
+
+        <TextView
+            android:id="@+id/tv_match_result"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/textSecondary"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            tools:text="胜    负"
             />
 
         <LinearLayout

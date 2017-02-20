@@ -30,7 +30,7 @@ public class Match implements Parcelable {
 
     private String game_all;
 
-    private String rank;
+    private int rank;
 
     private int status;
 
@@ -140,7 +140,7 @@ public class Match implements Parcelable {
         dest.writeString(this.game_time);
         dest.writeInt(this.game_type);
         dest.writeString(this.game_all);
-        dest.writeString(this.rank);
+        dest.writeInt(this.rank);
         dest.writeInt(this.status);
         dest.writeString(this.competitors);
         dest.writeString(this.count_competitor);
@@ -188,7 +188,7 @@ public class Match implements Parcelable {
         this.game_time = in.readString();
         this.game_type = in.readInt();
         this.game_all = in.readString();
-        this.rank = in.readString();
+        this.rank = in.readInt();
         this.status = in.readInt();
         this.competitors = in.readString();
         this.count_competitor = in.readString();
@@ -321,11 +321,11 @@ public class Match implements Parcelable {
         this.game_all = game_all;
     }
 
-    public String getRank() {
+    public int getRank() {
         return rank;
     }
 
-    public void setRank(String rank) {
+    public void setRank(int rank) {
         this.rank = rank;
     }
 

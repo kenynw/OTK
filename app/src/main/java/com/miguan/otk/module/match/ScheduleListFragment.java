@@ -72,7 +72,7 @@ public class ScheduleListFragment extends BaseListFragment<ScheduleListPresenter
     public ListConfig getListConfig() {
         return super.getListConfig()
                 .setContainerEmptyRes(R.layout.empty_against_list)
-                .setHasItemDecoration(false)
+                .hasItemDecoration(false)
                 .setLoadMoreAble(false)
                 .setRefreshAble(false)
                 .setNoMoreAble(false);

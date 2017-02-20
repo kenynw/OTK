@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="75dp"
-    android:background="@color/white"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:paddingEnd="15dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="15dp"
-    android:paddingStart="20dp">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="75dp"
+              android:background="@color/white"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:paddingEnd="15dp"
+              android:paddingLeft="20dp"
+              android:paddingRight="15dp"
+              android:paddingStart="20dp">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/dv_match_thumb"
-        android:layout_width="@dimen/widget_small_height"
-        android:layout_height="@dimen/widget_small_height"
+        android:layout_width="@dimen/widget_medium_height"
+        android:layout_height="@dimen/widget_medium_height"
         app:actualImageScaleType="centerCrop"
         app:placeholderImage="@mipmap/def_image_loading"
-        app:placeholderImageScaleType="centerCrop" />
+        app:placeholderImageScaleType="centerCrop"/>
 
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="@dimen/widget_small_height"
+        android:layout_height="@dimen/widget_medium_height"
         android:layout_marginEnd="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="20dp"
@@ -36,9 +36,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textAppearance="@style/TextBody"
             android:textStyle="bold"
-            tools:text="炉石传说——OTK电竞常规赛#287" />
+            tools:text="炉石传说——OTK电竞常规赛#287"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,7 +54,7 @@
                 android:layout_height="match_parent"
                 android:gravity="bottom"
                 android:textAppearance="@style/TextCaption"
-                tools:text="11月24日 20:30" />
+                tools:text="11月24日 20:30"/>
 
             <TextView
                 android:id="@+id/tv_match_id"
@@ -59,18 +62,40 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:textAppearance="@style/TextCaption"
-                tools:text="赛事ID：335" />
+                tools:text="赛事ID：335"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_match_status"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:textColor="@color/colorAccent"
-        android:textSize="13sp"
-        android:layout_height="wrap_content"
-        tools:text="未开始" />
+        android:layout_height="@dimen/widget_medium_height"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_match_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/textPrimary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="冠军"
+            />
+
+        <TextView
+            android:id="@+id/tv_match_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:textColor="@color/colorAccent"
+            android:textSize="13sp"
+            tools:text="未开始"/>
+
+    </LinearLayout>
 
 </LinearLayout>

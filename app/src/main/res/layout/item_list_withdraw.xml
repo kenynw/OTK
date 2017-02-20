@@ -48,20 +48,24 @@
 
         <TextView
             android:id="@+id/tv_withdraw_fee"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:textAppearance="@style/TextCaption"
-            tools:text="(手续费 - 1)" />
+            android:text="@string/text_withdraw_fee"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            />
 
         <TextView
             android:id="@+id/tv_withdraw_status"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
+            android:gravity="end"
             android:textSize="@dimen/text_size_caption_material"
             android:textStyle="bold"
-            tools:text="进行中" />
+            tools:text="进行中"
+            />
 
     </LinearLayout>
 

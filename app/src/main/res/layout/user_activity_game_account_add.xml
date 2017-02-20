@@ -1,37 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_activity_game_account_add"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
     android:orientation="vertical"
     tools:context="com.miguan.otk.module.user.GameAccountAddActivity">
 
     <include layout="@layout/include_toolbar"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingStart="20dp"
-        android:paddingTop="24dp"
-        android:text="@string/label_game_name"
-        android:textColor="@color/textBody"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        />
-
-    <RadioGroup
-        android:id="@+id/rg_game_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="@color/white"
+        android:orientation="vertical"
         >
 
+        <TextView
+            style="@style/LabelLarge"
+            android:text="@string/label_game_name"
+            />
+
         <com.jude.exgridview.ExGridView
+            android:id="@+id/grid_game_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
@@ -41,21 +34,24 @@
             app:grid_divider_horizontal="@dimen/vertical_margin"
             app:grid_divider_vertical="10dp">
 
-            <RadioButton
+            <TextView
                 android:id="@+id/rbtn_game_hearthstone"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/widget_small_height"
+                android:layout_height="wrap_content"
                 android:background="@drawable/btn_primary2disable_radius_selector"
                 android:button="@null"
                 android:checked="true"
                 android:gravity="center"
-                android:padding="10dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="8dp"
                 android:text="@string/text_hearthstone"
                 android:textColor="@color/text_color_disable2white"
                 android:textSize="@dimen/text_size_body_material"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
-            <RadioButton
+            <TextView
                 android:id="@+id/rbtn_game_lol"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/widget_small_height"
@@ -64,13 +60,16 @@
                 android:background="@drawable/btn_primary2disable_radius_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:padding="10dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="8dp"
                 android:text="@string/text_lol"
                 android:textColor="@color/text_color_disable2white"
                 android:textSize="@dimen/text_size_body_material"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
-            <RadioButton
+            <TextView
                 android:id="@+id/rbtn_game_wzry"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/widget_small_height"
@@ -79,13 +78,16 @@
                 android:background="@drawable/btn_primary2disable_radius_selector"
                 android:button="@null"
                 android:gravity="center"
-                android:padding="10dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="8dp"
                 android:text="@string/text_wzry"
                 android:textColor="@color/text_color_disable2white"
                 android:textSize="@dimen/text_size_body_material"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
-            <RadioButton
+            <TextView
                 android:id="@+id/rbtn_game_overwatch"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/widget_small_height"
@@ -98,72 +100,56 @@
                 android:text="@string/text_overwatch"
                 android:textColor="@color/text_color_disable2white"
                 android:textSize="@dimen/text_size_body_material"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
         </com.jude.exgridview.ExGridView>
 
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/label_game_account"
-        android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingStart="20dp"
-        android:paddingTop="24dp"
-        android:textColor="@color/textBody"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        />
-
-    <EditText
-        android:id="@+id/et_game_account"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_medium_height"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@color/bgWindow"
-        android:gravity="center"
-        android:hint="@string/hint_game_nickname"
-        android:inputType="text"
-        android:textAppearance="@style/TextBody"
-        android:textColorHint="@color/textHint" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="10dp"
-        android:paddingEnd="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingStart="20dp"
-        android:text="@string/text_game_add_notice"
-        android:textColor="@color/disable_btn"
-        android:textSize="@dimen/text_size_caption_material"
-        />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/bgWindow"
-        >
-
-        <Button
-            android:id="@+id/btn_game_save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_ok"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginTop="@dimen/widget_small_height"
-            android:background="@drawable/btn_primary_radius_shape"
-            android:textColor="@color/text_color_white2primary"
-            android:textSize="@dimen/text_size_body_material"
-            android:textStyle="bold"
+        <TextView
+            style="@style/LabelLarge"
+            android:text="@string/label_game_account"
             />
 
-    </FrameLayout>
+        <EditText
+            android:id="@+id/et_game_account"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_medium_height"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/bgWindow"
+            android:gravity="center"
+            android:hint="@string/hint_game_nickname"
+            android:inputType="text"
+            android:textAppearance="@style/TextBody"
+            android:textColorHint="@color/textHint"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/text_game_add_notice"
+            android:textColor="@color/disable_btn"
+            android:textSize="@dimen/text_size_caption_material"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_game_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="@dimen/widget_small_height"
+        android:background="@drawable/btn_primary_radius_shape"
+        android:text="@string/btn_ok"
+        android:textColor="@color/text_color_white2primary"
+        android:textSize="@dimen/text_size_body_material"
+        android:textStyle="bold"
+        />
 
 </LinearLayout>

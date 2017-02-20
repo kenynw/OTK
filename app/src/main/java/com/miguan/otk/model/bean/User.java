@@ -15,6 +15,8 @@ public class User implements Parcelable {
 
     private int uid;
 
+    private int user_id;
+
     private int money;
 
     private String photo;
@@ -47,6 +49,7 @@ public class User implements Parcelable {
         dest.writeString(this.token);
         dest.writeString(this.username);
         dest.writeInt(this.uid);
+        dest.writeInt(this.user_id);
         dest.writeInt(this.money);
         dest.writeString(this.photo);
         dest.writeInt(this.currency);
@@ -67,6 +70,7 @@ public class User implements Parcelable {
         this.token = in.readString();
         this.username = in.readString();
         this.uid = in.readInt();
+        this.user_id = in.readInt();
         this.money = in.readInt();
         this.photo = in.readString();
         this.currency = in.readInt();
@@ -114,6 +118,14 @@ public class User implements Parcelable {
 
     public void setUid(int uid) {
         this.uid = uid;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public int getMoney() {

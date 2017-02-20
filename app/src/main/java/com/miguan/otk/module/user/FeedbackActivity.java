@@ -6,11 +6,14 @@ import android.support.design.widget.BottomSheetDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.RadioGroup;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
+import com.jude.exgridview.ExGridView;
 import com.jude.exgridview.ImagePieceView;
 import com.jude.exgridview.PieceViewGroup;
 import com.miguan.otk.R;
@@ -20,10 +23,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 @RequiresPresenter(FeedbackPresenter.class)
-public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> {
+public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> implements CompoundButton.OnCheckedChangeListener {
 
-    @Bind(R.id.rgroup_feedback_type)
-    RadioGroup mRdGroup;
+    @Bind(R.id.grid_feedback_type)
+    ExGridView mGridType;
 
     @Bind(R.id.et_feedback_contact)
     EditText mEtContact;
@@ -39,6 +42,8 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> {
 
     private BottomSheetDialog mDialog;
 
+    private TextView mCurChecked;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,14 +54,29 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> {
         mBtnSubmit.setOnClickListener(v -> checkInput());
         mPvImage.setOnAskViewListener(this::showPickDialog);
         mPvImage.setOnViewDeleteListener(getPresenter());
+        mPvImage.setAddImageRes(R.mipmap.ic_add_pic);
+
+        for (int i=0; i<mGridType.getChildCount(); i++) {
+            TextView tv = (TextView) mGridType.getChildAt(i);
+            if (i == 0) {
+                mCurChecked = tv;
+                tv.setSelected(true);
+            }
+            tv.setTag(i);
+            tv.setOnClickListener(v -> {
+                mCurChecked.setSelected(false);
+                v.setSelected(true);
+                mCurChecked = tv;
+            });
+        }
     }
 
     private void checkInput() {
         if (TextUtils.isEmpty(mEtContent.getText())) {
-            LUtils.log("请填写内容");
+            LUtils.toast("请填写内容");
             return;
         }
-        getPresenter().save(mRdGroup.getCheckedRadioButtonId(),
+        getPresenter().save((Integer) mCurChecked.getTag(),
                 mEtContact.getText().toString().trim(),
                 mEtContent.getText().toString().trim()
         );
@@ -87,4 +107,12 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> {
         if (null != mDialog && mDialog.isShowing()) mDialog.dismiss();
     }
 
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        for (int i=0; i<mGridType.getChildCount(); i++) {
+            RadioButton radioButton = (RadioButton) mGridType.getChildAt(i);
+            radioButton.setChecked(false);
+            buttonView.setChecked(true);
+        }
+    }
 }

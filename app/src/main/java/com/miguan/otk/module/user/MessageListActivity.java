@@ -24,6 +24,6 @@ public class MessageListActivity extends BaseListActivity<MessageListPresenter> 
 
     @Override
     public ListConfig getListConfig() {
-        return super.getListConfig().setHasItemDecoration(false);
+        return super.getListConfig().hasItemDecoration(false);
     }
 }

@@ -26,7 +26,7 @@ public class WithdrawViewHolder extends BaseViewHolder<Withdraw> {
     @Bind(R.id.tv_withdraw_fee)
     TextView mTvFee;
 
-    @Bind(R.id.tv_withdraw_time)
+    @Bind(R.id.tv_withdraw_time_fee)
     TextView mTvTime;
 
     public WithdrawViewHolder(ViewGroup parent) {

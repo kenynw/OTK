@@ -61,7 +61,6 @@ public class FeedbackPresenter extends Presenter<FeedbackActivity> implements On
                     .flatMap(new Func1<String, Observable<Feedback>>() {
                         @Override
                         public Observable<Feedback> call(String s) {
-                            LUtils.log("Image: " + s);
                             return UserModel.getInstance().saveFeedback(type, contact, content, s);
                         }
                     })

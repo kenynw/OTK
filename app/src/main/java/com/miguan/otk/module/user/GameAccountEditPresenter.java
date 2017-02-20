@@ -1,5 +1,6 @@
 package com.miguan.otk.module.user;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import com.dsk.chain.bijection.Presenter;
@@ -28,6 +29,8 @@ public class GameAccountEditPresenter extends Presenter<GameAccountEditActivity>
             public void onNext(Boolean result) {
                 if (result) {
                     LUtils.toast("更新成功");
+                    getView().setResult(Activity.RESULT_OK);
+                    getView().finish();
                 }
             }
         });

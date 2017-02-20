@@ -18,6 +18,7 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.viewholder.WithdrawViewHolder;
 import com.miguan.otk.model.bean.Withdraw;
+import com.sgun.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,15 +35,11 @@ public class WithdrawListActivity extends BaseListActivity<WithdrawListPresenter
     @Bind(R.id.btn_withdraw_withdraw)
     Button mBtnWithdraw;
 
-    @Bind(R.id.btn_withdraw_bind)
-    Button mBtnBind;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setToolbarTitle(R.string.btn_withdraw_record);
         ButterKnife.bind(this);
-
     }
 
     @Override
@@ -51,14 +48,13 @@ public class WithdrawListActivity extends BaseListActivity<WithdrawListPresenter
     }
 
     public void setData(Withdraw withdraw) {
+        LUtils.log("set data");
         if (TextUtils.isEmpty(withdraw.getAlipay_account())) {
-            mBtnBind.setVisibility(View.VISIBLE);
-            mBtnWithdraw.setVisibility(View.GONE);
-            mBtnBind.setOnClickListener(v -> startActivity(new Intent(this, BindAlipayActivity.class)));
+            mBtnWithdraw.setText(R.string.btn_bind_alipay);
+            mBtnWithdraw.setOnClickListener(v -> startActivity(new Intent(this, BindAlipayActivity.class)));
         } else {
-            mBtnBind.setVisibility(View.GONE);
-            mBtnWithdraw.setVisibility(View.VISIBLE);
-            mTvBalance.setText(withdraw.getMoney());
+            mBtnWithdraw.setText(R.string.btn_withdraw);
+            mTvBalance.setText(withdraw.getMoney() + "");
             mTvAccount.setText(withdraw.getAlipay_account());
             if (withdraw.getMoney() <= 15) {
                 mBtnWithdraw.setEnabled(false);

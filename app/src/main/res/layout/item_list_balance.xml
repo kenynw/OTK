@@ -18,7 +18,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textAppearance="@style/TextBody"
+            android:textAppearance="@style/TextSubhead"
+            android:textStyle="bold"
             tools:text="签到奖励100撒币"
             />
 
@@ -26,8 +27,9 @@
             android:id="@+id/tv_balance_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/text_size_body_material"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/text_size_subhead_material"
+            android:textStyle="bold"
             tools:text="+100"
             />
 
@@ -36,7 +38,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vertical_margin"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         >
 
