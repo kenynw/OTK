@@ -2,6 +2,9 @@ package com.miguan.otk.module.user;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,15 +14,9 @@ import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Sign;
 import com.miguan.otk.widget.EventDecorator;
-import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -64,26 +61,21 @@ public class SignActivity extends BaseDataActivity<SignPresenter, Sign> {
         } else {
             mBtnSign.setOnClickListener(v -> getPresenter().sign());
         }
-        mTvSeriesDesc.setText(String.format(getString(R.string.text_sign_series_desc), 7 - sign.getIstoday()));
+        SpannableString span = new SpannableString(String.format(getString(R.string.text_sign_series_desc), 7 - sign.getIstoday()));
+        span.setSpan(new ForegroundColorSpan(Color.parseColor("#fab02e")), 13, 14, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        mTvSeriesDesc.setText(span);
         mWvRules.loadData(sign.getDescription(), "text/html; charset=utf-8", null);
+        setCalendar(sign);
+    }
 
+    public void setCalendar(Sign sign) {
         if (sign.getCause() != null && sign.getCause().size() > 0) {
-            SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd", Locale.CHINA);
-            List<CalendarDay> list = new ArrayList<>();
-            for (int i=0; i<sign.getCause().size(); i++) {
-                Sign.Cause cause = sign.getCause().get(i);
-                try {
-                    list.add(CalendarDay.from(format.parse(cause.getSign_in_date())));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            }
-            mCalendarView.addDecorator(new EventDecorator(Color.RED, list));
+            mCalendarView.addDecorator(new EventDecorator(this, sign.getCause()));
         }
-
     }
 
     public void setBtnDisable() {
         mBtnSign.setEnabled(false);
+        mBtnSign.setText("已签到");
     }
 }

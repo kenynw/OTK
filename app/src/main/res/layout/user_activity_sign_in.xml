@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_activity_sign_in"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/white"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="com.miguan.otk.module.user.SignActivity"
     >
 
@@ -21,59 +22,87 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:baselineAligned="false"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
-            <TextView
-                android:id="@+id/tv_sign_series_desc"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/white"
-                android:gravity="center"
-                android:padding="@dimen/horizontal_margin"
-                android:text="@string/text_sign_series_desc"
-                />
+                android:background="@mipmap/bg_sign_header"
+                android:gravity="bottom|center_horizontal"
+                android:orientation="vertical"
+                >
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:padding="@dimen/horizontal_margin"
-                android:scaleType="center"
-                android:src="@mipmap/ic_launcher"
-                />
+                <Button
+                    android:id="@+id/btn_sign_now"
+                    style="@style/ButtonPrimaryRound"
+                    android:layout_width="160dp"
+                    android:layout_height="@dimen/widget_small_height"
+                    android:text="@string/btn_sign_in_now"
+                    android:textColor="@color/text_color_white2primary"
+                    app:backgroundTint="#fab02e"
+                    />
 
-            <Button
-                android:id="@+id/btn_sign_now"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/white"
-                android:gravity="center"
-                android:padding="@dimen/horizontal_margin"
-                android:text="@string/btn_sign_in_now"
-                />
+                <TextView
+                    android:id="@+id/tv_sign_series_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/widget_small_height"
+                    android:gravity="center"
+                    android:padding="@dimen/horizontal_margin"
+                    android:text="@string/text_sign_series_desc"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_body_material"
+                    />
+
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/vertical_margin"/>
 
-            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-                android:id="@+id/calendarView"
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:selectedDateVerticalBar="@mipmap/ic_star"
-                app:mcv_showOtherDates="all"
-                app:mcv_leftArrowMask="@mipmap/ic_calendar_left"
-                />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:cardBackgroundColor="#fffff5"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_small_height"
+                    android:background="#ffde00"
+                    />
+
+                <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/horizontal_margin"
+                    android:paddingRight="@dimen/horizontal_margin"
+                    android:selectedDateVerticalBar="@mipmap/ic_star"
+                    app:mcv_arrowColor="@color/white"
+                    app:mcv_dateTextAppearance="@style/DateTextAppearance"
+                    app:mcv_headerTextAppearance="@style/DateHeaderTextAppearance"
+                    app:mcv_leftArrowMask="@mipmap/ic_calendar_left"
+                    app:mcv_rightArrowMask="@mipmap/ic_calendar_right"
+                    app:mcv_selectionColor="#fffff5"
+                    app:mcv_tileHeight="@dimen/widget_small_height"
+                    app:mcv_weekDayLabels="@array/custom_weekdays"
+                    app:mcv_weekDayTextAppearance="@style/WeeksTextAppearance"
+                    />
+
+            </android.support.v7.widget.CardView>
 
             <WebView
                 android:id="@+id/wv_sign_rules"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/horizontal_margin"
                 android:background="@color/white"
-                android:lineSpacingMultiplier="1.4"
-                android:padding="@dimen/horizontal_margin"
                 />
 
         </LinearLayout>
