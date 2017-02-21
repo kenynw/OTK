@@ -86,6 +86,7 @@
     <string name="btn_wechat">微信</string>
 
     <string name="text_about_us">关于OTK</string>
+    <string name="text_alipay">支付宝</string>
     <string name="text_ban">禁用</string>
     <string name="text_ban_title">BAN英雄阶段</string>
     <string name="text_ban_notice">请禁用英雄！</string>
@@ -93,6 +94,7 @@
     <string name="text_baned_desc">提交成功！等待对手提交PICK结果后进入BAN阶段。当第一轮比赛时间倒计时为0，未提交PICK结果的一方直接判负</string>
     <string name="text_battle_ended">比赛结束</string>
     <string name="text_battle_ended_desc">%s获得了胜利</string>
+    <string name="text_captcha">验证码</string>
     <string name="text_controversial_desc">双方均提交自己胜利/失败，保存好相关证据截图，请先尝试重新提交结果，无法重新提交主动联系裁判进行处理。裁判QQ：1655647371</string>
     <string name="text_contact">官网地址：www.otkpk.com\n新浪微博：@otk游戏竞技\n微信公众号：otk游戏竞技\n官方QQ群：77327504</string>
     <string name="text_copyright">copyright 2016 捷信宇(厦门)科技</string>
@@ -125,6 +127,7 @@
     <string name="text_match_qq_group">OTK炉石传说赛事①群 ：77327504</string>
     <string name="text_message_system">系统消息</string>
     <string name="text_message_match">比赛通知</string>
+    <string name="text_mobile">手机号</string>
     <string name="text_overwatch">守望先锋</string>
     <string name="text_pick_title">Pick英雄阶段</string>
     <string name="text_pick_notice">请选择出战英雄！</string>
@@ -154,7 +157,6 @@
     <string name="text_wzry">王者荣耀</string>
 
     <string name="label_address">收货地址：</string>
-    <string name="label_alipay">支付宝：</string>
     <string name="label_apply_money">申请金额</string>
     <string name="label_avatar">头像</string>
     <string name="label_balance">余额：%s</string>
@@ -162,7 +164,6 @@
     <string name="label_balance_money">拥有元宝：</string>
     <string name="label_battle_id">对战ID：%d</string>
     <string name="label_born">生辰</string>
-    <string name="label_captcha">验证码</string>
     <string name="label_cash_account">提现支付宝帐号：</string>
     <string name="label_cash_balance">元宝余额：</string>
     <string name="label_contact">联系方式：</string>
@@ -182,7 +183,6 @@
     <string name="label_match_id">赛事ID：%d</string>
     <string name="label_match_state">赛事状态：%1$s%2$s</string>
     <string name="label_my_coin">我的元宝：%s</string>
-    <string name="label_mobile">手机号</string>
     <string name="label_order_num">订单号：%s</string>
     <string name="label_profile_area">地址</string>
     <string name="label_pwd">密码</string>

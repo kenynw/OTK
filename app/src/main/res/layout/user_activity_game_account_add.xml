@@ -140,16 +140,7 @@
 
     <Button
         android:id="@+id/btn_game_save"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="@dimen/widget_small_height"
-        android:background="@drawable/btn_primary_radius_shape"
-        android:text="@string/btn_ok"
-        android:textColor="@color/text_color_white2primary"
-        android:textSize="@dimen/text_size_body_material"
-        android:textStyle="bold"
+        style="@style/ButtonPrimaryRound"
         />
 
 </LinearLayout>

@@ -11,9 +11,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vertical_margin"
         android:background="@color/white"
         android:paddingLeft="18dp"
+        android:paddingRight="18dp"
         >
 
         <TextView
@@ -21,22 +21,26 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/widget_medium_height"
             android:gravity="center"
-            android:text="@string/label_mobile"
-            android:textAppearance="@style/TextBody"/>
+            android:text="@string/text_mobile"
+            android:textAppearance="@style/TextBody"
+            />
 
         <EditText
             android:id="@+id/et_bind_mobile"
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_medium_height"
             android:layout_marginLeft="@dimen/horizontal_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_toEndOf="@id/tv_reset_pwd_mobile"
             android:layout_toRightOf="@id/tv_reset_pwd_mobile"
             android:background="@color/white"
             android:ems="11"
             android:hint="@string/hint_username"
             android:inputType="phone"
             android:maxLength="11"
-            android:textAppearance="@style/TextBody"
+            android:textColor="@color/textSecondary"
             android:textColorHint="@color/text_hint"
+            android:textSize="@dimen/text_size_body_material"
             />
 
         <TextView
@@ -45,12 +49,12 @@
             android:layout_height="@dimen/widget_medium_height"
             android:layout_below="@id/tv_reset_pwd_mobile"
             android:gravity="center"
-            android:text="@string/label_captcha"
-            android:textAppearance="@style/TextBody"/>
+            android:text="@string/text_captcha"
+            android:textAppearance="@style/TextBody"
+            />
 
         <EditText
             android:id="@+id/et_bind_captcha"
-            android:textAppearance="@style/TextBody"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/widget_medium_height"
             android:layout_below="@id/et_bind_mobile"
@@ -61,6 +65,7 @@
             android:hint="@string/hint_captcha"
             android:inputType="number"
             android:maxLength="6"
+            android:textAppearance="@style/TextBody"
             android:textColorHint="@color/text_hint"/>
 
         <View
@@ -72,12 +77,15 @@
             android:id="@+id/btn_bind_captcha"
             android:layout_width="80dp"
             android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/et_bind_mobile"
             android:layout_marginTop="8dp"
+            android:background="@drawable/btn_stroke_primary_dark_radius_selector"
             android:text="@string/btn_send_captcha"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size_caption_material"/>
+            android:textColor="@color/text_color_primarydark2secondary"
+            android:textSize="@dimen/text_size_caption_material"
+            />
 
         <TextView
             android:id="@+id/tv_bind_new"
@@ -85,12 +93,11 @@
             android:layout_height="@dimen/widget_medium_height"
             android:layout_below="@id/et_bind_captcha"
             android:gravity="center"
-            android:text="@string/label_alipay"
+            android:text="@string/text_alipay"
             android:textAppearance="@style/TextBody"/>
 
         <EditText
             android:id="@+id/et_bind_account"
-            android:textAppearance="@style/TextBody"
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_medium_height"
             android:layout_below="@id/et_bind_captcha"
@@ -100,6 +107,7 @@
             android:ems="10"
             android:hint="@string/hint_alipay"
             android:inputType="text"
+            android:textAppearance="@style/TextBody"
             android:textColorHint="@color/text_hint"/>
 
         <View
@@ -111,11 +119,6 @@
 
     <Button
         android:id="@+id/btn_bind_save"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/vertical_margin"
-        android:text="@string/btn_ok"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_subhead_material"/>
+        style="@style/ButtonPrimaryRound"/>
 
 </LinearLayout>

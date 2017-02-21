@@ -1,6 +1,7 @@
 package com.miguan.otk.module.user;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +48,21 @@ public class BindAlipayActivity extends ChainBaseActivity<BindAlipayPresenter> {
             LUtils.toast("请输入手机号码");
             return;
         }
+
+        mBtnCaptcha.setEnabled(false);
+        new CountDownTimer(60000, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mBtnCaptcha.setText((millisUntilFinished / 1000) + "秒");
+            }
+
+            @Override
+            public void onFinish() {
+                mBtnCaptcha.setEnabled(true);
+                mBtnCaptcha.setText(R.string.btn_send_captcha);
+            }
+        }.start();
 
         getPresenter().sendCaptcha(mEtMobile.getText().toString().trim());
     }

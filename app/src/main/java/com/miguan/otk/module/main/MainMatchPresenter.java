@@ -23,7 +23,9 @@ public class MainMatchPresenter extends BaseDataFragmentPresenter<MainMatchFragm
 
     @Override
     public void onRefresh() {
-        MatchModel.getInstance().getHome().unsafeSubscribe(getSubscriber());
+        MatchModel.getInstance().getHome()
+                .doAfterTerminate(() -> getView().stopRefresh())
+                .unsafeSubscribe(getSubscriber());
     }
 
     public void toActivity(Class clazz) {

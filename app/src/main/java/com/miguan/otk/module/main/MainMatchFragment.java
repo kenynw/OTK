@@ -133,4 +133,8 @@ public class MainMatchFragment extends BaseDataFragment<MainMatchPresenter, Home
         }
     }
 
+    public void stopRefresh() {
+        if (mRefreshLayout.isRefreshing()) mRefreshLayout.setRefreshing(false);
+    }
+
 }

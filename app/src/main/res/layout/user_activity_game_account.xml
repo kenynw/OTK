@@ -79,7 +79,7 @@
 
     <Button
         android:id="@+id/btn_game_add"
-        style="@style/ButtonLarge"
+        style="@style/ButtonPrimaryRound"
         android:background="@drawable/btn_stroke_primary_dark_radius_selector"
         android:text="@string/btn_add_account"
         android:textColor="@color/text_color_primarydark2secondary"

@@ -98,13 +98,14 @@
         <item name="android:maxLines">1</item>
     </style>
 
-    <style name="ButtonLarge">
+    <style name="ButtonPrimaryRound">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/btn_primary2white_selector</item>
-        <item name="android:textColor">@color/textSecondary</item>
+        <item name="android:layout_height">@dimen/widget_medium_height</item>
+        <item name="android:background">@drawable/btn_primary_radius_shape</item>
+        <item name="android:textColor">@color/text_color_white2primary</item>
         <item name="android:textSize">@dimen/text_size_body_material</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:text">@string/btn_ok</item>
         <item name="android:layout_marginLeft">50dp</item>
         <item name="android:layout_marginRight">50dp</item>
         <item name="android:layout_marginTop">@dimen/widget_small_height</item>
