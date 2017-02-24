@@ -11,6 +11,8 @@ public class User implements Parcelable {
 
     private String token;
 
+    private String auth_key; // 网易云信token
+
     private String username;
 
     private int uid;
@@ -47,6 +49,7 @@ public class User implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.token);
+        dest.writeString(this.auth_key);
         dest.writeString(this.username);
         dest.writeInt(this.uid);
         dest.writeInt(this.user_id);
@@ -68,6 +71,7 @@ public class User implements Parcelable {
 
     protected User(Parcel in) {
         this.token = in.readString();
+        this.auth_key = in.readString();
         this.username = in.readString();
         this.uid = in.readInt();
         this.user_id = in.readInt();
@@ -102,6 +106,14 @@ public class User implements Parcelable {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getAuth_key() {
+        return auth_key;
+    }
+
+    public void setAuth_key(String auth_key) {
+        this.auth_key = auth_key;
     }
 
     public String getUsername() {

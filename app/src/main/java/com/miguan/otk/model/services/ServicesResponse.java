@@ -2,7 +2,7 @@ package com.miguan.otk.model.services;
 
 import android.content.Intent;
 
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import rx.Subscriber;
 

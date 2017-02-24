@@ -18,7 +18,6 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.viewholder.WithdrawViewHolder;
 import com.miguan.otk.model.bean.Withdraw;
-import com.sgun.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,7 +47,6 @@ public class WithdrawListActivity extends BaseListActivity<WithdrawListPresenter
     }
 
     public void setData(Withdraw withdraw) {
-        LUtils.log("set data");
         if (TextUtils.isEmpty(withdraw.getAlipay_account())) {
             mBtnWithdraw.setText(R.string.btn_bind_alipay);
             mBtnWithdraw.setOnClickListener(v -> startActivity(new Intent(this, BindAlipayActivity.class)));

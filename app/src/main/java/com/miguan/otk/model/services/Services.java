@@ -1,6 +1,7 @@
 package com.miguan.otk.model.services;
 
 import com.miguan.otk.model.bean.Balance;
+import com.miguan.otk.model.bean.Chatroom;
 import com.miguan.otk.model.bean.Feedback;
 import com.miguan.otk.model.bean.Game;
 import com.miguan.otk.model.bean.Home;
@@ -564,6 +565,21 @@ public interface Services {
             @Field("battle_id") int battleID,
             @Field("kind") String kind,
             @Field("photo") String photo
+    );
+
+    /**
+     * 获取聊天室ID
+     *
+     * @param room_type 房间类型（c:比赛房间，b:对战房间）
+     * @param id 对战ID或者比赛ID
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("competition/chat/room")
+    Observable<Chatroom> chatRoomID(
+            @Field("token") String token,
+            @Field("room_type") String room_type,
+            @Field("id") int id
     );
 
     ////////////////////其他//////////////////////

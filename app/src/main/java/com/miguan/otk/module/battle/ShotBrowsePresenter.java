@@ -9,7 +9,7 @@ import com.miguan.otk.model.BattleModel;
 import com.miguan.otk.model.ImageModel;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.services.ServicesResponse;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import java.io.File;
 

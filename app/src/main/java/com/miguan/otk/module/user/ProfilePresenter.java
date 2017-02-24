@@ -12,7 +12,7 @@ import com.miguan.otk.model.ImageModel;
 import com.miguan.otk.model.UserModel;
 import com.miguan.otk.model.bean.User;
 import com.miguan.otk.model.services.ServicesResponse;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

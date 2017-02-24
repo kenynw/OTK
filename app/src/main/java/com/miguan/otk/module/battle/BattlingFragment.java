@@ -17,8 +17,8 @@ import com.miguan.otk.R;
 import com.miguan.otk.adapter.BanPickAdapter;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Hero;
+import com.miguan.otk.utils.LUtils;
 import com.miguan.otk.widget.SectionView;
-import com.sgun.utils.LUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

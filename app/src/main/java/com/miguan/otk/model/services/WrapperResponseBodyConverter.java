@@ -1,7 +1,7 @@
 package com.miguan.otk.model.services;
 
 import com.google.gson.Gson;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

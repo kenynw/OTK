@@ -12,7 +12,7 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.module.match.MatchDetailActivity;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

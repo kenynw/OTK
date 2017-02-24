@@ -12,7 +12,8 @@ import com.dsk.chain.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 import com.miguan.otk.model.bean.News;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
+
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

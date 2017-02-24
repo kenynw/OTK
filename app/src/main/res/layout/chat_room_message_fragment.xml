@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/messageActivityLayout"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_message_default_bg">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_chat_room_message"
+        style="@style/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+
+        <include layout="@layout/nim_message_activity_text_layout"/>
+
+    </FrameLayout>
+
+</RelativeLayout>

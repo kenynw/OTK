@@ -8,10 +8,11 @@ import android.text.TextUtils;
 
 import com.dsk.chain.bijection.ChainAppCompatActivity;
 import com.dsk.chain.expansion.data.BaseDataFragmentPresenter;
+import com.miguan.otk.config.UserPreferences;
 import com.miguan.otk.model.UserModel;
 import com.miguan.otk.model.bean.User;
 import com.miguan.otk.module.account.LoginActivity;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -32,7 +33,7 @@ public class MainMinePresenter extends BaseDataFragmentPresenter<MainMineFragmen
     @Override
     protected void onCreateView(MainMineFragment view) {
         super.onCreateView(view);
-        if (TextUtils.isEmpty(LUtils.getPreferences().getString("token", ""))) {
+        if (TextUtils.isEmpty(UserPreferences.getToken())) {
             getView().isLogin(false);
         } else {
             setData();
@@ -53,7 +54,7 @@ public class MainMinePresenter extends BaseDataFragmentPresenter<MainMineFragmen
 
     @Subscribe(threadMode = ThreadMode.POSTING)
     public void onLoginEvent(User user) {
-        setData();
+        publishData(user);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -62,9 +63,9 @@ public class MainMinePresenter extends BaseDataFragmentPresenter<MainMineFragmen
     }
 
     public boolean isLogin() {
-        if (TextUtils.isEmpty(LUtils.getPreferences().getString("token", ""))) {
+        if (TextUtils.isEmpty(UserPreferences.getToken())) {
             Intent intent = new Intent(getView().getActivity(), LoginActivity.class);
-            getView().startActivityForResult(intent, 1);
+            getView().startActivity(intent);
             return false;
         } else {
             return true;
@@ -77,8 +78,8 @@ public class MainMinePresenter extends BaseDataFragmentPresenter<MainMineFragmen
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 1 && data != null && data.getParcelableExtra("user") != null) {
                 publishData(data.getParcelableExtra("user"));
-            } else if (requestCode == 2 && TextUtils.isEmpty(LUtils.getPreferences().getString("token", ""))) {
-                LUtils.log("token" + LUtils.getPreferences().getString("token", ""));
+            } else if (requestCode == 2 && TextUtils.isEmpty(UserPreferences.getToken())) {
+                LUtils.log("token" + UserPreferences.getToken());
                 getView().isLogin(false);
             } else {
                 setData();

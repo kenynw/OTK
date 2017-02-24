@@ -1,13 +1,11 @@
 package com.miguan.otk.model;
 
-import android.content.Context;
-
 import com.dsk.chain.model.AbsModel;
+import com.miguan.otk.config.UserPreferences;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Screenshot;
 import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;
-import com.sgun.utils.LUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -24,11 +22,6 @@ public class BattleModel extends AbsModel {
         return getInstance(BattleModel.class);
     }
 
-    @Override
-    protected void onAppCreate(Context context) {
-        super.onAppCreate(context);
-    }
-
     /**
      * 我的对战记录
      *
@@ -36,12 +29,12 @@ public class BattleModel extends AbsModel {
      * @return
      */
     public Observable<List<Battle>> getBattleList(int page) {
-        return ServicesClient.getServices().againstList(LUtils.getPreferences().getString("token", ""), page).compose(new DefaultTransform<>());
+        return ServicesClient.getServices().againstList(UserPreferences.getToken(), page).compose(new DefaultTransform<>());
     }
 
     public Observable<Battle> getBattleDetail(int battleID) {
         return ServicesClient.getServices()
-                .battleDetail(LUtils.getPreferences().getString("token", ""), battleID)
+                .battleDetail(UserPreferences.getToken(), battleID)
                 .compose(new DefaultTransform<>());
     }
 
@@ -52,7 +45,7 @@ public class BattleModel extends AbsModel {
      * @return
      */
     public Observable<Battle> ready(int matchID) {
-        return ServicesClient.getServices().ready(LUtils.getPreferences().getString("token", ""), matchID).compose(new DefaultTransform<>());
+        return ServicesClient.getServices().ready(UserPreferences.getToken(), matchID).compose(new DefaultTransform<>());
     }
 
     /**
@@ -64,7 +57,7 @@ public class BattleModel extends AbsModel {
      */
     public Observable<Battle> pick(int battleID, Map<String, Integer> map) {
         return ServicesClient.getServices().pick(
-                LUtils.getPreferences().getString("token", ""), battleID, map).compose(new DefaultTransform<>());
+                UserPreferences.getToken(), battleID, map).compose(new DefaultTransform<>());
     }
 
     /**
@@ -75,7 +68,7 @@ public class BattleModel extends AbsModel {
      * @return
      */
     public Observable<Battle> ban(int battleID, Integer ban) {
-        return ServicesClient.getServices().ban(LUtils.getPreferences().getString("token", ""), battleID, ban).compose(new DefaultTransform<>());
+        return ServicesClient.getServices().ban(UserPreferences.getToken(), battleID, ban).compose(new DefaultTransform<>());
     }
 
     /**
@@ -86,7 +79,7 @@ public class BattleModel extends AbsModel {
      * @return
      */
     public Observable<Battle> submit(int battleID, Integer winnerID) {
-        return ServicesClient.getServices().submitResult(LUtils.getPreferences().getString("token", ""), battleID, winnerID).compose(new DefaultTransform<>());
+        return ServicesClient.getServices().submitResult(UserPreferences.getToken(), battleID, winnerID).compose(new DefaultTransform<>());
     }
 
     /**
@@ -96,7 +89,7 @@ public class BattleModel extends AbsModel {
      * @return
      */
     public Observable<Battle> resubmit(int battleID) {
-        return ServicesClient.getServices().resubmitResult(LUtils.getPreferences().getString("token", ""), battleID).compose(new DefaultTransform<>());
+        return ServicesClient.getServices().resubmitResult(UserPreferences.getToken(), battleID).compose(new DefaultTransform<>());
     }
 
     /**
@@ -106,7 +99,7 @@ public class BattleModel extends AbsModel {
      * @return
      */
     public Observable<Screenshot> uploadInfo(int battleID, String role) {
-        return ServicesClient.getServices().battleUploadInfo(LUtils.getPreferences().getString("token", ""), battleID, role).compose(new DefaultTransform<>());
+        return ServicesClient.getServices().battleUploadInfo(UserPreferences.getToken(), battleID, role).compose(new DefaultTransform<>());
     }
 
     /**
@@ -116,7 +109,7 @@ public class BattleModel extends AbsModel {
      * @return
      */
     public Observable<Battle> upload(String uriPath, int battleID, String kind) {
-        return ServicesClient.getServices().battleUpload(LUtils.getPreferences().getString("token", ""), battleID, kind, uriPath).compose(new DefaultTransform<>());
+        return ServicesClient.getServices().battleUpload(UserPreferences.getToken(), battleID, kind, uriPath).compose(new DefaultTransform<>());
     }
 
 }

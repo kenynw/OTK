@@ -1,6 +1,7 @@
 package com.miguan.otk.model.services;
 
-import com.sgun.utils.LUtils;
+
+import com.miguan.otk.utils.LUtils;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;

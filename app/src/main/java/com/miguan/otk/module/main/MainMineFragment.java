@@ -14,6 +14,7 @@ import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataFragment;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.miguan.otk.R;
+import com.miguan.otk.config.UserPreferences;
 import com.miguan.otk.model.bean.User;
 import com.miguan.otk.module.account.LoginActivity;
 import com.miguan.otk.module.settings.SettingsActivity;
@@ -28,7 +29,7 @@ import com.miguan.otk.module.user.MyOrderActivity;
 import com.miguan.otk.module.user.ProfileActivity;
 import com.miguan.otk.module.user.SignActivity;
 import com.miguan.otk.module.user.WithdrawListActivity;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -141,7 +142,7 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
     @Override
     public void onError(Throwable throwable) {
         super.onError(throwable);
-        if (!LUtils.getPreferences().getString("token", "").isEmpty())
+        if (!UserPreferences.getToken().isEmpty())
             LUtils.getPreferences().edit().putString("token", " ").apply();
         isLogin(false);
     }

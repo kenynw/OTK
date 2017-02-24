@@ -4,7 +4,8 @@ import com.dsk.chain.bijection.Presenter;
 import com.miguan.otk.model.UserModel;
 import com.miguan.otk.model.bean.User;
 import com.miguan.otk.model.services.ServicesResponse;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
+
 
 /**
  * Copyright (c) 2015. LiaoPeiKun Inc. All rights reserved.

@@ -13,7 +13,7 @@ import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
 import com.dsk.chain.model.AbsModel;
 import com.miguan.otk.model.services.DefaultTransform;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import java.io.File;
 

@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.jude.exgridview.ExGridView;
 import com.miguan.otk.R;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

@@ -11,6 +11,7 @@ import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.services.ServicesResponse;
 import com.miguan.otk.module.battle.BattleActivity;
+import com.miguan.otk.module.chatroom.ChatRoomFragment;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.media.UMImage;
@@ -114,9 +115,9 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
         scheduleFragment.setArguments(bundle);
         fragments.add(scheduleFragment);
 
-        MatchRulesFragment rulesFragment1 = new MatchRulesFragment();
-        rulesFragment1.setArguments(bundle);
-        fragments.add(rulesFragment1);
+        ChatRoomFragment chatroomFragment = new ChatRoomFragment();
+        chatroomFragment.setArguments(bundle);
+        fragments.add(chatroomFragment);
         return fragments;
     }
 

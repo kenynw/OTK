@@ -9,7 +9,7 @@ import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Game;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

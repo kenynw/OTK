@@ -4,7 +4,8 @@ import com.dsk.chain.expansion.list.BaseListActivityPresenter;
 import com.miguan.otk.model.UserModel;
 import com.miguan.otk.model.bean.Withdraw;
 import com.miguan.otk.model.services.ServicesResponse;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
+
 
 /**
  * Copyright (c) 2016/12/16. LiaoPeiKun Inc. All rights reserved.

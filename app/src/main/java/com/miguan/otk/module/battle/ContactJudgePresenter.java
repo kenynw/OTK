@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 
 import com.dsk.chain.bijection.Presenter;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
+
 
 /**
  * Copyright (c) 2017/1/6. LiaoPeiKun Inc. All rights reserved.
@@ -18,7 +19,7 @@ public class ContactJudgePresenter extends Presenter<ContactJudgeActivity> {
         try {
             getView().startActivity(intent);
         } catch (Exception e) {
-            LUtils.toastLong("未安装手Q或安装的版本不支持");
+            LUtils.toast("未安装手Q或安装的版本不支持");
         }
     }
 
@@ -30,7 +31,7 @@ public class ContactJudgePresenter extends Presenter<ContactJudgeActivity> {
         try {
             getView().startActivity(intent);
         } catch (Exception e) {
-            LUtils.toastLong("未安装手Q或安装的版本不支持");
+            LUtils.toast("未安装手Q或安装的版本不支持");
         }
     }
 

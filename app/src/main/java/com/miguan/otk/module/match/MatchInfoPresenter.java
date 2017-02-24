@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.dsk.chain.expansion.data.BaseDataFragmentPresenter;
 import com.miguan.otk.model.bean.Match;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -64,7 +64,7 @@ public class MatchInfoPresenter extends BaseDataFragmentPresenter<MatchInfoFragm
             intent.setData(Uri.parse(url));
             getView().startActivity(intent);
         } catch (Exception e) {
-            LUtils.toastLong("未安装手Q或安装的版本不支持");
+            LUtils.toast("未安装手Q或安装的版本不支持");
         }
     }
 

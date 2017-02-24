@@ -20,9 +20,9 @@ import com.miguan.otk.adapter.HomeMatchAdapter;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.module.match.MissionListActivity;
 import com.miguan.otk.module.user.MyMatchActivity;
+import com.miguan.otk.utils.LUtils;
 import com.miguan.otk.widget.CirclePageIndicator;
 import com.miguan.otk.widget.HeadViewPager;
-import com.sgun.utils.LUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

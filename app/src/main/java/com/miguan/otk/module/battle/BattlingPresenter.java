@@ -11,7 +11,7 @@ import com.miguan.otk.model.BattleModel;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Hero;
 import com.miguan.otk.model.services.ServicesResponse;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import org.greenrobot.eventbus.EventBus;
 

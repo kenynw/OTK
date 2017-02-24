@@ -12,7 +12,7 @@ import android.os.IBinder;
 import android.widget.RemoteViews;
 
 import com.miguan.otk.R;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -17,7 +17,7 @@ import com.miguan.otk.model.bean.News;
 import com.miguan.otk.module.common.WebActivity;
 import com.miguan.otk.module.match.MatchDetailActivity;
 import com.miguan.otk.module.news.NewsDetailActivity;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
 
 import java.util.ArrayList;
 import java.util.List;

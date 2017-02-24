@@ -5,10 +5,10 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 
 import com.dsk.chain.expansion.data.BaseDataFragmentPresenter;
+import com.miguan.otk.config.UserPreferences;
 import com.miguan.otk.model.MatchModel;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.module.account.LoginActivity;
-import com.sgun.utils.LUtils;
 
 /**
  *  2016. LiaoPeiKun Inc. All rights reserved.
@@ -35,7 +35,7 @@ public class MainMatchPresenter extends BaseDataFragmentPresenter<MainMatchFragm
     }
 
     private boolean isLogin() {
-        if (TextUtils.isEmpty(LUtils.getPreferences().getString("token", ""))) {
+        if (TextUtils.isEmpty(UserPreferences.getToken())) {
             Intent intent = new Intent(getView().getActivity(), LoginActivity.class);
             getView().startActivity(intent);
             return false;

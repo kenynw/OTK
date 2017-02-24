@@ -10,7 +10,8 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.decoration.DividerDecoration;
 import com.miguan.otk.adapter.viewholder.BattleRecordViewHolder;
 import com.miguan.otk.model.bean.Battle;
-import com.sgun.utils.LUtils;
+import com.miguan.otk.utils.LUtils;
+
 
 /**
  * Copyright (c) 2016/12/20. LiaoPeiKun Inc. All rights reserved.
