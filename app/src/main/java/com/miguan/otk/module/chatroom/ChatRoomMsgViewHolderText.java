@@ -19,11 +19,6 @@ public class ChatRoomMsgViewHolderText extends ChatRoomMsgViewHolderBaseText {
     }
 
     @Override
-    protected boolean isShowBubble() {
-        return false;
-    }
-
-    @Override
     protected boolean isShowHeadImage() {
         return false;
     }

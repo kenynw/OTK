@@ -57,16 +57,6 @@ public class ChatRoomMsgViewHolderBaseText extends ChatRoomMsgViewHolderBase {
         }
     }
 
-    @Override
-    protected int leftBackground() {
-        return 0;
-    }
-
-    @Override
-    protected int rightBackground() {
-        return 0;
-    }
-
     protected String getDisplayText() {
         return message.getContent();
     }
