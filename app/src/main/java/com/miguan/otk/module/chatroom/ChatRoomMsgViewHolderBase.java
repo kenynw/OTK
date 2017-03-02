@@ -52,7 +52,7 @@ public abstract class ChatRoomMsgViewHolderBase extends RecyclerViewHolder<BaseM
     protected ProgressBar progressBar;
     protected TextView nameTextView;
     protected FrameLayout contentContainer;
-    protected LinearLayout nameContainer;
+    protected FrameLayout nameContainer;
     protected TextView readReceiptTextView;
 
     private HeadImageView avatarLeft;

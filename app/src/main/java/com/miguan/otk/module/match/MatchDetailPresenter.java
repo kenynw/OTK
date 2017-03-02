@@ -11,7 +11,6 @@ import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.services.ServicesResponse;
 import com.miguan.otk.module.battle.BattleActivity;
-import com.miguan.otk.module.chatroom.ChatRoomFragment;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.media.UMImage;
@@ -57,8 +56,10 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
     public void share() {
         if (mMatch == null) return;
         new ShareAction(getView())
-                .withText(mMatch.getTitle())
+//                .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN)
+                .withText(mMatch.getTitle() + "火热进行中！快上车，没时间解释了！")
                 .withTargetUrl(mMatch.getShare_url())
+                .withTitle(mMatch.getTitle())
                 .withMedia(new UMImage(getView(), R.mipmap.ic_launcher))
                 .open();
     }
@@ -114,10 +115,10 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
         ScheduleListFragment scheduleFragment = new ScheduleListFragment();
         scheduleFragment.setArguments(bundle);
         fragments.add(scheduleFragment);
-
-        ChatRoomFragment chatroomFragment = new ChatRoomFragment();
-        chatroomFragment.setArguments(bundle);
-        fragments.add(chatroomFragment);
+//
+//        ChatRoomFragment chatroomFragment = ChatRoomFragmentPresenter.newInstance(mMatchID, "c");
+//        chatroomFragment.setInputView(getView().getContent());
+//        fragments.add(chatroomFragment);
         return fragments;
     }
 

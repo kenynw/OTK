@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/match_activity_detail"
     android:layout_width="match_parent"
@@ -71,10 +70,32 @@
 
         </FrameLayout>
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/id_stickynavlayout_tab"
-            style="@style/TabStyle"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/id_stickynavlayout_tab"
+                style="@style/TabStyle"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                />
+
+            <Button
+                android:id="@+id/btn_match_detail_chat_room"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:text="@string/title_activity_chat_room"
+                android:textAppearance="@style/TabText"
+                android:textColor="@color/textBody"
+                />
+
+        </LinearLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/id_stickynavlayout_viewpager"

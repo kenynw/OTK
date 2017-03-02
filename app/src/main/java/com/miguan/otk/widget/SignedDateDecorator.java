@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import com.miguan.otk.R;
-import com.miguan.otk.model.bean.Sign;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
@@ -19,21 +18,20 @@ import java.util.Locale;
 /**
  * Decorate several days with a dot
  */
-public class EventDecorator implements DayViewDecorator {
+public class SignedDateDecorator implements DayViewDecorator {
 
     private Drawable mDrawable;
 
     private List<CalendarDay> dates;
 
-    public EventDecorator(Context context, List<Sign.Cause> dates) {
+    public SignedDateDecorator(Context context, String[] dates) {
         this.mDrawable = context.getResources().getDrawable(R.mipmap.ic_bg_signed);
 
         DateFormat format = new SimpleDateFormat("yyyyMMdd", Locale.CHINA);
         this.dates = new ArrayList<>();
-        for (int i=0; i<dates.size(); i++) {
-            Sign.Cause cause = dates.get(i);
+        for (String date : dates) {
             try {
-                this.dates.add(CalendarDay.from(format.parse(cause.getSign_in_date())));
+                this.dates.add(CalendarDay.from(format.parse(date)));
             } catch (ParseException e) {
                 e.printStackTrace();
             }

@@ -3,6 +3,7 @@ package com.miguan.otk.module.chatroom;
 import android.graphics.Color;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
+import android.view.Gravity;
 import android.widget.TextView;
 
 import com.netease.nim.uikit.NimUIKit;
@@ -26,6 +27,8 @@ public class ChatRoomMsgViewHolderText extends ChatRoomMsgViewHolderBaseText {
     @Override
     public void setNameTextView() {
         nameContainer.setPadding(ScreenUtil.dip2px(6), 0, 0, 0);
+        if (isReceivedMessage()) setGravity(nameTextView, Gravity.START);
+        else setGravity(nameTextView, Gravity.END);
         ChatRoomViewHolderHelper.setNameTextView(message, nameTextView, nameIconView, context);
     }
 

@@ -64,6 +64,7 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
     TextView mTvIntro;
 
     private BottomSheetDialog mDialog;
+
     private String mIndex;
 
     @Override
@@ -74,12 +75,12 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
         ButterKnife.bind(this);
 
         mLyAvatar.setOnClickListener(v -> showPickDialog());
-        mTvArea.setOnClickListener(v -> startActivity(new Intent(this, AreaActivity.class)));
+        mTvArea.setOnClickListener(v -> startActivityForResult(new Intent(this, AreaActivity.class), 2));
     }
 
     @Override
     public void setData(User user) {
-        mDvAvatar.setImageURI(Uri.parse(user.getPhoto()));
+        setAvatar(Uri.parse(user.getPhoto()));
         mTvUsername.setText(user.getUsername());
         mTvUid.setText(String.format("%s", user.getUid()));
         mTvQQ.setText(user.getQq());
@@ -93,6 +94,10 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
         mTvQQ.setOnClickListener(v -> getPresenter().toModify(user, 0));
         mTvEmail.setOnClickListener(v -> getPresenter().toModify(user, 1));
         mTvIntro.setOnClickListener(v -> getPresenter().toModify(user, 2));
+    }
+
+    public void setAvatar(Uri uri) {
+        mDvAvatar.setImageURI(uri);
     }
 
     private void showPickDialog() {

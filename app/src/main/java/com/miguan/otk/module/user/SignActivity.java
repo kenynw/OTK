@@ -13,7 +13,7 @@ import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Sign;
-import com.miguan.otk.widget.EventDecorator;
+import com.miguan.otk.widget.SignedDateDecorator;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 import java.util.Calendar;
@@ -69,8 +69,8 @@ public class SignActivity extends BaseDataActivity<SignPresenter, Sign> {
     }
 
     public void setCalendar(Sign sign) {
-        if (sign.getCause() != null && sign.getCause().size() > 0) {
-            mCalendarView.addDecorator(new EventDecorator(this, sign.getCause()));
+        if (sign.getCause() != null && sign.getCause().length > 0) {
+            mCalendarView.addDecorator(new SignedDateDecorator(this, sign.getCause()));
         }
     }
 

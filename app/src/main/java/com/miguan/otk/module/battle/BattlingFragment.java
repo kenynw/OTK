@@ -17,6 +17,7 @@ import com.miguan.otk.R;
 import com.miguan.otk.adapter.BanPickAdapter;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Hero;
+import com.miguan.otk.module.chatroom.ChatRoomActivity;
 import com.miguan.otk.utils.LUtils;
 import com.miguan.otk.widget.SectionView;
 
@@ -103,7 +104,7 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
         mBtnCopy.setOnClickListener(v -> getPresenter().copyName(mTvOpponent.getText().toString().trim()));
         mTvContact.setOnClickListener(v -> startActivity(new Intent(getActivity(), ContactJudgeActivity.class)));
         mTvScreenshot.setOnClickListener(v -> getPresenter().toShot());
-//        mTvChatroom.setOnClickListener(v -> startActivity(new Intent()));
+        mTvChatroom.setOnClickListener(v -> startActivity(new Intent(getActivity(), ChatRoomActivity.class)));
 
         return view;
     }
@@ -117,9 +118,9 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
                     || battle.getBattle_status_user() == 6 && battle.getUser_type() == 2) {
                 setPicked();
             } else {
-                mSectionStatus.setTitle(R.string.text_pick_title)
-                        .setNotice(R.string.text_pick_notice)
-                        .setDesc(R.string.text_pick_desc);
+                mSectionStatus.setTitle(R.string.text_battle_pick_title)
+                        .setNotice(R.string.text_battle_pick_notice)
+                        .setDesc(R.string.text_battle_pick_desc);
 
                 BanPickAdapter adapter = new BanPickAdapter(getActivity(), BanPickAdapter.MODE_PICK);
                 adapter.setOnItemClickListener(hero -> {
@@ -149,9 +150,9 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
             if (battle.getBattle_status_user() == 8 && battle.getUser_type() == 1 || battle.getBattle_status_user() == 9 && battle.getUser_type() == 2) {
                 setBaned();
             } else {
-                mSectionStatus.setTitle(R.string.text_ban_title)
-                        .setNotice(R.string.text_ban_notice)
-                        .setDesc(R.string.text_ban_desc);
+                mSectionStatus.setTitle(R.string.text_battle_ban_title)
+                        .setNotice(R.string.text_battle_ban_notice)
+                        .setDesc(R.string.text_battle_ban_desc);
 
                 List<Hero> list = new ArrayList<>();
                 for (int i=1; i<(battle.getBattle_mode().equals("BO4") ? 5 : 4); i++) {
@@ -199,7 +200,7 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
                 mBtnSave.setEnabled(false);
                 mGridHeros.setVisibility(View.GONE);
                 mSectionStatus.setTitle("提交比赛结果")
-                        .setDesc(String.format(getString(R.string.text_submit_result_desc), battle.getBattle_times(), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")));
+                        .setDesc(String.format(getString(R.string.text_battle_submit_result_desc), battle.getBattle_times(), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")));
             } else {
                 mSectionStatus.setVisibility(View.GONE);
                 mGridHeros.setVisibility(View.GONE);
@@ -251,7 +252,7 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
         if (battle.getBattle_status() == 6) {
             mSectionStatus.setVisibility(View.VISIBLE);
             mGridHeros.setVisibility(View.GONE);
-            mSectionStatus.setTitle("提交比赛结果").setDesc(R.string.text_controversial_desc);
+            mSectionStatus.setTitle("提交比赛结果").setDesc(R.string.text_battle_controversial_desc);
             mBtnSave.setText("重新提交");
             mBtnSave.setOnClickListener(v -> getPresenter().resubmit());
         }
@@ -259,13 +260,13 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
     }
 
     public void setPicked() {
-        mSectionStatus.setTitle(R.string.text_pick_title).setDesc(R.string.text_picked_desc);
+        mSectionStatus.setTitle(R.string.text_battle_pick_title).setDesc(R.string.text_battle_picked_desc);
         mBtnSave.setText("已提交");
         mBtnSave.setEnabled(false);
     }
 
     public void setBaned() {
-        mSectionStatus.setTitle(R.string.text_ban_title).setDesc(R.string.text_baned_desc);
+        mSectionStatus.setTitle(R.string.text_battle_ban_title).setDesc(R.string.text_battle_baned_desc);
         mBtnSave.setText("已提交");
         mBtnSave.setEnabled(false);
     }

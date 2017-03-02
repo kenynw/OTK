@@ -152,9 +152,11 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
         initAudioRecordButton();
         restoreText(false);
 
-        for (int i = 0; i < actions.size(); ++i) {
-            actions.get(i).setIndex(i);
-            actions.get(i).setContainer(container);
+        if (actions != null) {
+            for (int i = 0; i < actions.size(); ++i) {
+                actions.get(i).setIndex(i);
+                actions.get(i).setContainer(container);
+            }
         }
     }
 
@@ -176,10 +178,13 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
         messageInputBar = view.findViewById(R.id.textMessageLayout);
         switchToTextButtonInInputBar = view.findViewById(R.id.buttonTextMessage);
         switchToAudioButtonInInputBar = view.findViewById(R.id.buttonAudioMessage);
-        moreFuntionButtonInInputBar = view.findViewById(R.id.buttonMoreFuntionInText);
         emojiButtonInInputBar = view.findViewById(R.id.emoji_button);
         sendMessageButtonInInputBar = view.findViewById(R.id.buttonSendMessage);
         messageEditText = (EditText) view.findViewById(R.id.editTextMessage);
+
+        // 更多按钮
+        moreFuntionButtonInInputBar = view.findViewById(R.id.buttonMoreFuntionInText);
+        moreFuntionButtonInInputBar.setVisibility(actions == null ? View.GONE : View.VISIBLE);
 
         // 语音
         audioRecordBtn = (Button) view.findViewById(R.id.audioRecord);
@@ -347,6 +352,8 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
         String text = messageEditText.getText().toString();
         IMMessage textMessage = createTextMessage(text);
 
+        LogUtil.d("DSK", text);
+
         if (container.proxy.sendMessage(textMessage)) {
             restoreText(true);
         }
@@ -434,12 +441,14 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
 
     // 初始化更多布局
     private void addActionPanelLayout() {
-        if (actionPanelBottomLayout == null) {
-            View.inflate(container.activity, R.layout.nim_message_activity_actions_layout, messageActivityBottomLayout);
-            actionPanelBottomLayout = view.findViewById(R.id.actionsLayout);
-            actionPanelBottomLayoutHasSetup = false;
+        if (actions != null) {
+            if (actionPanelBottomLayout == null) {
+                View.inflate(container.activity, R.layout.nim_message_activity_actions_layout, messageActivityBottomLayout);
+                actionPanelBottomLayout = view.findViewById(R.id.actionsLayout);
+                actionPanelBottomLayoutHasSetup = false;
+            }
+            initActionPanelLayout();
         }
-        initActionPanelLayout();
     }
 
     // 显示键盘布局
@@ -513,7 +522,7 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
      */
     private void checkSendButtonEnable(EditText editText) {
         String textMessage = editText.getText().toString();
-        if (!TextUtils.isEmpty(StringUtil.removeBlanks(textMessage)) && editText.hasFocus()) {
+        if (actions == null || (!TextUtils.isEmpty(StringUtil.removeBlanks(textMessage)) && editText.hasFocus())) {
             moreFuntionButtonInInputBar.setVisibility(View.GONE);
             sendMessageButtonInInputBar.setVisibility(View.VISIBLE);
         } else {

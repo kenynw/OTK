@@ -65,8 +65,9 @@ public class CommonModel extends AbsModel {
                 .setMessage(version.getUpgrade_content())
                 .setNegativeButton(version.getType() == 1 ? "下次再说" : "", null)
                 .setPositiveButton("马上更新", (dialog, which) -> {
+                    LUtils.log("开始下载");
                     Intent intent = new Intent(context, UpdateService.class);
-                    intent.putExtra("title", "正在下载茶汇通");
+                    intent.putExtra("title", "正在下载" + context.getString(R.string.app_name));
                     intent.putExtra("url", version.getApk_url());
                     intent.putExtra("path", findDownLoadDirectory());
                     intent.putExtra("name", context.getString(R.string.app_name) + "v" + version.getVersion_number() + ".apk");

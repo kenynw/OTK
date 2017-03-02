@@ -86,16 +86,13 @@ public class UpdateService extends Service {
 
 
     private void updateNotification(int downloadCount) {
-        contentView.setTextViewText(R.id.tv_note_percent, downloadCount
-                + "%");
-        contentView.setProgressBar(R.id.tv_note_progress, 100,
-                downloadCount, false);
+        contentView.setTextViewText(R.id.tv_note_percent, downloadCount + "%");
+        contentView.setProgressBar(R.id.tv_note_progress, 100, downloadCount, false);
         notificationManager.notify(notification_id, notification);
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO Auto-generated method stub
         return null;
     }
 

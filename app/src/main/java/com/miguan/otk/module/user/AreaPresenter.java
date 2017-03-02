@@ -18,7 +18,7 @@ import rx.Observable;
  * Copyright (c) 2017/1/19. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class AreaFragmentPresenter extends BaseListActivityPresenter<AreaActivity, Area> {
+public class AreaPresenter extends BaseListActivityPresenter<AreaActivity, Area> {
 
     private StringBuilder mName = new StringBuilder();
 

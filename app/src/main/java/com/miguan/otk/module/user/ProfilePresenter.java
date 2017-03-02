@@ -1,5 +1,6 @@
 package com.miguan.otk.module.user;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -48,7 +49,17 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
     protected void onCreateView(ProfileActivity view) {
         super.onCreateView(view);
         if (mUser != null) publishObject(mUser);
-        UserModel.getInstance().getProfile().unsafeSubscribe(getDataSubscriber());
+        refresh();
+    }
+
+    private void refresh() {
+        UserModel.getInstance().getProfile().unsafeSubscribe(new ServicesResponse<User>() {
+            @Override
+            public void onNext(User user) {
+                getView().setData(user);
+                mUser = user;
+            }
+        });
     }
 
     public void setProfile(String key, String value) {
@@ -61,8 +72,7 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
         UserModel.getInstance().setProfile(map).unsafeSubscribe(new ServicesResponse<Boolean>() {
             @Override
             public void onNext(Boolean aBoolean) {
-                if (aBoolean) LUtils.toast("修改成功");
-                else LUtils.toast("修改失败");
+                refresh();
             }
         });
     }
@@ -71,7 +81,7 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
         Intent i = new Intent(getView(), ProfileModifyActivity.class);
         i.putExtra("type", type);
         i.putExtra("user", user);
-        getView().startActivity(i);
+        getView().startActivityForResult(i, 1);
     }
 
     public void uploadImage(Uri uri) {
@@ -110,6 +120,10 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
     protected void onResult(int requestCode, int resultCode, Intent data) {
         super.onResult(requestCode, resultCode, data);
         mImageProvider.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            refresh();
+            LUtils.toast("result ok");
+        }
     }
 
     @Override
@@ -134,18 +148,12 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void setAvatar(Uri uri) {
-        mUser.setPhoto(uri.getPath());
-        getView().setData(mUser);
+        getView().setAvatar(uri);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void setArea(StringBuilder area) {
         String[] strings = area.toString().split(" ");
-        mUser.setProvince(strings[0]);
-        mUser.setCity(strings[1]);
-        mUser.setArea(strings[2]);
-        getView().setData(mUser);
-
         Map<String, String> map = new HashMap<>();
         map.put("province", strings[0]);
         map.put("city", strings[1]);

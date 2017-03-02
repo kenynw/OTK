@@ -45,6 +45,9 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
     @Bind(R.id.id_stickynavlayout_tab)
     TabLayout mTabLayout;
 
+    @Bind(R.id.btn_match_detail_chat_room)
+    Button mBtnChatRoom;
+
     @Bind(R.id.id_stickynavlayout_viewpager)
     ViewPager mPager;
 
@@ -79,8 +82,8 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
     @Override
     public void setData(Match match) {
         EventBus.getDefault().post(match);
+        mBtnChatRoom.setOnClickListener(v -> {});
         mTvCost.setText(String.format(getString(R.string.label_match_id_cost), match.getCompetition_id(), match.getCost()));
-        mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), getPresenter().getFormatDate(Long.valueOf(match.getGame_time()) * 1000)));
 
         SpannableString spanString = new SpannableString(match.getTitle());
         if (match.getGame_type() > 0) {
@@ -106,7 +109,7 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
 
             }.start();
         } else {
-            mTvStatus.setText(String.format(getString(R.string.label_match_state), match.getGame_desc(), match.getGame_status()));
+            mTvStatus.setText("赛事状态：" + match.getGame_status());
         }
 
         mBtnStatus.setText(match.getGame_status());

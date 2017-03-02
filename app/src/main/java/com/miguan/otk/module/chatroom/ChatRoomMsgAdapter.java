@@ -1,12 +1,12 @@
 package com.miguan.otk.module.chatroom;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.ui.recyclerview.holder.BaseViewHolder;
 import com.netease.nimlib.sdk.chatroom.model.ChatRoomMessage;
+import com.netease.nimlib.sdk.msg.constant.MsgTypeEnum;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 
@@ -21,7 +21,10 @@ import java.util.Set;
  */
 public class ChatRoomMsgAdapter extends BaseMultiItemFetchLoadAdapter<ChatRoomMessage, BaseViewHolder> {
 
-    private Map<Class<? extends ChatRoomMsgViewHolderBase>, Integer> holder2ViewType;
+    interface ViewType {
+        int VIEW_TYPE_TEXT = 1;
+        int VIEW_TYPE_NOTIFY = 2;
+    }
 
     private ViewHolderEventListener eventListener;
     private Map<String, Float> progresses; // 有文件传输，需要显示进度条的消息ID map
@@ -33,21 +36,13 @@ public class ChatRoomMsgAdapter extends BaseMultiItemFetchLoadAdapter<ChatRoomMe
         timedItems = new HashSet<>();
         progresses = new HashMap<>();
 
-        // view type, view holder
-        holder2ViewType = new HashMap<>();
-        List<Class<? extends ChatRoomMsgViewHolderBase>> holders = ChatRoomMsgViewHolderFactory.getAllViewHolders();
-        int viewType = 0;
-        for (Class<? extends ChatRoomMsgViewHolderBase> holder : holders) {
-            viewType++;
-            addItemType(viewType, com.netease.nim.uikit.R.layout.nim_message_item, holder);
-            Log.d("DSK", holder.getName());
-            holder2ViewType.put(holder, viewType);
-        }
+        addItemType(ViewType.VIEW_TYPE_TEXT, com.netease.nim.uikit.R.layout.nim_message_item, ChatRoomMsgViewHolderText.class);
+        addItemType(ViewType.VIEW_TYPE_NOTIFY, com.netease.nim.uikit.R.layout.nim_message_item, ChatRoomMsgViewHolderNotification.class);
     }
 
     @Override
     protected int getViewType(ChatRoomMessage message) {
-        return holder2ViewType.get(ChatRoomMsgViewHolderFactory.getViewHolderByType(message));
+        return message.getMsgType() == MsgTypeEnum.text ? ViewType.VIEW_TYPE_TEXT : ViewType.VIEW_TYPE_NOTIFY;
     }
 
     @Override

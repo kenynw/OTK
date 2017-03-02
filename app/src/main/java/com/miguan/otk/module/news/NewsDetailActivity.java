@@ -59,7 +59,9 @@ public class NewsDetailActivity extends BaseDataActivity<NewsDetailPresenter, Ne
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        new ShareAction(this).withTitle(mNews.getTitle())
+        new ShareAction(this)
+                .withTitle(mNews.getTitle())
+                .withText(mNews.getTitle() + "描述")
                 .withMedia(new UMImage(this, R.mipmap.ic_launcher))
                 .withTargetUrl(mNews.getUrl())
                 .open();

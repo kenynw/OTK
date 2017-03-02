@@ -3,12 +3,13 @@
           package="com.miguan.otk">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <!-- SDK 权限申明, 第三方 APP 接入时，请将 com.netease.nim.demo 替换为自己的包名 -->
     <!-- 和下面的 uses-permission 一起加入到你的 AndroidManifest 文件中。 -->
     <!-- 控制呼吸灯，振动器等，用于新消息提醒 -->
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <!-- 外置存储存取权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -32,25 +33,45 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--网易云信-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:noHistory="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent1104563629" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden">
+        </activity>
+
+        <!-- 网易云信 -->
         <meta-data
             android:name="com.netease.nim.appKey"
-            android:value="22487f3c4427aa1710f6a5882b05dbf8" />
+            android:value="22487f3c4427aa1710f6a5882b05dbf8"/>
         <!-- 声明云信后台服务，如需保持后台推送，使用独立进程效果会更好。 -->
 
         <service
             android:name="com.netease.nimlib.service.NimService"
             android:process=":core"/>
-
         <service
             android:name="com.netease.nimlib.service.NimService$Aux"
             android:process=":core"/>
 
-        <!-- 云信SDK的监视系统启动和网络变化的广播接收器，用户开机自启动以及网络变化时候重新登录，
-            保持和 NimService 同一进程 -->
-        <receiver android:name="com.netease.nimlib.service.NimReceiver"
-                  android:process=":core"
-                  android:exported="false">
+        <!--
+             云信SDK的监视系统启动和网络变化的广播接收器，用户开机自启动以及网络变化时候重新登录，
+            保持和 NimService 同一进程
+        -->
+        <receiver
+            android:name="com.netease.nimlib.service.NimReceiver"
+            android:exported="false"
+            android:process=":core">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
@@ -60,17 +81,18 @@
         <!-- 云信进程间通信 Receiver -->
         <receiver android:name="com.netease.nimlib.service.ResponseReceiver"/>
 
-        <!--&lt;!&ndash; 安卓保活配置 &ndash;&gt;-->
-        <!--<service-->
-            <!--android:name="com.netease.cosine.core.CosineService"-->
-            <!--android:process=":cosine">-->
-        <!--</service>-->
+        <!-- &lt;!&ndash; 安卓保活配置 &ndash;&gt; -->
+        <!-- <service -->
+        <!-- android:name="com.netease.cosine.core.CosineService" -->
+        <!-- android:process=":cosine"> -->
+        <!-- </service> -->
 
-        <!--<receiver-->
-            <!--android:name="com.netease.cosine.target.CosineReceiver"-->
-            <!--android:exported="true"-->
-            <!--android:process=":cosine">-->
-        <!--</receiver>-->
+
+        <!-- <receiver -->
+        <!-- android:name="com.netease.cosine.target.CosineReceiver" -->
+        <!-- android:exported="true" -->
+        <!-- android:process=":cosine"> -->
+        <!-- </receiver> -->
 
         <meta-data
             android:name="com.netease.cosine.target"
@@ -79,12 +101,16 @@
             android:name="com.netease.cosine.target.receiver"
             android:value="com.netease.nimlib.service.NimReceiver"/>
 
-        <!--网易云信end-->
+        <!-- 网易云信end -->
+
 
         <!-- <meta-data -->
         <!-- android:name="MODEL" -->
         <!-- android:value="com.miguan.otk.model.UserModel" -->
         <!-- /> -->
+
+        <service android:name=".module.common.UpdateService"
+            />
 
         <activity
             android:name=".module.main.SplashActivity"
@@ -104,7 +130,7 @@
             android:theme="@style/DividerAppTheme"/>
         <activity android:name=".module.account.LoginActivity">
             <intent-filter>
-                <action android:name="com.miguan.otk.login" />
+                <action android:name="com.miguan.otk.login"/>
             </intent-filter>
         </activity>
         <activity android:name=".module.account.ForgotActivity"/>
@@ -177,7 +203,8 @@
         </activity>
         <activity android:name=".module.battle.ShotBrowseActivity">
         </activity>
-
+        <activity android:name=".module.chatroom.ChatRoomActivity">
+        </activity>
     </application>
 
 </manifest>

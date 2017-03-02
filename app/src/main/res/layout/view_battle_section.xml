@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_battle_desc"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
@@ -28,7 +29,7 @@
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/indicator_primary_dark_label"
             android:gravity="center_vertical"
-            android:text="@string/text_prepare_phase"
+            android:text="@string/text_battle_prepare_phase"
             android:textAppearance="@style/TextSubhead"
             android:textStyle="bold"
             />
@@ -44,7 +45,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/text_size_caption_material"
             android:visibility="gone"
-            tools:text="@string/text_ban_notice"
+            tools:text="@string/text_battle_ban_notice"
             />
 
     </LinearLayout>
@@ -57,7 +58,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:lineSpacingMultiplier="1.2"
-        android:text="@string/text_ready_desc"
+        android:text="@string/text_battle_ready_desc"
         android:textColor="@color/textSecondary"
         android:textSize="@dimen/text_size_body_material"
         />

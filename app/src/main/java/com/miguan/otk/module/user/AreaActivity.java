@@ -14,8 +14,8 @@ import com.miguan.otk.model.bean.Area;
  * Copyright (c) 2017/1/19. LiaoPeiKun Inc. All rights reserved.
  */
 
-@RequiresPresenter(AreaFragmentPresenter.class)
-public class AreaActivity extends BaseListActivity<AreaFragmentPresenter> {
+@RequiresPresenter(AreaPresenter.class)
+public class AreaActivity extends BaseListActivity<AreaPresenter> {
 
     @Override
     public BaseViewHolder<Area> createViewHolder(ViewGroup parent, int viewType) {

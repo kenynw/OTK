@@ -74,6 +74,8 @@ public class Battle implements Parcelable {
 
     private String a_pic3;
 
+    private String a_qq;
+
     private int b_user_id;
 
     private String b_gameaccount;
@@ -105,6 +107,8 @@ public class Battle implements Parcelable {
     private String b_pic2;
 
     private String b_pic3;
+
+    private String b_qq;
 
     private long ready_time;
 
@@ -169,6 +173,7 @@ public class Battle implements Parcelable {
         dest.writeString(this.a_pic1);
         dest.writeString(this.a_pic2);
         dest.writeString(this.a_pic3);
+        dest.writeString(this.a_qq);
         dest.writeInt(this.b_user_id);
         dest.writeString(this.b_gameaccount);
         dest.writeString(this.b_username);
@@ -185,6 +190,7 @@ public class Battle implements Parcelable {
         dest.writeString(this.b_pic1);
         dest.writeString(this.b_pic2);
         dest.writeString(this.b_pic3);
+        dest.writeString(this.b_qq);
         dest.writeLong(this.ready_time);
         dest.writeInt(this.user_type);
         dest.writeValue(this.is_wait);
@@ -234,6 +240,7 @@ public class Battle implements Parcelable {
         this.a_pic1 = in.readString();
         this.a_pic2 = in.readString();
         this.a_pic3 = in.readString();
+        this.a_qq = in.readString();
         this.b_user_id = in.readInt();
         this.b_gameaccount = in.readString();
         this.b_username = in.readString();
@@ -250,6 +257,7 @@ public class Battle implements Parcelable {
         this.b_pic1 = in.readString();
         this.b_pic2 = in.readString();
         this.b_pic3 = in.readString();
+        this.b_qq = in.readString();
         this.ready_time = in.readLong();
         this.user_type = in.readInt();
         this.is_wait = (Boolean) in.readValue(Boolean.class.getClassLoader());
@@ -515,6 +523,22 @@ public class Battle implements Parcelable {
 
     public void setA_pic3(String a_pic3) {
         this.a_pic3 = a_pic3;
+    }
+
+    public String getA_qq() {
+        return a_qq;
+    }
+
+    public void setA_qq(String a_qq) {
+        this.a_qq = a_qq;
+    }
+
+    public String getB_qq() {
+        return b_qq;
+    }
+
+    public void setB_qq(String b_qq) {
+        this.b_qq = b_qq;
     }
 
     public int getB_user_id() {

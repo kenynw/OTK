@@ -1,6 +1,7 @@
 package com.miguan.otk.module.chatroom;
 
 import android.os.Build;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -81,7 +82,6 @@ public class ChatRoomMsgListPanel {
     }
 
     private void initListView() {
-        LUtils.log("init　list view ");
         // RecyclerView
         messageListView = (RecyclerView) rootView.findViewById(R.id.list_chat_room_message);
         messageListView.setLayoutManager(new LinearLayoutManager(container.activity));
@@ -165,7 +165,7 @@ public class ChatRoomMsgListPanel {
      */
     private class MessageLoader implements BaseFetchLoadAdapter.RequestLoadMoreListener, BaseFetchLoadAdapter.RequestFetchMoreListener {
 
-        private static final int LOAD_MESSAGE_COUNT = 10;
+        private static final int LOAD_MESSAGE_COUNT = 20;
 
         private IMMessage anchor;
 
@@ -179,7 +179,6 @@ public class ChatRoomMsgListPanel {
         private RequestCallback<List<ChatRoomMessage>> callback = new RequestCallbackWrapper<List<ChatRoomMessage>>() {
             @Override
             public void onResult(int code, List<ChatRoomMessage> messages, Throwable exception) {
-                LUtils.log("message loader");
                 if (messages != null) {
                     onMessageLoaded(messages);
                 } else {
@@ -189,7 +188,6 @@ public class ChatRoomMsgListPanel {
         };
 
         private void loadFromLocal() {
-            LUtils.log("container account" + container.account);
             NIMClient.getService(ChatRoomService.class).pullMessageHistory(container.account, anchor().getTime(), LOAD_MESSAGE_COUNT)
                     .setCallback(callback);
         }
@@ -207,6 +205,8 @@ public class ChatRoomMsgListPanel {
          */
         private void onMessageLoaded(List<ChatRoomMessage> messages) {
             int count = messages.size();
+
+            LUtils.log("time" + System.currentTimeMillis());
 
             // 加入到列表中
             if (count <= 0) {
@@ -391,6 +391,10 @@ public class ChatRoomMsgListPanel {
     private void setEarPhoneMode(boolean earPhoneMode) {
         UserPreferences.setEarPhoneModeEnable(earPhoneMode);
         MessageAudioControl.getInstance(container.activity).setEarPhoneModeEnable(earPhoneMode);
+    }
+
+    public void scrollToBottom() {
+        new Handler().postDelayed(() -> doScrollToBottom(), 200);
     }
 
     private void doScrollToBottom() {

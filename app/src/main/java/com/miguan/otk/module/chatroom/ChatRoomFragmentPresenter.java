@@ -15,8 +15,8 @@ import com.netease.nim.uikit.session.module.ModuleProxy;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.RequestCallback;
+import com.netease.nimlib.sdk.ResponseCode;
 import com.netease.nimlib.sdk.StatusCode;
-import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.LoginInfo;
 import com.netease.nimlib.sdk.chatroom.ChatRoomService;
 import com.netease.nimlib.sdk.chatroom.ChatRoomServiceObserver;
@@ -34,9 +34,15 @@ import java.util.List;
  * Copyright (c) 2017/2/21. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class ChatRoomPresenter extends Presenter<ChatRoomFragment> implements ModuleProxy {
+public class ChatRoomFragmentPresenter extends Presenter<ChatRoomFragment> implements ModuleProxy {
 
-    private int mMatchID = 0;
+    private static final String EXTRA_PARENT_ID = "parent_id";
+
+    private static final String EXTRA_ROOM_TYPE = "room_type";
+
+    private int mParentID = 0;
+
+    private String mRoomType;
 
     private String mRoomID;
 
@@ -44,19 +50,30 @@ public class ChatRoomPresenter extends Presenter<ChatRoomFragment> implements Mo
 
     private ChatRoomMsgListPanel mMessageListPanel;
 
+    private ChatRoomInputPanel mInputPanel;
+
+    public static ChatRoomFragment newInstance(int id, String roomType) {
+        Bundle args = new Bundle();
+        args.putInt(EXTRA_PARENT_ID, id);
+        args.putString(EXTRA_ROOM_TYPE, roomType);
+        ChatRoomFragment fragment = new ChatRoomFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     protected void onCreate(ChatRoomFragment view, Bundle saveState) {
         super.onCreate(view, saveState);
         if (getView().getArguments() != null) {
-            mMatchID = getView().getArguments().getInt("match_id");
+            mParentID = getView().getArguments().getInt(EXTRA_PARENT_ID);
+            mRoomType = getView().getArguments().getString(EXTRA_ROOM_TYPE);
         }
-        doLogin();
     }
 
     @Override
     protected void onCreateView(ChatRoomFragment view) {
         super.onCreateView(view);
-
+        getChatRoomID();
     }
 
     @Override
@@ -65,11 +82,15 @@ public class ChatRoomPresenter extends Presenter<ChatRoomFragment> implements Mo
         logout();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        logout();
+    }
+
     private void doLogin() {
         String account = UserPreferences.getUserID();
         String token = UserPreferences.getNIMToken();
-
-        LUtils.log("account: " + account + ", token: " + token);
 
         NimUIKit.doLogin(new LoginInfo(account, token), new RequestCallback<LoginInfo>() {
             @Override
@@ -96,13 +117,11 @@ public class ChatRoomPresenter extends Presenter<ChatRoomFragment> implements Mo
     }
 
     public void getChatRoomID() {
-        ChatModel.getInstance().getChatroomID("c", mMatchID)
+        ChatModel.getInstance().getChatroomID(mRoomType, mParentID)
                 .unsafeSubscribe(new ServicesResponse<Chatroom>() {
                     @Override
                     public void onNext(Chatroom chatroom) {
                         mRoomID = chatroom.getRoom_id();
-
-                        LUtils.log("id: " + mRoomID);
 
                         enterRoom();
                     }
@@ -139,6 +158,12 @@ public class ChatRoomPresenter extends Presenter<ChatRoomFragment> implements Mo
         Container container = new Container(getView().getActivity(), mRoomID, SessionTypeEnum.ChatRoom, this);
         if (mMessageListPanel == null) {
             mMessageListPanel = new ChatRoomMsgListPanel(container, getView().getRootView());
+        }
+
+        if (mInputPanel == null) {
+            mInputPanel = new ChatRoomInputPanel(container, getView().getRootView(), null, false);
+        } else {
+            mInputPanel.reload(container, null);
         }
     }
 
@@ -183,26 +208,58 @@ public class ChatRoomPresenter extends Presenter<ChatRoomFragment> implements Mo
 
     private void logout() {
         NIMClient.getService(ChatRoomService.class).exitChatRoom(mRoomID);
-        NIMClient.getService(AuthService.class).logout();
     }
 
     @Override
     public boolean sendMessage(IMMessage msg) {
-        return false;
+        ChatRoomMessage message = (ChatRoomMessage) msg;
+
+//        Map<String, Object> ext = new HashMap<>();
+//        ChatRoomMember chatRoomMember = ChatRoomMemberCache.getInstance().getChatRoomMember(roomId, DemoCache.getAccount());
+//        if (chatRoomMember != null && chatRoomMember.getMemberType() != null) {
+//            ext.put("type", chatRoomMember.getMemberType().getValue());
+//            message.setRemoteExtension(ext);
+//        }
+
+        NIMClient.getService(ChatRoomService.class).sendMessage(message, false)
+                .setCallback(new RequestCallback<Void>() {
+                    @Override
+                    public void onSuccess(Void param) {
+                    }
+
+                    @Override
+                    public void onFailed(int code) {
+                        if (code == ResponseCode.RES_CHATROOM_MUTED) {
+                            LUtils.toast("用户被禁言");
+                        } else if (code == ResponseCode.RES_CHATROOM_ROOM_MUTED) {
+                            LUtils.toast("全体禁言");
+                        } else {
+                            LUtils.toast("消息发送失败：code:" + code);
+                        }
+                    }
+
+                    @Override
+                    public void onException(Throwable exception) {
+                        LUtils.toast("消息发送失败！");
+                    }
+                });
+        mMessageListPanel.onMsgSend(message);
+        return true;
     }
 
     @Override
     public void onInputPanelExpand() {
-
+        mMessageListPanel.scrollToBottom();
     }
 
     @Override
     public void shouldCollapseInputPanel() {
-
+        mInputPanel.collapse(false);
     }
 
     @Override
     public boolean isLongClickEnabled() {
-        return false;
+        return !mInputPanel.isRecording();
     }
+
 }

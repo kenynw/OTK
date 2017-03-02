@@ -1,11 +1,12 @@
 package com.miguan.otk.module.user;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import com.dsk.chain.bijection.Presenter;
 import com.miguan.otk.model.UserModel;
+import com.miguan.otk.model.bean.User;
 import com.miguan.otk.model.services.ServicesResponse;
-import com.miguan.otk.utils.LUtils;
 
 
 /**
@@ -14,9 +15,12 @@ import com.miguan.otk.utils.LUtils;
 
 public class ProfileModifyPresenter extends Presenter<ProfileModifyActivity> {
 
+    private User mUser;
+
     @Override
     protected void onCreate(ProfileModifyActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
+        mUser = getView().getIntent().getParcelableExtra("user");
     }
 
     public void submit(String key, String value) {
@@ -24,7 +28,10 @@ public class ProfileModifyPresenter extends Presenter<ProfileModifyActivity> {
                 .unsafeSubscribe(new ServicesResponse<Boolean>() {
                     @Override
                     public void onNext(Boolean aBoolean) {
-                        if (aBoolean) LUtils.toast("修改成功");
+                        if (aBoolean) {
+                            getView().setResult(Activity.RESULT_OK);
+                            getView().finish();
+                        }
                     }
                 });
     }

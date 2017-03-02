@@ -40,26 +40,23 @@ public class LoginPresenter extends Presenter<LoginActivity> {
                 getView().setResult(Activity.RESULT_OK, intent);
                 getView().finish();
                 EventBus.getDefault().post(user);
+                doLogin(user);
             }
         });
     }
 
-    private void doLogin() {
+    private void doLogin(User user) {
         String account = UserPreferences.getUserID();
         String token = UserPreferences.getNIMToken();
-
-        LUtils.log("account: " + account + ", token: " + token);
 
         NimUIKit.doLogin(new LoginInfo(account, token), new RequestCallback<LoginInfo>() {
             @Override
             public void onSuccess(LoginInfo info) {
-                LUtils.log("登录成功 account: " + info.getAccount() + ", token: " + info.getToken());
-
                 Intent intent = new Intent();
-//                intent.putExtra("user", user);
+                intent.putExtra("user", user);
                 getView().setResult(Activity.RESULT_OK, intent);
                 getView().finish();
-//                EventBus.getDefault().post(user);
+                EventBus.getDefault().post(user);
             }
 
             @Override

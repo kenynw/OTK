@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.dsk.chain.bijection.ChainBaseActivity;
 import com.dsk.chain.bijection.RequiresPresenter;
@@ -19,6 +20,9 @@ import butterknife.ButterKnife;
 
 @RequiresPresenter(ProfileModifyPresenter.class)
 public class ProfileModifyActivity extends ChainBaseActivity<ProfileModifyPresenter> {
+
+    @Bind(R.id.tv_profile_modify_label)
+    TextView mTvLabel;
 
     @Bind(R.id.et_profile_modify_input)
     EditText mEtInput;
@@ -40,8 +44,9 @@ public class ProfileModifyActivity extends ChainBaseActivity<ProfileModifyPresen
 
     private void setLayout() {
         switch (getIntent().getIntExtra("type", 0)) {
-            case 0 :
+            case 0:
                 setToolbarTitle("QQ");
+                mTvLabel.setText("QQ");
                 if (!TextUtils.isEmpty(mUser.getQq())) mEtInput.setText(mUser.getQq());
                 mEtInput.setHint(R.string.hint_qq);
                 mBtnSubmit.setOnClickListener(v -> {
@@ -52,8 +57,9 @@ public class ProfileModifyActivity extends ChainBaseActivity<ProfileModifyPresen
                     getPresenter().submit("qq", mEtInput.getText().toString().trim());
                 });
                 break;
-            case 1 :
+            case 1:
                 setToolbarTitle("邮箱");
+                mTvLabel.setText("邮箱");
                 if (!TextUtils.isEmpty(mUser.getEmail())) mEtInput.setText(mUser.getEmail());
                 mEtInput.setHint(R.string.hint_email);
                 mBtnSubmit.setOnClickListener(v -> {
@@ -64,8 +70,9 @@ public class ProfileModifyActivity extends ChainBaseActivity<ProfileModifyPresen
                     getPresenter().submit("email", mEtInput.getText().toString().trim());
                 });
                 break;
-            case 2 :
+            case 2:
                 setToolbarTitle("签名");
+                mTvLabel.setText("签名");
                 if (!TextUtils.isEmpty(mUser.getSign())) mEtInput.setText(mUser.getSign());
                 mEtInput.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LUtils.dp2px(128)));
                 mEtInput.setGravity(Gravity.TOP & Gravity.LEFT);

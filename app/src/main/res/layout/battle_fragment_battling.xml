@@ -30,7 +30,7 @@
         app:grid_divider_vertical="24dp"
         />
 
-    <include layout="@layout/include_battling_ongoing"/>
+    <include layout="@layout/include_battling_bp_list"/>
 
     <Button
         android:id="@+id/btn_battling_save"
