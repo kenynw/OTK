@@ -78,15 +78,22 @@ public class MatchInfoFragment extends BaseDataFragment<MatchInfoPresenter, Matc
         mTvBench.setOnClickListener(v -> getPresenter().toUserList(match.getCompetition_id(), 2));
         mTvGroup.setOnClickListener(v -> getPresenter().toQQGroup(match.getQq_group_url()));
 
-        // 设置奖金 操蛋又冗余的代码
-        mTvReward.setText(String.format("￥%s", match.getReward_money()>0 ? match.getReward_money() : match.getReward_sb()));
-        mTvRewardWinner.setText(String.format("￥%s", match.getReward_1()>0 ? match.getReward_1() : match.getSb_reward_2()));
-        mTvReward2.setText(String.format("￥%s", match.getReward_2()>0 ? match.getReward_2() : match.getSb_reward_2()));
-        mTvReward3_4.setText(String.format("￥%s", match.getReward_3_4()>0 ? match.getReward_3_4() : match.getSb_reward_3_4()));
-        mTvReward5_8.setText(String.format("￥%s", match.getReward_5_8()>0 ? match.getReward_5_8() : match.getSb_reward_5_8()));
-        mTvReward9_16.setText(String.format("￥%s", match.getReward_9_16()>0 ? match.getReward_9_16() : match.getSb_reward_9_16()));
-        mTvReward17_32.setText(String.format("￥%s", match.getReward_17_32()>0 ? match.getReward_17_32() : match.getSb_reward_17_32()));
-        mTvReward33_64.setText(String.format("￥%s", match.getReward_33_64()>0 ? match.getReward_33_64() : match.getSb_reward_33_64()));
+        // 设置奖金
+        mTvReward.setText(getReward(match.getReward_money(), match.getReward_sb()));
+        mTvRewardWinner.setText(getReward(match.getReward_1(), match.getSb_reward_1()));
+        mTvReward2.setText(getReward(match.getReward_2(), match.getSb_reward_2()));
+        mTvReward3_4.setText(getReward(match.getReward_3_4(), match.getSb_reward_3_4()));
+        mTvReward5_8.setText(getReward(match.getReward_5_8(), match.getSb_reward_5_8()));
+        mTvReward9_16.setText(getReward(match.getReward_9_16(), match.getSb_reward_9_16()));
+        mTvReward17_32.setText(getReward(match.getReward_17_32(), match.getSb_reward_17_32()));
+        mTvReward33_64.setText(getReward(match.getReward_33_64(), match.getSb_reward_33_64()));
+    }
+
+    private String getReward(long money, long sb) {
+        if (money > 0 && sb > 0) return money + "元宝" + "&" + sb + "撒币";
+        else if (money > 0) return money + "元宝";
+        else if (sb > 0) return sb + "撒币";
+        return "0";
     }
 
 }

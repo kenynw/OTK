@@ -1,8 +1,13 @@
 package com.miguan.otk.module.user;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -52,11 +57,11 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> imple
         ButterKnife.bind(this);
 
         mBtnSubmit.setOnClickListener(v -> checkInput());
-        mPvImage.setOnAskViewListener(this::showPickDialog);
+        mPvImage.setOnAskViewListener(this::requestPermission);
         mPvImage.setOnViewDeleteListener(getPresenter());
         mPvImage.setAddImageRes(R.mipmap.ic_add_pic);
 
-        for (int i=0; i<mGridType.getChildCount(); i++) {
+        for (int i = 0; i < mGridType.getChildCount(); i++) {
             TextView tv = (TextView) mGridType.getChildAt(i);
             if (i == 0) {
                 mCurChecked = tv;
@@ -82,6 +87,21 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> imple
         );
     }
 
+    /**
+     * 基本权限管理
+     */
+    private void requestPermission() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    100);
+        } else {
+            showPickDialog();
+        }
+    }
+
     private void showPickDialog() {
         if (mDialog == null) {
             mDialog = new BottomSheetDialog(this);
@@ -95,6 +115,17 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> imple
             mDialog.getWindow().findViewById(R.id.design_bottom_sheet).setBackgroundResource(android.R.color.transparent);
         }
         mDialog.show();
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 100 && grantResults.length >= 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            showPickDialog();
+        } else {
+            LUtils.toast("读取图片权限被用户禁用");
+        }
     }
 
     public void addImage(Bitmap bitmap) {
@@ -109,7 +140,7 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> imple
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        for (int i=0; i<mGridType.getChildCount(); i++) {
+        for (int i = 0; i < mGridType.getChildCount(); i++) {
             RadioButton radioButton = (RadioButton) mGridType.getChildAt(i);
             radioButton.setChecked(false);
             buttonView.setChecked(true);

@@ -3,12 +3,10 @@ package com.miguan.otk.module.settings;
 import android.app.Activity;
 
 import com.dsk.chain.bijection.Presenter;
-import com.miguan.otk.config.UserPreferences;
+import com.miguan.otk.model.local.UserPreferences;
 import com.miguan.otk.model.CommonModel;
 import com.miguan.otk.utils.DataCleanManager;
 import com.miguan.otk.utils.LUtils;
-import com.netease.nimlib.sdk.NIMClient;
-import com.netease.nimlib.sdk.auth.AuthService;
 
 
 /**
@@ -34,7 +32,6 @@ public class SettingsPresenter extends Presenter<SettingsActivity> {
     }
 
     public void logout() {
-        NIMClient.getService(AuthService.class).logout();
         UserPreferences.setToken("");
         UserPreferences.setNIMToken("");
         UserPreferences.setUserID("");

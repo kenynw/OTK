@@ -1,16 +1,11 @@
 package com.miguan.otk.base;
 
 import android.app.Application;
-import android.text.TextUtils;
 
 import com.dsk.chain.Chain;
 import com.dsk.chain.model.ModelManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.miguan.otk.config.UserPreferences;
 import com.miguan.otk.utils.LUtils;
-import com.netease.nim.uikit.NimUIKit;
-import com.netease.nimlib.sdk.NIMClient;
-import com.netease.nimlib.sdk.auth.LoginInfo;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
 import com.umeng.socialize.Config;
@@ -46,35 +41,14 @@ public class App extends Application {
             }
         });
 
-        NIMClient.init(this, getNIMLoginInfo(), null);
-        if (inMainProcess()) {
-            NimUIKit.init(this);
-        }
     }
 
     public void initShare() {
         UMShareAPI.get(this);
-        Config.REDIRECT_URL = "http://sns.whalecloud.com/sina2/callback";
-        PlatformConfig.setSinaWeibo("3724165953", "6c218cd5b1938037096aa8886409ba6a");
-        PlatformConfig.setWeixin("wx025bfd51ec3b664a", "cdfc0e3a367f44bf4b22e41b4073f274");
+        Config.DEBUG = true;
+        PlatformConfig.setSinaWeibo("3724165953", "6c218cd5b1938037096aa8886409ba6a", "http://sns.whalecloud.com/sina2/callback");
+        PlatformConfig.setWeixin("wxfe7723ef510fe37f", "d13d6bdc14d5fe5ac6ffd2a9927a3adf");
         PlatformConfig.setQQZone("1105939765", "EYDkf1MlqGDw0RPn");
-    }
-
-    // 获取云信登录信息
-    public LoginInfo getNIMLoginInfo() {
-        String account = UserPreferences.getUserID();
-        String token = UserPreferences.getNIMToken();
-
-        if (!TextUtils.isEmpty(account) && !TextUtils.isEmpty(token)) {
-            return new LoginInfo(account, token);
-        }
-        return null;
-    }
-
-    public boolean inMainProcess() {
-        String packageName = getPackageName();
-        String processName = LUtils.getProcessName(this);
-        return packageName.equals(processName);
     }
 
 }

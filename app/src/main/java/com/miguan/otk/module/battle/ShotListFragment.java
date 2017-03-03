@@ -1,8 +1,13 @@
 package com.miguan.otk.module.battle;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,6 +71,24 @@ public class ShotListFragment extends BaseDataFragment<ShotListPresenter, Screen
         } else {
             btn.setText("尚未截图");
             btn.setEnabled(false);
+        }
+    }
+
+    private void requestPermission(View btn) {
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
+        } else {
+            showPickImages(btn);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 100 || grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//            showPickImages();
+            //TODO
         }
     }
 

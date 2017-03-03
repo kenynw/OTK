@@ -5,6 +5,7 @@ import android.os.CountDownTimer;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.text.InputType;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
@@ -45,9 +46,6 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
     @Bind(R.id.id_stickynavlayout_tab)
     TabLayout mTabLayout;
 
-    @Bind(R.id.btn_match_detail_chat_room)
-    Button mBtnChatRoom;
-
     @Bind(R.id.id_stickynavlayout_viewpager)
     ViewPager mPager;
 
@@ -82,7 +80,6 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
     @Override
     public void setData(Match match) {
         EventBus.getDefault().post(match);
-        mBtnChatRoom.setOnClickListener(v -> {});
         mTvCost.setText(String.format(getString(R.string.label_match_id_cost), match.getCompetition_id(), match.getCost()));
 
         SpannableString spanString = new SpannableString(match.getTitle());
@@ -104,7 +101,7 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
 
                 @Override
                 public void onFinish() {
-                    getPresenter().setData();
+                    getPresenter().loadData();
                 }
 
             }.start();
@@ -120,7 +117,7 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
                     if (match.getGame_type() == 0) {
                         if (match.getCost() > 0) {
                             new AlertDialog.Builder(this)
-                                    .setMessage(String.format("是否消耗%d报名比赛", match.getCost()))
+                                    .setMessage(String.format("是否消耗%d撒币报名比赛", match.getCost()))
                                     .setPositiveButton(getString(R.string.btn_ok), (dialog, which) -> getPresenter().enter(null, null))
                                     .setNegativeButton(getString(R.string.btn_cancel), null)
                                     .show();
@@ -131,13 +128,15 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
                         View view = LayoutInflater.from(this).inflate(R.layout.dialog_enter_password, null);
                         AlertDialog dialog = new AlertDialog.Builder(MatchDetailActivity.this).setView(view).show();
                         TextView tvTitle = (TextView) view.findViewById(R.id.tv_dialog_enter_title);
-                        EditText tvPwd = (EditText) view.findViewById(R.id.et_dialog_enter_password);
+                        EditText etPwd = (EditText) view.findViewById(R.id.et_dialog_enter_password);
                         Button btnOk = (Button) view.findViewById(R.id.btn_dialog_ok);
                         Button btnCancel = (Button) view.findViewById(R.id.btn_dialog_cancel);
 
-                        tvTitle.setText("请输入赛事密码");
+                        tvTitle.setText(match.getGame_type() == 1 ? R.string.text_match_input_password : R.string.text_match_input_invite);
+                        etPwd.setInputType(InputType.TYPE_NUMBER_VARIATION_PASSWORD);
                         btnOk.setOnClickListener(v -> {
-                            String pwd = tvPwd.getText().toString().trim();
+                            dialog.dismiss();
+                            String pwd = etPwd.getText().toString().trim();
                             getPresenter().enter(match.getGame_type() == 1 ? pwd : null, match.getGame_type() == 2 ? pwd : null);
                         });
                         btnCancel.setOnClickListener(v -> dialog.dismiss());

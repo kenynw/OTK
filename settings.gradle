@@ -1,1 +1,1 @@
-include ':app', ':umenglibrary', ':chain', ':PushSDK', ':uikit'
+include ':app', ':chain', ':PushSDK', ':umshare'

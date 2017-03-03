@@ -27,7 +27,7 @@
             android:theme="@style/Theme.UMDefault"/>
         <!-- 微信 -->
         <activity
-            android:name="com.miguan.otk.wxapi.WXEntryActivity"
+            android:name="com.miguan.otk.com.miguan.otk.wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"

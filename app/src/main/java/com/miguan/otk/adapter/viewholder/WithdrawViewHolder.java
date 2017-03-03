@@ -37,7 +37,16 @@ public class WithdrawViewHolder extends BaseViewHolder<Withdraw> {
     @Override
     public void setData(Withdraw data) {
         mTvMoney.setText(data.getMoney() + "");
+
         mTvStatus.setText(data.getStatus());
+        if ("成功".equals(data.getStatus())) {
+            mTvStatus.setTextColor(getContext().getResources().getColor(R.color.green));
+        } else if ("失败".equals(data.getStatus())) {
+            mTvStatus.setTextColor(getContext().getResources().getColor(R.color.textSecondary));
+        } else {
+            mTvStatus.setTextColor(getContext().getResources().getColor(R.color.colorAccent));
+        }
+
         mTvTime.setText(data.getTime());
         if (data.getMoney() > 15) {
             mTvFee.setVisibility(View.VISIBLE);

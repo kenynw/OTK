@@ -51,19 +51,15 @@
                 android:maxLength="11"
                 />
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingRight="@dimen/horizontal_margin"
                 >
 
                 <EditText
                     android:id="@+id/et_forgot_captcha"
                     style="@style/UserEditText"
-                    android:layout_weight="1"
-                    android:ems="6"
                     android:hint="@string/hint_captcha"
                     android:inputType="number"
                     android:maxLength="6"
@@ -73,6 +69,9 @@
                     android:id="@+id/btn_forgot_captcha"
                     android:layout_width="80dp"
                     android:layout_height="24dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="@dimen/horizontal_margin"
+                    android:layout_marginRight="@dimen/horizontal_margin"
                     android:background="@drawable/btn_stroke_gray_radius_shape"
                     android:gravity="center"
                     android:text="@string/btn_send_captcha"
@@ -80,12 +79,11 @@
                     android:textSize="@dimen/text_size_caption_material"
                     />
 
-            </LinearLayout>
+            </FrameLayout>
 
             <EditText
                 android:id="@+id/et_forgot_new"
                 style="@style/UserEditText"
-                android:background="@color/white"
                 android:ems="10"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"

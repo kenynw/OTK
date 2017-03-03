@@ -1,7 +1,7 @@
 package com.miguan.otk.model;
 
 import com.dsk.chain.model.AbsModel;
-import com.miguan.otk.config.UserPreferences;
+import com.miguan.otk.model.local.UserPreferences;
 import com.miguan.otk.model.bean.Chatroom;
 import com.miguan.otk.model.services.DefaultTransform;
 import com.miguan.otk.model.services.ServicesClient;

@@ -17,7 +17,6 @@ import com.miguan.otk.R;
 import com.miguan.otk.adapter.BanPickAdapter;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Hero;
-import com.miguan.otk.module.chatroom.ChatRoomActivity;
 import com.miguan.otk.utils.LUtils;
 import com.miguan.otk.widget.SectionView;
 
@@ -104,7 +103,6 @@ public class BattlingFragment extends ChainFragment<BattlingPresenter> {
         mBtnCopy.setOnClickListener(v -> getPresenter().copyName(mTvOpponent.getText().toString().trim()));
         mTvContact.setOnClickListener(v -> startActivity(new Intent(getActivity(), ContactJudgeActivity.class)));
         mTvScreenshot.setOnClickListener(v -> getPresenter().toShot());
-        mTvChatroom.setOnClickListener(v -> startActivity(new Intent(getActivity(), ChatRoomActivity.class)));
 
         return view;
     }

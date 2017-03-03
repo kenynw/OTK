@@ -1,7 +1,7 @@
 package com.miguan.otk.model;
 
 import com.dsk.chain.model.AbsModel;
-import com.miguan.otk.config.UserPreferences;
+import com.miguan.otk.model.local.UserPreferences;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.model.bean.Match;

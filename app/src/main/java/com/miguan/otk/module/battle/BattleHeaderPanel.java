@@ -75,9 +75,6 @@ public class BattleHeaderPanel {
     }
 
     public void load(Battle battle) {
-        if (mBattle != null && mBattle.getBattle_status_user() == battle.getBattle_status_user()) {
-            return;
-        }
         mBattle = battle;
 
         mTvAName.setText(battle.getA_username());
@@ -105,6 +102,8 @@ public class BattleHeaderPanel {
                 }
 
             }.start();
+        } else {
+            mTvStatus.setText("");
         }
 
     }

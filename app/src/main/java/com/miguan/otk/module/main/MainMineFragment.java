@@ -1,5 +1,6 @@
 package com.miguan.otk.module.main;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,7 +15,7 @@ import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataFragment;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.miguan.otk.R;
-import com.miguan.otk.config.UserPreferences;
+import com.miguan.otk.model.local.UserPreferences;
 import com.miguan.otk.model.bean.User;
 import com.miguan.otk.module.account.LoginActivity;
 import com.miguan.otk.module.settings.SettingsActivity;
@@ -115,7 +116,7 @@ public class MainMineFragment extends BaseDataFragment<MainMinePresenter, User> 
         mBtnGameAccount.setOnClickListener(v -> getPresenter().toActivity(GameAccountActivity.class, 3));
         mBtnAddress.setOnClickListener(v -> getPresenter().toActivity(AddressListActivity.class, 3));
         mBtnFeedback.setOnClickListener(v -> getPresenter().toActivity(FeedbackActivity.class, 3));
-        mBtnSettings.setOnClickListener(v -> getPresenter().toActivity(SettingsActivity.class, 2));
+        mBtnSettings.setOnClickListener(v -> startActivityForResult(new Intent(getActivity(), SettingsActivity.class), 2));
 
         return view;
     }

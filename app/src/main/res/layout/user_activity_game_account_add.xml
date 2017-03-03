@@ -120,7 +120,8 @@
             android:hint="@string/hint_game_nickname"
             android:inputType="text"
             android:textAppearance="@style/TextBody"
-            android:textColorHint="@color/textHint"/>
+            android:textColorHint="@color/textHint"
+            />
 
         <TextView
             android:layout_width="match_parent"

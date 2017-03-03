@@ -9,104 +9,98 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="90dp"
+        android:orientation="vertical"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/horizontal_margin"
+            android:paddingRight="@dimen/horizontal_margin"
+            android:paddingTop="20dp"
             >
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/horizontal_margin"
-                android:paddingRight="@dimen/horizontal_margin"
-                android:paddingTop="20dp"
-                >
+                android:text="@string/label_cash_balance"
+                android:textColor="@color/textSecondary"
+                android:textSize="@dimen/text_size_body_material"
+                />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_cash_balance"
-                    android:textColor="@color/textSecondary"
-                    android:textSize="@dimen/text_size_body_material"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_withdraw_balance"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/text_size_title_material"
-                    tools:text="250"
-                    />
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_withdraw_balance"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:paddingBottom="@dimen/vertical_margin"
-                android:paddingLeft="@dimen/horizontal_margin"
-                android:paddingRight="@dimen/horizontal_margin"
-                >
-
-                <TextView
-                    android:id="@+id/tv_withdraw_label_account"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:text="@string/label_cash_account"
-                    android:textColor="@color/textSecondary"
-                    android:textSize="@dimen/text_size_body_material"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_withdraw_account"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toEndOf="@id/tv_withdraw_label_account"
-                    android:layout_toRightOf="@id/tv_withdraw_label_account"
-                    android:textAppearance="@style/TextBody"
-                    tools:text="234234"
-                    />
-
-                <Button
-                    android:id="@+id/btn_withdraw_withdraw"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:background="@drawable/btn_primary_radius_shape"
-                    android:text="@string/btn_withdraw"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_body_material"
-                    android:textStyle="bold"/>
-
-            </RelativeLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/vertical_margin"/>
-
-            <com.jude.easyrecyclerview.EasyRecyclerView
-                android:id="@+id/recycle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_size_title_material"
+                tools:text="250"
                 />
 
         </LinearLayout>
 
-    </ScrollView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/vertical_margin"
+            android:paddingLeft="@dimen/horizontal_margin"
+            android:paddingRight="@dimen/horizontal_margin"
+            >
+
+            <TextView
+                android:id="@+id/tv_withdraw_label_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="@string/label_cash_account"
+                android:textColor="@color/textSecondary"
+                android:textSize="@dimen/text_size_body_material"
+                />
+
+            <TextView
+                android:id="@+id/tv_withdraw_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/tv_withdraw_label_account"
+                android:layout_toRightOf="@id/tv_withdraw_label_account"
+                android:textAppearance="@style/TextBody"
+                tools:text="234234"
+                />
+
+            <Button
+                android:id="@+id/btn_withdraw_withdraw"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_primary_radius_shape"
+                android:text="@string/btn_withdraw"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_body_material"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/vertical_margin"/>
+
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        />
 
 </LinearLayout>

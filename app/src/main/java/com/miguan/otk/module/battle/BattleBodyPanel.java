@@ -5,6 +5,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +17,6 @@ import com.miguan.otk.R;
 import com.miguan.otk.adapter.BanPickAdapter;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Hero;
-import com.miguan.otk.module.chatroom.ChatRoomActivityPresenter;
 import com.miguan.otk.utils.LUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -108,18 +108,15 @@ public class BattleBodyPanel {
 
     private Activity mActivity;
 
-    private View mView;
-
     private Battle mBattle;
 
     private BattleProxy mProxy;
 
     public BattleBodyPanel(Activity activity, View view, Battle battle, BattleProxy proxy) {
         mActivity = activity;
-        mView = view;
         mProxy = proxy;
 
-        ButterKnife.bind(this, mView);
+        ButterKnife.bind(this, view);
 
         load(battle);
     }
@@ -131,13 +128,12 @@ public class BattleBodyPanel {
         mBattle = battle;
 
         hideAllLayout();
-        // 观战模式 用户类型为游客或未参赛
-        if (battle.getUser_type() == 0 || battle.getUser_type() == 3) {
+        if (battle.getUser_type() == 0 || battle.getUser_type() == 3) { // 观战模式 用户类型为游客或未参赛
             setDescText("比赛阶段", String.format("%s阶段比赛正在进行中", battle.getBattle_times()), "");
         } else if (battle.getBattle_status() == 0) { // 等待对手生成
             setDescText("等待对手生成", "您的对手还没有结束当前比赛，请耐心等待", "");
         } else if (battle.getBattle_status() == 1) { // 准备阶段
-            setUserStatus(battle);
+            setUserStatus();
             setDescText("准备阶段", "点击“准备”按钮进入比赛，准备截断结束之后必须互相添加对手，同事在网页聊天室、游戏里说明是否进行卡组选择界面的截图", "");
             mBtnSave.setVisibility(View.VISIBLE);
             if ((battle.getUser_type() == 1 && battle.getBattle_status_user() == 2) || (battle.getUser_type() == 2 && battle.getBattle_status_user() == 3)) {
@@ -181,6 +177,7 @@ public class BattleBodyPanel {
             setOperation();
             mSelected.clear();
             if (battle.getBattle_status_user() == 11 && battle.getUser_type() == 1 || battle.getBattle_status_user() == 12 && battle.getUser_type() == 2) {
+                mLyDesc.setVisibility(View.VISIBLE);
                 mTvTitle.setText(R.string.text_battle_submit_result);
                 mTvDesc.setText(String.format(mActivity.getString(R.string.text_battle_submit_result_desc), battle.getBattle_times(), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")));
                 setButtonDisable();
@@ -189,6 +186,7 @@ public class BattleBodyPanel {
                 setSubmitButton();
             }
         } else if (battle.getBattle_status() == 5) { // 结束
+            setUserStatus();
             setDescText("比赛结束", String.format(mActivity.getString(R.string.text_battle_ended_desc), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")), "");
 
             if (battle.getWinner_id() == 1 && battle.getNext_battle_id() > 0) {
@@ -208,16 +206,17 @@ public class BattleBodyPanel {
             setOperation();
             setDescText(R.string.text_battle_submit_result, R.string.text_battle_controversial_desc, 0);
 
+            mBtnSave.setVisibility(View.VISIBLE);
             mBtnSave.setText("重新提交");
             mBtnSave.setOnClickListener(v -> mProxy.cancelResult());
         }
     }
 
     // 设置用户状态
-    private void setUserStatus(Battle battle) {
+    private void setUserStatus() {
         mLyStatus.setVisibility(View.VISIBLE);
-        mTvAStatus.setText(battle.getA_status());
-        mTvBStatus.setText(battle.getB_status());
+        mTvAStatus.setText(getUserStatusText(mBattle.getA_status()));
+        mTvBStatus.setText(getUserStatusText(mBattle.getB_status()));
     }
 
     private void setOperation() {
@@ -226,10 +225,23 @@ public class BattleBodyPanel {
         mBtnCopy.setOnClickListener(v -> copyName(mTvOpponent.getText().toString().trim()));
         mTvContact.setOnClickListener(v -> mActivity.startActivity(new Intent(mActivity, ContactJudgeActivity.class)));
         mTvScreenshot.setOnClickListener(v -> toShot(mBattle));
-        mTvChatroom.setOnClickListener(v -> ChatRoomActivityPresenter.start(mActivity, mBattle.getBattle_id()));
+        mTvChatroom.setOnClickListener(v -> {
+            String qq = mBattle.getUser_type() == 1 ? mBattle.getB_qq() : mBattle.getA_qq();
+            if (TextUtils.isEmpty(qq)) {
+                LUtils.toast("对方未设置QQ");
+            } else {
+                Intent intent = new Intent();
+                intent.setData(Uri.parse("mqqwpa://im/chat?chat_type=wpa&uin=" + qq));
+                try {
+                    mActivity.startActivity(intent);
+                } catch (Exception e) {
+                    LUtils.toast("未安装手Q或安装的版本不支持");
+                }
+            }
+        });
     }
 
-    // 显示P界面
+    // 显示Pick界面
     private void setPick() {
         mGridHeros.setVisibility(View.VISIBLE);
         mBtnSave.setVisibility(View.VISIBLE);
@@ -254,7 +266,8 @@ public class BattleBodyPanel {
         mBtnSave.setText("提交");
         mBtnSave.setEnabled(true);
         mBtnSave.setOnClickListener(v -> {
-            if (mSelected.size() != 3) LUtils.toast("必须选择3个");
+            int count = mBattle.getBattle_mode().equals("BO5") ? 4 : 3;
+            if (mSelected.size() != count) LUtils.toast("必须选择" + count + "个");
             else mProxy.pick(mSelected);
         });
     }
@@ -265,7 +278,7 @@ public class BattleBodyPanel {
         mBtnSave.setVisibility(View.VISIBLE);
 
         List<Hero> list = new ArrayList<>();
-        for (int i = 1; i < (mBattle.getBattle_mode().equals("BO4") ? 5 : 4); i++) {
+        for (int i = 1; i < (mBattle.getBattle_mode().equals("BO5") ? 5 : 4); i++) {
             Hero hero = new Hero();
             try {
                 Method method = mBattle.getClass().getMethod("get" + (mBattle.getUser_type() == 2 ? "A" : "B") + "_car" + i);
@@ -320,7 +333,7 @@ public class BattleBodyPanel {
         mBtnImLost.setOnClickListener(v -> mProxy.submitResult(mBattle.getUser_type() == 2 ? mBattle.getA_user_id() : mBattle.getB_user_id()));
     }
 
-    // 显示游戏正在进行中
+    // 显示两个用户BP列表
     private void setBPList() {
         mLyOngoing.setVisibility(View.VISIBLE);
 
@@ -330,7 +343,7 @@ public class BattleBodyPanel {
 
             List<Hero> listA = new ArrayList<>();
             List<Hero> listB = new ArrayList<>();
-            for (int i = 1; i < (mBattle.getBattle_mode().equals("BO4") ? 5 : 4); i++) {
+            for (int i = 1; i < (mBattle.getBattle_mode().equals("BO5") ? 5 : 4); i++) {
                 Hero heroA = new Hero();
                 Hero heroB = new Hero();
                 try {
@@ -353,23 +366,14 @@ public class BattleBodyPanel {
             }
 
             BanPickAdapter adapterA = new BanPickAdapter(mActivity, listA, BanPickAdapter.MODE_SHOW);
+            mGridABans.removeAllViews();
             mGridABans.setAdapter(adapterA);
 
             BanPickAdapter adapterB = new BanPickAdapter(mActivity, listB, BanPickAdapter.MODE_SHOW);
+            mGridBBans.removeAllViews();
             mGridBBans.setAdapter(adapterB);
         }
 
-    }
-
-    // 显示带操作的描述界面
-    private void showDescWithOperation() {
-        hideAllLayout();
-
-        mLyOperation.setVisibility(View.VISIBLE);
-        mLyDesc.setVisibility(View.VISIBLE);
-        mBtnSave.setVisibility(View.VISIBLE);
-        mBtnSave.setText("已提交");
-        mBtnSave.setEnabled(false);
     }
 
     // 设置描述文本
@@ -407,6 +411,11 @@ public class BattleBodyPanel {
         mLyOngoing.setVisibility(View.GONE);
         mLyResult.setVisibility(View.GONE);
         mBtnSave.setVisibility(View.GONE);
+    }
+
+    private String getUserStatusText(String userStatus) {
+        if (TextUtils.isEmpty(userStatus)) return mBattle.getBattle_status() == 1 ? "未准备" : "失败";
+        return userStatus;
     }
 
     public void copyName(String name) {

@@ -160,10 +160,12 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
             String avatar = urlList[i];
             iv.setImageResource(getResources().getIdentifier("default_avatar_" + i, "mipmap", getPackageName()));
             iv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            iv.setOnClickListener(clickView -> mIndex = avatar);
+            iv.setOnClickListener(clickView -> {
+                getPresenter().setProfile("photo", avatar);
+                dialog.dismiss();
+            });
             gridView.addView(iv);
         }
-        view.findViewById(R.id.btn_default_avatar_ok).setOnClickListener(v -> getPresenter().setProfile("photo", mIndex));
         view.findViewById(R.id.btn_default_avatar_cancel).setOnClickListener(v -> dialog.dismiss());
     }
 

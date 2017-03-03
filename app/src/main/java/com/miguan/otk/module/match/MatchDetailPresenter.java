@@ -11,12 +11,16 @@ import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.services.ServicesResponse;
 import com.miguan.otk.module.battle.BattleActivity;
+import com.miguan.otk.wxapi.ShareCallback;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Copyright (c) 2016/11/25. LiaoPeiKun Inc. All rights reserved.
@@ -36,13 +40,10 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
     @Override
     protected void onCreateView(MatchDetailActivity view) {
         super.onCreateView(view);
-        setData();
+        loadData();
     }
 
-    public void test() {
-    }
-
-    public void setData() {
+    public void loadData() {
         MatchModel.getInstance().getMatchDetail(mMatchID)
                 .unsafeSubscribe(new ServicesResponse<Match>() {
                     @Override
@@ -55,12 +56,15 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
 
     public void share() {
         if (mMatch == null) return;
+
+        UMWeb umWeb = new UMWeb(mMatch.getShare_url());
+        umWeb.setTitle(mMatch.getTitle());
+        umWeb.setThumb(new UMImage(getView(), R.mipmap.ic_launcher));
+        umWeb.setDescription(mMatch.getTitle() + "火热进行中！快上车，没时间解释了！");
         new ShareAction(getView())
-//                .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN)
-                .withText(mMatch.getTitle() + "火热进行中！快上车，没时间解释了！")
-                .withTargetUrl(mMatch.getShare_url())
-                .withTitle(mMatch.getTitle())
-                .withMedia(new UMImage(getView(), R.mipmap.ic_launcher))
+                .setDisplayList(SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE, SHARE_MEDIA.SINA)
+                .withMedia(umWeb)
+                .setCallback(new ShareCallback())
                 .open();
     }
 
@@ -69,6 +73,7 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
             @Override
             public void onNext(Battle battle) {
                 getView().setEnrolled();
+                loadData();
             }
         });
     }

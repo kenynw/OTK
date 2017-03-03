@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.list.BaseListActivity;
+import com.dsk.chain.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
 import com.miguan.otk.adapter.viewholder.WithdrawViewHolder;
@@ -67,9 +68,14 @@ public class WithdrawListActivity extends BaseListActivity<WithdrawListPresenter
         return R.layout.user_activity_withdraw;
     }
 
+    @Override
+    public ListConfig getListConfig() {
+        return super.getListConfig().setRefreshAble(false);
+    }
+
     private void showCashDialog(int money) {
         View view = View.inflate(this, R.layout.dialog_withdraw, null);
-        TextView tvClose = (TextView) view.findViewById(R.id.tv_dialog_close);
+        Button btnClose = (Button) view.findViewById(R.id.btn_dialog_cancel);
         Button btnOk = (Button) view.findViewById(R.id.btn_dialog_ok);
         EditText etAmount = (EditText) view.findViewById(R.id.et_dialog_withdraw_amount);
         etAmount.setHint("可提现" + money);
@@ -88,16 +94,20 @@ public class WithdrawListActivity extends BaseListActivity<WithdrawListPresenter
             public void afterTextChanged(Editable s) {
                 if (!TextUtils.isEmpty(s)) {
                     int num = Integer.valueOf(s.toString());
-                    if (num > money) etAmount.setText(money + "");
+                    if (num > money) {
+                        etAmount.setText(money + "");
+                        etAmount.setSelection((money + "").length());
+                    }
                 } else {
                     etAmount.setText("15");
+                    etAmount.setSelection(2);
                 }
             }
         });
 
         AlertDialog dialog = new AlertDialog.Builder(this).create();
         dialog.setView(view);
-        tvClose.setOnClickListener(v -> dialog.dismiss());
+        btnClose.setOnClickListener(v -> dialog.dismiss());
         btnOk.setOnClickListener(v -> {
             if (TextUtils.isEmpty(etAmount.getText())) return;
             dialog.dismiss();

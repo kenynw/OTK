@@ -2,118 +2,53 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.miguan.otk">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!-- 加入应用需要的权限 -->
+    <!-- 网络相关 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
-    <!-- SDK 权限申明, 第三方 APP 接入时，请将 com.netease.nim.demo 替换为自己的包名 -->
-    <!-- 和下面的 uses-permission 一起加入到你的 AndroidManifest 文件中。 -->
-    <!-- 控制呼吸灯，振动器等，用于新消息提醒 -->
+    <!-- 手机状态 -->
+    <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
-    <!-- 外置存储存取权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+
+    <!-- 读写文件 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-    <!-- 多媒体相关 -->
+    <!-- 多媒体 -->
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
-    <permission
-        android:name="com.miguan.otk.permission.RECEIVE_MSG"
-        android:protectionLevel="signature"/>
-    <!-- 接收 SDK 消息广播权限， 第三方 APP 接入时，请将 com.netease.nim.demo 替换为自己的包名 -->
-    <uses-permission android:name="com.miguan.otk.permission.RECEIVE_MSG"/>
-
     <application
-        android:name=".base.App"
+        android:name="com.miguan.otk.base.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity
-            android:name="com.tencent.tauth.AuthActivity"
-            android:noHistory="true"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="tencent1104563629" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tencent.connect.common.AssistActivity"
-            android:screenOrientation="behind"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden">
-        </activity>
-
-        <!-- 网易云信 -->
-        <meta-data
-            android:name="com.netease.nim.appKey"
-            android:value="22487f3c4427aa1710f6a5882b05dbf8"/>
-        <!-- 声明云信后台服务，如需保持后台推送，使用独立进程效果会更好。 -->
-
-        <service
-            android:name="com.netease.nimlib.service.NimService"
-            android:process=":core"/>
-        <service
-            android:name="com.netease.nimlib.service.NimService$Aux"
-            android:process=":core"/>
-
-        <!--
-             云信SDK的监视系统启动和网络变化的广播接收器，用户开机自启动以及网络变化时候重新登录，
-            保持和 NimService 同一进程
-        -->
-        <receiver
-            android:name="com.netease.nimlib.service.NimReceiver"
-            android:exported="false"
-            android:process=":core">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-            </intent-filter>
-        </receiver>
-
-        <!-- 云信进程间通信 Receiver -->
-        <receiver android:name="com.netease.nimlib.service.ResponseReceiver"/>
-
-        <!-- &lt;!&ndash; 安卓保活配置 &ndash;&gt; -->
-        <!-- <service -->
-        <!-- android:name="com.netease.cosine.core.CosineService" -->
-        <!-- android:process=":cosine"> -->
-        <!-- </service> -->
-
-
-        <!-- <receiver -->
-        <!-- android:name="com.netease.cosine.target.CosineReceiver" -->
-        <!-- android:exported="true" -->
-        <!-- android:process=":cosine"> -->
-        <!-- </receiver> -->
-
-        <meta-data
-            android:name="com.netease.cosine.target"
-            android:value=""/>
-        <meta-data
-            android:name="com.netease.cosine.target.receiver"
-            android:value="com.netease.nimlib.service.NimReceiver"/>
-
-        <!-- 网易云信end -->
-
-
         <!-- <meta-data -->
         <!-- android:name="MODEL" -->
         <!-- android:value="com.miguan.otk.model.UserModel" -->
         <!-- /> -->
 
-        <service android:name=".module.common.UpdateService"
+        <service android:name="com.miguan.otk.module.common.UpdateService"
             />
 
         <activity
-            android:name=".module.main.SplashActivity"
+            android:name="com.miguan.otk.module.main.SplashActivity"
             android:theme="@style/LaunchTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -122,88 +57,86 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".module.main.AdActivity"
+            android:name="com.miguan.otk.module.main.AdActivity"
             android:theme="@style/LaunchTheme">
         </activity>
         <activity
-            android:name=".module.main.MainActivity"
+            android:name="com.miguan.otk.module.main.MainActivity"
             android:theme="@style/DividerAppTheme"/>
-        <activity android:name=".module.account.LoginActivity">
+        <activity android:name="com.miguan.otk.module.account.LoginActivity">
             <intent-filter>
                 <action android:name="com.miguan.otk.login"/>
             </intent-filter>
         </activity>
-        <activity android:name=".module.account.ForgotActivity"/>
-        <activity android:name=".module.account.RegisterActivity"/>
-        <activity android:name=".module.match.MatchDetailActivity">
+        <activity android:name="com.miguan.otk.module.account.ForgotActivity"/>
+        <activity android:name="com.miguan.otk.module.account.RegisterActivity"/>
+        <activity android:name="com.miguan.otk.module.match.MatchDetailActivity">
         </activity>
-        <activity android:name=".module.league.LeagueDetailActivity">
+        <activity android:name="com.miguan.otk.module.league.LeagueDetailActivity">
         </activity>
-        <activity android:name=".module.user.ProfileActivity">
+        <activity android:name="com.miguan.otk.module.user.ProfileActivity">
         </activity>
-        <activity android:name=".module.league.AddLeagueActivity">
+        <activity android:name="com.miguan.otk.module.league.AddLeagueActivity">
         </activity>
-        <activity android:name=".module.account.ModifyPwdActivity">
+        <activity android:name="com.miguan.otk.module.account.ModifyPwdActivity">
         </activity>
-        <activity android:name=".module.user.FeedbackActivity">
+        <activity android:name="com.miguan.otk.module.user.FeedbackActivity">
         </activity>
-        <activity android:name=".module.user.BalanceDetailActivity">
+        <activity android:name="com.miguan.otk.module.user.BalanceDetailActivity">
         </activity>
-        <activity android:name=".module.user.WithdrawListActivity">
+        <activity android:name="com.miguan.otk.module.user.WithdrawListActivity">
         </activity>
-        <activity android:name=".module.store.StoreHomeActivity">
+        <activity android:name="com.miguan.otk.module.store.StoreHomeActivity">
         </activity>
-        <activity android:name=".module.store.GoodsDetailActivity">
+        <activity android:name="com.miguan.otk.module.store.GoodsDetailActivity">
         </activity>
-        <activity android:name=".module.store.PayActivity">
+        <activity android:name="com.miguan.otk.module.store.PayActivity">
         </activity>
-        <activity android:name=".module.user.AddressListActivity">
+        <activity android:name="com.miguan.otk.module.user.AddressListActivity">
         </activity>
-        <activity android:name=".module.user.MyOrderActivity">
+        <activity android:name="com.miguan.otk.module.user.MyOrderActivity">
         </activity>
-        <activity android:name=".module.store.OrderDetailActivity">
+        <activity android:name="com.miguan.otk.module.store.OrderDetailActivity">
         </activity>
-        <activity android:name=".module.user.MyMatchActivity">
+        <activity android:name="com.miguan.otk.module.user.MyMatchActivity">
         </activity>
-        <activity android:name=".module.user.GameAccountActivity">
+        <activity android:name="com.miguan.otk.module.user.GameAccountActivity">
         </activity>
-        <activity android:name=".module.user.GameAccountAddActivity">
+        <activity android:name="com.miguan.otk.module.user.GameAccountAddActivity">
         </activity>
-        <activity android:name=".module.user.GameAccountEditActivity">
+        <activity android:name="com.miguan.otk.module.user.GameAccountEditActivity">
         </activity>
-        <activity android:name=".module.settings.SettingsActivity">
+        <activity android:name="com.miguan.otk.module.settings.SettingsActivity">
         </activity>
-        <activity android:name=".module.settings.AboutActivity">
+        <activity android:name="com.miguan.otk.module.settings.AboutActivity">
         </activity>
-        <activity android:name=".module.match.CompetitorListActivity">
+        <activity android:name="com.miguan.otk.module.match.CompetitorListActivity">
         </activity>
-        <activity android:name=".module.match.MissionListActivity">
+        <activity android:name="com.miguan.otk.module.match.MissionListActivity">
         </activity>
-        <activity android:name=".module.user.SignActivity">
+        <activity android:name="com.miguan.otk.module.user.SignActivity">
         </activity>
-        <activity android:name=".module.user.MessageListActivity">
+        <activity android:name="com.miguan.otk.module.user.MessageListActivity">
         </activity>
-        <activity android:name=".module.user.MessageActivity">
+        <activity android:name="com.miguan.otk.module.user.MessageActivity">
         </activity>
-        <activity android:name=".module.news.NewsDetailActivity">
+        <activity android:name="com.miguan.otk.module.news.NewsDetailActivity">
         </activity>
-        <activity android:name=".module.battle.BattleActivity">
+        <activity android:name="com.miguan.otk.module.battle.BattleActivity">
         </activity>
-        <activity android:name=".module.battle.ShotDetailActivity">
+        <activity android:name="com.miguan.otk.module.battle.ShotDetailActivity">
         </activity>
-        <activity android:name=".module.battle.ContactJudgeActivity">
+        <activity android:name="com.miguan.otk.module.battle.ContactJudgeActivity">
         </activity>
-        <activity android:name=".module.user.ProfileModifyActivity">
+        <activity android:name="com.miguan.otk.module.user.ProfileModifyActivity">
         </activity>
-        <activity android:name=".module.common.WebActivity">
+        <activity android:name="com.miguan.otk.module.common.WebActivity">
         </activity>
-        <activity android:name=".module.user.BindAlipayActivity">
+        <activity android:name="com.miguan.otk.module.user.BindAlipayActivity">
         </activity>
-        <activity android:name=".module.user.AreaActivity">
+        <activity android:name="com.miguan.otk.module.user.AreaActivity">
         </activity>
-        <activity android:name=".module.battle.ShotBrowseActivity">
-        </activity>
-        <activity android:name=".module.chatroom.ChatRoomActivity">
+        <activity android:name="com.miguan.otk.module.battle.ShotBrowseActivity">
         </activity>
     </application>
 

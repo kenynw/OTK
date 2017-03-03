@@ -110,7 +110,7 @@
                 android:drawablePadding="8dp"
                 android:drawableStart="@mipmap/ic_battle_chat"
                 android:gravity="center_vertical"
-                android:text="@string/btn_battle_chat"
+                android:text="@string/btn_battle_chat_qq"
                 android:textColor="@color/textBody"
                 android:textSize="@dimen/text_size_caption_material"
                 />

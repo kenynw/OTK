@@ -8,7 +8,7 @@ import android.text.TextUtils;
 
 import com.dsk.chain.bijection.ChainAppCompatActivity;
 import com.dsk.chain.expansion.data.BaseDataFragmentPresenter;
-import com.miguan.otk.config.UserPreferences;
+import com.miguan.otk.model.local.UserPreferences;
 import com.miguan.otk.model.UserModel;
 import com.miguan.otk.model.bean.User;
 import com.miguan.otk.module.account.LoginActivity;

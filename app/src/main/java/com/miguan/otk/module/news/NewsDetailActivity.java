@@ -11,8 +11,10 @@ import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataActivity;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.News;
+import com.miguan.otk.wxapi.ShareCallback;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -59,12 +61,14 @@ public class NewsDetailActivity extends BaseDataActivity<NewsDetailPresenter, Ne
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        UMWeb umWeb = new UMWeb(mNews.getUrl());
+        umWeb.setTitle(mNews.getTitle());
+        umWeb.setThumb(new UMImage(this, R.mipmap.ic_launcher));
+        umWeb.setDescription(mNews.getTitle() + "火热进行中！快上车，没时间解释了！");
         new ShareAction(this)
-                .withTitle(mNews.getTitle())
-                .withText(mNews.getTitle() + "描述")
-                .withMedia(new UMImage(this, R.mipmap.ic_launcher))
-                .withTargetUrl(mNews.getUrl())
-                .open();
+                .withMedia(umWeb)
+                .setCallback(new ShareCallback())
+                .share();
         return super.onOptionsItemSelected(item);
     }
 }

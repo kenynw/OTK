@@ -1,5 +1,6 @@
 package com.miguan.otk.module.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.Button;
@@ -30,7 +31,11 @@ public class AdActivity extends ChainBaseActivity<AdPresenter> {
         setContentView(R.layout.main_activity_ad);
         ButterKnife.bind(this);
 
-        mBtnSkip.setOnClickListener(v -> getPresenter().skip());
+        mBtnSkip.setOnClickListener(v -> {
+            mDownTimer.cancel();
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        });
         setData();
     }
 

@@ -41,7 +41,7 @@ public class FeedbackPresenter extends Presenter<FeedbackActivity> implements On
     public void pickImage(int type) {
         switch (type) {
             case 0:
-                mImageProvider.getImageFromAlbum(this);
+                mImageProvider.getImageFromAlbum(this, 3);
                 break;
             case 1:
                 mImageProvider.getImageFromCamera(this);
@@ -58,10 +58,11 @@ public class FeedbackPresenter extends Presenter<FeedbackActivity> implements On
                             return ImageModel.getInstance().uploadImageAsync(file);
                         }
                     })
-                    .flatMap(new Func1<String, Observable<Feedback>>() {
+                    .toList()
+                    .flatMap(new Func1<List<String>, Observable<Feedback>>() {
                         @Override
-                        public Observable<Feedback> call(String s) {
-                            return UserModel.getInstance().saveFeedback(type, contact, content, s);
+                        public Observable<Feedback> call(List<String> list) {
+                            return UserModel.getInstance().saveFeedback(type, contact, content, getImages(list));
                         }
                     })
                     .unsafeSubscribe(new ServicesResponse<Feedback>() {
@@ -107,4 +108,15 @@ public class FeedbackPresenter extends Presenter<FeedbackActivity> implements On
     public void onViewDelete(int index) {
         mUris.remove(index);
     }
+
+    private String getImages(List<String> list) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < list.size(); i++) {
+            String image = list.get(i);
+            builder.append(image);
+            if (i != list.size() - 1) builder.append("|");
+        }
+        return builder.toString();
+    }
+
 }

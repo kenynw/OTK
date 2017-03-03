@@ -18,6 +18,10 @@
 
     <style name="AppTheme" parent="AppTheme.Base"/>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
     <style name="DividerAppTheme" parent="AppTheme.Base">
         <item name="android:listDivider">@drawable/divider_space_shape</item>
     </style>
@@ -64,11 +68,11 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/white</item>
-        <item name="tabIndicatorColor">@color/colorPrimaryDark</item>
-        <item name="tabIndicatorHeight">4dp</item>
-        <item name="tabSelectedTextColor">@color/colorPrimaryDark</item>
-        <item name="tabTextAppearance">@style/TabText</item>
-        <item name="tabTextColor">@color/textBody</item>
+        <item name="com.miguan.otk:tabIndicatorColor">@color/colorPrimaryDark</item>
+        <item name="com.miguan.otk:tabIndicatorHeight">4dp</item>
+        <item name="com.miguan.otk:tabSelectedTextColor">@color/colorPrimaryDark</item>
+        <item name="com.miguan.otk:tabTextAppearance">@style/TabText</item>
+        <item name="com.miguan.otk:tabTextColor">@color/textBody</item>
     </style>
 
     <style name="TabText">
@@ -100,16 +104,20 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="UserEditText">
+    <style name="BaseEditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/widget_medium_height</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/bgWindow</item>
         <item name="android:textColorHint">@color/textHint</item>
-        <item name="android:inputType">text</item>
-        <item name="android:paddingLeft">@dimen/horizontal_margin</item>
-        <item name="android:paddingRight">@dimen/horizontal_margin</item>
-        <item name="android:textAppearance">@style/TextBody</item>
         <item name="android:maxLines">1</item>
+        <item name="android:inputType">text</item>
+        <item name="android:layout_marginLeft">@dimen/horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/horizontal_margin</item>
+        <item name="android:textAppearance">@style/TextBody</item>
+    </style>
+
+    <style name="UserEditText" parent="BaseEditText">
+        <item name="android:background">@drawable/bg_bottom_divider</item>
     </style>
 
     <style name="ButtonPrimaryRound">
@@ -123,6 +131,7 @@
         <item name="android:layout_marginLeft">50dp</item>
         <item name="android:layout_marginRight">50dp</item>
         <item name="android:layout_marginTop">@dimen/widget_small_height</item>
+        <item name="android:layout_marginBottom">@dimen/vertical_margin</item>
     </style>
 
     <style name="ButtonBattle">
@@ -145,9 +154,5 @@
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
     </style>
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
 </resources>

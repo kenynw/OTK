@@ -37,7 +37,7 @@
     <string name="btn_balance_detail">余额明细</string>
     <string name="btn_battle_contact">联系裁判</string>
     <string name="btn_battle_screenshot">提交截图</string>
-    <string name="btn_battle_chat">在线聊天</string>
+    <string name="btn_battle_chat_qq">QQ聊天</string>
     <string name="btn_bench_list">替补列表(%1$s/%2$s)</string>
     <string name="btn_bind_alipay">绑定支付宝</string>
     <string name="btn_born">出生年月</string>
@@ -90,7 +90,6 @@
     <string name="text_alipay">支付宝</string>
     <string name="text_ban">禁用</string>
     <string name="text_captcha">验证码</string>
-
     <string name="text_contact">官网地址：www.otkpk.com\n新浪微博：@otk游戏竞技\n微信公众号：otk游戏竞技\n官方QQ群：77327504</string>
     <string name="text_copyright">copyright 2016 捷信宇(厦门)科技</string>
     <string name="text_contact_judge_title">点击下方的联系方式可以找我们</string>
@@ -114,6 +113,8 @@
     <string name="text_judge_qq">裁判QQ—安娜：1655647371</string>
     <string name="text_lol">英雄联盟</string>
     <string name="text_match_bonus">赛事奖金</string>
+    <string name="text_match_input_invite">请输入邀请码</string>
+    <string name="text_match_input_password">请输入赛事密码</string>
     <string name="text_match_final">决赛</string>
     <string name="text_match_semfinal">半决赛</string>
     <string name="text_match_battle">半决赛前</string>
@@ -222,7 +223,7 @@
     <string name="hint_qq">请输入QQ</string>
     <string name="hint_username">请输入用户名</string>
 
-    <string name="dialog_cash_in">1. 最小提现金额为 15 元，申请后会在一周内到账。\n2. 网站会对50元以下的的提现收取1元转账手续费（不含50），所以大家要多多的累积奖金哦。\n3. 成功申请提现后账户余额会先扣除，如果出现提现失败，申请的金额会返还到账户上，对提现有相关的问题可以联系客服。</string>
+    <string name="dialog_cash_in"><b>·</b> 最小提现金额为 15 元，申请后会在一周内到账。\n <b>·</b> 网站会对50元以下的的提现收取1元转账手续费（不含50），所以大家要多多的累积奖金哦。\n <b>·</b> 成功申请提现后账户余额会先扣除，如果出现提现失败，申请的金额会返还到账户上，对提现有相关的问题可以联系客服。</string>
     <string name="dialog_clear_cache">是否清除本地所有图片和内容缓存？</string>
 
     <string name="desc_dialog_close">关闭窗口</string>

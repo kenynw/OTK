@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         minSdkVersion 15
@@ -28,8 +28,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:recyclerview-v7:25.2.0'
-
-//    compile 'com.jude:beam:3.0.1'
 
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.jude:easyrecyclerview:4.0.2'

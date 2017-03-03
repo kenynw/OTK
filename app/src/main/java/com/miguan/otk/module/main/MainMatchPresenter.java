@@ -5,7 +5,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 
 import com.dsk.chain.expansion.data.BaseDataFragmentPresenter;
-import com.miguan.otk.config.UserPreferences;
+import com.miguan.otk.model.local.UserPreferences;
 import com.miguan.otk.model.MatchModel;
 import com.miguan.otk.model.bean.Home;
 import com.miguan.otk.module.account.LoginActivity;

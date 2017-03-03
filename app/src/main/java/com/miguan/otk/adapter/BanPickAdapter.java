@@ -31,9 +31,9 @@ public class BanPickAdapter extends BaseAdapter {
     public static final int MODE_SHOW = 3;
 
     private final int[] HERO_RES = new int[] {
-            R.mipmap.ic_warrior, R.mipmap.ic_mage, R.mipmap.ic_preist,
-            R.mipmap.ic_rouge, R.mipmap.ic_paladin, R.mipmap.ic_warlock,
-            R.mipmap.ic_druid, R.mipmap.ic_hunter, R.mipmap.ic_shaman
+            R.mipmap.ic_druid, R.mipmap.ic_mage, R.mipmap.ic_hunter,
+            R.mipmap.ic_preist, R.mipmap.ic_rouge, R.mipmap.ic_shaman,
+            R.mipmap.ic_paladin, R.mipmap.ic_warlock, R.mipmap.ic_warrior
     };
 
     private Context mContext;

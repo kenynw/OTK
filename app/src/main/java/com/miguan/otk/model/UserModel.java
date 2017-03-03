@@ -2,7 +2,7 @@ package com.miguan.otk.model;
 
 
 import com.dsk.chain.model.AbsModel;
-import com.miguan.otk.config.UserPreferences;
+import com.miguan.otk.model.local.UserPreferences;
 import com.miguan.otk.model.bean.Balance;
 import com.miguan.otk.model.bean.Feedback;
 import com.miguan.otk.model.bean.Game;
