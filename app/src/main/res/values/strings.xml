@@ -125,7 +125,6 @@
     <string name="text_message_match">比赛通知</string>
     <string name="text_mobile">手机号</string>
     <string name="text_overwatch">守望先锋</string>
-
     <string name="text_battle_ban_title">BAN英雄阶段</string>
     <string name="text_battle_ban_notice">请禁用英雄！</string>
     <string name="text_battle_ban_desc">在对方选择的英雄中禁用一个英雄，对方在本轮比赛不能使用该因英雄</string>
@@ -141,7 +140,8 @@
     <string name="text_battle_submit_result">提交比赛结果</string>
     <string name="text_battle_submit_result_desc">您提交的结果为：%1$s&#160;%2$s&#160;赢了\n正在等待对手提交比赛结果</string>
     <string name="text_battle_controversial_desc">双方均提交自己胜利/失败，保存好相关证据截图，请先尝试重新提交结果，无法重新提交主动联系裁判进行处理。裁判QQ：1655647371</string>
-
+    <string name="text_push_all">接收推送</string>
+    <string name="text_push_match">比赛通知</string>
     <string name="text_reward">总奖金</string>
     <string name="text_reward_winner">冠军独享</string>
     <string name="text_reward_2">亚军</string>
@@ -151,6 +151,7 @@
     <string name="text_reward_17_32">第17&#8211;32名</string>
     <string name="text_reward_33_64">第33&#8211;64名</string>
     <string name="text_share">分享</string>
+    <string name="text_signed">已签到</string>
     <string name="text_sign_bonus">今日签到获得撒币%s！\n</string>
     <string name="text_sign_series_bonus">人品爆炸，从宝箱内开出了%d撒币！</string>
     <string name="text_sign_series_desc">距离宝箱开启，还需连续签到%d天</string>

@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="BanPickView">
-        <attr name="columnCount" format="integer" />
-        <attr name="verticalDivider" format="dimension" />
-        <attr name="horizontalDivider" format="dimension" />
-        <attr name="mode">
-            <enum name="pick" value="1" />
-            <enum name="ban" value="2" />
-        </attr>
-    </declare-styleable>
-
 </resources>

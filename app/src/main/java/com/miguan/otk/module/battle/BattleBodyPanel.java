@@ -6,6 +6,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -179,7 +180,7 @@ public class BattleBodyPanel {
             if (battle.getBattle_status_user() == 11 && battle.getUser_type() == 1 || battle.getBattle_status_user() == 12 && battle.getUser_type() == 2) {
                 mLyDesc.setVisibility(View.VISIBLE);
                 mTvTitle.setText(R.string.text_battle_submit_result);
-                mTvDesc.setText(String.format(mActivity.getString(R.string.text_battle_submit_result_desc), battle.getBattle_times(), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")));
+                mTvDesc.setText(getSubmitResult());
                 setButtonDisable();
             } else {
                 setBPList();
@@ -187,7 +188,7 @@ public class BattleBodyPanel {
             }
         } else if (battle.getBattle_status() == 5) { // 结束
             setUserStatus();
-            setDescText("比赛结束", String.format(mActivity.getString(R.string.text_battle_ended_desc), battle.getWinner_id() == battle.getA_user_id() ? battle.getA_username() : (battle.getWinner_id() == battle.getB_user_id() ? battle.getB_username() : "无结果")), "");
+            setDescText("比赛结束", getResult(), "");
 
             if (battle.getWinner_id() == 1 && battle.getNext_battle_id() > 0) {
                 mBtnSave.setText("进入下一轮");
@@ -207,6 +208,7 @@ public class BattleBodyPanel {
             setDescText(R.string.text_battle_submit_result, R.string.text_battle_controversial_desc, 0);
 
             mBtnSave.setVisibility(View.VISIBLE);
+            mBtnSave.setEnabled(true);
             mBtnSave.setText("重新提交");
             mBtnSave.setOnClickListener(v -> mProxy.cancelResult());
         }
@@ -329,8 +331,8 @@ public class BattleBodyPanel {
     private void setSubmitButton() {
         mBtnSave.setVisibility(View.GONE);
         mLyResult.setVisibility(View.VISIBLE);
-        mBtnImWin.setOnClickListener(v -> mProxy.submitResult(mBattle.getUser_type() == 1 ? mBattle.getA_user_id() : mBattle.getB_user_id()));
-        mBtnImLost.setOnClickListener(v -> mProxy.submitResult(mBattle.getUser_type() == 2 ? mBattle.getA_user_id() : mBattle.getB_user_id()));
+        mBtnImWin.setOnClickListener(v -> showSubmitResultDialog(mBtnImWin.getText().toString().trim(), mBattle.getUser_type() == 1 ? mBattle.getA_user_id() : mBattle.getB_user_id()));
+        mBtnImLost.setOnClickListener(v -> showSubmitResultDialog(mBtnImLost.getText().toString().trim(), mBattle.getUser_type() == 2 ? mBattle.getA_user_id() : mBattle.getB_user_id()));
     }
 
     // 显示两个用户BP列表
@@ -413,9 +415,34 @@ public class BattleBodyPanel {
         mBtnSave.setVisibility(View.GONE);
     }
 
+    // 获取用户状态
     private String getUserStatusText(String userStatus) {
         if (TextUtils.isEmpty(userStatus)) return mBattle.getBattle_status() == 1 ? "未准备" : "失败";
         return userStatus;
+    }
+
+    // 获取提交结果
+    private String getSubmitResult() {
+        String result = mBattle.getUser_type() == 1 ? mBattle.getA_battle_record() : mBattle.getB_battle_record();
+        String username = result.equals("a") ? mBattle.getA_username() : mBattle.getB_username();
+        return String.format(mActivity.getString(R.string.text_battle_submit_result_desc), mBattle.getBattle_times(), username);
+    }
+
+    // 获取比赛结果
+    private String getResult() {
+        if (mBattle.getWinner_id() <= 0) return "双方比赛超时没有人获得胜利";
+
+        return String.format(mActivity.getString(R.string.text_battle_ended_desc), mBattle.getWinner_id() == mBattle.getA_user_id() ? mBattle.getA_username() : mBattle.getB_username());
+    }
+
+    // 显示提交结果确认窗口
+    private void showSubmitResultDialog(String msg, int winnerID) {
+        new AlertDialog.Builder(mActivity)
+                .setTitle("是否提交比赛结果")
+                .setMessage(msg)
+                .setNegativeButton(R.string.btn_cancel, null)
+                .setPositiveButton(R.string.btn_ok, (dialog, which) -> mProxy.submitResult(winnerID))
+                .show();
     }
 
     public void copyName(String name) {

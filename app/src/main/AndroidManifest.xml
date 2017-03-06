@@ -2,37 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.miguan.otk">
 
-    <!-- 加入应用需要的权限 -->
-    <!-- 网络相关 -->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-
-    <!-- 手机状态 -->
-    <uses-permission android:name="android.permission.GET_TASKS"/>
-    <uses-permission android:name="android.permission.FLASHLIGHT"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
-    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
-
-    <!-- 读写文件 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
-    <!-- 多媒体 -->
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-
     <application
-        android:name="com.miguan.otk.base.App"
+        android:name=".base.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -44,11 +15,10 @@
         <!-- android:value="com.miguan.otk.model.UserModel" -->
         <!-- /> -->
 
-        <service android:name="com.miguan.otk.module.common.UpdateService"
-            />
+        <service android:name=".module.common.UpdateService"/>
 
         <activity
-            android:name="com.miguan.otk.module.main.SplashActivity"
+            android:name=".module.main.SplashActivity"
             android:theme="@style/LaunchTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -57,86 +27,88 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.miguan.otk.module.main.AdActivity"
+            android:name=".module.main.AdActivity"
             android:theme="@style/LaunchTheme">
         </activity>
         <activity
-            android:name="com.miguan.otk.module.main.MainActivity"
+            android:name=".module.main.MainActivity"
             android:theme="@style/DividerAppTheme"/>
-        <activity android:name="com.miguan.otk.module.account.LoginActivity">
+        <activity android:name=".module.account.LoginActivity">
             <intent-filter>
                 <action android:name="com.miguan.otk.login"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.miguan.otk.module.account.ForgotActivity"/>
-        <activity android:name="com.miguan.otk.module.account.RegisterActivity"/>
-        <activity android:name="com.miguan.otk.module.match.MatchDetailActivity">
+        <activity android:name=".module.account.ForgotActivity"/>
+        <activity android:name=".module.account.RegisterActivity"/>
+        <activity android:name=".module.match.MatchDetailActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.league.LeagueDetailActivity">
+        <activity android:name=".module.league.LeagueDetailActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.ProfileActivity">
+        <activity android:name=".module.user.ProfileActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.league.AddLeagueActivity">
+        <activity android:name=".module.league.AddLeagueActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.account.ModifyPwdActivity">
+        <activity android:name=".module.account.ModifyPwdActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.FeedbackActivity">
+        <activity android:name=".module.user.FeedbackActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.BalanceDetailActivity">
+        <activity android:name=".module.user.BalanceDetailActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.WithdrawListActivity">
+        <activity android:name=".module.user.WithdrawListActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.store.StoreHomeActivity">
+        <activity android:name=".module.store.StoreHomeActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.store.GoodsDetailActivity">
+        <activity android:name=".module.store.GoodsDetailActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.store.PayActivity">
+        <activity android:name=".module.store.PayActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.AddressListActivity">
+        <activity android:name=".module.user.AddressListActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.MyOrderActivity">
+        <activity android:name=".module.user.MyOrderActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.store.OrderDetailActivity">
+        <activity android:name=".module.store.OrderDetailActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.MyMatchActivity">
+        <activity android:name=".module.user.MyMatchActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.GameAccountActivity">
+        <activity android:name=".module.user.GameAccountActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.GameAccountAddActivity">
+        <activity android:name=".module.user.GameAccountAddActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.GameAccountEditActivity">
+        <activity android:name=".module.user.GameAccountEditActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.settings.SettingsActivity">
+        <activity android:name=".module.settings.SettingsActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.settings.AboutActivity">
+        <activity android:name=".module.settings.AboutActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.match.CompetitorListActivity">
+        <activity android:name=".module.match.CompetitorListActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.match.MissionListActivity">
+        <activity android:name=".module.match.MissionListActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.SignActivity">
+        <activity android:name=".module.user.SignActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.MessageListActivity">
+        <activity android:name=".module.user.MessageListActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.MessageActivity">
+        <activity android:name=".module.user.MessageActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.news.NewsDetailActivity">
+        <activity android:name=".module.news.NewsDetailActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.battle.BattleActivity">
+        <activity android:name=".module.battle.BattleActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.battle.ShotDetailActivity">
+        <activity android:name=".module.battle.ShotDetailActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.battle.ContactJudgeActivity">
+        <activity android:name=".module.battle.ContactJudgeActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.ProfileModifyActivity">
+        <activity android:name=".module.user.ProfileModifyActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.common.WebActivity">
+        <activity android:name=".module.common.WebActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.BindAlipayActivity">
+        <activity android:name=".module.user.BindAlipayActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.user.AreaActivity">
+        <activity android:name=".module.user.AreaActivity">
         </activity>
-        <activity android:name="com.miguan.otk.module.battle.ShotBrowseActivity">
+        <activity android:name=".module.battle.ShotBrowseActivity">
+        </activity>
+        <activity android:name=".module.settings.SettingPushActivity">
         </activity>
     </application>
 

@@ -10,78 +10,117 @@
 
     <include layout="@layout/include_toolbar"/>
 
-    <com.miguan.otk.widget.StickyNavLayout
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_match_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:orientation="vertical">
+        >
 
-        <FrameLayout
+        <com.miguan.otk.widget.StickyNavLayout
+            android:id="@+id/sticky_match_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/bg_match_detail"
-                />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:id="@id/id_stickynavlayout_topview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/horizontal_margin"
                 >
 
-                <TextView
-                    android:id="@+id/tv_match_detail_title"
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_size_subhead_material"
-                    tools:text="木子姐姐建的自定义常规赛（联系QQ群：0592110）"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_match_detail_cost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/vertical_margin"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/textSecondary"
-                    android:textSize="@dimen/text_size_body_material"
-                    tools:text="@string/label_match_id_cost"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_match_detail_status"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextBody"
-                    android:textColor="@color/textSecondary"
-                    android:textSize="@dimen/text_size_body_material"
-                    tools:text="@string/label_match_state"
+                    android:background="@mipmap/bg_match_detail"
+                    android:orientation="horizontal"
+                    >
+
+
+                    <LinearLayout
+                        android:id="@id/id_stickynavlayout_topview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="@dimen/horizontal_margin"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_match_detail_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_subhead_material"
+                            tools:text="木子姐姐建的自定义常规赛（联系QQ群：0592110）"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_match_detail_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/vertical_margin"
+                            android:layout_marginTop="8dp"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="@dimen/text_size_body_material"
+                            tools:text="@string/label_match_id_cost"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+                            <TextView
+                                android:id="@+id/tv_match_detail_status"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="@style/TextBody"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="@dimen/text_size_body_material"
+                                tools:text="@string/label_match_state"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/widget_medium_height"
+                        android:layout_height="@dimen/widget_medium_height"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/ic_hearth_stone_logo"
+                        />
+
+                </LinearLayout>
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/id_stickynavlayout_tab"
+                    style="@style/TabStyle"
+                    />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/id_stickynavlayout_viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/widget_medium_height"
                     />
 
             </LinearLayout>
 
-        </FrameLayout>
+        </com.miguan.otk.widget.StickyNavLayout>
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/id_stickynavlayout_tab"
-            style="@style/TabStyle"
-            />
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/id_stickynavlayout_viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-    </com.miguan.otk.widget.StickyNavLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <Button
         android:id="@+id/btn_match_detail_status"

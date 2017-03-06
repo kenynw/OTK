@@ -76,7 +76,7 @@ public class MatchInfoFragment extends BaseDataFragment<MatchInfoPresenter, Matc
         mTvEnroll.setOnClickListener(v -> getPresenter().toUserList(match.getCompetition_id(), 1));
         mTvBench.setText(String.format(getString(R.string.btn_bench_list), match.getCount_sub_competitor(), match.getSubstitute_competitors()));
         mTvBench.setOnClickListener(v -> getPresenter().toUserList(match.getCompetition_id(), 2));
-        mTvGroup.setOnClickListener(v -> getPresenter().toQQGroup(match.getQq_group_url()));
+        mTvGroup.setOnClickListener(v -> getPresenter().toQQGroup());
 
         // 设置奖金
         mTvReward.setText(getReward(match.getReward_money(), match.getReward_sb()));

@@ -3,6 +3,7 @@ package com.miguan.otk.module.match;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.dsk.chain.expansion.data.BaseDataActivityPresenter;
 import com.miguan.otk.R;
@@ -25,7 +26,7 @@ import java.util.List;
 /**
  * Copyright (c) 2016/11/25. LiaoPeiKun Inc. All rights reserved.
  */
-public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity, Match> {
+public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailActivity, Match> implements SwipeRefreshLayout.OnRefreshListener {
 
     private int mMatchID;
 
@@ -40,10 +41,11 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
     @Override
     protected void onCreateView(MatchDetailActivity view) {
         super.onCreateView(view);
-        loadData();
+        onRefresh();
     }
 
-    public void loadData() {
+    @Override
+    public void onRefresh() {
         MatchModel.getInstance().getMatchDetail(mMatchID)
                 .unsafeSubscribe(new ServicesResponse<Match>() {
                     @Override
@@ -73,7 +75,7 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
             @Override
             public void onNext(Battle battle) {
                 getView().setEnrolled();
-                loadData();
+                onRefresh();
             }
         });
     }

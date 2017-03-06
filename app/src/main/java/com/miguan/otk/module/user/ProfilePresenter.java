@@ -122,7 +122,6 @@ public class ProfilePresenter extends BaseDataActivityPresenter<ProfileActivity,
         mImageProvider.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             refresh();
-            LUtils.toast("result ok");
         }
     }
 

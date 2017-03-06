@@ -1,7 +1,6 @@
 package com.miguan.otk.module.user;
 
 import android.app.DatePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -65,8 +64,6 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
 
     private BottomSheetDialog mDialog;
 
-    private String mIndex;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,12 +119,9 @@ public class ProfileActivity extends BaseDataActivity<ProfilePresenter, User> {
     }
 
     public void showJobItems() {
-        new AlertDialog.Builder(this).setItems(R.array.items_profile_jobs, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                mTvJob.setText(getResources().getStringArray(R.array.items_profile_jobs)[which]);
-                getPresenter().setProfile("actuality", which + "");
-            }
+        new AlertDialog.Builder(this).setItems(R.array.items_profile_jobs, (dialog, which) -> {
+            mTvJob.setText(getResources().getStringArray(R.array.items_profile_jobs)[which]);
+            getPresenter().setProfile("actuality", which + "");
         }).show();
     }
 

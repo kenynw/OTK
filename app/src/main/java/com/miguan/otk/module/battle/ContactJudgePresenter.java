@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 
 import com.dsk.chain.bijection.Presenter;
+import com.miguan.otk.model.constant.QQAction;
 import com.miguan.otk.utils.LUtils;
 
 
@@ -15,7 +16,7 @@ public class ContactJudgePresenter extends Presenter<ContactJudgeActivity> {
 
     public void startQQ() {
         Intent intent = new Intent();
-        intent.setData(Uri.parse("mqqwpa://im/chat?chat_type=wpa&uin=1655647371"));
+        intent.setData(Uri.parse(QQAction.Service));
         try {
             getView().startActivity(intent);
         } catch (Exception e) {
@@ -25,7 +26,7 @@ public class ContactJudgePresenter extends Presenter<ContactJudgeActivity> {
 
     public void joinQQGroup() {
         Intent intent = new Intent();
-        intent.setData(Uri.parse("mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D" + "YTT9mPgKCC-LR_48OUvlQWF3dBpRSJ0j"));
+        intent.setData(Uri.parse(QQAction.Group));
         // 此Flag可根据具体产品需要自定义，如设置，则在加群界面按返回，返回手Q主界面，不设置，按返回会返回到呼起产品界面
 //        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         try {

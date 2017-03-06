@@ -44,6 +44,8 @@ public class ShotListFragment extends BaseDataFragment<ShotListPresenter, Screen
     @Bind(R.id.btn_shot_round_third)
     Button mBtnRound3;
 
+    private View mBtnClick;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -67,7 +69,7 @@ public class ShotListFragment extends BaseDataFragment<ShotListPresenter, Screen
             btn.setOnClickListener(v -> getPresenter().showImageBrowse(uri));
         } else if (getPresenter().isMe()) {
             btn.setText(R.string.btn_upload_screenshot);
-            btn.setOnClickListener(this::showPickImages);
+            btn.setOnClickListener(this::requestPermission);
         } else {
             btn.setText("尚未截图");
             btn.setEnabled(false);
@@ -75,6 +77,7 @@ public class ShotListFragment extends BaseDataFragment<ShotListPresenter, Screen
     }
 
     private void requestPermission(View btn) {
+        mBtnClick = btn;
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
@@ -87,8 +90,7 @@ public class ShotListFragment extends BaseDataFragment<ShotListPresenter, Screen
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 100 || grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//            showPickImages();
-            //TODO
+            showPickImages(mBtnClick);
         }
     }
 

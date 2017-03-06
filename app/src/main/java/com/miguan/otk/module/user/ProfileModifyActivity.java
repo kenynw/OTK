@@ -1,6 +1,8 @@
 package com.miguan.otk.module.user;
 
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -45,49 +47,51 @@ public class ProfileModifyActivity extends ChainBaseActivity<ProfileModifyPresen
     private void setLayout() {
         switch (getIntent().getIntExtra("type", 0)) {
             case 0:
-                setToolbarTitle("QQ");
-                mTvLabel.setText("QQ");
-                if (!TextUtils.isEmpty(mUser.getQq())) mEtInput.setText(mUser.getQq());
+                setToolbarTitle(R.string.label_qq);
+                mTvLabel.setText(R.string.label_qq);
                 mEtInput.setHint(R.string.hint_qq);
-                mBtnSubmit.setOnClickListener(v -> {
-                    if (TextUtils.isEmpty(mEtInput.getText())) {
-                        LUtils.toast("请输入内容");
-                        return;
-                    }
-                    getPresenter().submit("qq", mEtInput.getText().toString().trim());
-                });
+                mEtInput.setInputType(InputType.TYPE_CLASS_NUMBER);
+                mEtInput.setFilters(new InputFilter[]{new InputFilter.LengthFilter(13)});
+                if (!TextUtils.isEmpty(mUser.getQq())) {
+                    mEtInput.setText(mUser.getQq());
+                    mEtInput.setSelection(mUser.getQq().length());
+                }
+                mBtnSubmit.setOnClickListener(v -> checkInput("qq"));
                 break;
             case 1:
-                setToolbarTitle("邮箱");
-                mTvLabel.setText("邮箱");
-                if (!TextUtils.isEmpty(mUser.getEmail())) mEtInput.setText(mUser.getEmail());
+                setToolbarTitle(R.string.label_email);
+                mTvLabel.setText(R.string.label_email);
+                mEtInput.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
                 mEtInput.setHint(R.string.hint_email);
-                mBtnSubmit.setOnClickListener(v -> {
-                    if (TextUtils.isEmpty(mEtInput.getText())) {
-                        LUtils.toast("请输入内容");
-                        return;
-                    }
-                    getPresenter().submit("email", mEtInput.getText().toString().trim());
-                });
+                if (!TextUtils.isEmpty(mUser.getEmail())) {
+                    mEtInput.setText(mUser.getEmail());
+                    mEtInput.setSelection(mUser.getEmail().length());
+                }
+                mBtnSubmit.setOnClickListener(v -> checkInput("email"));
                 break;
             case 2:
-                setToolbarTitle("签名");
-                mTvLabel.setText("签名");
-                if (!TextUtils.isEmpty(mUser.getSign())) mEtInput.setText(mUser.getSign());
+                setToolbarTitle(R.string.label_introduction);
+                mTvLabel.setText(R.string.label_introduction);
+                if (!TextUtils.isEmpty(mUser.getSign())) {
+                    mEtInput.setText(mUser.getSign());
+                    mEtInput.setSelection(mEtInput.getText().length());
+                }
                 mEtInput.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LUtils.dp2px(128)));
-                mEtInput.setGravity(Gravity.TOP & Gravity.LEFT);
+                mEtInput.setGravity(Gravity.TOP & Gravity.START);
                 int padding = (int) getResources().getDimension(R.dimen.horizontal_margin);
                 mEtInput.setPadding(padding, padding, padding, padding);
                 mEtInput.setHint(R.string.hint_introduction);
-                mBtnSubmit.setOnClickListener(v -> {
-                    if (TextUtils.isEmpty(mEtInput.getText())) {
-                        LUtils.toast("请输入内容");
-                        return;
-                    }
-                    getPresenter().submit("sign", mEtInput.getText().toString().trim());
-                });
+                mBtnSubmit.setOnClickListener(v -> checkInput("sign"));
                 break;
         }
+    }
+
+    private void checkInput(String key) {
+        if (TextUtils.isEmpty(mEtInput.getText().toString().trim())) {
+            LUtils.toast("请输入内容");
+            return;
+        }
+        getPresenter().submit(key, mEtInput.getText().toString().trim());
     }
 
 }

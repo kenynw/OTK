@@ -40,7 +40,7 @@ public class UserPreferences {
     }
 
     private static String getString(String key) {
-        return LUtils.getPreferences().getString(key, "");
+        return LUtils.getPreferences().getString(key, "").trim();
     }
 
     private static void setString(String key, String value) {

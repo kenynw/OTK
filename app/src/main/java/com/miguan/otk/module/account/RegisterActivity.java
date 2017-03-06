@@ -63,6 +63,14 @@ public class RegisterActivity extends ChainBaseActivity<RegisterPresenter> {
     }
 
     private void checkInput() {
+        if (TextUtils.isEmpty(mEtPassword.getText())) {
+            LUtils.toast("密码不能为空");
+            return;
+        }
+        if (TextUtils.isEmpty(mEtCaptcha.getText())) {
+            LUtils.toast("验证码不能为空");
+            return;
+        }
         Matcher phoneMatcher = Patterns.PHONE.matcher(mEtMobile.getText());
         if (!phoneMatcher.find() || mEtMobile.length() != 11) {
             LUtils.toast("手机号码格式不正确");

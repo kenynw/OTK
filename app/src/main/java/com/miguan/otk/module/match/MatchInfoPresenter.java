@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.dsk.chain.expansion.data.BaseDataFragmentPresenter;
 import com.miguan.otk.model.bean.Match;
+import com.miguan.otk.model.constant.QQAction;
 import com.miguan.otk.utils.LUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -58,10 +59,10 @@ public class MatchInfoPresenter extends BaseDataFragmentPresenter<MatchInfoFragm
         getView().startActivity(i);
     }
 
-    public void toQQGroup(String url) {
+    public void toQQGroup() {
         try {
             Intent intent = new Intent();
-            intent.setData(Uri.parse(url));
+            intent.setData(Uri.parse(QQAction.Group));
             getView().startActivity(intent);
         } catch (Exception e) {
             LUtils.toast("未安装手Q或安装的版本不支持");

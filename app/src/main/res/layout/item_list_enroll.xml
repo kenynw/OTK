@@ -6,9 +6,9 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:gravity="center_vertical"
+    android:orientation="horizontal"
     android:paddingBottom="@dimen/vertical_margin"
-    android:paddingTop="@dimen/vertical_margin"
-    android:orientation="horizontal">
+    android:paddingTop="@dimen/vertical_margin">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/dv_player_avatar"
@@ -39,9 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
-        tools:text="签到"
         android:textColor="@color/green"
         android:textSize="13sp"
+        android:text="@string/text_signed"
         />
 
 </LinearLayout>

@@ -88,7 +88,7 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> imple
     }
 
     /**
-     * 基本权限管理
+     * 检测权限
      */
     private void requestPermission() {
         if (ContextCompat.checkSelfPermission(this,

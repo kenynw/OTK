@@ -49,6 +49,7 @@ public class SettingsActivity extends ChainBaseActivity<SettingsPresenter> {
         mTvAbout.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
         mLyUpdate.setOnClickListener(v -> getPresenter().checkUpdate());
         mBtnLogout.setOnClickListener(v -> getPresenter().logout());
+        mTvPush.setOnClickListener(v -> startActivity(new Intent(this, SettingPushActivity.class)));
     }
 
     public void setData(String cache, String version) {

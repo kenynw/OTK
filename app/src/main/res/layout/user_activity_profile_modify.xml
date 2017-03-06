@@ -35,10 +35,11 @@
             android:layout_marginStart="@dimen/horizontal_margin"
             android:background="@color/white"
             android:hint="@string/hint_username"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:textColor="@color/textSecondary"
             android:textColorHint="@color/text_hint"
             android:textSize="@dimen/text_size_body_material"
+            android:maxLength="90"
             />
 
     </LinearLayout>

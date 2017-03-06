@@ -46,7 +46,7 @@
 
     <include layout="@layout/include_battle_operation"/>
 
-    <include layout="@layout/view_battle_section"/>
+    <include layout="@layout/include_battle_text"/>
 
     <com.jude.exgridview.ExGridView
         android:id="@+id/grid_battling_list"

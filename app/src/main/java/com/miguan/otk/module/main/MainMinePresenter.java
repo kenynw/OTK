@@ -38,6 +38,7 @@ public class MainMinePresenter extends BaseDataFragmentPresenter<MainMineFragmen
         } else {
             setData();
         }
+        LUtils.log(UserPreferences.getToken());
     }
 
     private void setData() {

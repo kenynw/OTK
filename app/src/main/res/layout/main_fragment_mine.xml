@@ -246,7 +246,7 @@
 
             <Button
                 android:id="@+id/btn_balance_detail"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                android:background="?attr/selectableItemBackground"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/widget_medium_height"
                 android:drawableLeft="@mipmap/ic_me_balance"

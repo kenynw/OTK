@@ -1,6 +1,7 @@
 package com.miguan.otk.adapter.viewholder;
 
 import android.net.Uri;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -24,6 +25,9 @@ public class CompetitorViewHolder extends BaseViewHolder<User> {
     @Bind(R.id.tv_player_username)
     TextView mTvUsername;
 
+    @Bind(R.id.tv_player_status)
+    TextView mTvStatus;
+
     public CompetitorViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_list_enroll);
         ButterKnife.bind(this, itemView);
@@ -33,5 +37,6 @@ public class CompetitorViewHolder extends BaseViewHolder<User> {
     public void setData(User data) {
         mDvAvatar.setImageURI(Uri.parse(data.getPhoto()));
         mTvUsername.setText(data.getUsername());
+        mTvStatus.setVisibility(data.getSign().equals("Y") ? View.VISIBLE : View.GONE);
     }
 }
