@@ -29,6 +29,7 @@ import com.miguan.otk.adapter.TitlePagerAdapter;
 import com.miguan.otk.model.bean.Match;
 import com.miguan.otk.model.local.UserPreferences;
 import com.miguan.otk.module.account.LoginActivity;
+import com.miguan.otk.utils.DateUtils;
 import com.miguan.otk.widget.StickyNavLayout;
 
 import org.greenrobot.eventbus.EventBus;
@@ -118,7 +119,7 @@ public class MatchDetailActivity extends BaseDataActivity<MatchDetailPresenter, 
 
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    String time = getPresenter().getFormatDate(millisUntilFinished);
+                    String time = DateUtils.getFormatDay(millisUntilFinished);
                     String status = String.format(getString(R.string.label_match_state), match.getGame_desc(), time);
                     SpannableString spannableString = new SpannableString(status);
                     ForegroundColorSpan colorSpan = new ForegroundColorSpan(getResources().getColor(R.color.colorAccent));

@@ -5,7 +5,7 @@
     android:id="@+id/settings_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:divider="@drawable/div_gray"
+    android:divider="@drawable/div_vertical"
     android:orientation="vertical"
     android:showDividers="middle"
     tools:context="com.miguan.otk.module.settings.SettingsActivity">

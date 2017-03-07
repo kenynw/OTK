@@ -82,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/indicator_primary_dark_label"
+                android:drawableStart="@drawable/indicator_primary_dark_label"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:padding="@dimen/horizontal_margin"

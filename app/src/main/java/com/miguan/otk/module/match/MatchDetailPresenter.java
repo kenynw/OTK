@@ -4,14 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 
 import com.dsk.chain.expansion.data.BaseDataActivityPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.model.MatchModel;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Match;
+import com.miguan.otk.model.services.ServiceException;
 import com.miguan.otk.model.services.ServicesResponse;
 import com.miguan.otk.module.battle.BattleActivity;
+import com.miguan.otk.module.main.MainActivity;
+import com.miguan.otk.module.user.GameAccountAddActivity;
+import com.miguan.otk.utils.LUtils;
 import com.miguan.otk.wxapi.ShareCallback;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
@@ -30,8 +35,6 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
 
     private int mMatchID;
 
-    private Match mMatch;
-
     @Override
     protected void onCreate(MatchDetailActivity view, Bundle saveState) {
         super.onCreate(view, saveState);
@@ -46,28 +49,22 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
 
     @Override
     public void onRefresh() {
-        MatchModel.getInstance().getMatchDetail(mMatchID)
-                .unsafeSubscribe(new ServicesResponse<Match>() {
-                    @Override
-                    public void onNext(Match match) {
-                        getView().setData(match);
-                        mMatch = match;
-                    }
-                });
+        MatchModel.getInstance().getMatchDetail(mMatchID).unsafeSubscribe(getDataSubscriber());
     }
 
     public void share() {
-        if (mMatch == null) return;
-
-        UMWeb umWeb = new UMWeb(mMatch.getShare_url());
-        umWeb.setTitle(mMatch.getTitle());
-        umWeb.setThumb(new UMImage(getView(), R.mipmap.ic_launcher));
-        umWeb.setDescription(mMatch.getTitle() + "火热进行中！快上车，没时间解释了！");
-        new ShareAction(getView())
-                .setDisplayList(SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE, SHARE_MEDIA.SINA)
-                .withMedia(umWeb)
-                .setCallback(new ShareCallback())
-                .open();
+        if (getData() != null) {
+            UMWeb umWeb = new UMWeb(getData().getShare_url());
+            umWeb.setTitle(getData().getTitle());
+            umWeb.setThumb(new UMImage(getView(), R.mipmap.ic_launcher));
+            umWeb.setDescription(getData().getTitle() + "火热进行中！快上车，没时间解释了！");
+            new ShareAction(getView())
+                    .setDisplayList(SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE,
+                            SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE, SHARE_MEDIA.SINA)
+                    .withMedia(umWeb)
+                    .setCallback(new ShareCallback())
+                    .open();
+        }
     }
 
     public void enter(String pwd, String code) {
@@ -77,6 +74,11 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
                 getView().setEnrolled();
                 onRefresh();
             }
+
+            @Override
+            public void onError(Throwable e) {
+                doError(e);
+            }
         });
     }
 
@@ -85,6 +87,11 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
             @Override
             public void onNext(Boolean aBoolean) {
                 getView().setSigned();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                doError(e);
             }
         });
     }
@@ -100,6 +107,31 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
                 }
             }
         });
+    }
+
+    private void doError(Throwable e) {
+        if (e instanceof ServiceException) {
+            ServiceException exception = ((ServiceException) e);
+
+            if (exception.getCode() == 101) {
+                Intent intent = new Intent(getView(), GameAccountAddActivity.class);
+                getView().startActivity(intent);
+            } else if (exception.getCode() == 102) {
+                new AlertDialog.Builder(getView())
+                        .setMessage("当前赛事已结束，逛逛其他地方吧～")
+                        .setPositiveButton(R.string.btn_ok, (dialog, which) -> {
+                            Intent intent = new Intent(getView(), MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            getView().startActivity(intent);
+                        })
+                        .show();
+            } else {
+                LUtils.log(exception.getMsg());
+            }
+
+        } else {
+            LUtils.log("网络错误");
+        }
     }
 
     @Override
@@ -122,19 +154,8 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
         ScheduleListFragment scheduleFragment = new ScheduleListFragment();
         scheduleFragment.setArguments(bundle);
         fragments.add(scheduleFragment);
-//
-//        ChatRoomFragment chatroomFragment = ChatRoomFragmentPresenter.newInstance(mMatchID, "c");
-//        chatroomFragment.setInputView(getView().getContent());
-//        fragments.add(chatroomFragment);
-        return fragments;
-    }
 
-    public String getFormatDate(long time) {
-        String days = (time / (1000 * 3600 * 24)) + "";
-        String hours = ((time % (1000 * 3600 * 24)) / (1000 * 3600)) + "";
-        String minutes = ((time % (1000 * 3600)) / (1000 * 60)) + "";
-        String seconds = (time % (1000 * 60) / 1000) + "";
-        return String.format("%1$s:%2$s:%3$s:%4$s", days, hours, minutes, seconds);
+        return fragments;
     }
 
 }

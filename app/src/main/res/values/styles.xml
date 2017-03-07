@@ -11,7 +11,7 @@
         <item name="android:windowBackground">@color/bgWindow</item>
         <item name="actionBarSize">56dp</item>
         <item name="android:textColorPrimary">@color/textBody</item>
-        <item name="android:listDivider">@drawable/div_gray</item>
+        <item name="android:listDivider">@drawable/div_vertical</item>
         <!--<item name="android:popupMenuStyle">@style/PopupMenu</item>-->
         <!--<item name="android:dropDownListViewStyle">@style/DropDownListView</item>-->
     </style>

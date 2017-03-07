@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.miguan.otk.R;
-import com.miguan.otk.model.bean.Hero;
+import com.miguan.otk.model.constant.Hero;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +18,13 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+import static android.R.attr.mode;
+
 /**
  * Copyright (c) 2017/1/22. LiaoPeiKun Inc. All rights reserved.
  */
 
-public class BanPickAdapter extends BaseAdapter {
+public class BPAdapter extends BaseAdapter {
 
     public static final int MODE_PICK = 0;
 
@@ -44,21 +46,27 @@ public class BanPickAdapter extends BaseAdapter {
 
     private int mMode;
 
-    public BanPickAdapter(Context context, List<Hero> list, int mode) {
+    public BPAdapter(Context context, List<Hero> list, int mode) {
         mContext = context;
         mHeroList = list;
         mMode = mode;
     }
 
-    public BanPickAdapter(Context context) {
+    public BPAdapter(Context context) {
         mContext = context;
-        for (int i=0; i<HERO_RES.length; i++) {
-            Hero hero = new Hero();
-            hero.setName(context.getResources().getStringArray(R.array.items_pick_list)[i]);
-            hero.setIndex(i + 1);
-            hero.setCheck(false);
+        mMode = mode;
+
+        for (Hero hero : Hero.values()) {
             mHeroList.add(hero);
         }
+
+//        for (int i=0; i<HERO_RES.length; i++) {
+//            Hero hero = new Hero();
+//            hero.setName(context.getResources().getStringArray(R.array.items_pick_list)[i]);
+//            hero.setIndex(i + 1);
+//            hero.setCheck(false);
+//            mHeroList.add(hero);
+//        }
     }
 
     public void select(Hero hero) {
@@ -115,7 +123,7 @@ public class BanPickAdapter extends BaseAdapter {
 
         @Override
         public void setData(Hero hero) {
-            mIvThumb.setImageResource(HERO_RES[hero.getIndex() - 1]);
+            mIvThumb.setImageResource(hero.mResID);
             if (mMode == MODE_PICK) {
                 mIvThumb.setSelected(mSelected.contains(hero) && hero.isCheck());
                 mIvStatus.setVisibility(mSelected.contains(hero) && hero.isCheck() ? View.VISIBLE : View.GONE);

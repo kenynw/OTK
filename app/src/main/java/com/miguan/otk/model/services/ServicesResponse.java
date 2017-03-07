@@ -32,11 +32,13 @@ public class ServicesResponse<T> extends Subscriber<T> {
     }
 
     private void serviceError(ServiceException e) {
-        if (e.getCode() == 3) {
+        if (e.getCode() == 3) { // 未登录
             LUtils.getPreferences().edit().clear().apply();
             Intent intent = new Intent();
-            intent.setAction("com.miguan.otk:login");
-
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setAction("com.miguan.otk.login");
+            LUtils.getAppContext().startActivity(intent);
+            return;
         }
         LUtils.toast(e.getMsg());
     }

@@ -97,7 +97,6 @@
                         android:layout_width="@dimen/widget_medium_height"
                         android:layout_height="@dimen/widget_medium_height"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:src="@mipmap/ic_hearth_stone_logo"
                         />

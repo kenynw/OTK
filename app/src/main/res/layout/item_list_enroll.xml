@@ -12,7 +12,7 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/dv_player_avatar"
-        style="@style/Avatar"
+        style="@style/TinyAvatar"
         android:layout_marginEnd="@dimen/horizontal_margin"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="@dimen/horizontal_margin"

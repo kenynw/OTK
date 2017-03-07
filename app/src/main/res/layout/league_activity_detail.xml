@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:showDividers="middle"
-            android:divider="@drawable/div_gray"
+            android:divider="@drawable/div_vertical"
             android:paddingBottom="@dimen/vertical_margin"
             >
 
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:divider="@drawable/div_gray"
+                android:divider="@drawable/div_vertical"
                 android:orientation="vertical"
                 android:showDividers="middle"
                 >
@@ -129,7 +129,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:divider="@drawable/div_gray"
+                    android:divider="@drawable/div_vertical"
                     android:orientation="horizontal"
                     android:padding="@dimen/horizontal_margin"
                     android:showDividers="middle"
@@ -165,7 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:divider="@drawable/div_gray"
+                android:divider="@drawable/div_vertical"
                 android:showDividers="middle">
 
                 <TableRow

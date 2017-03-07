@@ -367,7 +367,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="@dimen/vertical_margin"/>
+            android:layout_height="8dp"/>
 
         <TextView
             android:id="@+id/tv_match_qq_group"

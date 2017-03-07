@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.jude.exgridview.ExGridView;
 import com.miguan.otk.R;
+import com.miguan.otk.adapter.BPAdapter;
 import com.miguan.otk.adapter.BanPickAdapter;
 import com.miguan.otk.model.bean.Battle;
 import com.miguan.otk.model.bean.Hero;
@@ -248,7 +249,7 @@ public class BattleBodyPanel {
         mGridHeros.setVisibility(View.VISIBLE);
         mBtnSave.setVisibility(View.VISIBLE);
 
-        BanPickAdapter adapter = new BanPickAdapter(mActivity, BanPickAdapter.MODE_PICK);
+        BanPickAdapter adapter = new BanPickAdapter(mActivity);
         adapter.setOnItemClickListener(hero -> {
             if (mSelected.contains(hero)) {
                 mSelected.remove(hero);
@@ -263,6 +264,7 @@ public class BattleBodyPanel {
                 }
             }
         });
+        BPAdapter bpAdapter = new BPAdapter(mActivity);
         mGridHeros.setAdapter(adapter);
 
         mBtnSave.setText("提交");
@@ -284,7 +286,8 @@ public class BattleBodyPanel {
             Hero hero = new Hero();
             try {
                 Method method = mBattle.getClass().getMethod("get" + (mBattle.getUser_type() == 2 ? "A" : "B") + "_car" + i);
-                hero.setIndex(Integer.valueOf((String) method.invoke(mBattle)));
+                int type = Integer.valueOf((String) method.invoke(mBattle));
+                hero.setIndex(type);
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
@@ -356,6 +359,9 @@ public class BattleBodyPanel {
                     String carB = (String) mBattle.getClass().getMethod("getB_" + "car" + i).invoke(mBattle);
                     heroB.setIndex(Integer.valueOf(carB));
                     heroB.setBan(carB.equals(mBattle.getB_ban()));
+
+//                    com.miguan.otk.model.constant.Hero hero = com.miguan.otk.model.constant.Hero.getHeroFromType(Integer.valueOf(carA));
+//                    hero.setIsCheck(carA.equals(mBattle.getA_ban()));
                 } catch (NoSuchMethodException e) {
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {
@@ -418,6 +424,7 @@ public class BattleBodyPanel {
     // 获取用户状态
     private String getUserStatusText(String userStatus) {
         if (TextUtils.isEmpty(userStatus)) return mBattle.getBattle_status() == 1 ? "未准备" : "失败";
+        if (userStatus.equals("准备")) return "已准备";
         return userStatus;
     }
 

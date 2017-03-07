@@ -36,6 +36,8 @@
         <activity android:name=".module.account.LoginActivity">
             <intent-filter>
                 <action android:name="com.miguan.otk.login"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <activity android:name=".module.account.ForgotActivity"/>
@@ -73,6 +75,11 @@
         <activity android:name=".module.user.GameAccountActivity">
         </activity>
         <activity android:name=".module.user.GameAccountAddActivity">
+            <intent-filter>
+                <action android:name="com.miguan.otk.gameadd" />
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
         <activity android:name=".module.user.GameAccountEditActivity">
         </activity>

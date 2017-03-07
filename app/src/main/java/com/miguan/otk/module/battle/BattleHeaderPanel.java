@@ -3,6 +3,7 @@ package com.miguan.otk.module.battle;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.CountDownTimer;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
@@ -79,12 +80,12 @@ public class BattleHeaderPanel {
 
         mTvAName.setText(battle.getA_username());
         mDvAAvatar.setImageURI(Uri.parse(battle.getA_photo()));
-        mTvAQQ.setText(battle.getA_qq());
+        mTvAQQ.setText(TextUtils.isEmpty(battle.getA_qq()) ? "未设置联系QQ" : battle.getA_qq());
         mTvBName.setText(battle.getB_username());
         mDvBAvatar.setImageURI(Uri.parse(battle.getB_photo()));
-        mTvBQQ.setText(battle.getB_qq());
+        mTvBQQ.setText(TextUtils.isEmpty(battle.getB_qq()) ? "未设置联系QQ" : battle.getB_qq());
 
-        mTvInfo.setText(battle.getBattle_mode() + " " + battle.getRound() + " (" + battle.getStatus() + ")");
+        mTvInfo.setText(battle.getBattle_mode() + " " + battle.getRound() + " (" + battle.getBattle_times().toUpperCase() + ")");
         mTvScore.setText(battle.getBattle_score());
 
         if (battle.getReady_time() > 0) {

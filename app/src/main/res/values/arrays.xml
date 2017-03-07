@@ -26,7 +26,7 @@
 
     <string-array name="tab_match_detail">
         <item>赛事信息</item>
-        <item>赛事规则</item>
+        <item>比赛规则</item>
         <item>对阵表</item>
     </string-array>
 
@@ -38,15 +38,15 @@
     </string-array>
 
     <string-array name="items_pick_list">
-        <item>德鲁伊</item>
+        <item>战士</item>
         <item>法师</item>
-        <item>猎人</item>
         <item>牧师</item>
-        <item>潜行者</item>
-        <item>萨满</item>
+        <item>盗贼</item>
         <item>圣骑士</item>
         <item>术士</item>
-        <item>战士</item>
+        <item>德鲁伊</item>
+        <item>猎人</item>
+        <item>萨满</item>
     </string-array>
 
     <string-array name="default_avatar_urls">

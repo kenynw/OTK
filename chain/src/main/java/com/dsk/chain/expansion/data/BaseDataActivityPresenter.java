@@ -18,7 +18,6 @@ public class BaseDataActivityPresenter<V extends BaseDataActivity,M> extends Pre
     private Subscriber<M> mSubscriber = new Subscriber<M>() {
         @Override
         public void onCompleted() {
-            mData.onCompleted();
         }
 
         @Override

@@ -37,6 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="4"
         android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:textColor="@color/textSecondary"
         android:textSize="@dimen/text_size_body_material"
         tools:text="白夜如一#5432"
