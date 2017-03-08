@@ -11,6 +11,7 @@ import com.dsk.chain.bijection.RequiresPresenter;
 import com.dsk.chain.expansion.data.BaseDataFragment;
 import com.miguan.otk.R;
 import com.miguan.otk.model.bean.Match;
+import com.miguan.otk.module.news.NewsDetailPresenter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -55,5 +56,6 @@ public class MatchRulesFragment extends BaseDataFragment<MatchRulesPresenter, Ma
         mTvBattle.setText(match.getBattle_mode());
         mTvMode.setText(match.getPattern());
         mTvContent.setText(match.getRule());
+        mTvGeneral.setOnClickListener(v -> NewsDetailPresenter.start(getActivity(), match.getArticle_id()));
     }
 }

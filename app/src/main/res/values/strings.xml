@@ -90,8 +90,7 @@
     <string name="text_alipay">支付宝</string>
     <string name="text_ban">禁用</string>
     <string name="text_captcha">验证码</string>
-    <string name="text_contact">官网地址：www.otkpk.com\n新浪微博：@otk游戏竞技\n微信公众号：otk游戏竞技\n官方QQ群：77327504</string>
-    <string name="text_copyright">copyright 2016 捷信宇(厦门)科技</string>
+    <string name="text_contact">厦门捷信宇软件科技有限公司\n官网地址：www.otkpk.com\n新浪微博：@otk游戏竞技\n微信公众号：otk游戏竞技\n官方QQ群：77327504</string>
     <string name="text_contact_judge_title">点击下方的联系方式可以找我们</string>
     <string name="text_contact_judge_desc">如果页面没有自动跳转到裁判QQ，您可以尝试再次点击，或者是手动添加。</string>
     <string name="text_common_rule">通用赛事规则 >></string>

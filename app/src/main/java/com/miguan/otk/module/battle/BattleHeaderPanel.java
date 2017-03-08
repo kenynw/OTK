@@ -85,7 +85,7 @@ public class BattleHeaderPanel {
         mDvBAvatar.setImageURI(Uri.parse(battle.getB_photo()));
         mTvBQQ.setText(TextUtils.isEmpty(battle.getB_qq()) ? "未设置联系QQ" : battle.getB_qq());
 
-        mTvInfo.setText(battle.getBattle_mode() + " " + battle.getRound() + " (" + battle.getBattle_times().toUpperCase() + ")");
+        mTvInfo.setText(battle.getBattle_mode() + " " + battle.getRound() + "\n(" + battle.getBattle_times().toUpperCase() + ")");
         mTvScore.setText(battle.getBattle_score());
 
         if (battle.getReady_time() > 0) {

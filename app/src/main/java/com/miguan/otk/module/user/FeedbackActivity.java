@@ -103,6 +103,10 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> imple
     }
 
     private void showPickDialog() {
+        if (mPvImage.getChildCount() >= 4) {
+            LUtils.toast("最多可选3张图片");
+            return;
+        }
         if (mDialog == null) {
             mDialog = new BottomSheetDialog(this);
 
@@ -115,7 +119,6 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> imple
             mDialog.getWindow().findViewById(R.id.design_bottom_sheet).setBackgroundResource(android.R.color.transparent);
         }
         mDialog.show();
-
     }
 
     @Override
@@ -131,6 +134,7 @@ public class FeedbackActivity extends ChainBaseActivity<FeedbackPresenter> imple
     public void addImage(Bitmap bitmap) {
         ImagePieceView pieceView = new ImagePieceView(this);
         pieceView.setImageBitmap(bitmap);
+        pieceView.setOnClickListener(v -> mPvImage.beginEdit());
         mPvImage.addView(pieceView);
     }
 

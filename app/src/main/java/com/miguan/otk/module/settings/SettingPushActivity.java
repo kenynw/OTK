@@ -1,10 +1,11 @@
 package com.miguan.otk.module.settings;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
+import com.dsk.chain.bijection.ChainBaseActivity;
+import com.dsk.chain.bijection.RequiresPresenter;
 import com.miguan.otk.R;
 import com.miguan.otk.model.local.PushPreferences;
 import com.miguan.otk.utils.LUtils;
@@ -14,7 +15,8 @@ import com.umeng.message.PushAgent;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SettingPushActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, IUmengCallback  {
+@RequiresPresenter(SettingPushPresenter.class)
+public class SettingPushActivity extends ChainBaseActivity<SettingPushPresenter> implements CompoundButton.OnCheckedChangeListener, IUmengCallback  {
 
     @Bind(R.id.switch_push_all)
     Switch mSwitchAll;

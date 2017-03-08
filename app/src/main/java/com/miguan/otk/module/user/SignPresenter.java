@@ -36,6 +36,7 @@ public class SignPresenter extends BaseDataActivityPresenter<SignActivity, Sign>
                         String.format(getView().getString(R.string.text_sign_series_bonus), sign.getBaoxiangscore()) : "";
 
                 new AlertDialog.Builder(getView())
+                        .setView(R.layout.dialog_sign_success)
                         .setMessage(result + String.format(getView().getString(R.string.text_sign_bonus), sign.getCurrency()))
                         .setPositiveButton(R.string.btn_ok, null)
                         .show();

@@ -49,7 +49,6 @@ public class CommonModel extends AbsModel {
                 .subscribe(new ServicesResponse<Version>() {
                     @Override
                     public void onNext(Version version) {
-                        super.onNext(version);
                         if (version.getType() == 0) {
                             LUtils.log("已经是最新版本了");
                         } else if (!version.getVersion_number().equals(LUtils.getAppVersionName())) {

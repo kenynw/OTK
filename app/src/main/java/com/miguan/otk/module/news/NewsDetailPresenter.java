@@ -1,5 +1,6 @@
 package com.miguan.otk.module.news;
 
+import android.content.Context;
 import android.content.Intent;
 
 import com.dsk.chain.expansion.data.BaseDataActivityPresenter;
@@ -11,6 +12,14 @@ import com.umeng.socialize.UMShareAPI;
  */
 
 public class NewsDetailPresenter extends BaseDataActivityPresenter<NewsDetailActivity, News> {
+
+    public static final String EXTRA_ARTICLE_URL = "url";
+
+    public static void start(Context context, String articleUrl) {
+        Intent intent = new Intent(context, NewsDetailActivity.class);
+        intent.putExtra(EXTRA_ARTICLE_URL, articleUrl);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onResult(int requestCode, int resultCode, Intent data) {

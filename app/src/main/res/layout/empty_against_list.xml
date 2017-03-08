@@ -8,6 +8,6 @@
     android:gravity="center"
     android:paddingTop="60dp"
     android:text="对阵表将于比赛开始后生成...."
-    android:textAppearance="@style/TextTitle"
+    android:textAppearance="@style/TextSubhead"
     android:textStyle="bold"
     />

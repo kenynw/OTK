@@ -2,9 +2,12 @@ package com.miguan.otk.module.user;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
@@ -43,6 +46,8 @@ public class SignActivity extends BaseDataActivity<SignPresenter, Sign> {
         setToolbarTitle(R.string.title_activity_sign_in);
         ButterKnife.bind(this);
 
+        showSuccessDialog(null);
+
         Calendar cal = Calendar.getInstance(); //获取当前日期
         cal.add(Calendar.MONTH, -1);
         cal.set(Calendar.DAY_OF_MONTH,1);
@@ -78,4 +83,19 @@ public class SignActivity extends BaseDataActivity<SignPresenter, Sign> {
         mBtnSign.setEnabled(false);
         mBtnSign.setText("已签到");
     }
+
+    public void showSuccessDialog(Sign sign) {
+//        String result = sign.getBaoxiangscore() != 0 ?
+//                String.format(getString(R.string.text_sign_series_bonus), sign.getBaoxiangscore()) : "";
+
+        View view = getLayoutInflater().inflate(R.layout.dialog_sign_success,
+                (ViewGroup) getWindow().getDecorView(), false);
+
+        new AlertDialog.Builder(this)
+                .setView(view)
+                .create()
+                .show();
+
+    }
+
 }

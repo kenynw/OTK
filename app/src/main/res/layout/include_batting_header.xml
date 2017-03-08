@@ -83,7 +83,8 @@
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_body_material"
             android:textStyle="bold"
-            tools:text="BO5 第一轮（准备）"
+            android:gravity="center"
+            tools:text="BO5 第一轮\n（准备）"
             />
 
         <TextView

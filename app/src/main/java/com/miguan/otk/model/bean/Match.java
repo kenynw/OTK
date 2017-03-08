@@ -83,7 +83,7 @@ public class Match implements Parcelable {
     /**
      * 通用赛事文章id
      */
-    private int article_id;
+    private String article_id;
 
     /**
      * 游戏模式
@@ -153,7 +153,7 @@ public class Match implements Parcelable {
         dest.writeString(this.battle_mode);
         dest.writeString(this.final_battle_mode);
         dest.writeString(this.semifinal_battle_mode);
-        dest.writeInt(this.article_id);
+        dest.writeString(this.article_id);
         dest.writeString(this.pattern);
         dest.writeLong(this.reward_money);
         dest.writeInt(this.reward_1);
@@ -201,7 +201,7 @@ public class Match implements Parcelable {
         this.battle_mode = in.readString();
         this.final_battle_mode = in.readString();
         this.semifinal_battle_mode = in.readString();
-        this.article_id = in.readInt();
+        this.article_id = in.readString();
         this.pattern = in.readString();
         this.reward_money = in.readLong();
         this.reward_1 = in.readInt();
@@ -425,11 +425,11 @@ public class Match implements Parcelable {
         this.semifinal_battle_mode = semifinal_battle_mode;
     }
 
-    public int getArticle_id() {
+    public String getArticle_id() {
         return article_id;
     }
 
-    public void setArticle_id(int article_id) {
+    public void setArticle_id(String article_id) {
         this.article_id = article_id;
     }
 

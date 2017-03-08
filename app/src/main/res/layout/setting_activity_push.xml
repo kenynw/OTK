@@ -7,19 +7,21 @@
     android:orientation="vertical"
     tools:context="com.miguan.otk.module.settings.SettingPushActivity">
 
+    <include layout="@layout/include_toolbar"/>
+
     <Switch
         android:id="@+id/switch_push_all"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
         android:checked="true"
-        android:drawableEnd="@mipmap/ic_more"
-        android:drawableRight="@mipmap/ic_more"
         android:gravity="center_vertical"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
         android:text="@string/text_push_all"
         android:textAppearance="@style/TextBody"
+        android:thumb="@mipmap/ic_switch_thumb"
+        android:track="@drawable/switch_track_selector"
         />
 
     <Switch
@@ -36,6 +38,8 @@
         android:paddingRight="25dp"
         android:text="@string/text_push_match"
         android:textAppearance="@style/TextBody"
+        android:thumb="@mipmap/ic_switch_thumb"
+        android:track="@drawable/switch_track_selector"
         />
 
 </LinearLayout>

@@ -39,9 +39,11 @@ public class FeedbackPresenter extends Presenter<FeedbackActivity> implements On
     }
 
     public void pickImage(int type) {
+
+
         switch (type) {
             case 0:
-                mImageProvider.getImageFromAlbum(this, 3);
+                mImageProvider.getImageFromAlbum(this, 3 - mUris.size());
                 break;
             case 1:
                 mImageProvider.getImageFromCamera(this);
@@ -97,6 +99,7 @@ public class FeedbackPresenter extends Presenter<FeedbackActivity> implements On
 
     @Override
     public void onError() {
+
     }
 
     @Override

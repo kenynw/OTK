@@ -35,7 +35,7 @@ public class NewsDetailActivity extends BaseDataActivity<NewsDetailPresenter, Ne
 
         mNews = getIntent().getParcelableExtra("news");
         if(mNews != null) mWebView.loadUrl(mNews.getUrl());
-        else mWebView.loadUrl(getIntent().getStringExtra("url"));
+        else mWebView.loadUrl(getIntent().getStringExtra(NewsDetailPresenter.EXTRA_ARTICLE_URL));
 
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setWebViewClient(new WebViewClient() {

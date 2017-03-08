@@ -2,9 +2,12 @@ package com.miguan.otk.module.match;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.dsk.chain.expansion.data.BaseDataActivityPresenter;
 import com.miguan.otk.R;
@@ -24,6 +27,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -158,4 +162,44 @@ public class MatchDetailPresenter extends BaseDataActivityPresenter<MatchDetailA
         return fragments;
     }
 
+    /**
+     * 通过反射修改TabLayout Indicator的宽度（仅在Android 4.2及以上生效）
+     */
+    public void setUpIndicatorWidth(TabLayout tabLayout) {
+        Class<?> tabLayoutClass = tabLayout.getClass();
+        Field tabStrip = null;
+        try {
+            tabStrip = tabLayoutClass.getDeclaredField("mTabStrip");
+            tabStrip.setAccessible(true);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+        LinearLayout layout = null;
+        try {
+            if (tabStrip != null) {
+                layout = (LinearLayout) tabStrip.get(tabLayout);
+            }
+            if (layout != null && layout.getChildCount() > 0) {
+                int margin = (int) (LUtils.getScreenWidth() / layout.getChildCount() * 0.618 / 2);
+
+                for (int i = 0; i < layout.getChildCount(); i++) {
+                    View child = layout.getChildAt(i);
+                    child.setPadding(0, 0, 0, 0);
+                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+//                        params.setMarginStart(margin);
+//                        params.setMarginEnd(margin);
+//                    }
+//                    params.leftMargin = margin;
+//                    params.rightMargin = margin;
+
+                    child.setLayoutParams(params);
+                    child.invalidate();
+                }
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
 }

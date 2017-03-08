@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
         >
@@ -21,24 +22,30 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableTop="@mipmap/ic_launcher"
+            android:drawablePadding="20.5dp"
+            android:drawableTop="@mipmap/ic_about_logo"
+            android:gravity="center_horizontal"
             android:text="@string/app_name"
-            android:textAppearance="@style/TextTitle"
+            android:textColor="#616871"
+            android:textSize="26sp"
+            android:textStyle="bold"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/horizontal_margin"
+            android:layout_margin="4dp"
             android:text="@string/text_slogan"
-            android:textAppearance="@style/TextSubhead"
+            android:textColor="#A2ACB4"
+            android:textSize="15sp"
             />
 
         <TextView
             android:id="@+id/tv_about_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextBody"
+            android:textColor="#A2ACB4"
+            android:textSize="17.8sp"
             tools:text="v1.0.0"
             />
 
@@ -46,22 +53,15 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:lineSpacingExtra="@dimen/horizontal_margin"
-        android:padding="@dimen/horizontal_margin"
-        android:text="@string/text_contact"
-        android:textAppearance="@style/TextBody"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:padding="@dimen/horizontal_margin"
-        android:text="@string/text_copyright"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.4"
+        android:paddingBottom="34dp"
+        android:text="@string/text_contact"
+        android:textColor="#A2ACB4"
+        android:textSize="16.5sp"
         />
 
 </LinearLayout>
